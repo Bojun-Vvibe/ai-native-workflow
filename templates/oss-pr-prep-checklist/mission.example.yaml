@@ -1,0 +1,101 @@
+# OSS PR-prep mission example.
+# PLACEHOLDER fields reflect spec-kitty's evolving schema.
+
+apiVersion: spec-kitty/v1
+kind: Mission
+metadata:
+  name: oss-pr-prep-checklist
+  description: Produce a contribution package for a target OSS repo. No posting.
+
+inputs:
+  target_repo: "cline/cline"                 # ADAPT: GitHub owner/name
+  contributor_handle: "your-handle"          # ADAPT
+  label_filters:
+    include:
+      - "good first issue"
+      - "help wanted"
+    exclude:
+      - "stale"
+      - "wontfix"
+      - "needs:repro"
+  fit_criteria_file: "prompts/issue-filter.md"
+  output_dir: "contribution-package/"
+
+agents:
+  onboarder:
+    profile: prompts/onboarder.md
+    role: researcher
+  issue_filter:
+    profile: prompts/issue-filter.md
+    role: filter
+  pr_drafter:
+    profile: prompts/pr-drafter.md
+    role: drafter
+  scout:
+    profile: ../scout-then-act-mission/prompts/scout.md
+    role: scout
+
+steps:
+  - id: read-guidelines
+    agent: onboarder
+    contract:
+      consumes:
+        - "${inputs.target_repo}:CONTRIBUTING.md"
+        - "${inputs.target_repo}:CODE_OF_CONDUCT.md"
+        - "${inputs.target_repo}:.github/PULL_REQUEST_TEMPLATE.md"
+        - "${inputs.target_repo}:README.md"
+      produces:
+        - "${inputs.output_dir}/guidelines-summary.md"
+      gate: auto
+
+  - id: filter-issues
+    agent: issue_filter
+    contract:
+      consumes:
+        - "${inputs.target_repo}:issues?labels=${inputs.label_filters.include}&exclude=${inputs.label_filters.exclude}"
+      produces:
+        - "${inputs.output_dir}/filtered-issues.md"
+      gate: human                             # human picks the issue
+
+  - id: pick-and-deep-read
+    agent: scout
+    contract:
+      consumes:
+        - "${inputs.output_dir}/filtered-issues.md"
+        - chosen issue (selected by human)
+      produces:
+        - "${inputs.output_dir}/chosen-issue.md"
+        - "${inputs.output_dir}/files-likely-to-change.md"
+      gate: auto
+
+  - id: draft-pr
+    agent: pr_drafter
+    contract:
+      consumes:
+        - "${inputs.output_dir}/chosen-issue.md"
+        - "${inputs.output_dir}/files-likely-to-change.md"
+        - "${inputs.output_dir}/guidelines-summary.md"
+      produces:
+        - "${inputs.output_dir}/pr-draft.md"
+      gate: human                             # human reviews draft
+
+action_index:
+  onboarder:
+    allowed: [read_repo_metadata, read_repo_files, write_local_files]
+    forbidden: [call_github_api_write, post_comments]
+  issue_filter:
+    allowed: [list_issues, read_issue_body, write_local_files]
+    forbidden: [open_issue, comment_on_issue, modify_labels]
+  pr_drafter:
+    allowed: [read_local_files, write_local_files]
+    forbidden: [open_pr, push_branch, call_github_api_write]
+  scout:
+    allowed: [read_workspace, write_findings_md]
+    forbidden: [write_other_files, mutate_workspace]
+
+cache:
+  stable_prefix:
+    - prompts/onboarder.md
+    - prompts/issue-filter.md
+    - prompts/pr-drafter.md
+    - "${inputs.output_dir}/guidelines-summary.md"
