@@ -1,0 +1,42 @@
+{
+  "_comment": "USD per million tokens. Bump as providers update. Old logs re-cost from this file at report time.",
+  "_pinned_at": "2026-04-23",
+  "claude-sonnet-4-5-20250929": {
+    "input_per_mtok": 3.00,
+    "cache_read_per_mtok": 0.30,
+    "cache_write_per_mtok": 3.75,
+    "output_per_mtok": 15.00
+  },
+  "claude-opus-4-5": {
+    "input_per_mtok": 15.00,
+    "cache_read_per_mtok": 1.50,
+    "cache_write_per_mtok": 18.75,
+    "output_per_mtok": 75.00
+  },
+  "claude-haiku-4-5": {
+    "input_per_mtok": 0.80,
+    "cache_read_per_mtok": 0.08,
+    "cache_write_per_mtok": 1.00,
+    "output_per_mtok": 4.00
+  },
+  "gpt-4.1": {
+    "input_per_mtok": 2.00,
+    "cache_read_per_mtok": 0.50,
+    "output_per_mtok": 8.00
+  },
+  "gpt-4.1-mini": {
+    "input_per_mtok": 0.40,
+    "cache_read_per_mtok": 0.10,
+    "output_per_mtok": 1.60
+  },
+  "gemini-2.5-pro": {
+    "input_per_mtok": 1.25,
+    "cache_read_per_mtok": 0.31,
+    "output_per_mtok": 10.00
+  },
+  "gemini-2.5-flash": {
+    "input_per_mtok": 0.30,
+    "cache_read_per_mtok": 0.075,
+    "output_per_mtok": 2.50
+  }
+}
