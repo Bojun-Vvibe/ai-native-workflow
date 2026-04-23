@@ -2,6 +2,16 @@
 
 All notable changes to this repository are documented here. Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
+## 0.4.2 — 2026-04-24 — One new template: structural four-question PR-review checklist.
+
+### Added — new template
+
+- `templates/pr-review-four-question-checklist/` — short, opinionated structural checklist for reviewing PRs against agent infrastructure (and other glue code: brokers, ETL pipelines, webhook fan-outs). Four questions, each tied to a recurring bug shape that produces a *missing* output rather than a wrong one: early-return loop, wrong-sync event, non-portable enum default-passthrough, drifted second constructor. Ships with a canonical `CHECKLIST.md`, an LLM agent prompt that emits per-question structured findings, a `bin/run-checklist.sh` wrapper that pipes a `git diff` into a configurable agent CLI (dry-run safe with no agent configured) and exits non-zero when any question fires at high risk, and three worked examples — one per applicable question — with synthetic-but-realistic diffs and the full structured finding the prompt would emit. Companion to the existing long-form `oss-pr-review-template` (this is the 5-minute triage; that is the 2–4 page synthesis); derived from the bug-shapes synthesis post in `ai-native-notes`.
+
+### Changed
+
+- `README.md` — catalog grew from 26 to 27 templates; added the `pr-review-four-question-checklist` entry under Mission templates, adjacent to `oss-pr-review-template`.
+
 ## 0.4.1 — 2026-04-24 — Two new templates: anomaly-alert scheduling and rolling-window baseline math.
 
 ### Added — new templates

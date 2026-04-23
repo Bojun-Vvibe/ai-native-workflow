@@ -4,7 +4,7 @@ Opinionated, reusable templates and patterns for running AI coding agents at sca
 
 ## Catalog
 
-Twenty-six templates, grouped by what they do.
+Twenty-seven templates, grouped by what they do.
 
 ### Mission templates (spec-kitty workflows)
 
@@ -15,6 +15,7 @@ Twenty-six templates, grouped by what they do.
 | [`templates/oss-pr-prep-checklist`](templates/oss-pr-prep-checklist/) | Turns "I want to contribute to OSS repo X" into a contribution package: distilled guidelines, filtered good-first-issues, draft PR description, files-likely-to-change. Worked example against [cline/cline](https://github.com/cline/cline). |
 | [`templates/parallel-dispatch-mission`](templates/parallel-dispatch-mission/) | Mission shape for fanning N independent investigations to N agents in parallel, with a join step that aggregates structured per-worker outputs. Worked example dispatches 5 concurrent OSS repo audits. |
 | [`templates/oss-pr-review-template`](templates/oss-pr-review-template/) | Reusable structure for writing a high-signal OSS PR review (verdict, summary, line-anchored notes, follow-up questions). Two complete sample reviews against real public PRs. |
+| [`templates/pr-review-four-question-checklist`](templates/pr-review-four-question-checklist/) | Four structural questions to run against any glue-code diff (early-return loop, wrong-sync event, default-passthrough translator, drifted second constructor). Includes a `CHECKLIST.md`, an LLM prompt, a wrapper script, and three worked examples (one per question). The 5-minute counterpart to the long-form review template. |
 | [`templates/daily-oss-digest`](templates/daily-oss-digest/) | Daily digest workflow: per-repo "what changed yesterday" summaries plus a top-level INDEX. Mission YAML, per-repo template, and a fully populated sample digest day. |
 
 ### Orchestration patterns
