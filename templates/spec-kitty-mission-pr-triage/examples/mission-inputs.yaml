@@ -1,0 +1,11 @@
+# Mission inputs used for the worked example
+# Target: https://github.com/anomalyco/opencode
+
+target_repo: "anomalyco/opencode"
+max_prs: 20
+maintainer_handle: "your-handle"     # placeholder; set to the real reviewer's handle when adapting
+skip_labels:
+  - wip
+  - do-not-merge
+  - dependencies
+  - needs:compliance                 # auto-closing label on this repo; not worth triaging
