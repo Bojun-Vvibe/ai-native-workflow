@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.example.token-budget-daily</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>-lc</string>
+    <!-- Edit the absolute path to match where you check this template out. -->
+    <string>$HOME/Projects/ai-native-workflow/templates/token-budget-launchd/bin/run-daily-report.sh</string>
+  </array>
+
+  <!-- Run once a day at 09:00 local time. Adjust as desired. -->
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>9</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+
+  <!-- If the machine was asleep at 09:00, run as soon as it wakes. -->
+  <key>RunAtLoad</key>
+  <false/>
+
+  <!-- Don't relaunch on crash; this is a daily one-shot. -->
+  <key>KeepAlive</key>
+  <false/>
+
+  <key>StandardOutPath</key>
+  <string>/Users/USERNAME/Library/Logs/token-budget-daily.out.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/Users/USERNAME/Library/Logs/token-budget-daily.err.log</string>
+
+  <!-- Tighten environment; don't inherit a shell. -->
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin</string>
+    <key>LANG</key>
+    <string>en_US.UTF-8</string>
+  </dict>
+
+  <!-- Lower process priority so it never competes with foreground work. -->
+  <key>Nice</key>
+  <integer>10</integer>
+
+  <key>ProcessType</key>
+  <string>Background</string>
+</dict>
+</plist>

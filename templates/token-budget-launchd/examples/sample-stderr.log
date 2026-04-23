@@ -1,0 +1,9 @@
+[run-daily-report] 2026-04-22T09:00:01-07:00 writing /Users/USERNAME/Reports/token-budget/2026-04-21.md
+[run-daily-report] done
+[run-daily-report] 2026-04-23T09:00:02-07:00 writing /Users/USERNAME/Reports/token-budget/2026-04-22.md
+[run-daily-report] done
+[run-daily-report] 2026-04-24T09:00:01-07:00 writing /Users/USERNAME/Reports/token-budget/2026-04-23.md
+[run-daily-report] TRACKER_DIR=/Users/USERNAME/Projects/ai-native-workflow/templates/token-budget-tracker not found
+# (exit 3 → launchd records last exit code 3; next run still happens at 09:00)
+[run-daily-report] 2026-04-25T09:00:01-07:00 writing /Users/USERNAME/Reports/token-budget/2026-04-24.md
+[run-daily-report] done
