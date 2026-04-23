@@ -1,0 +1,19 @@
+{
+  "protocol_version": "1.0",
+  "worker_id": "implementer-7",
+  "task_id": "T-2026-04-23-W08-step-3",
+  "status": "unrecoverable",
+  "unrecoverable_reason": "Task asks to add a feature flag for behavior X, but src/flags/ does not exist and no flag system is referenced anywhere in the repo. Adding one is a multi-day cross-cutting change, not a flag flip.",
+  "artifacts": [
+    { "kind": "report", "path": "investigations/T-2026-04-23-W08-step-3.md", "action": "created", "bytes": 2810 }
+  ],
+  "diagnostics": {
+    "tokens_in": 18402,
+    "tokens_out": 3201,
+    "wall_seconds": 47,
+    "tool_calls": 12,
+    "cache_hit_rate": 0.92,
+    "model": "claude-opus-4.7"
+  },
+  "human_summary": "The task as specified ('add a feature flag for behavior X and toggle it on') presupposes a flag system that does not exist in this repo. I wrote an investigation report at investigations/T-...-step-3.md documenting what I checked. Suggest re-scoping the task to either (a) build a minimal flag system first, or (b) gate behavior X with an env-var read instead."
+}

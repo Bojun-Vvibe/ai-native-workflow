@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AgentHandoff",
+  "description": "The envelope a worker agent returns to its orchestrator.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocol_version", "worker_id", "task_id", "status", "artifacts", "diagnostics"],
+  "properties": {
+    "protocol_version": {
+      "type": "string",
+      "enum": ["1.0"]
+    },
+    "worker_id": { "type": "string" },
+    "task_id":   { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["done", "partial", "unrecoverable"]
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind"],
+        "properties": {
+          "kind":    { "type": "string", "enum": ["file", "commit", "report", "url", "dataset"] },
+          "path":    { "type": "string" },
+          "sha":     { "type": "string" },
+          "url":     { "type": "string" },
+          "action":  { "type": "string", "enum": ["created", "edited", "deleted", "read"] },
+          "message": { "type": "string" },
+          "bytes":   { "type": "integer" }
+        }
+      }
+    },
+    "continuation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reason", "next_task"],
+      "properties": {
+        "reason": {
+          "type": "string",
+          "enum": ["token_budget_hit", "wall_time_hit", "external_dependency_blocked", "context_window_full", "human_input_needed"]
+        },
+        "next_task": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["instruction"],
+          "properties": {
+            "instruction":      { "type": "string" },
+            "context_pointers": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    },
+    "diagnostics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tokens_in", "tokens_out", "wall_seconds", "tool_calls"],
+      "properties": {
+        "tokens_in":       { "type": "integer" },
+        "tokens_out":      { "type": "integer" },
+        "wall_seconds":    { "type": "integer" },
+        "tool_calls":      { "type": "integer" },
+        "cache_hit_rate":  { "type": "number" },
+        "model":           { "type": "string" }
+      }
+    },
+    "unrecoverable_reason": {
+      "type": "string",
+      "description": "Required when status == 'unrecoverable'. One short sentence."
+    },
+    "human_summary": {
+      "type": "string",
+      "description": "Single-paragraph human-readable summary. Optional but recommended."
+    }
+  },
+  "allOf": [
+    {
+      "if":   { "properties": { "status": { "const": "partial" } } },
+      "then": { "required": ["continuation"] }
+    },
+    {
+      "if":   { "properties": { "status": { "const": "unrecoverable" } } },
+      "then": { "required": ["unrecoverable_reason"] }
+    }
+  ]
+}

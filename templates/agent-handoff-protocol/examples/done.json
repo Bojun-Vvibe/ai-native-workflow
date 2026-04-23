@@ -1,0 +1,19 @@
+{
+  "protocol_version": "1.0",
+  "worker_id": "implementer-7",
+  "task_id": "T-2026-04-23-W08-step-1",
+  "status": "done",
+  "artifacts": [
+    { "kind": "file",   "path": "src/cache.py", "action": "edited", "bytes": 4218 },
+    { "kind": "commit", "sha": "8a3f1c2", "message": "fix: order lock acquisition before read in evict()" }
+  ],
+  "diagnostics": {
+    "tokens_in": 47213,
+    "tokens_out": 8842,
+    "wall_seconds": 142,
+    "tool_calls": 31,
+    "cache_hit_rate": 0.74,
+    "model": "claude-opus-4.7"
+  },
+  "human_summary": "Fixed the lock-acquisition order in evict(). Test suite passes. One commit."
+}
