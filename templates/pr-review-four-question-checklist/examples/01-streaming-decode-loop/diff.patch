@@ -1,0 +1,25 @@
+diff --git a/src/decode/stream.ts b/src/decode/stream.ts
+index 1a2b3c4..5d6e7f8 100644
+--- a/src/decode/stream.ts
++++ b/src/decode/stream.ts
+@@ -42,9 +42,15 @@ export function extractContentBlocks(chunks: Chunk[]): ContentBlock[] {
+   const blocks: ContentBlock[] = [];
+ 
+   for (const chunk of chunks) {
+-    if (chunk.kind === "synthetic") {
+-      continue;
+-    }
+-    blocks.push(decodeContentBlock(chunk));
++    if (chunk.kind === "synthetic") {
++      continue;
++    }
++    // Decode the first non-synthetic block we see.
++    // TODO: handle more than one block per stream once the
++    // upstream model starts emitting them.
++    const decoded = decodeContentBlock(chunk);
++    blocks.push(decoded);
++    return blocks;
+   }
+ 
+   return blocks;
+ }

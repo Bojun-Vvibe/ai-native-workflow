@@ -1,0 +1,29 @@
+diff --git a/src/providers/role_translator.py b/src/providers/role_translator.py
+index 4f5e6d7..8c9b0a1 100644
+--- a/src/providers/role_translator.py
++++ b/src/providers/role_translator.py
+@@ -12,11 +12,18 @@ INTERNAL_ROLES = {"user", "assistant", "system", "tool"}
+ def translate_role(provider: str, role: str) -> str:
+     """Translate a provider-specific role to our internal role enum."""
+     if provider == "anthropic":
+-        if role == "human":
+-            return "user"
+-        if role == "assistant":
+-            return "assistant"
++        mapping = {
++            "human": "user",
++            "assistant": "assistant",
++            "tool_result": "tool",
++        }
++        return mapping.get(role, role)
+ 
+-    if provider == "openai":
+-        return role  # OpenAI roles already match our internal roles
++    if provider == "openai":
++        # OpenAI roles already match our internal roles, except for
++        # "function" which is the legacy name for "tool".
++        if role == "function":
++            return "tool"
++        return role
+ 
+     return role

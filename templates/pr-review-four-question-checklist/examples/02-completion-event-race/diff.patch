@@ -1,0 +1,27 @@
+diff --git a/src/runtime/completion.ts b/src/runtime/completion.ts
+index 9b8c7d6..1e2f3a4 100644
+--- a/src/runtime/completion.ts
++++ b/src/runtime/completion.ts
+@@ -88,12 +88,18 @@ export class CompletionWatcher extends EventEmitter {
+ 
+   private wireUpstream(stream: UpstreamStream): void {
+     stream.on("server-done", () => {
+-      this.flushPendingChunks();
+       this.emit("complete", { reason: "server-done" });
++      this.teardown();
+     });
+ 
+     stream.on("final-chunk", (chunk) => {
+       this.appendChunk(chunk);
+     });
++
++    stream.on("error", (err) => {
++      this.emit("complete", { reason: "error", error: err });
++      this.teardown();
++    });
+   }
+ 
+   private teardown(): void {
+     this.removeAllListeners();
+     this.upstream?.destroy();
+   }
