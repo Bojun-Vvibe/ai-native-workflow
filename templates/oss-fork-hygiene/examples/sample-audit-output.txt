@@ -1,0 +1,19 @@
+$ bin/audit-forks.sh --user your-account
+fork                                     upstream                       branches  behind   ahead protected  flags
+your-account/cline                       cline/cline                            1      12       0       yes  ok
+your-account/awesome-foo                 owner-x/awesome-foo                    4     412       3        no  STALE,DIVERGED,UNPROTECTED
+your-account/cool-tool                   owner-y/cool-tool                      2       3       0       yes  ok
+your-account/abandoned-fork              owner-z/abandoned-fork                 8    2200      47        no  STALE,DIVERGED,UNPROTECTED
+your-account/ephemeral-experiment        owner-w/ephemeral                      1       9       1       yes  DIVERGED
+your-account/cool-tool-bugfix-2024-fork  owner-y/cool-tool                      1     188       0        no  STALE,UNPROTECTED
+your-account/contrib-template            owner-v/contrib-template               1      22       0       yes  ok
+
+(audit done; STALE threshold = 90d)
+
+7 forks · 4 flagged
+
+Triage suggestions:
+  - awesome-foo:               sync (you contribute monthly); move 3 ahead-commits off main first.
+  - abandoned-fork:            DELETE — no contribution in 11 months, upstream itself is dormant.
+  - ephemeral-experiment:      move 1 ahead-commit to a topic branch, then sync. Or delete the fork.
+  - cool-tool-bugfix-2024-fork: DELETE — single-PR fork; PR was merged in 2024-08.
