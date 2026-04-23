@@ -1,0 +1,9 @@
+{
+  "id": "F-001",
+  "summary": "Race condition in cache eviction path",
+  "priority": "P1",
+  "evidence": [
+    { "file": "src/cache.py", "line": 142, "note": "lock acquired after read" },
+    { "file": "src/cache.py", "line": 167 }
+  ]
+}

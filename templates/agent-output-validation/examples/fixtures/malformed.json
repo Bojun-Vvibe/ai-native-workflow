@@ -1,0 +1,14 @@
+Here is the JSON you requested:
+
+```json
+{
+  "id": "F-002",
+  "summary": "Logger swallows exceptions in retry path",
+  "priority": "P2",
+  "evidence": [
+    { "file": "src/retry.py", "line": 88, "note": "bare except: pass },
+  ]
+}
+```
+
+Let me know if you need more detail.

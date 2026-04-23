@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TriageReport",
+  "description": "A wrapper around a list of findings emitted by a triage sub-agent.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["_schema_version", "mission_id", "findings"],
+  "properties": {
+    "_schema_version": {
+      "type": "string",
+      "enum": ["1.0"]
+    },
+    "mission_id": { "type": "string" },
+    "findings": {
+      "type": "array",
+      "items": { "$ref": "finding.schema.json" }
+    },
+    "notes": { "type": "string" }
+  }
+}

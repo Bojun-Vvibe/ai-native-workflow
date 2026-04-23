@@ -1,0 +1,8 @@
+{
+  "id": "F-003",
+  "summary": "Token leakage via verbose error",
+  "evidence": [
+    { "file": "src/auth.py", "line": 211, "note": "logger.error(f'token={token}')" }
+  ],
+  "confidence": 0.82
+}
