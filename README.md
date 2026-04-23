@@ -4,7 +4,7 @@ Opinionated, reusable templates and patterns for running AI coding agents at sca
 
 ## Catalog
 
-Twenty-four templates, grouped by what they do.
+Twenty-six templates, grouped by what they do.
 
 ### Mission templates (spec-kitty workflows)
 
@@ -50,6 +50,7 @@ Twenty-four templates, grouped by what they do.
 | [`templates/llm-eval-harness-minimal`](templates/llm-eval-harness-minimal/) | ~150-line Python eval harness: YAML manifest of test cases, a runner, a markdown report. The first eval harness in a project, before you graduate to a heavier framework. |
 | [`templates/token-budget-tracker`](templates/token-budget-tracker/) | Stdlib-only Python module + JSONL log + CLI report for tracking agent token usage by model, phase, tool, and cache bucket. Cost computed at report time from a pinnable `prices.json` so old logs re-cost when prices change. |
 | [`templates/token-budget-launchd`](templates/token-budget-launchd/) | macOS `LaunchAgent` plist + wrapper script that runs your daily token-budget report at a fixed time, writes markdown to `~/Reports/`, and rotates files older than 90 days. |
+| [`templates/anomaly-alert-cron`](templates/anomaly-alert-cron/) | Daily anomaly + budget check on a `LaunchAgent`, with per-day deduplication, a tiny audit log, and pluggable notifiers (macOS banner, webhook). Composes with `pew anomalies` / `pew budget --check`. |
 | [`templates/commit-message-trailer-pattern`](templates/commit-message-trailer-pattern/) | Discipline + tooling for machine-readable commit trailers (`Co-Authored-By`, `Mission-Id`, `Model`, `Tokens-In`, `Tokens-Out`, `Cache-Hit-Rate`). `commit-msg` hook validates the key allow-list. |
 | [`templates/oss-fork-hygiene`](templates/oss-fork-hygiene/) | Convention + scripts for managing OSS forks safely: standard remote layout, `audit-forks.sh`, `sync-fork.sh`, `new-topic.sh`, and a keep/archive/delete decision rubric. |
 
@@ -58,6 +59,7 @@ Twenty-four templates, grouped by what they do.
 | Template | What it does |
 |---|---|
 | [`templates/reverse-engineer-cli`](templates/reverse-engineer-cli/) | Five-pass methodology for producing a behavior spec of an undocumented CLI without source access. Includes per-command probe checklist, spec template, an excerpt from the real `pew-insights` spec, and a 90-minute methodology trace. |
+| [`templates/metric-baseline-rolling-window`](templates/metric-baseline-rolling-window/) | Methodology + stdlib-only Python reference for "is today's number weird?" against a rolling baseline. Three scorers (z-score, MAD, EWMA) plus a zero-aware variant for count metrics. 21-test unittest suite, decision rubric, seasonal-baseline extension, three worked examples showing where each scorer wins. |
 | [`templates/failure-mode-catalog`](templates/failure-mode-catalog/) | Taxonomized catalog of 12 common LLM-agent failure modes (Context Rot, Premature Convergence, Schema Drift, …) with severity, observable symptoms, mitigations linked to other templates, and a triage walkthrough. |
 
 ## How to use a template

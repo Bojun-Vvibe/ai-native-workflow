@@ -58,6 +58,16 @@ fork, every failure has a name and a record.
 - [x] `templates/agent-handoff-protocol/` — typed worker → orchestrator state contracts.
 - [x] `templates/failure-mode-catalog/` — taxonomized failure modes for LLM agents with mitigations.
 
+## v0.4.1 — Anomaly alerting + baseline math (shipped)
+
+Two paired templates extending the observability work from 0.4.
+Theme: a metric being **abnormal** is half the work; getting it
+to a human at the right moment with the right signal-to-noise is
+the other half.
+
+- [x] `templates/anomaly-alert-cron/` — daily anomaly+budget check on a macOS LaunchAgent with per-day dedup, audit log, and pluggable notifiers.
+- [x] `templates/metric-baseline-rolling-window/` — stdlib-only Python reference for z-score / MAD / EWMA scorers, with a zero-aware variant for count metrics. 21-test unittest suite. Decision rubric for picking the right scorer per metric.
+
 ## v0.5 — Cross-tool & routing (sketch)
 
 Tentative scope; aspirational, not committed.

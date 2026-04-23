@@ -2,6 +2,17 @@
 
 All notable changes to this repository are documented here. Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
+## 0.4.1 — 2026-04-24 — Two new templates: anomaly-alert scheduling and rolling-window baseline math.
+
+### Added — new templates
+
+- `templates/anomaly-alert-cron/` — daily anomaly + budget check on a macOS `LaunchAgent`, with per-day deduplication of repeated alerts, a tiny audit log, pluggable notifiers (`mac` via `osascript`, `webhook` via `curl`), and a webhook-file permission check that refuses world-readable credential files. Composes naturally with the `pew anomalies` / `pew budget --check` exit-code convention.
+- `templates/metric-baseline-rolling-window/` — methodology + stdlib-only Python reference for "is today's number weird?" against a rolling baseline. Three scorers (`score_zscore`, `score_mad`, `score_ewma`) plus a zero-aware variant for count metrics that are often zero. 21-test `unittest` suite (all passing). Includes a decision rubric, a seasonal-baseline extension recipe for metrics with a weekly cycle, and three worked examples showing where each scorer wins (stationary → z-score; bursty with a baseline-internal spike → MAD; slowly drifting → EWMA).
+
+### Changed
+
+- `README.md` — catalog grew from 24 to 26 templates; added an `anomaly-alert-cron` entry under tooling and a `metric-baseline-rolling-window` entry under methodology.
+
 ## 0.4.0 — 2026-04-23 — Eight new templates: validation, attribution, scheduling, fork hygiene, fingerprinting, multi-repo, handoff contracts, failure taxonomy.
 
 ### Added — new templates
