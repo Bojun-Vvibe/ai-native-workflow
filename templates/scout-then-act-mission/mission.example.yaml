@@ -1,0 +1,77 @@
+# Scout-then-act mission example.
+# PLACEHOLDER fields reflect spec-kitty's evolving schema.
+
+apiVersion: spec-kitty/v1
+kind: Mission
+metadata:
+  name: scout-then-act-example
+  description: Two-agent mission — scout researches, actor changes.
+
+inputs:
+  question: "Where is the rate limit on /api/upload enforced, and what would change to make it 5/min?"   # ADAPT
+  workspace_root: "."
+  scout_confidence_min: "medium"
+
+agents:
+  scout:
+    profile: prompts/scout.md
+    role: scout
+  actor:
+    profile: prompts/actor.md
+    role: actor
+    extends: ../agent-profile-conservative-implementer/profile.md
+
+steps:
+  - id: scout-pass
+    agent: scout
+    contract:
+      consumes: [inputs.question]
+      produces:
+        - findings.md
+      gate: auto
+
+  - id: confidence-gate
+    contract:
+      type: assertion
+      check: "findings.md confidence >= ${inputs.scout_confidence_min}"
+      on_fail: re-run scout-pass with note "previous confidence too low"
+      max_retries: 2
+
+  - id: act
+    agent: actor
+    contract:
+      consumes:
+        - findings.md
+      produces:
+        - diff.patch
+        - notes.md
+      gate: human                          # human reviews before commit
+
+action_index:
+  scout:
+    allowed:
+      - read_workspace
+      - run_searches
+      - write_findings_md
+    forbidden:
+      - write_any_other_file
+      - mutate_workspace
+      - call_external_apis_with_writes
+  actor:
+    allowed:
+      - read_files_cited_in_findings_md
+      - write_within_changes_recommended_by_findings
+      - run_tests
+    forbidden:
+      - read_files_not_cited_in_findings_md_without_request_second_scout
+      - widen_scope_beyond_findings
+
+cache:
+  stable_prefix:
+    - prompts/scout.md
+    - prompts/actor.md
+  per_phase:
+    scout-pass:
+      stable: [inputs.question, repo-overview.md]
+    act:
+      stable: [findings.md]
