@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "generated_at": "YYYY-MM-DD",
+  "targets": [
+    {
+      "full_name": "example-org/example-agent",
+      "focus": ["prs", "releases", "issues", "commits"],
+      "default_branch": "main",
+      "why": "<one line: why you track this repo. Future-you will thank you.>"
+    },
+    {
+      "full_name": "another-org/another-tool",
+      "focus": ["releases", "prs"],
+      "default_branch": "main",
+      "why": "<one line>"
+    }
+  ],
+  "options": {
+    "window": "24h",
+    "per_repo_word_cap": 600,
+    "include_bot_commits_in_summary": false,
+    "weekly_synthesis": true
+  }
+}

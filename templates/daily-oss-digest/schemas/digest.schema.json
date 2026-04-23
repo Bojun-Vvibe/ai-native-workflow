@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Daily OSS digest",
+  "type": "object",
+  "required": ["date", "window", "targets"],
+  "properties": {
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "ISO date for the digest day."
+    },
+    "window": {
+      "type": "object",
+      "required": ["start", "end"],
+      "properties": {
+        "start": {"type": "string", "format": "date-time"},
+        "end":   {"type": "string", "format": "date-time"}
+      }
+    },
+    "targets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["full_name", "summary", "counts"],
+        "properties": {
+          "full_name": {"type": "string", "pattern": "^[^/]+/[^/]+$"},
+          "default_branch": {"type": "string"},
+          "why": {"type": "string"},
+          "summary": {
+            "type": "object",
+            "required": ["paragraphs", "bottom_line"],
+            "properties": {
+              "paragraphs": {"type": "array", "items": {"type": "string"}, "maxItems": 3},
+              "bottom_line": {"type": "string", "maxLength": 280}
+            }
+          },
+          "counts": {
+            "type": "object",
+            "required": ["releases", "merged_prs", "new_open_prs", "issues", "commits"],
+            "properties": {
+              "releases":      {"type": "integer", "minimum": 0},
+              "merged_prs":    {"type": "integer", "minimum": 0},
+              "new_open_prs":  {"type": "integer", "minimum": 0},
+              "issues":        {"type": "integer", "minimum": 0},
+              "commits":       {"type": "integer", "minimum": 0}
+            }
+          },
+          "releases":  {"type": "array", "items": {"type": "object"}},
+          "merged_prs": {"type": "array", "items": {"type": "object"}},
+          "open_prs":  {"type": "array", "items": {"type": "object"}},
+          "issues":    {"type": "array", "items": {"type": "object"}},
+          "commits":   {"type": "array", "items": {"type": "object"}}
+        }
+      }
+    },
+    "themes": {
+      "type": "array",
+      "items": {"type": "string"},
+      "maxItems": 5,
+      "description": "Optional. Cross-repo themes for INDEX.md. Empty is the correct value when nothing crosses repos."
+    }
+  }
+}
