@@ -1,0 +1,27 @@
+Description of the macOS banner that appears on an alert day.
+This file is plain text on purpose — the template ships no
+binary assets so a reader can audit every byte before adopting it.
+
+----------------------------------------------------------------
+Banner appearance (top-right corner of macOS, default style):
+
+  +-----------------------------------------------------+
+  |  Script Editor                                      |
+  |                                                     |
+  |  anomaly-alert: anomaly,budget @ 2026-04-20         |
+  |  One or more checks fired:                          |
+  |   - anomaly check rc=2                              |
+  |   - budget   check rc=2                             |
+  |   See ~/.local/state/anomaly-alert/audit.log ...    |
+  +-----------------------------------------------------+
+
+Note: macOS attributes the banner to "Script Editor" because
+osascript is the dispatcher. If you want the banner to read as
+your own brand, the standard fix is to wrap notify-mac.sh with
+a tiny signed .app bundle and call its bundled osascript. That
+is out of scope for this template — most users are fine with
+"Script Editor" as the source.
+
+The notification is logged in macOS Notification Center, so even
+if the user misses it, it remains visible for the rest of the day.
+----------------------------------------------------------------

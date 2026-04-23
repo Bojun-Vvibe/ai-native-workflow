@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <!-- Reverse-DNS label. Filename of this plist must match. -->
+  <key>Label</key>
+  <string>com.example.anomaly-alert-daily</string>
+
+  <!-- Absolute path to the wrapper script. Adapt to where you copied this template. -->
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>-lc</string>
+    <string>$HOME/code/ai-native-workflow/templates/anomaly-alert-cron/bin/run-anomaly-check.sh</string>
+  </array>
+
+  <!-- Run once per day at 09:05 local. Five minutes after the hour
+       so any 09:00-scheduled report producer has finished writing. -->
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>9</integer>
+    <key>Minute</key>
+    <integer>5</integer>
+  </dict>
+
+  <!-- launchd's PATH is bare. Add common bin dirs so $CLI_BIN resolves
+       even when invoked outside an interactive shell. Adapt as needed. -->
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin</string>
+  </dict>
+
+  <!-- Always log stderr. The wrapper's audit log lives elsewhere;
+       this captures launchd-level surprises (script not found, etc.). -->
+  <key>StandardErrorPath</key>
+  <string>/tmp/anomaly-alert-daily.err.log</string>
+  <key>StandardOutPath</key>
+  <string>/tmp/anomaly-alert-daily.out.log</string>
+
+  <!-- If the system was asleep at 09:05, run as soon as it wakes. -->
+  <key>RunAtLoad</key>
+  <false/>
+</dict>
+</plist>
