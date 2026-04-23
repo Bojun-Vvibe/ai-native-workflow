@@ -1,0 +1,27 @@
+/Users/you/work-bridge/
+├── MANIFEST.toml
+├── webapp -> /Users/you/code/webapp
+│   ├── package.json
+│   ├── src/
+│   │   ├── components/
+│   │   │   └── LoginButton.tsx
+│   │   └── util/
+│   │       └── path.ts                 # exports getCwd
+│   └── tests/
+├── sdk -> /Users/you/code/sdk
+│   ├── package.json
+│   ├── lib/
+│   │   ├── client.ts
+│   │   └── process.ts                  # imports getCwd from webapp/util? no — own copy
+│   └── README.md
+├── backend -> /Users/you/code/backend
+│   ├── go.mod
+│   ├── cli/
+│   │   └── main.go                     # has its own getCwd helper
+│   └── internal/
+└── docs -> /Users/you/code/docs
+    ├── api/
+    │   └── process.md                  # documents getCwd()
+    └── guides/
+
+(4 child repos via symlinks; bridge itself has no .git)
