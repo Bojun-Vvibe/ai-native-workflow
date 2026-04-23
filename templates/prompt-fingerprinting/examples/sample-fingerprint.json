@@ -1,0 +1,19 @@
+{
+  "model": "claude-opus-4.7",
+  "provider": "anthropic",
+  "system_hash": "b359c4c36c82",
+  "system_len": 276,
+  "tools_hash": "95128c3ff9a0",
+  "tool_names": [
+    "read",
+    "write",
+    "edit",
+    "bash",
+    "grep",
+    "glob"
+  ],
+  "decoding_hash": "38b373ed7608",
+  "convo_hash": "2714124d3816",
+  "cache_hash": "30cf6eb66756",
+  "semantic_hash": "7e2a95d716f4"
+}
