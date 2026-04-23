@@ -1,0 +1,100 @@
+# Example mission wiring for the multi-agent implement-review loop.
+#
+# PLACEHOLDER fields reflect spec-kitty's evolving schema; treat the shape
+# as illustrative.
+
+apiVersion: spec-kitty/v1
+kind: Mission
+metadata:
+  name: multi-agent-implement-review-loop-example
+  description: Parallel implement-review with arbiter escalation.
+
+inputs:
+  work_packages_dir: "work-packages/"     # ADAPT
+  max_parallel: 4                          # ADAPT: bounded by provider rate limits
+  max_rounds: 3                            # ADAPT: implement-review cycles before arbiter
+
+agents:
+  implementer:
+    profile: prompts/implementer.md
+    role: implementer
+    # Strongly recommended: load the conservative-implementer profile too.
+    extends: ../agent-profile-conservative-implementer/profile.md
+  reviewer:
+    profile: prompts/reviewer.md
+    role: reviewer
+    # Independent context: different model family preferred.
+    model_hint: "different_family_from_implementer"
+  arbiter:
+    profile: prompts/arbiter.md
+    role: arbiter
+    # Arbiter sees both transcripts; should be the most capable model
+    # you have access to.
+
+steps:
+  - id: implement-review-loop
+    contract:
+      mode: parallel
+      max_parallel: ${inputs.max_parallel}
+      per_wp:
+        implement:
+          agent: implementer
+          produces:
+            - work-packages/<wp>/diff.patch
+            - work-packages/<wp>/notes.md
+        review:
+          agent: reviewer
+          consumes:
+            - work-packages/<wp>/diff.patch
+            - work-packages/<wp>/notes.md
+            - work-packages/<wp>/spec.md
+          produces:
+            - work-packages/<wp>/review.md
+          checks:
+            mechanical:
+              - tests_added_or_unchanged_count
+              - no_files_outside_wp_scope
+              - diff_size_within_cap
+            judgment:
+              - matches_spec_intent
+              - no_unrequested_refactors
+        on_reject: re-enter implement with review.md as feedback
+        max_rounds: ${inputs.max_rounds}
+        on_max_rounds_exhausted: escalate_to_arbiter
+
+      arbiter:
+        agent: arbiter
+        consumes:
+          - work-packages/<wp>/diff.patch       (last)
+          - work-packages/<wp>/review.md        (all rounds, oldest→newest)
+          - work-packages/<wp>/notes.md         (all rounds)
+          - work-packages/<wp>/spec.md
+        produces:
+          - work-packages/<wp>/arbiter.md
+        verdicts:
+          - rule_for_implementer
+          - rule_for_reviewer
+          - propose_synthesis
+          - defer_to_human
+
+      on_defer_to_human: gate=human
+
+action_index:
+  implementer:
+    allowed: [read_workspace, write_within_wp, run_tests]
+    forbidden: [write_outside_wp, modify_spec, modify_review]
+  reviewer:
+    allowed: [read_workspace, write_review_md]
+    forbidden: [edit_implementer_diff, modify_spec]
+  arbiter:
+    allowed: [read_all_round_artifacts, write_arbiter_md, escalate_to_human]
+    forbidden: [edit_diff, edit_review, edit_spec]
+
+cache:
+  stable_prefix:
+    - prompts/implementer.md
+    - prompts/reviewer.md
+    - prompts/arbiter.md
+  rotate_per_wp:
+    - work-packages/<wp>/spec.md
+    - work-packages/<wp>/diff.patch
