@@ -4,7 +4,7 @@ Opinionated, reusable templates and patterns for running AI coding agents at sca
 
 ## Catalog
 
-Sixteen templates, grouped by what they do.
+Twenty-four templates, grouped by what they do.
 
 ### Mission templates (spec-kitty workflows)
 
@@ -23,6 +23,9 @@ Sixteen templates, grouped by what they do.
 |---|---|
 | [`templates/multi-agent-implement-review-loop`](templates/multi-agent-implement-review-loop/) | Parallel implement-review with arbiter escalation. Implementer and reviewer are different agents; an arbiter rules when they cannot converge in K rounds, otherwise defers to a human. |
 | [`templates/sub-agent-context-isolation`](templates/sub-agent-context-isolation/) | Pattern + prompts for delegating exploratory work to sub-agents whose intermediate context never enters the parent's window. Side-by-side example shows compounding cache-hit-rate and latency benefit across a multi-investigation mission. |
+| [`templates/agent-handoff-protocol`](templates/agent-handoff-protocol/) | Typed worker → orchestrator state contract: `done`/`partial`/`unrecoverable` envelope + canonical orchestrator routing table. Includes JSON Schema, three example handoffs, and an end-to-end orchestrator trace. |
+| [`templates/agent-output-validation`](templates/agent-output-validation/) | Schema-checking layer for sub-agent JSON outputs. Three policies (`reject`, `repair_once`, `quarantine`) plus a one-shot repair prompt. Includes runnable fixtures (good / malformed / drifted). |
+| [`templates/multi-repo-monorepo-bridge`](templates/multi-repo-monorepo-bridge/) | Treats N independent repos as one logical workspace via a symlinked bridge directory + manifest. `bridge-search` and `bridge-git` helpers; cross-repo rename walkthrough. |
 
 ### Agent profiles
 
@@ -36,6 +39,7 @@ Sixteen templates, grouped by what they do.
 |---|---|
 | [`templates/prompt-cache-discipline-system-prompt`](templates/prompt-cache-discipline-system-prompt/) | System-prompt template plus the principles (stable prefix, append-only history, cache-aware tool definitions) that get high prompt-cache hit rates on long-running missions. Includes a cost-per-MTok reference table. |
 | [`templates/cache-aware-prompt`](templates/cache-aware-prompt/) | Per-request, SDK-tactical companion to the discipline template. Provider-specific snippets (Anthropic, OpenAI, Gemini) for marking cache breakpoints, plus a measurement script that proves the hit rate. |
+| [`templates/prompt-fingerprinting`](templates/prompt-fingerprinting/) | Deterministic fingerprint of every prompt package (system + tools + decoding + convo prefix). Diff two fingerprints to see what drifted; emits both `cache_hash` and `semantic_hash` to distinguish silent cache breaks from intentional changes. |
 
 ### Tooling
 
@@ -45,12 +49,16 @@ Sixteen templates, grouped by what they do.
 | [`templates/guardrail-pre-push`](templates/guardrail-pre-push/) | Repo-local `pre-push` git hook that blocks pushes containing secrets, internal-string blacklist matches, oversized blobs, or attack-payload references. Includes a 7-case test harness. |
 | [`templates/llm-eval-harness-minimal`](templates/llm-eval-harness-minimal/) | ~150-line Python eval harness: YAML manifest of test cases, a runner, a markdown report. The first eval harness in a project, before you graduate to a heavier framework. |
 | [`templates/token-budget-tracker`](templates/token-budget-tracker/) | Stdlib-only Python module + JSONL log + CLI report for tracking agent token usage by model, phase, tool, and cache bucket. Cost computed at report time from a pinnable `prices.json` so old logs re-cost when prices change. |
+| [`templates/token-budget-launchd`](templates/token-budget-launchd/) | macOS `LaunchAgent` plist + wrapper script that runs your daily token-budget report at a fixed time, writes markdown to `~/Reports/`, and rotates files older than 90 days. |
+| [`templates/commit-message-trailer-pattern`](templates/commit-message-trailer-pattern/) | Discipline + tooling for machine-readable commit trailers (`Co-Authored-By`, `Mission-Id`, `Model`, `Tokens-In`, `Tokens-Out`, `Cache-Hit-Rate`). `commit-msg` hook validates the key allow-list. |
+| [`templates/oss-fork-hygiene`](templates/oss-fork-hygiene/) | Convention + scripts for managing OSS forks safely: standard remote layout, `audit-forks.sh`, `sync-fork.sh`, `new-topic.sh`, and a keep/archive/delete decision rubric. |
 
 ### Methodology
 
 | Template | What it does |
 |---|---|
 | [`templates/reverse-engineer-cli`](templates/reverse-engineer-cli/) | Five-pass methodology for producing a behavior spec of an undocumented CLI without source access. Includes per-command probe checklist, spec template, an excerpt from the real `pew-insights` spec, and a 90-minute methodology trace. |
+| [`templates/failure-mode-catalog`](templates/failure-mode-catalog/) | Taxonomized catalog of 12 common LLM-agent failure modes (Context Rot, Premature Convergence, Schema Drift, …) with severity, observable symptoms, mitigations linked to other templates, and a triage walkthrough. |
 
 ## How to use a template
 

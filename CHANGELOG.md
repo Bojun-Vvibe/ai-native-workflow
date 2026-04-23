@@ -2,6 +2,23 @@
 
 All notable changes to this repository are documented here. Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
+## 0.4.0 — 2026-04-23 — Eight new templates: validation, attribution, scheduling, fork hygiene, fingerprinting, multi-repo, handoff contracts, failure taxonomy.
+
+### Added — new templates
+
+- `templates/agent-output-validation/` — schema-checking layer for sub-agent JSON outputs. Three policies (`reject`, `repair_once`, `quarantine`), one-shot repair prompt, runnable fixtures (good / malformed / drifted).
+- `templates/commit-message-trailer-pattern/` — discipline + tooling for machine-readable commit trailers (`Co-Authored-By`, `Mission-Id`, `Model`, `Tokens-In`, `Tokens-Out`, `Cache-Hit-Rate`). Includes `commit-msg` validation hook and a CSV-emitting `parse-trailers.sh` for cost reports.
+- `templates/token-budget-launchd/` — macOS `LaunchAgent` plist + wrapper script that runs the daily token-budget report at a fixed time, writes markdown to `~/Reports/`, and rotates files older than 90 days.
+- `templates/oss-fork-hygiene/` — convention + scripts for managing OSS forks safely: standard remote layout, `audit-forks.sh` (flags STALE/DIVERGED/UNPROTECTED), `sync-fork.sh` (refuses to sync when `main` has diverged), `new-topic.sh`, and a keep/archive/delete decision rubric.
+- `templates/prompt-fingerprinting/` — deterministic fingerprint of every prompt package (system + tools + decoding + convo prefix). Diff two fingerprints to see what drifted; emits both `cache_hash` and `semantic_hash` to distinguish silent cache breaks from intentional changes.
+- `templates/multi-repo-monorepo-bridge/` — pattern for treating N independent repos as one logical workspace via a symlinked bridge directory + `MANIFEST.toml`. `bridge-search` (rg with shared ignores) and `bridge-git` (resolves the right child repo from a path) helpers; cross-repo identifier-rename walkthrough.
+- `templates/agent-handoff-protocol/` — typed worker → orchestrator state contract: `done`/`partial`/`unrecoverable` envelope with `artifacts`, optional `continuation`, and `diagnostics`. Includes JSON Schema, canonical orchestrator routing table, three example handoffs, and an end-to-end orchestrator trace.
+- `templates/failure-mode-catalog/` — taxonomized catalog of 12 common LLM-agent failure modes (Context Rot, Tool-call Storm, Schema Drift, Premature Convergence, Cache Prefix Thrash, Cross-repo Blindness, Stale Fork, Continuation Loop, Silent Retry Multiplication, Confident Fabrication, Lost Diff, Output-fence Mishandling) with severity, observable symptoms, mitigations linked to other templates, plus a three-case triage walkthrough and a log-symptoms grep reference.
+
+### Changed
+
+- `README.md` — catalog grew from 16 to 24 templates; added orchestration entries for handoff/validation/bridge, a new fingerprinting prompt-engineering entry, three new tooling entries (launchd, trailers, fork hygiene), and a methodology entry for the failure-mode catalog.
+
 ## 0.3.0 — 2026-04-23 — Eight new templates: parallelism, OSS workflows, guardrails, observability, and methodology.
 
 ### Added — new templates
