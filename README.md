@@ -4,7 +4,7 @@ Opinionated, reusable templates and patterns for running AI coding agents at sca
 
 ## Catalog
 
-Eight templates, grouped by what they do.
+Sixteen templates, grouped by what they do.
 
 ### Mission templates (spec-kitty workflows)
 
@@ -13,12 +13,16 @@ Eight templates, grouped by what they do.
 | [`templates/spec-kitty-mission-pr-triage`](templates/spec-kitty-mission-pr-triage/) | Triage open PRs in a public OSS repo; produce a prioritized review queue and AI-drafted reviewer comments. Local-only, never posts. Worked example against [anomalyco/opencode](https://github.com/anomalyco/opencode). |
 | [`templates/scout-then-act-mission`](templates/scout-then-act-mission/) | Two-agent pattern: a read-only scout researches first, then a separate actor performs the change from the scout's structured findings. Reduces premature writing on unfamiliar codebases. |
 | [`templates/oss-pr-prep-checklist`](templates/oss-pr-prep-checklist/) | Turns "I want to contribute to OSS repo X" into a contribution package: distilled guidelines, filtered good-first-issues, draft PR description, files-likely-to-change. Worked example against [cline/cline](https://github.com/cline/cline). |
+| [`templates/parallel-dispatch-mission`](templates/parallel-dispatch-mission/) | Mission shape for fanning N independent investigations to N agents in parallel, with a join step that aggregates structured per-worker outputs. Worked example dispatches 5 concurrent OSS repo audits. |
+| [`templates/oss-pr-review-template`](templates/oss-pr-review-template/) | Reusable structure for writing a high-signal OSS PR review (verdict, summary, line-anchored notes, follow-up questions). Two complete sample reviews against real public PRs. |
+| [`templates/daily-oss-digest`](templates/daily-oss-digest/) | Daily digest workflow: per-repo "what changed yesterday" summaries plus a top-level INDEX. Mission YAML, per-repo template, and a fully populated sample digest day. |
 
 ### Orchestration patterns
 
 | Template | What it does |
 |---|---|
 | [`templates/multi-agent-implement-review-loop`](templates/multi-agent-implement-review-loop/) | Parallel implement-review with arbiter escalation. Implementer and reviewer are different agents; an arbiter rules when they cannot converge in K rounds, otherwise defers to a human. |
+| [`templates/sub-agent-context-isolation`](templates/sub-agent-context-isolation/) | Pattern + prompts for delegating exploratory work to sub-agents whose intermediate context never enters the parent's window. Side-by-side example shows compounding cache-hit-rate and latency benefit across a multi-investigation mission. |
 
 ### Agent profiles
 
@@ -31,13 +35,22 @@ Eight templates, grouped by what they do.
 | Template | What it does |
 |---|---|
 | [`templates/prompt-cache-discipline-system-prompt`](templates/prompt-cache-discipline-system-prompt/) | System-prompt template plus the principles (stable prefix, append-only history, cache-aware tool definitions) that get high prompt-cache hit rates on long-running missions. Includes a cost-per-MTok reference table. |
+| [`templates/cache-aware-prompt`](templates/cache-aware-prompt/) | Per-request, SDK-tactical companion to the discipline template. Provider-specific snippets (Anthropic, OpenAI, Gemini) for marking cache breakpoints, plus a measurement script that proves the hit rate. |
 
 ### Tooling
 
 | Template | What it does |
 |---|---|
 | [`templates/opencode-plugin-pre-commit-guardrail`](templates/opencode-plugin-pre-commit-guardrail/) | Opencode plugin pattern that injects a pre-commit guardrail before any agent-suggested git commit — blocks secrets, oversized diffs, forbidden file extensions. Ships with a runnable end-to-end test. |
+| [`templates/guardrail-pre-push`](templates/guardrail-pre-push/) | Repo-local `pre-push` git hook that blocks pushes containing secrets, internal-string blacklist matches, oversized blobs, or attack-payload references. Includes a 7-case test harness. |
 | [`templates/llm-eval-harness-minimal`](templates/llm-eval-harness-minimal/) | ~150-line Python eval harness: YAML manifest of test cases, a runner, a markdown report. The first eval harness in a project, before you graduate to a heavier framework. |
+| [`templates/token-budget-tracker`](templates/token-budget-tracker/) | Stdlib-only Python module + JSONL log + CLI report for tracking agent token usage by model, phase, tool, and cache bucket. Cost computed at report time from a pinnable `prices.json` so old logs re-cost when prices change. |
+
+### Methodology
+
+| Template | What it does |
+|---|---|
+| [`templates/reverse-engineer-cli`](templates/reverse-engineer-cli/) | Five-pass methodology for producing a behavior spec of an undocumented CLI without source access. Includes per-command probe checklist, spec template, an excerpt from the real `pew-insights` spec, and a 90-minute methodology trace. |
 
 ## How to use a template
 

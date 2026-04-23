@@ -2,6 +2,24 @@
 
 All notable changes to this repository are documented here. Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
+## 0.3.0 — 2026-04-23 — Eight new templates: parallelism, OSS workflows, guardrails, observability, and methodology.
+
+### Added — new templates
+
+- `templates/parallel-dispatch-mission/` — mission shape for fanning N independent investigations to N agents in parallel, with a join step. Worked example dispatches 5 concurrent OSS repo audits.
+- `templates/cache-aware-prompt/` — per-request, SDK-tactical companion to the prompt-cache discipline template. Anthropic / OpenAI / Gemini snippets for cache breakpoints + a measurement script.
+- `templates/guardrail-pre-push/` — repo-local `pre-push` git hook blocking secrets, internal-string blacklist matches, oversized blobs, and attack-payload references. Includes a 7-case test harness (all passing).
+- `templates/oss-pr-review-template/` — reusable structure for high-signal OSS PR reviews. Two complete sample reviews against real public PRs.
+- `templates/daily-oss-digest/` — daily digest workflow with mission YAML, per-repo template, and a fully populated sample digest day.
+- `templates/token-budget-tracker/` — stdlib-only Python module + JSONL log + CLI report for tracking agent token usage by model / phase / tool / cache bucket. Cost computed at report time from a pinnable `prices.json`.
+- `templates/sub-agent-context-isolation/` — pattern + prompts for delegating exploratory work to sub-agents whose context never enters the parent's window. Worked example shows a 14k-token investigation collapsing to a 280-token answer in the parent context.
+- `templates/reverse-engineer-cli/` — five-pass methodology for producing a behavior spec of an undocumented CLI. Per-command probe checklist, spec template, an excerpt from the real `pew-insights` spec, and a 90-minute methodology trace.
+
+### Changed
+
+- `README.md` — catalog grew from 8 to 16 templates; added a "Methodology" group.
+- `.gitignore` — added `__pycache__/`.
+
 ## 0.2.0 — 2026-04-23 — Five new templates; worked examples for the seed three.
 
 ### Added — new templates
