@@ -1,0 +1,79 @@
+# Parallel-dispatch mission example.
+# PLACEHOLDER fields reflect spec-kitty's evolving schema.
+
+apiVersion: spec-kitty/v1
+kind: Mission
+metadata:
+  name: parallel-dispatch-example
+  description: One orchestrator, N parallel workers, one reducer.
+
+inputs:
+  task: "Triage all currently-open PRs in the target repo."   # ADAPT
+  target_repo: "owner/repo"                                   # ADAPT
+  worker_count: 4
+  slice_strategy: "round_robin"
+  per_worker_timeout_sec: 300
+
+agents:
+  orchestrator:
+    profile: prompts/orchestrator.md
+    role: orchestrator
+  worker:
+    profile: prompts/worker.md
+    role: worker
+  reducer:
+    profile: prompts/reducer.md
+    role: reducer
+
+steps:
+  - id: plan-fanout
+    agent: orchestrator
+    contract:
+      consumes: [inputs.task, inputs.target_repo, inputs.worker_count, inputs.slice_strategy]
+      produces: [slices.yaml]
+      gate: auto
+      assertions:
+        - "slices.yaml has exactly ${inputs.worker_count} slices"
+        - "no item appears in more than one slice"
+
+  - id: fanout
+    agent: worker
+    parallelism: ${inputs.worker_count}
+    foreach: slice in slices.yaml.slices
+    contract:
+      consumes: [slice]
+      produces: [worker-${slice.id}.yaml]
+      timeout_sec: ${inputs.per_worker_timeout_sec}
+      on_timeout: emit_partial_and_continue
+      gate: auto
+
+  - id: reduce
+    agent: reducer
+    contract:
+      consumes:
+        - "worker-*.yaml"
+      produces:
+        - report.md
+        - failures.yaml      # empty if all workers succeeded
+      gate: human
+
+action_index:
+  orchestrator:
+    allowed: [list_repo_items, write_slices_yaml]
+    forbidden: [per_item_analysis, write_worker_artifacts]
+  worker:
+    allowed: [read_assigned_slice_only, write_own_worker_yaml]
+    forbidden: [read_other_worker_outputs, mutate_workspace]
+  reducer:
+    allowed: [read_all_worker_yaml, write_report_md, write_failures_yaml]
+    forbidden: [call_model_for_judgment, re_score_items]
+
+cache:
+  stable_prefix:
+    - prompts/orchestrator.md
+    - prompts/worker.md
+    - prompts/reducer.md
+  per_phase:
+    fanout:
+      stable: [prompts/worker.md]
+      varies: [slice]
