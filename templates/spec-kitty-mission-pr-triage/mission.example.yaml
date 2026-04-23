@@ -1,0 +1,131 @@
+# Example spec-kitty mission: PR triage
+#
+# This is a worked example. Fields marked PLACEHOLDER are illustrative —
+# spec-kitty's exact schema evolves; consult the spec-kitty docs for the
+# authoritative format. Treat this as a structural reference.
+
+apiVersion: spec-kitty/v1            # PLACEHOLDER: actual API version varies by release
+kind: Mission
+metadata:
+  name: pr-triage
+  description: Triage open PRs in a public OSS repo and draft reviewer comments locally.
+
+# ------------------------------------------------------------------
+# Inputs — adapt these for your repo
+# ------------------------------------------------------------------
+inputs:
+  target_repo: "octocat/hello-world"      # ADAPT: GitHub owner/name
+  max_prs: 20                              # ADAPT: cap per run
+  maintainer_handle: "your-handle"         # ADAPT: who the drafts are for
+  skip_labels:                             # ADAPT: PRs with these labels are skipped
+    - wip
+    - do-not-merge
+    - dependencies
+
+# ------------------------------------------------------------------
+# Agents — referenced by the step contracts below
+# ------------------------------------------------------------------
+agents:
+  architect:
+    profile: prompts/architect.md
+    role: planner
+  reviewer:
+    profile: prompts/reviewer.md
+    role: implementer
+  critic:
+    profile: prompts/reviewer.md           # PLACEHOLDER: reuses reviewer; can be a separate critic profile
+    role: reviewer
+
+# ------------------------------------------------------------------
+# Step contracts — the four-phase spec-kitty loop
+# ------------------------------------------------------------------
+steps:
+
+  - id: specify
+    contract:
+      produces:
+        - charter.md                       # scope, definition of "triage" for this repo
+      inputs_from: [inputs]
+      gate: human                          # human confirms charter before plan
+
+  - id: plan
+    agent: architect
+    contract:
+      consumes: [charter.md]
+      produces:
+        - plan.md                          # high-level approach
+        - work-packages/                   # one WP per PR + one aggregation WP
+      gate: human
+
+  - id: tasks
+    agent: architect
+    contract:
+      consumes: [plan.md, work-packages/]
+      produces:
+        - work-packages/*/tasks.md         # decomposed task list per WP
+      gate: auto                           # no human gate; tasks are mechanical
+
+  - id: implement-review-loop
+    contract:
+      mode: parallel                       # PLACEHOLDER: depends on spec-kitty release
+      max_parallel: 4
+      per_wp:
+        implement:
+          agent: reviewer
+          produces:
+            - reviews/PR-<n>.md
+        review:
+          agent: critic
+          checks:
+            - draft_addresses_recommended_action
+            - no_github_api_write_calls
+            - tone_matches_maintainer_voice
+          on_reject: re-enter implement with feedback
+          max_rounds: 3
+
+  - id: aggregate
+    agent: reviewer
+    contract:
+      consumes: [reviews/PR-*.md]
+      produces:
+        - reviews/_queue.md                # priority-sorted index
+      gate: human                          # human reviews the final queue
+
+# ------------------------------------------------------------------
+# Action index — what each role is allowed to do
+# ------------------------------------------------------------------
+action_index:
+  architect:
+    allowed:
+      - read_repo_metadata
+      - write_plan_artifacts
+    forbidden:
+      - call_github_api_write
+      - modify_prompts_at_runtime
+  reviewer:
+    allowed:
+      - read_pr_diff
+      - read_pr_metadata
+      - write_local_files
+    forbidden:
+      - call_github_api_write           # CRITICAL: no posting comments
+      - delete_existing_reviews
+      - read_files_outside_workspace
+  critic:
+    allowed:
+      - read_local_files
+      - emit_review_verdict
+    forbidden:
+      - modify_drafts_directly          # critic gives feedback; reviewer rewrites
+
+# ------------------------------------------------------------------
+# Cache hints — keep prompt-cache hits high
+# ------------------------------------------------------------------
+cache:
+  stable_prefix:
+    - prompts/reviewer.md
+    - prompts/architect.md
+    - charter.md
+  rotate_per_wp:
+    - pr_diff
+    - pr_metadata

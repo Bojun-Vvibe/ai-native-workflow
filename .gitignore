@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor / scratch
+*.draft.md
+.vscode/
+.idea/
+
+# Local env
+.env
+.env.local
+
+# Build / cache
+dist/
+build/
+.cache/
