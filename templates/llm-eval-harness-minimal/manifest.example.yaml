@@ -1,0 +1,98 @@
+# Sample test manifest for the minimal eval harness.
+# Task under evaluation: "summarize a code change in 1–3 sentences."
+#
+# Each case includes the diff text the agent receives, what the expected
+# summary looks like, and which grader to apply.
+
+cases:
+
+  - id: case-01-rename-function
+    description: A pure rename should be summarized as a rename.
+    input: |
+      diff --git a/src/utils.ts b/src/utils.ts
+      @@ -1,4 +1,4 @@
+      -export function fetchData(url: string) {
+      +export function fetchResource(url: string) {
+         return fetch(url).then(r => r.json());
+       }
+      diff --git a/src/main.ts b/src/main.ts
+      @@ -3,7 +3,7 @@ import { fetchData } from "./utils";
+      -fetchData("/api").then(...)
+      +fetchResource("/api").then(...)
+    expected:
+      contains_all:
+        - "rename"
+        - "fetchData"
+        - "fetchResource"
+    grader: contains_all
+
+  - id: case-02-bug-fix
+    description: A small bug fix should mention the bug AND the fix.
+    input: |
+      diff --git a/src/parser.ts b/src/parser.ts
+      @@ -10,7 +10,7 @@ export function parseDate(s: string): Date {
+      -  return new Date(s);
+      +  return new Date(s + "T00:00:00Z");
+       }
+    expected:
+      contains_any:
+        - "timezone"
+        - "UTC"
+        - "midnight"
+        - "local time"
+    grader: contains_any
+
+  - id: case-03-new-feature
+    description: A new endpoint should be summarized as a feature addition.
+    input: |
+      diff --git a/src/api/health.ts b/src/api/health.ts (new file, +12 lines)
+      +import { Router } from "express";
+      +const router = Router();
+      +router.get("/health", (_, res) => res.json({ status: "ok" }));
+      +export default router;
+    expected:
+      regex: "(?i)(adds?|new|introduces?).{0,40}(/health|endpoint|route)"
+    grader: regex
+
+  - id: case-04-noop
+    description: Whitespace-only diff should be summarized as no functional change.
+    input: |
+      diff --git a/src/handler.ts b/src/handler.ts
+      @@ -1,4 +1,4 @@
+      -function handler(req, res){return res.json({})}
+      +function handler(req, res) {
+      +  return res.json({});
+      +}
+    expected:
+      contains_any:
+        - "formatting"
+        - "whitespace"
+        - "no functional"
+        - "reformat"
+    grader: contains_any
+
+  - id: case-05-structured-summary
+    description: When asked for a structured summary, output should be valid JSON
+                 with the right keys.
+    input: |
+      Please summarize this diff as JSON with keys "type" (one of: feature,
+      fix, refactor, docs, chore), "summary" (one sentence), and "files"
+      (list of strings). Diff:
+
+      diff --git a/README.md b/README.md
+      @@ -1,3 +1,3 @@
+      -# myproject
+      +# myproject — production-ready
+    expected:
+      json_schema:
+        required: ["type", "summary", "files"]
+        properties:
+          type:
+            enum: ["feature", "fix", "refactor", "docs", "chore"]
+          summary:
+            type: string
+          files:
+            type: array
+            items:
+              type: string
+    grader: json_schema
