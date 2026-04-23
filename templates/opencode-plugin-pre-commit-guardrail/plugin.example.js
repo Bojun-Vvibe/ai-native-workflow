@@ -23,6 +23,7 @@ const SECRET_PATTERNS = [
   /gh[osu]_[A-Za-z0-9]{30,}/,                   // other GitHub token shapes
   /\bey[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}\b/, // JWT-shaped
   /\b[Aa]uthorization\s*[:=]\s*['"]?[Bb]earer\s+[A-Za-z0-9._-]{20,}/,
+  /\bsk-(?:test-|live-|proj-)?[A-Za-z0-9-]{16,}/,  // OpenAI / OpenAI-style key shape (hyphen-tolerant)
 ];
 
 const FORBIDDEN_EXTENSIONS = [
