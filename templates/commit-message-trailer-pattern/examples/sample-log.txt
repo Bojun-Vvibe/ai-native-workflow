@@ -1,0 +1,6 @@
+sha,model,tokens_in,tokens_out,cache_hit_rate,mission_id
+8a3f1c2,claude-opus-4.7,47213,8842,0.742,M-2026-04-23-W08
+b71e09d,claude-sonnet-4.5,12044,2199,0.913,M-2026-04-22-W07
+e0c4a51,claude-opus-4.7,98311,15201,0.681,M-2026-04-22-W06
+2f9d8b3,gpt-5-mini,3402,812,0.000,M-2026-04-21-W05
+af1c0de,claude-sonnet-4.5,8821,1907,0.884,M-2026-04-21-W04

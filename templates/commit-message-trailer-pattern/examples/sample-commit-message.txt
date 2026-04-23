@@ -1,0 +1,14 @@
+template: oss-pr-prep-checklist
+
+Adds a mission template that produces a contribution package for a
+target OSS repo: distilled guidelines, filtered good-first-issues,
+draft PR description, and a "files most likely to change" list.
+Worked example targets a real public repo and produces a complete
+package end-to-end.
+
+Co-Authored-By: agent-implementer <agent@example.invalid>
+Mission-Id: M-2026-04-23-W08
+Model: claude-opus-4.7
+Tokens-In: 47213
+Tokens-Out: 8842
+Cache-Hit-Rate: 0.742

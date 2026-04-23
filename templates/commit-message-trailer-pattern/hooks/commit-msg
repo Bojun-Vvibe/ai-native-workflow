@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# commit-msg hook: validates that every trailer key in the message
+# is in the canonical allow-list. Rejects unknown keys.
+#
+# Install:
+#   ln -s ../../templates/commit-message-trailer-pattern/hooks/commit-msg .git/hooks/commit-msg
+#   chmod +x .git/hooks/commit-msg
+set -eu
+msg_file="$1"
+
+ALLOWED="Co-Authored-By Mission-Id Model Tokens-In Tokens-Out Cache-Hit-Rate Signed-off-by"
+
+# Extract trailer block (last paragraph that consists of Key: value lines).
+trailers="$(git interpret-trailers --parse <"$msg_file" || true)"
+[ -z "$trailers" ] && exit 0
+
+bad=0
+while IFS= read -r line; do
+  [ -z "$line" ] && continue
+  key="${line%%:*}"
+  case " $ALLOWED " in
+    *" $key "*) ;;
+    *)
+      echo "[commit-msg] unknown trailer key: '$key' (allowed: $ALLOWED)" >&2
+      bad=1
+      ;;
+  esac
+done <<<"$trailers"
+
+exit $bad
