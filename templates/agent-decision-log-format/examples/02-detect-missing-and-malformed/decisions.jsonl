@@ -1,0 +1,6 @@
+{"ts": "2026-04-24T18:00:00Z", "mission_id": "m_42", "step_id": "s_001", "step_index": 0, "prompt_hash": "sha256:00000000000000000000000000000000000000000000000000000000000000aa", "model": "model-b", "tools_called": [], "exit_state": "continue"}
+{"ts": "2026-04-24T18:00:03Z", "mission_id": "m_42", "step_id": "s_002", "step_index": 1, "prompt_hash": "deadbeef", "model": "model-b", "tools_called": [{"name": "web_search", "ok": false, "duration_ms": -3}], "exit_state": "continue"}
+{"ts": "not-a-timestamp", "mission_id": "m_42", "step_id": "s_003", "step_index": 3, "prompt_hash": "sha256:00000000000000000000000000000000000000000000000000000000000000cc", "model": "model-b", "tools_called": [], "exit_state": "wishful"}
+{"ts": "2026-04-24T18:00:11Z", "mission_id": "m_42", "step_id": "s_004", "prompt_hash": "sha256:00000000000000000000000000000000000000000000000000000000000000dd", "model": "model-b", "tools_called": [], "exit_state": "done"}
+{"ts": "2026-04-24T18:00:15Z", "mission_id": "m_42", "step_id": "s_005", "step_index": 5, "prompt_hash": "sha256:00000000000000000000000000000000000000000000000000000000000000ee", "model": "model-b", "tools_called": [], "exit_state": "continue"}
+this is not json at all
