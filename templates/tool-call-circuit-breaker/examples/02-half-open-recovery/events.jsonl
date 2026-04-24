@@ -1,0 +1,16 @@
+{"ts": 200.0, "tool": "db_query", "event": "call_attempt"}
+{"ts": 200.1, "tool": "db_query", "event": "failure"}
+{"ts": 201.0, "tool": "db_query", "event": "call_attempt"}
+{"ts": 201.1, "tool": "db_query", "event": "failure"}
+{"ts": 202.0, "tool": "db_query", "event": "call_attempt"}
+{"ts": 202.1, "tool": "db_query", "event": "failure"}
+{"ts": 203.0, "tool": "db_query", "event": "call_attempt"}
+{"ts": 203.1, "tool": "db_query", "event": "failure"}
+{"ts": 204.0, "tool": "db_query", "event": "call_attempt"}
+{"ts": 204.1, "tool": "db_query", "event": "failure"}
+{"ts": 206.0, "tool": "db_query", "event": "call_attempt"}
+{"ts": 215.0, "tool": "db_query", "event": "call_attempt"}
+{"ts": 215.1, "tool": "db_query", "event": "success"}
+{"ts": 216.0, "tool": "db_query", "event": "call_attempt"}
+{"ts": 216.1, "tool": "db_query", "event": "success"}
+{"ts": 217.0, "tool": "db_query", "event": "call_attempt"}

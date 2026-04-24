@@ -1,0 +1,8 @@
+{
+  "window_size": 10,
+  "min_calls": 5,
+  "failure_rate_threshold": 0.5,
+  "cooldown_seconds": 30.0,
+  "probe_max_concurrent": 1,
+  "probe_required_successes": 2
+}

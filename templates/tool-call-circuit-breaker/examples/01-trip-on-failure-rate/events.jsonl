@@ -1,0 +1,12 @@
+{"ts": 100.0, "tool": "web_search", "event": "call_attempt"}
+{"ts": 100.1, "tool": "web_search", "event": "success"}
+{"ts": 101.0, "tool": "web_search", "event": "call_attempt"}
+{"ts": 101.1, "tool": "web_search", "event": "failure"}
+{"ts": 102.0, "tool": "web_search", "event": "call_attempt"}
+{"ts": 102.1, "tool": "web_search", "event": "failure"}
+{"ts": 103.0, "tool": "web_search", "event": "call_attempt"}
+{"ts": 103.1, "tool": "web_search", "event": "failure"}
+{"ts": 104.0, "tool": "web_search", "event": "call_attempt"}
+{"ts": 104.1, "tool": "web_search", "event": "failure"}
+{"ts": 105.0, "tool": "web_search", "event": "call_attempt"}
+{"ts": 110.0, "tool": "web_search", "event": "call_attempt"}
