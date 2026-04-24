@@ -1,0 +1,19 @@
+{
+  "prompt": "Return a JSON object {\"x\": <int>}. No other fields.",
+  "schema": {
+    "type": "object",
+    "required": ["x"],
+    "additional_properties": false,
+    "properties": {
+      "x": {"type": "integer"}
+    }
+  },
+  "max_attempts": 4,
+  "deadline_ms": 30000,
+  "mock_outputs": [
+    "{\"x\": 1, \"notes\": \"a\"}",
+    "{\"x\": 2, \"notes\": \"b\"}",
+    "{\"x\": 3, \"notes\": \"c\"}",
+    "{\"x\": 4, \"notes\": \"d\"}"
+  ]
+}

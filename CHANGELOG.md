@@ -2,6 +2,16 @@
 
 All notable changes to this repository are documented here. Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
+## 0.4.6 — 2026-04-24 — One new template: structured-output repair loop with stuck-detection.
+
+### Added — new template
+
+- `templates/structured-output-repair-loop/` — bounded repair loop for LLM calls that must return structured output (JSON, YAML, strict prose). Generalises the `repair_once` policy from `agent-output-validation` into a real loop with four exit states (`parsed`, `stuck`, `exhausted`, `expired`), per-attempt validator-error feedback rendered as a structured hint block (`json_pointer`, expected, got, suggested fix), error fingerprinting that collapses array-index noise (`/users/0/email` and `/users/1/email` → same fingerprint) so "same mistake twice" triggers early bail-out, hard caps via `max_attempts` and `deadline_ms`, and an explicit "reproduce all fields except" instruction in the repair-turn template that prevents the bounce-between-fingerprints failure mode. Stdlib-only reference implementation: `bin/repair_loop.py` (reference loop + mini schema validator + mock model), `bin/error_fingerprint.py` (canonical hash with self-test), `bin/render_hint.py` (validator error → repair hint block with per-error-class fix suggestions), `prompts/system.md` (system-prompt fragment that opts the model into the contract), `prompts/repair-turn.md` (user-turn template), `LOOP.md` (state machine, defaults, anti-patterns: no temperature manipulation, no system-prompt mutation, no backoff between attempts), and three worked examples that all run end-to-end against the mock model and produce the documented exit states — `01-typo-field` (camelCase `userId` → snake_case `user_id` fixed in one repair turn, `status=parsed, attempts=2`), `02-stuck-loop` (markdown ```json fences four times in a row → `status=stuck, attempts=2`, saving 2 wasted attempts vs naive loop), `03-degraded-fallback` (extra `notes` field with varying values across 4 attempts → loop bails on attempt 2 via fingerprint collapse, hands off to caller-side stripper for recovery).
+
+### Changed
+
+- `README.md` — catalog grew from 30 to 31 templates; added the `structured-output-repair-loop` entry under Orchestration patterns, after `tool-call-retry-envelope`. Cross-references `agent-output-validation` (the policy upgrade path), `tool-call-retry-envelope` (when structured output is a tool argument the dedup envelope guarantees side effects fire only on the validated final attempt), `failure-mode-catalog` (operational fix for Schema Drift and Premature Convergence), and `token-budget-tracker` (log each attempt with `phase=repair_loop` so reports surface loop-as-budget-hog missions).
+
 ## 0.4.5 — 2026-04-24 — One new template: tool-call retry envelope and host-side dedup contract.
 
 ### Added — new template

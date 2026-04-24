@@ -1,0 +1,19 @@
+{
+  "prompt": "Extract user info from: 'Alice (id 42) email alice@example.com'. Return JSON with fields user_id (integer), name (string), email (string).",
+  "schema": {
+    "type": "object",
+    "required": ["user_id", "name", "email"],
+    "additional_properties": false,
+    "properties": {
+      "user_id": {"type": "integer"},
+      "name": {"type": "string"},
+      "email": {"type": "string", "pattern": "^[^@]+@[^@]+\\.[^@]+$"}
+    }
+  },
+  "max_attempts": 4,
+  "deadline_ms": 30000,
+  "mock_outputs": [
+    "{\"userId\": 42, \"name\": \"Alice\", \"email\": \"alice@example.com\"}",
+    "{\"user_id\": 42, \"name\": \"Alice\", \"email\": \"alice@example.com\"}"
+  ]
+}

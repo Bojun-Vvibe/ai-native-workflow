@@ -1,0 +1,19 @@
+{
+  "prompt": "Return a JSON object {\"status\": \"ok\"}.",
+  "schema": {
+    "type": "object",
+    "required": ["status"],
+    "additional_properties": false,
+    "properties": {
+      "status": {"type": "string", "enum": ["ok", "error"]}
+    }
+  },
+  "max_attempts": 4,
+  "deadline_ms": 30000,
+  "mock_outputs": [
+    "```json\n{\"status\": \"ok\"}\n```",
+    "```json\n{\"status\": \"ok\"}\n```",
+    "```json\n{\"status\": \"ok\"}\n```",
+    "```json\n{\"status\": \"ok\"}\n```"
+  ]
+}

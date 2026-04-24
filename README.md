@@ -4,7 +4,7 @@ Opinionated, reusable templates and patterns for running AI coding agents at sca
 
 ## Catalog
 
-Thirty templates, grouped by what they do.
+Thirty-two templates, grouped by what they do.
 
 ### Mission templates (spec-kitty workflows)
 
@@ -28,6 +28,7 @@ Thirty templates, grouped by what they do.
 | [`templates/agent-output-validation`](templates/agent-output-validation/) | Schema-checking layer for sub-agent JSON outputs. Three policies (`reject`, `repair_once`, `quarantine`) plus a one-shot repair prompt. Includes runnable fixtures (good / malformed / drifted). |
 | [`templates/multi-repo-monorepo-bridge`](templates/multi-repo-monorepo-bridge/) | Treats N independent repos as one logical workspace via a symlinked bridge directory + manifest. `bridge-search` and `bridge-git` helpers; cross-repo rename walkthrough. |
 | [`templates/tool-call-retry-envelope`](templates/tool-call-retry-envelope/) | Wire-format and host-side dedup contract that makes agent tool calls safely retryable without re-executing side effects. Five-field request envelope (idempotency_key, attempt_number, max_attempts, deadline, retry_class_hint), reference SQLite dedup table, key-derivation rule with per-tool `IDENTITY_FIELDS` allowlist, retry classifier, and four worked examples (network blip, host crash, agent loop retry, edited payload) all runnable end-to-end. |
+| [`templates/structured-output-repair-loop`](templates/structured-output-repair-loop/) | Bounded, stuck-detecting repair loop for LLM calls that must return structured output (JSON/YAML/strict prose). Validates each attempt, feeds the validator's specific error back as a structured hint, fingerprints errors to detect "same mistake twice," and exits early with `parsed`/`stuck`/`exhausted`/`expired` so the caller can degrade or hard-fail instead of burning tokens. Stdlib-only reference loop, mini-validator, error-fingerprint hash with array-index normalisation, repair-turn template that forces minimal edits, and three worked examples (typo field repaired in one turn, stuck markdown-fence loop bailing on attempt 2, exhausted loop handed off to caller-side fallback) all runnable against the deterministic mock model. The loop algorithm behind upgrading `agent-output-validation`'s `repair_once` policy to a real loop. |
 
 ### Agent profiles
 
