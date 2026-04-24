@@ -1,0 +1,16 @@
+== part 1: deterministic tool, identity_fields filters volatile metadata ==
+key(args_a) == key(args_b)? True  (volatile request_id ignored)
+key(args_a) == key(args_c)? False  (path differs -> different key)
+call-A lookup: miss; executing tool, writing result
+call-B lookup (volatile-only diff): HIT source_call_id=call-A written_at=1000.00
+           result.bytes=4096
+
+== part 2: non-deterministic tool refuses to cache ==
+UnsafeCacheError raised as expected: refusing to cache non-deterministic tool 'read_clock'; add it to safe_tools to opt in
+
+== part 3: per-entry TTL expires ==
+lookup at t=1004.95 (within ttl): HIT
+lookup at t=1005.55 (past ttl):   miss (evicted)
+
+final state: entries=1 hits=2 misses=2 evictions=1 refused_unsafe_writes=1
+safe_tools: ['read_file', 'sha256_of_file']
