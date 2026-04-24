@@ -1,0 +1,10 @@
+{
+  "captured_at": "2026-04-24T08:19:03+00:00",
+  "case_id": "003-classify-intent",
+  "fixture_sha": "25e1867454dfacfb",
+  "model": "mock-1",
+  "output_canonical": "{\"confidence\":0.95,\"intent\":\"cancel\"}",
+  "output_raw": "{\"intent\": \"cancel\", \"confidence\": 0.95}",
+  "prompt_sha": "v1",
+  "temperature": 0
+}

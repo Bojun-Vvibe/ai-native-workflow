@@ -1,0 +1,9 @@
+{
+  "case_id": "002-summarise-pr",
+  "input": "PR #1234: refactor token bucket",
+  "format": "prose",
+  "mock_outputs": {
+    "v1": "Refactors token-bucket implementation; no behaviour change.",
+    "v2": "This PR refactors the token bucket. There should be no behaviour change at runtime."
+  }
+}

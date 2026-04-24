@@ -1,0 +1,9 @@
+{
+  "case_id": "003-classify-intent",
+  "input": "I want to cancel my subscription.",
+  "format": "json",
+  "mock_outputs": {
+    "v1": "{\"intent\": \"cancel\", \"confidence\": 0.95}",
+    "v2": "{\"intent\": \"cancel\", \"confidence\": 0.95}"
+  }
+}

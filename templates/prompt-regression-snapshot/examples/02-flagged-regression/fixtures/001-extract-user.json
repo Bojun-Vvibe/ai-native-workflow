@@ -1,0 +1,9 @@
+{
+  "case_id": "001-extract-user",
+  "input": "Alice (id 42) email alice@example.com",
+  "format": "json",
+  "mock_outputs": {
+    "v1": "{\"user_id\": 42, \"name\": \"Alice\", \"email\": \"alice@example.com\"}",
+    "v2": "{\"user_id\": 42, \"name\": \"Alice\", \"email\": \"alice@example.com\"}"
+  }
+}

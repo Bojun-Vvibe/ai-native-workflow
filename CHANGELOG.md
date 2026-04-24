@@ -2,6 +2,16 @@
 
 All notable changes to this repository are documented here. Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
+## 0.4.7 — 2026-04-24 — One new template: prompt regression snapshots with three-state verdict and CI gate.
+
+### Added — new template
+
+- `templates/prompt-regression-snapshot/` — snapshot-test pattern for prompts: when you tweak a system prompt, an agent profile, or a tool-call schema, you want to know **exactly which existing eval cases changed output** — and whether each change is intentional or a silent regression. Companion to `llm-eval-harness-minimal` (which scores quality); this one tracks change. Stdlib-only reference: `bin/snapshot.py` (subcommands `run`, `diff`, `approve`, `rebless`) with three-state verdict (`MATCH` / `CHANGED` / `NEW` / `MISSING`), per-format canonicalisation (JSON: sort_keys + tight separators; prose: line-by-line equality after rstrip), `--strict` flag for CI gating, `--write-new` for bootstrap, and a `rebless` subcommand that bumps `prompt_sha` on MATCH cases without touching output (so a prompt change that produces unchanged output doesn't require explicit human approval); `bin/approve.py` thin convenience wrapper; `SNAPSHOTS.md` (snapshot file schema, three-state verdict table, approval workflow, what snapshots do NOT replace — eval rubrics, live monitoring, schema validation); and two worked examples that all run end-to-end against a deterministic mock model — `01-clean-diff` (v1→v2 prompt change that affects only whitespace and key order; 3/3 MATCH; exit 0) and `02-flagged-regression` (v1→v2 prompt change that rewords one summary; 2/3 MATCH + 1 CHANGED with full unified diff in the report; exit 1; reviewer-decision walkthrough showing the approve-vs-rollback branches).
+
+### Changed
+
+- `README.md` — catalog grew from 31 to 32 templates; added the `prompt-regression-snapshot` entry under Prompt engineering, after `prompt-fingerprinting`. Cross-references `llm-eval-harness-minimal` (same fixture format; snapshots catch change, eval harness catches quality), `prompt-fingerprinting` (feeds the `prompt_sha` field), `commit-message-trailer-pattern` (the `Snapshots-Updated:` trailer makes behavioural changes visible in PR review without re-running the harness), and `failure-mode-catalog` (silent-regression failure mode).
+
 ## 0.4.6 — 2026-04-24 — One new template: structured-output repair loop with stuck-detection.
 
 ### Added — new template

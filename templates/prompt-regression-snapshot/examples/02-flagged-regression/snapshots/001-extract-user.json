@@ -1,0 +1,10 @@
+{
+  "captured_at": "2026-04-24T08:19:03+00:00",
+  "case_id": "001-extract-user",
+  "fixture_sha": "b99a337af7ce3443",
+  "model": "mock-1",
+  "output_canonical": "{\"email\":\"alice@example.com\",\"name\":\"Alice\",\"user_id\":42}",
+  "output_raw": "{\"user_id\": 42, \"name\": \"Alice\", \"email\": \"alice@example.com\"}",
+  "prompt_sha": "v1",
+  "temperature": 0
+}

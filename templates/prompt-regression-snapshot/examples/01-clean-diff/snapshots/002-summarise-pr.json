@@ -1,0 +1,10 @@
+{
+  "captured_at": "2026-04-24T08:18:51+00:00",
+  "case_id": "002-summarise-pr",
+  "fixture_sha": "cf508a50a3c0e7af",
+  "model": "mock-1",
+  "output_canonical": "Refactors token-bucket implementation; no behaviour change.",
+  "output_raw": "Refactors token-bucket implementation; no behaviour change.",
+  "prompt_sha": "v1",
+  "temperature": 0
+}
