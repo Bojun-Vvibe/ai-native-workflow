@@ -1,0 +1,6 @@
+{"attribution": "vendor", "class": "rate_limited", "id": "call-1", "matched_rule": "rl_429", "retryability": "retry_after"}
+{"attribution": "caller", "class": "content_filter", "id": "call-2", "matched_rule": "content_filter", "retryability": "do_not_retry"}
+{"attribution": "tool", "class": "tool_timeout", "id": "call-3", "matched_rule": "tool_timeout", "retryability": "retry_after"}
+{"attribution": "host", "class": "host_io", "id": "call-4", "matched_rule": "host_io", "retryability": "do_not_retry"}
+{"attribution": "caller", "class": "auth", "id": "call-5", "matched_rule": "auth_401_403", "retryability": "do_not_retry"}
+{"attribution": "caller", "class": "context_length", "id": "call-6", "matched_rule": "context_length", "retryability": "retry_with_edit"}

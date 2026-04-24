@@ -2,6 +2,16 @@
 
 All notable changes to this repository are documented here. Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
+## 0.4.10 — 2026-04-24 — One new template: canonical (class, retryability, attribution) classifier for raw error records.
+
+### Added — new template
+
+- `templates/structured-error-taxonomy/` — pure first-match-wins classifier that turns a raw error record (`source`, `vendor_code`, `http_status`, `message`) into a canonical `(class, retryability, attribution)` triple drawn from a small stable enum, so retry / circuit-breaker / fallback-ladder / cost layers all branch on the same `class` instead of fragile vendor-message substring matching. `CLASSES` covers the eleven classes downstream templates already implicitly switch on (`rate_limited`, `content_filter`, `auth`, `quota_exhausted`, `context_length`, `tool_timeout`, `tool_unavailable`, `tool_bad_input`, `host_io`, `transient_network`, `unknown`); `RETRYABILITY` and `ATTRIBUTION` are the two orthogonal axes the classifier preserves so the retry envelope and the circuit breaker can stay decoupled. Stdlib-only `bin/classify_error.py` reads JSONL, emits one verdict per line with the `matched_rule` id so triage can audit the rule that fired; CLI exits 0 when every input matched a non-default rule, 1 if any input fell through to the catch-all `unknown` (so a CI gate / triage cron can surface new vendor codes), 2 on malformed input. `SPEC.md` pins the three enums and the rule-evaluation contract (top-to-bottom, first match wins, deterministic catch-all, no side effects). `prompts/add_rule.md` is a strict-JSON prompt for proposing new rules from clusters of `default`-matched records; rule must place above the catch-all and conservative `retryability`. Two worked examples — `01-classify-clean-batch` (six records covering `rate_limited` via 429, `content_filter` via vendor code, `tool_timeout`, `host_io`, `auth`, `context_length`) all match named rules and exit 0, and `02-detect-unknown-class` (3 records, one with an unknown `weird_new_provider_code`) returns three correct verdicts including `class=unknown, matched_rule=default, retryability=do_not_retry` and exits 1 — both with paired `output.jsonl` and `exit.txt`. Composes with `model-fallback-ladder` (`class` is its `skip_on_reason_classes` value), `tool-call-retry-envelope` (`retryability` is its `retry_class_hint`), `tool-call-circuit-breaker` (only `attribution=tool` failures count toward a tool's failure rate), and `agent-cost-budget-envelope` (`quota_exhausted` means degrade, don't climb).
+
+### Changed
+
+- `README.md` — catalog grew from 40 to 41 templates; added the `structured-error-taxonomy` entry under Orchestration patterns, after `model-fallback-ladder`, with cross-references to all four runtime-control templates that consume its enums.
+
 ## 0.4.9 — 2026-04-24 — One new template: per-call/session/day cost cap envelope with degrade tiers and kill switch.
 
 ### Added — new template

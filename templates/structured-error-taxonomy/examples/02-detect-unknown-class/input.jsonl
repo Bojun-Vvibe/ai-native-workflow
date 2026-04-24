@@ -1,0 +1,3 @@
+{"id": "call-A", "source": "model", "http_status": 503, "message": "service unavailable"}
+{"id": "call-B", "source": "model", "vendor_code": "weird_new_provider_code", "message": "the model said no"}
+{"id": "call-C", "source": "tool", "http_status": 422, "message": "field 'foo' is required"}

@@ -1,0 +1,3 @@
+{"attribution": "vendor", "class": "transient_network", "id": "call-A", "matched_rule": "net_5xx", "retryability": "retry_after"}
+{"attribution": "unknown", "class": "unknown", "id": "call-B", "matched_rule": "default", "retryability": "do_not_retry"}
+{"attribution": "caller", "class": "tool_bad_input", "id": "call-C", "matched_rule": "tool_bad_input", "retryability": "retry_with_edit"}

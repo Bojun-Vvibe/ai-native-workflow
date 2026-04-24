@@ -1,0 +1,6 @@
+{"id": "call-1", "source": "model", "http_status": 429, "vendor_code": "rate_limit_exceeded", "message": "Rate limit reached for gpt-class model"}
+{"id": "call-2", "source": "model", "vendor_code": "content_policy_violation", "message": "Your request was filtered."}
+{"id": "call-3", "source": "tool", "http_status": 504, "message": "Upstream timed out after 30s"}
+{"id": "call-4", "source": "host", "message": "IOError: No space left on device"}
+{"id": "call-5", "source": "model", "http_status": 401, "vendor_code": "invalid_api_key"}
+{"id": "call-6", "source": "model", "vendor_code": "context_length_exceeded", "message": "This model's maximum context length is 8192 tokens."}
