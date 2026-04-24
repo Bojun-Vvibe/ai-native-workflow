@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "cost": {
+      "tokens_in": 412,
+      "tokens_out": 88,
+      "user_id": "u_8821"
+    }
+  },
+  "messages": [
+    {"role": "user", "content": "what's our deploy SLA?"},
+    {"role": "assistant", "content": "Two business days for non-emergency."},
+    {"role": "tool", "content": "lookup_sla() → 2bd"}
+  ]
+}

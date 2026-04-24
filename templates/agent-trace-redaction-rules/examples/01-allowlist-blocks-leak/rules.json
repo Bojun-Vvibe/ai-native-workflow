@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "allow": [
+    {"pointer": "/idempotency_key", "value_class": "sha256", "reason": "non-identifying digest"},
+    {"pointer": "/attempt_number", "value_class": "int", "reason": "retry counter"},
+    {"pointer": "/args/to", "value_class": "string_short", "reason": "recipient handle, ≤64 chars"},
+    {"pointer": "/args/body", "value_class": "passthrough", "reason": "model-authored message body"}
+  ]
+}

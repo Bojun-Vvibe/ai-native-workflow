@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "allow": [
+    {"pointer": "/meta/cost/tokens_in", "value_class": "int", "reason": "billing-only counter"},
+    {"pointer": "/meta/cost/tokens_out", "value_class": "int", "reason": "billing-only counter"},
+    {"pointer": "/messages/*/role", "value_class": "string_enum:user|assistant|system", "reason": "fixed role set"},
+    {"pointer": "/messages/*/content", "value_class": "passthrough", "reason": "model-authored content"}
+  ]
+}

@@ -1,0 +1,2 @@
+{"observed_class": "string_short", "pointer": "/meta/cost/user_id", "reason": "not_in_allowlist"}
+{"observed_class": "string_short", "pointer": "/messages/2/role", "reason": "value_class_mismatch", "rule_class": "string_enum:user|assistant|system"}

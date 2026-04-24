@@ -1,0 +1,9 @@
+{
+  "idempotency_key": "a3f1d8b6c2e94075a3f1d8b6c2e94075a3f1d8b6c2e94075a3f1d8b6c2e94075",
+  "attempt_number": 2,
+  "args": {
+    "to": "alice@example.test",
+    "body": "Heads up: deploy at 4pm.",
+    "internal_note": "alice flagged churn-risk last week"
+  }
+}

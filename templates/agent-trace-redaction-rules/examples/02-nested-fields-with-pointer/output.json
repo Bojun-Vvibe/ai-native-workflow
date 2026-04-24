@@ -1,0 +1,23 @@
+{
+  "messages": [
+    {
+      "content": "what's our deploy SLA?",
+      "role": "user"
+    },
+    {
+      "content": "Two business days for non-emergency.",
+      "role": "assistant"
+    },
+    {
+      "content": "lookup_sla() \u2192 2bd",
+      "role": "[REDACTED:value_class_mismatch]"
+    }
+  ],
+  "meta": {
+    "cost": {
+      "tokens_in": 412,
+      "tokens_out": 88,
+      "user_id": "[REDACTED:not_in_allowlist]"
+    }
+  }
+}

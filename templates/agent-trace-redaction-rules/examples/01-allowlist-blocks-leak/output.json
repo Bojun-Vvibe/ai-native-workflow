@@ -1,0 +1,9 @@
+{
+  "args": {
+    "body": "Heads up: deploy at 4pm.",
+    "internal_note": "[REDACTED:not_in_allowlist]",
+    "to": "alice@example.test"
+  },
+  "attempt_number": 2,
+  "idempotency_key": "a3f1d8b6c2e94075a3f1d8b6c2e94075a3f1d8b6c2e94075a3f1d8b6c2e94075"
+}
