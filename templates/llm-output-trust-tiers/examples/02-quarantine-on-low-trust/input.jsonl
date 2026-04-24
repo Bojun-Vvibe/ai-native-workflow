@@ -1,0 +1,5 @@
+{"id": "out-A", "schema_ok": true, "repair_count": 0, "source_class": "fresh", "blast_radius": "irreversible", "canary_passed": true}
+{"id": "out-B", "schema_ok": false, "repair_count": 3, "source_class": "fresh", "blast_radius": "irreversible", "canary_passed": false}
+{"id": "out-C", "schema_ok": true, "repair_count": 4, "source_class": "cached_known", "blast_radius": "reversible", "canary_passed": true}
+{"id": "out-D", "schema_ok": true, "repair_count": 1, "source_class": "cached_known", "blast_radius": "reversible", "canary_passed": false}
+{"id": "out-E", "schema_ok": true, "repair_count": 0, "source_class": "pinned_eval", "blast_radius": "read_only", "canary_passed": true, "override_tier": "human_review"}

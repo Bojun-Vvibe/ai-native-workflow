@@ -2,6 +2,16 @@
 
 All notable changes to this repository are documented here. Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
+## 0.4.11 — 2026-04-24 — One new template: pure trust-tier router for LLM outputs.
+
+### Added — new template
+
+- `templates/llm-output-trust-tiers/` — pure tier router that turns a structured evidence record about an LLM output (`schema_ok`, `repair_count`, `source_class`, `blast_radius`, `canary_passed`, optional `override_tier`) into one of four tiers: `auto_apply`, `shadow_apply`, `human_review`, `quarantine`. Three structural guarantees: (1) hard fails (`schema_ok=false`, `repair_count > 3`) always go to `quarantine` regardless of override; (2) demotions stack so independent risk signals can each push the output one rung toward quarantine without any single signal needing to encode the whole policy; (3) caller `override_tier` can only DEMOTE, never promote, so a buggy caller cannot upgrade `human_review` to `auto_apply` — promotion attempts are recorded as `override_ignored_would_promote:T` and the rule-derived tier wins. Stdlib-only `bin/classify_trust_tier.py` reads JSONL and emits one verdict per line with `reasons` array preserving the demotion chain; CLI exits 0 (all auto/shadow), 1 (at least one human_review, no quarantine), 2 (at least one quarantine or malformed input). `SPEC.md` pins the four tiers, the evidence-record schema, the layered routing rules in order, and the exit-code table. `prompts/explain_verdict.md` is a strict-JSON prompt that turns a verdict into an operator-facing one-paragraph headline + next action with a hard `do_not_apply=true` for `tier in {human_review, quarantine}`. Two worked examples — `01-auto-apply-clean` (3 records: pinned-eval clean, cached-known/reversible clean, fresh+1-repair correctly stops at `shadow_apply` rather than escalating because blast is reversible) exits 0, and `02-quarantine-on-low-trust` (5 records covering every escalation path: schema-invalid → quarantine, `repair_count=4` → quarantine on the over-threshold guard, `fresh + irreversible` → human_review, `cached_known + reversible + repair_count=1 + canary_failed` → human_review, pristine record with `override_tier=human_review` honored as a demotion) exits 2 — both with paired `output.jsonl` and `exit.txt` re-verified end-to-end against the README's pasted stdout. Composes with `agent-output-validation` and `structured-output-repair-loop` (source of `schema_ok` / `repair_count`), `structured-error-taxonomy` (a `tool_bad_input` upstream forces `source_class=fresh` even on cache hit), `agent-trace-redaction-rules` (quarantined outputs are safe to export as redacted forensic data), and `agent-decision-log-format` (one decision-log line per verdict so the audit trail is queryable).
+
+### Changed
+
+- `README.md` — catalog grew from 41 to 42 templates; added the `llm-output-trust-tiers` entry under Orchestration patterns, after `structured-error-taxonomy`.
+
 ## 0.4.10 — 2026-04-24 — One new template: canonical (class, retryability, attribution) classifier for raw error records.
 
 ### Added — new template

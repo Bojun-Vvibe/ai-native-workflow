@@ -1,0 +1,3 @@
+{"id": "out-1", "reasons": ["clean"], "tier": "auto_apply"}
+{"id": "out-2", "reasons": ["clean"], "tier": "auto_apply"}
+{"id": "out-3", "reasons": ["repair_count:1", "source_fresh"], "tier": "shadow_apply"}

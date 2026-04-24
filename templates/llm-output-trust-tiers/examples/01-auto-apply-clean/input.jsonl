@@ -1,0 +1,3 @@
+{"id": "out-1", "schema_ok": true, "repair_count": 0, "source_class": "pinned_eval", "blast_radius": "read_only", "canary_passed": true}
+{"id": "out-2", "schema_ok": true, "repair_count": 0, "source_class": "cached_known", "blast_radius": "reversible", "canary_passed": true}
+{"id": "out-3", "schema_ok": true, "repair_count": 1, "source_class": "fresh", "blast_radius": "reversible", "canary_passed": true}

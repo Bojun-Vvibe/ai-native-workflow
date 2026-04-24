@@ -1,0 +1,5 @@
+{"id": "out-A", "reasons": ["source_fresh", "blast_irreversible"], "tier": "human_review"}
+{"id": "out-B", "reasons": ["schema_invalid"], "tier": "quarantine"}
+{"id": "out-C", "reasons": ["repair_count_over_threshold:4"], "tier": "quarantine"}
+{"id": "out-D", "reasons": ["repair_count:1", "canary_failed"], "tier": "human_review"}
+{"id": "out-E", "reasons": ["override_demoted_to:human_review"], "tier": "human_review"}
