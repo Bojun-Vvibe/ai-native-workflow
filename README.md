@@ -4,7 +4,7 @@ Opinionated, reusable templates and patterns for running AI coding agents at sca
 
 ## Catalog
 
-Forty-four templates, grouped by what they do.
+Fifty templates, grouped by what they do.
 
 ### Mission templates (spec-kitty workflows)
 
