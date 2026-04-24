@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/tool-permission-grant.json",
+  "title": "ToolPermissionGrant",
+  "description": "A single declarative authorization grant. A grants file is a JSON array of these.",
+  "type": "object",
+  "required": ["grant_id", "agent_id", "tool", "scopes", "max_calls", "expires_at"],
+  "additionalProperties": false,
+  "properties": {
+    "grant_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]{2,63}$",
+      "description": "Stable identifier; reused across replay. Revoking and re-granting MUST use a new id."
+    },
+    "agent_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Opaque agent identity (e.g. mission-id, profile name)."
+    },
+    "tool": {
+      "type": "string",
+      "pattern": "^[a-z0-9_.-]+$",
+      "description": "Tool name as the host knows it. No wildcards; one grant per tool."
+    },
+    "scopes": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true,
+      "description": "Scopes granted (e.g. read, write, network, fs.tmp)."
+    },
+    "max_calls": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Hard upper bound on allowed invocations under this grant."
+    },
+    "expires_at": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Unix seconds; 0 means never."
+    },
+    "arg_allow": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 1
+      },
+      "description": "Optional per-arg allowlist; request must supply each listed field with one of the listed values."
+    },
+    "revoked": {
+      "type": "boolean",
+      "default": false,
+      "description": "Sticky bit. Once true, every decision is deny(reason=revoked)."
+    }
+  }
+}
