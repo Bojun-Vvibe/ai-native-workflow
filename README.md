@@ -4,7 +4,7 @@ Opinionated, reusable templates and patterns for running AI coding agents at sca
 
 ## Catalog
 
-Forty templates, grouped by what they do.
+Forty-three templates, grouped by what they do.
 
 ### Mission templates (spec-kitty workflows)
 
@@ -52,6 +52,7 @@ Forty templates, grouped by what they do.
 | [`templates/cache-aware-prompt`](templates/cache-aware-prompt/) | Per-request, SDK-tactical companion to the discipline template. Provider-specific snippets (Anthropic, OpenAI, Gemini) for marking cache breakpoints, plus a measurement script that proves the hit rate. |
 | [`templates/prompt-fingerprinting`](templates/prompt-fingerprinting/) | Deterministic fingerprint of every prompt package (system + tools + decoding + convo prefix). Diff two fingerprints to see what drifted; emits both `cache_hash` and `semantic_hash` to distinguish silent cache breaks from intentional changes. |
 | [`templates/prompt-regression-snapshot`](templates/prompt-regression-snapshot/) | Snapshot-test pattern for prompts: when you tweak a system prompt, an agent profile, or a tool-call schema, you want to know exactly which existing eval cases changed output. Stdlib-only runner that diffs canonicalised model outputs against per-case snapshot files, three-state verdict (`MATCH` / `CHANGED` / `NEW` / `MISSING`), CI gate via `--strict`, single-command approval workflow, and a `rebless` subcommand for bumping `prompt_sha` on cases that didn't change output. Two worked examples — clean diff (3/3 MATCH after a v1→v2 prompt change that affected only whitespace and key order) and flagged regression (1 of 3 cases CHANGED, exit 1, full unified diff in the report) — runnable end-to-end against the deterministic mock model. The "did anything observable change?" companion to `llm-eval-harness-minimal`'s "is the new output good?". |
+| [`templates/prompt-version-pinning-manifest`](templates/prompt-version-pinning-manifest/) | Lockfile for the `(system_prompt, user_template, model, temperature, top_p, max_tokens, tool_signature)` tuple your agent depends on. SHA-256 fingerprint over a canonical JSON encoding (sorted keys, no whitespace, UTF-8). Closed allow-list of pinned fields — unknown fields raise `ValueError` at canonicalization time so drift can't sneak in by smuggling a new key past the hash. Drift detector returns a typed `DriftReport` with `drifted`, `pinned_fingerprint`, `live_fingerprint`, `changed_fields`, `missing_in_live`, `unknown_in_live` so a CI gate has a single boolean and a human reading the failure can immediately see what changed. `pinned_at` is caller-injected so manifests are byte-identical across runs. Two worked examples — pin-and-verify round-trip (no drift; `drifted=False`) and a drift-detected case (`temperature` bumped 0.0→0.7 + system prompt reworded; `changed_fields=['system_prompt', 'temperature']`, exit 2 suitable for CI). The deployment-time pin companion to `prompt-fingerprinting`'s per-call hash and `prompt-regression-snapshot`'s output-diffing. |
 
 ### Tooling
 
