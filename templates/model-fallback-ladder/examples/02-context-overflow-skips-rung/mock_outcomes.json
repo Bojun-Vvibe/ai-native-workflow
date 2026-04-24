@@ -1,0 +1,5 @@
+{
+  "primary":   {"status": "error", "reason_class": "content_filter", "detail": "policy=p4 segment=intro"},
+  "secondary": {"status": "ok",    "output": {"text": "should-not-be-reached"}},
+  "tertiary":  {"status": "ok",    "output": {"text": "should-not-be-reached"}}
+}

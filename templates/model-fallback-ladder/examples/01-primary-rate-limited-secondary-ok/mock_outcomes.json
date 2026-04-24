@@ -1,0 +1,5 @@
+{
+  "primary":   {"status": "error", "reason_class": "rate_limited", "detail": "retry-after=37s"},
+  "secondary": {"status": "ok",    "output": {"text": "answer-from-secondary"}},
+  "tertiary":  {"status": "error", "reason_class": "5xx", "detail": "should-not-be-reached"}
+}

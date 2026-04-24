@@ -1,0 +1,6 @@
+[
+  {"id": "primary",   "model": "vendor-a-large",  "max_input_tokens": 200000},
+  {"id": "secondary", "model": "vendor-a-medium", "max_input_tokens": 128000,
+   "skip_on_reason_classes": ["content_filter"]},
+  {"id": "tertiary",  "model": "vendor-c-small",  "max_input_tokens": 32000}
+]

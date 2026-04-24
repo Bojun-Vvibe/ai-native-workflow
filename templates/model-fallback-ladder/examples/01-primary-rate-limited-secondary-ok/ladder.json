@@ -1,0 +1,5 @@
+[
+  {"id": "primary",   "model": "vendor-a-large",  "max_input_tokens": 200000},
+  {"id": "secondary", "model": "vendor-b-large",  "max_input_tokens": 128000},
+  {"id": "tertiary",  "model": "vendor-c-medium", "max_input_tokens": 32000}
+]
