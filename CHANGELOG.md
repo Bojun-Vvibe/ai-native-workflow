@@ -2,6 +2,16 @@
 
 All notable changes to this repository are documented here. Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
+## 0.4.3 — 2026-04-24 — One new template: AI-CLI substrate selection decision rule.
+
+### Added — new template
+
+- `templates/agent-cli-substrate-selection/` — decision template for picking which AI-CLI substrate (pre-agency LLM CLI such as `llm`/`aichat` vs agent CLI such as `claude`/`codex`/`opencode`) fits a given task, *before* you start. Operationalizes the pre-agency-vs-agent taxonomy as a five-clause decision rule (file discovery → iterative refinement → one-shot transform → batch shape → default to pre-agency) with explicit tiebreakers for the two clause-collision cases. Ships with a `RUBRIC.md` (one diagnostic question per clause), a strict-JSON `prompts/classify.md` that takes a task description plus an installed-CLI inventory and emits a structured class+CLI+evidence recommendation, a `bin/classify.sh` wrapper that pipes a task through the prompt against any agent CLI (dry-run safe with no `AGENT_CMD` set), and three worked examples — one per non-default clause that fires (Clause 3 PR-summary one-shot, Clause 2 fix-failing-tests agent loop, Clause 4 200-email batch extraction). Companion to the morning's `ai-native-notes` synthesis post on pre-agency-vs-agent as a taxonomic split, and to the `ai-cli-zoo` 20-entry CLI inventory it draws on.
+
+### Changed
+
+- `README.md` — catalog grew from 27 to 28 templates; added the `agent-cli-substrate-selection` entry under Methodology, adjacent to `reverse-engineer-cli`.
+
 ## 0.4.2 — 2026-04-24 — One new template: structural four-question PR-review checklist.
 
 ### Added — new template
