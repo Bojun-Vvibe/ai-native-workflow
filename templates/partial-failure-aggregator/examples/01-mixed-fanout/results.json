@@ -1,0 +1,7 @@
+[
+  {"id": "search-repo-a", "status": "ok"},
+  {"id": "search-repo-b", "status": "ok"},
+  {"id": "search-repo-c", "status": "timeout", "error_class": "deadline_exceeded"},
+  {"id": "search-repo-d", "status": "ok"},
+  {"id": "search-repo-e", "status": "error", "error_class": "rate_limited"}
+]

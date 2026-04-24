@@ -1,0 +1,5 @@
+[
+  {"id": "region-us-east", "status": "error", "error_class": "5xx"},
+  {"id": "region-us-west", "status": "timeout", "error_class": "deadline_exceeded"},
+  {"id": "region-eu-west", "status": "skipped", "error_class": "preflight_denied"}
+]
