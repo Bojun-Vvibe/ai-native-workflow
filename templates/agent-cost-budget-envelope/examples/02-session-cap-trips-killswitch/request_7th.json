@@ -1,0 +1,7 @@
+{
+  "session_id": "s_demo_02",
+  "tier": "default",
+  "projected_input_tokens": 30000,
+  "projected_output_tokens": 1000,
+  "timestamp": "2026-04-24T16:36:00Z"
+}

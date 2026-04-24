@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "tiers": {
+    "default": {"input_per_1k": 0.003, "output_per_1k": 0.015},
+    "cheap": {"input_per_1k": 0.0005, "output_per_1k": 0.0015}
+  },
+  "caps": {
+    "per_call": {"usd": 0.50, "on_trip": "degrade", "degrade_to": "cheap"},
+    "per_session": {"usd": 2.00, "on_trip": "kill"},
+    "per_day": {"usd": 25.00, "on_trip": "kill"}
+  },
+  "kill_switch_usd_remaining": null
+}

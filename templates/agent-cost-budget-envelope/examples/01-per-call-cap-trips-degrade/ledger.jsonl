@@ -1,0 +1,1 @@
+{"input_tokens": 100000, "output_tokens": 4000, "reason": "per_call_cap_exceeded", "session_id": "s_demo_01", "tier": "cheap", "ts": "2026-04-24T17:00:00Z", "usd": 0.056}

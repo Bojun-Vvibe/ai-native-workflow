@@ -1,0 +1,5 @@
+{"input_tokens": 50000, "output_tokens": 2000, "reason": "ok", "session_id": "s_demo_02", "tier": "default", "ts": "2026-04-24T16:00:00Z", "usd": 0.18}
+{"input_tokens": 60000, "output_tokens": 3000, "reason": "ok", "session_id": "s_demo_02", "tier": "default", "ts": "2026-04-24T16:05:00Z", "usd": 0.225}
+{"input_tokens": 80000, "output_tokens": 5000, "reason": "ok", "session_id": "s_demo_02", "tier": "default", "ts": "2026-04-24T16:10:00Z", "usd": 0.315}
+{"input_tokens": 200000, "output_tokens": 10000, "reason": "ok", "session_id": "s_demo_02", "tier": "default", "ts": "2026-04-24T16:20:00Z", "usd": 0.75}
+{"input_tokens": 100000, "output_tokens": 10000, "reason": "ok", "session_id": "s_demo_02", "tier": "default", "ts": "2026-04-24T16:30:00Z", "usd": 0.45}
