@@ -2,6 +2,16 @@
 
 All notable changes to this repository are documented here. Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
+## 0.4.4 — 2026-04-24 — One new template: alert-noise budget calibration and OR-merge projection.
+
+### Added — new template
+
+- `templates/alert-noise-budget/` — methodology + stdlib-only Python reference for the missing third leg of the `metric-baseline-rolling-window` (math) + `anomaly-alert-cron` (scheduling) pair: how to set per-detector thresholds against a target alert rate (not a target z-score), how to project the OR-merged alert rate of N detectors sharing one channel before adding a new detector to it, and how to apply a two-strikes back-off rule to detectors that blow budget two consecutive windows running. Ships with `BUDGET.md` (the methodology — calibration windows, empirical-quantile thresholds, OR-merge inflation, two-strikes back-off, anti-patterns), `bin/calibrate.py` (translate metric history + budget → recommended threshold), `bin/merge-budget.py` (project naive-sum vs actual OR-merged rate + pairwise correlations of fire-day indicators), `bin/back-off.py` (walk a fire log week-by-week applying the two-strikes rule), `prompts/tune.md` (strict-JSON tuner that emits keep/retune/mute decisions), and three worked examples — single detector with weekly budget = 1 (28-day synthetic stationary metric), OR-merge of two correlated detectors (cache-hit ratio + token volume; r = +0.63; merged 4/28 vs naive sum 6/28), and frozen-baseline detector encountering a regime shift (mean drifts up, variance triples, two-strikes triggers mute + recalibrate). Companion to `pew-insights` 0.4.4 dashboard's OR-merge alerting model (`token-high OR ratio-high/low`).
+
+### Changed
+
+- `README.md` — catalog grew from 28 to 29 templates; added the `alert-noise-budget` entry under Methodology, between `metric-baseline-rolling-window` and `failure-mode-catalog`. Cross-references both adjacent entries plus `anomaly-alert-cron` (scheduling layer).
+
 ## 0.4.3 — 2026-04-24 — One new template: AI-CLI substrate selection decision rule.
 
 ### Added — new template

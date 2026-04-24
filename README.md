@@ -4,7 +4,7 @@ Opinionated, reusable templates and patterns for running AI coding agents at sca
 
 ## Catalog
 
-Twenty-eight templates, grouped by what they do.
+Twenty-nine templates, grouped by what they do.
 
 ### Mission templates (spec-kitty workflows)
 
@@ -62,6 +62,7 @@ Twenty-eight templates, grouped by what they do.
 | [`templates/reverse-engineer-cli`](templates/reverse-engineer-cli/) | Five-pass methodology for producing a behavior spec of an undocumented CLI without source access. Includes per-command probe checklist, spec template, an excerpt from the real `pew-insights` spec, and a 90-minute methodology trace. |
 | [`templates/agent-cli-substrate-selection`](templates/agent-cli-substrate-selection/) | Decision template for picking which AI-CLI substrate (pre-agency LLM CLI vs agent CLI) fits a given task. Five-clause decision rule, classifier prompt, dry-run-safe wrapper script, and three worked examples (one-shot pre-agency, agent loop, batch pre-agency). |
 | [`templates/metric-baseline-rolling-window`](templates/metric-baseline-rolling-window/) | Methodology + stdlib-only Python reference for "is today's number weird?" against a rolling baseline. Three scorers (z-score, MAD, EWMA) plus a zero-aware variant for count metrics. 21-test unittest suite, decision rubric, seasonal-baseline extension, three worked examples showing where each scorer wins. |
+| [`templates/alert-noise-budget`](templates/alert-noise-budget/) | Methodology + stdlib-only Python reference for translating "I want N alerts/week" into actual detector thresholds, projecting OR-merged alert rates across multiple detectors on one channel, and applying a two-strikes back-off rule when a detector blows budget. Includes `calibrate.py`, `merge-budget.py`, `back-off.py`, a strict-JSON tuner prompt, and three worked examples (single detector, OR-merge with positive correlation, regime-shift back-off). The missing third leg of `metric-baseline-rolling-window` + `anomaly-alert-cron`. |
 | [`templates/failure-mode-catalog`](templates/failure-mode-catalog/) | Taxonomized catalog of 12 common LLM-agent failure modes (Context Rot, Premature Convergence, Schema Drift, …) with severity, observable symptoms, mitigations linked to other templates, and a triage walkthrough. |
 
 ## How to use a template
