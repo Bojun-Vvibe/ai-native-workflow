@@ -1,0 +1,65 @@
+{
+  "scope": {"tenant": "t_acme", "session": "sess_4f1a8c"},
+  "requests": [
+    {
+      "now_ms": 1745557180000,
+      "side_effect_succeeds": true,
+      "transport_succeeds": false,
+      "simulated_result": {
+        "id": "ch_3OkLqwHP2A0ZxR1z",
+        "amount": 1999,
+        "currency": "usd",
+        "status": "succeeded"
+      },
+      "envelope_request": {
+        "tool_name": "stripe.charges.create",
+        "arguments": {
+          "amount": 1999,
+          "currency": "usd",
+          "customer": "cus_abc123",
+          "metadata": {"order_id": "ord_4421"},
+          "description": "Order #4421 — early-bird discount applied"
+        },
+        "envelope": {
+          "idempotency_key": "tcre_v1_3dd2acea614195b9419717b5afe03b69908747d81943be5b806fdefbf051bfa1",
+          "attempt_number": 1,
+          "max_attempts": 4,
+          "deadline": 1745557240000,
+          "retry_class_hint": "first_attempt",
+          "agent_session_id": "sess_4f1a8c",
+          "tool_call_id": "call_2x9q4r"
+        }
+      }
+    },
+    {
+      "now_ms": 1745557182500,
+      "side_effect_succeeds": true,
+      "transport_succeeds": true,
+      "simulated_result": {
+        "id": "ch_DUPLICATE_SHOULD_NOT_APPEAR",
+        "amount": 1999,
+        "currency": "usd",
+        "status": "succeeded"
+      },
+      "envelope_request": {
+        "tool_name": "stripe.charges.create",
+        "arguments": {
+          "amount": 1999,
+          "currency": "usd",
+          "customer": "cus_abc123",
+          "metadata": {"order_id": "ord_4421"},
+          "description": "Order #4421 — early-bird discount applied"
+        },
+        "envelope": {
+          "idempotency_key": "tcre_v1_3dd2acea614195b9419717b5afe03b69908747d81943be5b806fdefbf051bfa1",
+          "attempt_number": 2,
+          "max_attempts": 4,
+          "deadline": 1745557240000,
+          "retry_class_hint": "transport_blip",
+          "agent_session_id": "sess_4f1a8c",
+          "tool_call_id": "call_2x9q4r_retry1"
+        }
+      }
+    }
+  ]
+}

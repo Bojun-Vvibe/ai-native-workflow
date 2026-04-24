@@ -1,0 +1,61 @@
+{
+  "scope": {"tenant": "t_acme", "session": "sess_4f1a8c"},
+  "requests": [
+    {
+      "now_ms": 1745563000000,
+      "side_effect_succeeds": true,
+      "transport_succeeds": true,
+      "simulated_result": {
+        "message_id": "msg_001",
+        "to": "alice@example.com",
+        "queued_at": 1745563000000
+      },
+      "envelope_request": {
+        "tool_name": "email.send",
+        "arguments": {
+          "to": "alice@example.com",
+          "subject_hash": "s_2bd1e4",
+          "body_sha256": "b_8e3f1a",
+          "subject": "Your order has shipped",
+          "body": "Hi Alice, your order #4421 shipped today."
+        },
+        "envelope": {
+          "idempotency_key": "tcre_v1_4aa4484c2eaba7cce4f28b670d5066df2adfec7e132cc1e22bc5b71051c5fca7",
+          "attempt_number": 1,
+          "max_attempts": 4,
+          "deadline": 1745563120000,
+          "retry_class_hint": "first_attempt",
+          "agent_session_id": "sess_4f1a8c"
+        }
+      }
+    },
+    {
+      "now_ms": 1745563008000,
+      "side_effect_succeeds": true,
+      "transport_succeeds": true,
+      "simulated_result": {
+        "message_id": "msg_DUPLICATE_MUST_NOT_APPEAR",
+        "to": "alice@example.com",
+        "queued_at": 1745563008000
+      },
+      "envelope_request": {
+        "tool_name": "email.send",
+        "arguments": {
+          "to": "alice@example.com",
+          "subject_hash": "s_2bd1e4",
+          "body_sha256": "b_8e3f1a",
+          "subject": "Your order has shipped",
+          "body": "Hi Alice, your order #4421 shipped today."
+        },
+        "envelope": {
+          "idempotency_key": "tcre_v1_4aa4484c2eaba7cce4f28b670d5066df2adfec7e132cc1e22bc5b71051c5fca7",
+          "attempt_number": 2,
+          "max_attempts": 4,
+          "deadline": 1745563120000,
+          "retry_class_hint": "agent_loop_retry",
+          "agent_session_id": "sess_4f1a8c"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "scope": {"tenant": "t_acme", "session": "sess_4f1a8c"},
+  "requests": [
+    {
+      "now_ms": 1745560000000,
+      "side_effect_succeeds": true,
+      "transport_succeeds": false,
+      "simulated_result": {
+        "row_id": 88421,
+        "rows_affected": 1
+      },
+      "envelope_request": {
+        "tool_name": "db.execute",
+        "arguments": {
+          "statement_template": "INSERT INTO orders(user_id, sku, qty) VALUES (?, ?, ?)",
+          "param_hash": "p_a8f3d1c0",
+          "params": [4421, "SKU-WIDGET-7", 3]
+        },
+        "envelope": {
+          "idempotency_key": "tcre_v1_d9734a12e878c61ceb32549669b13243d3852d455d1d7a836856870322683caa",
+          "attempt_number": 1,
+          "max_attempts": 4,
+          "deadline": 1745560120000,
+          "retry_class_hint": "first_attempt",
+          "agent_session_id": "sess_4f1a8c"
+        }
+      }
+    },
+    {
+      "now_ms": 1745560042000,
+      "side_effect_succeeds": true,
+      "transport_succeeds": true,
+      "simulated_result": {
+        "row_id": 99999,
+        "rows_affected": 1,
+        "note": "this should NOT appear; replay should mask it"
+      },
+      "envelope_request": {
+        "tool_name": "db.execute",
+        "arguments": {
+          "statement_template": "INSERT INTO orders(user_id, sku, qty) VALUES (?, ?, ?)",
+          "param_hash": "p_a8f3d1c0",
+          "params": [4421, "SKU-WIDGET-7", 3]
+        },
+        "envelope": {
+          "idempotency_key": "tcre_v1_d9734a12e878c61ceb32549669b13243d3852d455d1d7a836856870322683caa",
+          "attempt_number": 2,
+          "max_attempts": 4,
+          "deadline": 1745560120000,
+          "retry_class_hint": "transport_blip",
+          "agent_session_id": "sess_4f1a8c"
+        }
+      }
+    }
+  ]
+}

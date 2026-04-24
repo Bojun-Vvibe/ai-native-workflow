@@ -4,7 +4,7 @@ Opinionated, reusable templates and patterns for running AI coding agents at sca
 
 ## Catalog
 
-Twenty-nine templates, grouped by what they do.
+Thirty templates, grouped by what they do.
 
 ### Mission templates (spec-kitty workflows)
 
@@ -27,6 +27,7 @@ Twenty-nine templates, grouped by what they do.
 | [`templates/agent-handoff-protocol`](templates/agent-handoff-protocol/) | Typed worker → orchestrator state contract: `done`/`partial`/`unrecoverable` envelope + canonical orchestrator routing table. Includes JSON Schema, three example handoffs, and an end-to-end orchestrator trace. |
 | [`templates/agent-output-validation`](templates/agent-output-validation/) | Schema-checking layer for sub-agent JSON outputs. Three policies (`reject`, `repair_once`, `quarantine`) plus a one-shot repair prompt. Includes runnable fixtures (good / malformed / drifted). |
 | [`templates/multi-repo-monorepo-bridge`](templates/multi-repo-monorepo-bridge/) | Treats N independent repos as one logical workspace via a symlinked bridge directory + manifest. `bridge-search` and `bridge-git` helpers; cross-repo rename walkthrough. |
+| [`templates/tool-call-retry-envelope`](templates/tool-call-retry-envelope/) | Wire-format and host-side dedup contract that makes agent tool calls safely retryable without re-executing side effects. Five-field request envelope (idempotency_key, attempt_number, max_attempts, deadline, retry_class_hint), reference SQLite dedup table, key-derivation rule with per-tool `IDENTITY_FIELDS` allowlist, retry classifier, and four worked examples (network blip, host crash, agent loop retry, edited payload) all runnable end-to-end. |
 
 ### Agent profiles
 

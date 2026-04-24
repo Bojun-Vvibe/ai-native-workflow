@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://Bojun-Vvibe/ai-native-workflow/tool-call-retry-envelope/envelope.schema.json",
+  "title": "Tool-Call Retry Envelope (request)",
+  "type": "object",
+  "required": ["tool_name", "arguments", "envelope"],
+  "additionalProperties": false,
+  "properties": {
+    "tool_name": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[a-z][a-z0-9_]*(\\.[a-z][a-z0-9_]*)*$",
+      "description": "Fully-qualified, version-stable tool identifier."
+    },
+    "arguments": {
+      "type": "object",
+      "description": "Tool-specific argument bag."
+    },
+    "envelope": {
+      "type": "object",
+      "required": [
+        "idempotency_key",
+        "attempt_number",
+        "max_attempts",
+        "deadline",
+        "retry_class_hint"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "idempotency_key": {
+          "type": "string",
+          "pattern": "^tcre_v1_[0-9a-f]{64}$",
+          "description": "Host-derived 256-bit semantic hash, hex-encoded with version prefix."
+        },
+        "attempt_number": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_attempts": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 16
+        },
+        "deadline": {
+          "type": "integer",
+          "description": "Absolute Unix timestamp in milliseconds. Host MUST NOT execute past this."
+        },
+        "retry_class_hint": {
+          "enum": [
+            "first_attempt",
+            "transport_blip",
+            "agent_loop_retry",
+            "payload_edited"
+          ]
+        },
+        "agent_session_id": {
+          "type": "string"
+        },
+        "tool_call_id": {
+          "type": "string"
+        },
+        "correlation_id": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

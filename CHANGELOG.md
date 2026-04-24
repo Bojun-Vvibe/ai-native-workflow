@@ -2,6 +2,16 @@
 
 All notable changes to this repository are documented here. Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
+## 0.4.5 — 2026-04-24 — One new template: tool-call retry envelope and host-side dedup contract.
+
+### Added — new template
+
+- `templates/tool-call-retry-envelope/` — wire-format and host-side dedup contract that makes agent tool calls safely retryable without re-executing side effects, and without each tool-host having to reverse-engineer "is this a retry?" from headers or timing. Operationalizes the morning post on host-derived semantic-hash idempotency keys as a concrete five-field envelope (`idempotency_key`, `attempt_number`, `max_attempts`, `deadline`, `retry_class_hint`) plus a five-state response envelope (`executed_now` / `replayed_from_cache` / `expired` / `rejected_max_attempts` / `rejected_key_collision`). Ships with `ENVELOPE.md` (the wire spec — required/optional/forbidden fields, key-derivation rule, version prefix discipline, backwards-compat with envelope-unaware tools), JSON Schemas for both request and response envelopes, a reference SQLite dedup-table SQL with the same-transaction guarantee that prevents the "row committed but dedup missed" failure mode, three stdlib-only Python tools (`bin/derive-key.py` with per-tool `IDENTITY_FIELDS` allowlist for `email.send`/`stripe.charges.create`/`git.push`/`db.execute`/`slack.send`; `bin/classify-retry.py` with deterministic decision tables for HTTP statuses, transport exceptions, and dedup-status responses; `bin/dedup-replay.py` deterministic simulator), a strict-JSON `prompts/retry-decision.md`, and four worked examples that all run end-to-end against the simulator and produce the documented outcomes — `01-network-blip` (SSE drop after side effect → attempt 2 replays cached charge ID, dedup table size 1), `02-host-crash-mid-call` (SIGKILL between DB commit and HTTP reply → post-restart retry replays cached row ID, table size 1), `03-agent-loop-retry` (model gives up waiting and recalls with same args → same key, replays original message ID, table size 1), `04-edited-payload-retry` (agent edits `to` from Alice to Bob → different `IDENTITY_FIELDS` → different key → both sends execute, table size 2 with both keys verified by sha256 of canonical JSON). Companion to the morning's `ai-native-notes` post on idempotency-key derivation; the operational counterpart to its derivation-strategy argument.
+
+### Changed
+
+- `README.md` — catalog grew from 29 to 30 templates; added the `tool-call-retry-envelope` entry under Orchestration patterns, after `multi-repo-monorepo-bridge`. Cross-references `agent-handoff-protocol` (the `done` envelope can carry `dedup_status`), `agent-output-validation` (validate envelope responses against `response.schema.json`), and `failure-mode-catalog` (the prevented modes — Phantom Effect and Edited-Payload Silent Dedup).
+
 ## 0.4.4 — 2026-04-24 — One new template: alert-noise budget calibration and OR-merge projection.
 
 ### Added — new template

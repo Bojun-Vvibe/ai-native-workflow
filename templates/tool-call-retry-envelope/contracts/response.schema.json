@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://Bojun-Vvibe/ai-native-workflow/tool-call-retry-envelope/response.schema.json",
+  "title": "Tool-Call Retry Envelope (response)",
+  "type": "object",
+  "required": ["envelope"],
+  "additionalProperties": false,
+  "properties": {
+    "result": {
+      "description": "Tool-specific result. Present iff dedup_status is executed_now or replayed_from_cache."
+    },
+    "error": {
+      "type": "object",
+      "description": "Present iff dedup_status indicates failure."
+    },
+    "envelope": {
+      "type": "object",
+      "required": ["dedup_status", "idempotency_key"],
+      "additionalProperties": false,
+      "properties": {
+        "dedup_status": {
+          "enum": [
+            "executed_now",
+            "replayed_from_cache",
+            "expired",
+            "rejected_max_attempts",
+            "rejected_key_collision"
+          ]
+        },
+        "original_attempt_number": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Required when dedup_status is replayed_from_cache."
+        },
+        "executed_at": {
+          "type": "integer",
+          "description": "Server timestamp (ms) of original execution."
+        },
+        "idempotency_key": {
+          "type": "string",
+          "pattern": "^tcre_v1_[0-9a-f]{64}$"
+        },
+        "correlation_id": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
