@@ -4,7 +4,7 @@ Opinionated, reusable templates and patterns for running AI coding agents at sca
 
 ## Catalog
 
-Forty-three templates, grouped by what they do.
+Forty-four templates, grouped by what they do.
 
 ### Mission templates (spec-kitty workflows)
 
@@ -61,6 +61,7 @@ Forty-three templates, grouped by what they do.
 | [`templates/opencode-plugin-pre-commit-guardrail`](templates/opencode-plugin-pre-commit-guardrail/) | Opencode plugin pattern that injects a pre-commit guardrail before any agent-suggested git commit — blocks secrets, oversized diffs, forbidden file extensions. Ships with a runnable end-to-end test. |
 | [`templates/guardrail-pre-push`](templates/guardrail-pre-push/) | Repo-local `pre-push` git hook that blocks pushes containing secrets, internal-string blacklist matches, oversized blobs, or attack-payload references. Includes a 7-case test harness. |
 | [`templates/llm-eval-harness-minimal`](templates/llm-eval-harness-minimal/) | ~150-line Python eval harness: YAML manifest of test cases, a runner, a markdown report. The first eval harness in a project, before you graduate to a heavier framework. |
+| [`templates/evaluation-confidence-bands`](templates/evaluation-confidence-bands/) | Bootstrap confidence bands over per-item LLM eval scores plus a `compare(a, b) -> a_wins | b_wins | refuse` decision rule. Stops you from chasing 0.02-point "wins" that are pure sampling noise. Stdlib-only percentile bootstrap with injected `random.Random` (no global RNG) so two runs with the same seed are byte-identical. Closed `[0,1]` score validation, configurable `iters` (min 100) and `alpha`. `overlap_margin` lets you trade strictness for speed: `0.0` requires strict CI separation, `0.02` tolerates 2 score-points of overlap. Two worked examples — n=50 each with means 0.80 vs 0.82 correctly returns `refuse` (CIs overlap by 0.20 score-points), and n=200 each with 0.70 vs 0.92 returns `b_wins` with the 95% CIs `[0.6350, 0.7600]` and `[0.8800, 0.9550]` strictly separated. The "should I trust this ranking?" companion to `llm-eval-harness-minimal`'s "what's the score?". |
 | [`templates/token-budget-tracker`](templates/token-budget-tracker/) | Stdlib-only Python module + JSONL log + CLI report for tracking agent token usage by model, phase, tool, and cache bucket. Cost computed at report time from a pinnable `prices.json` so old logs re-cost when prices change. |
 | [`templates/token-budget-launchd`](templates/token-budget-launchd/) | macOS `LaunchAgent` plist + wrapper script that runs your daily token-budget report at a fixed time, writes markdown to `~/Reports/`, and rotates files older than 90 days. |
 | [`templates/anomaly-alert-cron`](templates/anomaly-alert-cron/) | Daily anomaly + budget check on a `LaunchAgent`, with per-day deduplication, a tiny audit log, and pluggable notifiers (macOS banner, webhook). Composes with `pew anomalies` / `pew budget --check`. |
