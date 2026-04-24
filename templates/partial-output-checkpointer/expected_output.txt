@@ -1,0 +1,23 @@
+== part 1: stream 1200 bytes, every_bytes=400, every_seconds=10 ==
+  append chunk-00 (240 B): buffered=240 committed=   0 flushed_now=0
+  append chunk-01 (240 B): buffered=  0 committed= 480 flushed_now=1
+  append chunk-02 (240 B): buffered=240 committed= 480 flushed_now=0
+  append chunk-03 (240 B): buffered=  0 committed= 960 flushed_now=1
+  append chunk-04 (240 B): buffered=240 committed= 960 flushed_now=0
+finalize: bytes_committed=1200 checkpoints=3 final_sha256=18f7ce2728c9a11c...
+sink length matches: True
+final_sha256 matches direct hash of sink: True
+
+== part 2: simulate crash by truncating last log line, then recover ==
+intact_records=2 torn_trailing_record=True
+resume bytes_committed=960 running_sha256=466d963ed114c2f8...
+verify on disk: sha256(sink[:960]) == last_running_sha256? True
+
+== part 3: clean recover from full intact log ==
+intact_records=3 torn_trailing_record=False bytes_committed=1200
+
+== part 4: corrupt non-trailing record is rejected loudly ==
+CheckpointError raised as expected: torn record at line 1 (not trailing)
+
+== part 5: append-after-finalize is rejected ==
+CheckpointError raised as expected: append after finalize
