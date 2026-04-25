@@ -2,6 +2,17 @@
 
 All notable changes to this repository are documented here. Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
+## 0.4.13 — 2026-04-26 — Two new templates: trace-structure detector and streaming-chunk boundary validator.
+
+### Added — new templates
+
+- `templates/agent-trace-span-orphan-detector/` — pure stdlib detector for structural anomalies in an agent execution trace expressed as a list of spans. Catches `orphan` (parent_span_id refers to a span_id not in the batch), `multiple_roots` scoped per-trace_id (a batch may legitimately span more than one trace; the rule is one root per trace_id, not one per batch), `cycle` (parent chain hits same span twice; bounded walk + redundant safety net), and `cross_trace` (parent lives in a different trace_id). Plus a soft `dangling_open` warning for spans missing `finished_at`. Duplicate `span_id` raises `TraceValidationError` eagerly. Findings sorted `(kind, span_id)` for byte-identical re-runs. Pure function over an in-memory list — no I/O. Worked example: 5 synthetic traces (healthy + one per finding class) prove the per-trace_id root scoping (case with `trace_id="T-OTHER"` for the second `parent=None` span is correctly *not* flagged), the cycle detection on both members of a `tool1↔tool2` loop, and the dangling-open warning fires only for spans that are not the latest activity.
+- `templates/llm-streaming-chunk-boundary-validator/` — pure stdlib post-hoc validator for *recorded* streamed chunk sequences. Catches `utf8_split` (chunk tail bisects a multi-byte UTF-8 sequence), `inside_string` (boundary lands inside a JSON string literal in `mode="json"`), `escape_split` (boundary lands immediately after a `\` escape), and a soft `codepoint_grapheme` warning (ZWJ straddles a boundary inside a family-emoji sequence). Mode-gated rules — `mode="text"` runs only bytes-only checks; `mode="json"` adds the streaming state-machine checks with state surviving across boundaries. Multiple findings per boundary are by design. Findings sorted `(boundary_index, kind)`. Worked example: 6 recorded streams cover all four classes plus clean baselines for both modes, including a `"line-1\` boundary that correctly surfaces *both* `escape_split` and `inside_string` at the same cut point.
+
+### Changed
+
+- `README.md` — catalog grew from 122 to 124 templates; added `agent-trace-span-orphan-detector` under Orchestration patterns (above `multi-agent-implement-review-loop`) and `llm-streaming-chunk-boundary-validator` under Tooling (above `opencode-plugin-pre-commit-guardrail`).
+
 ## 0.4.12 — 2026-04-25 — Two new templates: pure delay planner for retries, and in-flight request coalescer.
 
 ### Added — new templates
