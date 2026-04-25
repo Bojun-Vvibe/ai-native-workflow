@@ -1,0 +1,12 @@
+{
+  "manifest": {
+    "vars": [
+      {"name": "user_name", "type": "string"},
+      {"name": "task_summary", "type": "string"},
+      {"name": "deadline_iso", "type": "string"},
+      {"name": "deprecated_priority", "type": "string"},
+      {"name": "user_name", "type": "string"}
+    ]
+  },
+  "body": "Hello {{user_name}}.\n\nYour current task: {{task_summary}}.\nDeadline: {{deadline_iso}}.\n\nReviewer: {{reviewer_handle}}.\nProject root: {{project_root}}.\n"
+}

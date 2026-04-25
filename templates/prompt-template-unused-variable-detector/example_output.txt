@@ -1,0 +1,25 @@
+{
+  "findings": [
+    {
+      "detail": "declared in manifest.vars but no matching {{placeholder}} in body",
+      "kind": "declared_unused",
+      "name": "deprecated_priority"
+    },
+    {
+      "detail": "declared 2 times in manifest.vars",
+      "kind": "duplicate_declaration",
+      "name": "user_name"
+    },
+    {
+      "detail": "{{project_root}} appears in body at byte offset 133 but not declared in manifest.vars",
+      "kind": "used_undeclared",
+      "name": "project_root"
+    },
+    {
+      "detail": "{{reviewer_handle}} appears in body at byte offset 98 but not declared in manifest.vars",
+      "kind": "used_undeclared",
+      "name": "reviewer_handle"
+    }
+  ],
+  "ok": false
+}
