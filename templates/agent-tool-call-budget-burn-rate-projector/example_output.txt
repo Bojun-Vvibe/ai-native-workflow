@@ -1,0 +1,84 @@
+[
+  {
+    "name": "01_no_signal_empty",
+    "result": {
+      "burn_rate_per_sec": 0.0,
+      "eta_seconds": null,
+      "fraction_spent": 0.0,
+      "remaining": 5.0,
+      "spent_total": 0.0,
+      "verdict": "no_signal",
+      "window_seconds": 60.0,
+      "window_spend": 0.0
+    }
+  },
+  {
+    "name": "02_ok_steady_low_burn",
+    "result": {
+      "burn_rate_per_sec": 0.001667,
+      "eta_seconds": 2880.0,
+      "fraction_spent": 0.04,
+      "remaining": 4.8,
+      "spent_total": 0.2,
+      "verdict": "ok",
+      "window_seconds": 60.0,
+      "window_spend": 0.1
+    }
+  },
+  {
+    "name": "03_warn_over_soft_fence",
+    "result": {
+      "burn_rate_per_sec": 0.016667,
+      "eta_seconds": 108.0,
+      "fraction_spent": 0.64,
+      "remaining": 1.8,
+      "spent_total": 3.2,
+      "verdict": "warn",
+      "window_seconds": 60.0,
+      "window_spend": 1.0
+    }
+  },
+  {
+    "name": "04_throttle_short_runway",
+    "result": {
+      "burn_rate_per_sec": 0.046667,
+      "eta_seconds": 12.857,
+      "fraction_spent": 0.88,
+      "remaining": 0.6,
+      "spent_total": 4.4,
+      "verdict": "throttle",
+      "window_seconds": 30.0,
+      "window_spend": 1.4
+    }
+  },
+  {
+    "name": "05_exhausted_over_budget",
+    "result": {
+      "burn_rate_per_sec": 0.013333,
+      "eta_seconds": 0.0,
+      "fraction_spent": 1.06,
+      "remaining": -0.3,
+      "spent_total": 5.3,
+      "verdict": "exhausted",
+      "window_seconds": 60.0,
+      "window_spend": 0.8
+    }
+  },
+  {
+    "name": "06_zero_burn_idle_phase",
+    "result": {
+      "burn_rate_per_sec": 0.0,
+      "eta_seconds": null,
+      "fraction_spent": 0.4,
+      "remaining": 3.0,
+      "spent_total": 2.0,
+      "verdict": "ok",
+      "window_seconds": 60.0,
+      "window_spend": 0.0
+    }
+  },
+  {
+    "error": "spend timestamps must be non-decreasing; spend[1].ts=940.0 < previous 950.0",
+    "name": "07_invalid_out_of_order"
+  }
+]

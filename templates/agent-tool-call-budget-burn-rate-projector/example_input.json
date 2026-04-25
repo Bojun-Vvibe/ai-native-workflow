@@ -1,0 +1,73 @@
+{
+  "cases": [
+    {
+      "name": "01_no_signal_empty",
+      "budget": 5.0,
+      "now": 1000.0,
+      "spend": []
+    },
+    {
+      "name": "02_ok_steady_low_burn",
+      "budget": 5.0,
+      "now": 1000.0,
+      "window_seconds": 60.0,
+      "spend": [
+        [940.0, 0.10],
+        [960.0, 0.05],
+        [990.0, 0.05]
+      ]
+    },
+    {
+      "name": "03_warn_over_soft_fence",
+      "budget": 5.0,
+      "now": 1000.0,
+      "window_seconds": 60.0,
+      "spend": [
+        [100.0, 2.20],
+        [950.0, 0.50],
+        [970.0, 0.40],
+        [990.0, 0.10]
+      ]
+    },
+    {
+      "name": "04_throttle_short_runway",
+      "budget": 5.0,
+      "now": 1000.0,
+      "window_seconds": 30.0,
+      "spend": [
+        [200.0, 3.00],
+        [975.0, 0.80],
+        [985.0, 0.40],
+        [995.0, 0.20]
+      ]
+    },
+    {
+      "name": "05_exhausted_over_budget",
+      "budget": 5.0,
+      "now": 1000.0,
+      "spend": [
+        [500.0, 4.50],
+        [990.0, 0.80]
+      ]
+    },
+    {
+      "name": "06_zero_burn_idle_phase",
+      "budget": 5.0,
+      "now": 1000.0,
+      "window_seconds": 60.0,
+      "spend": [
+        [100.0, 1.50],
+        [200.0, 0.50]
+      ]
+    },
+    {
+      "name": "07_invalid_out_of_order",
+      "budget": 5.0,
+      "now": 1000.0,
+      "spend": [
+        [950.0, 0.10],
+        [940.0, 0.10]
+      ]
+    }
+  ]
+}
