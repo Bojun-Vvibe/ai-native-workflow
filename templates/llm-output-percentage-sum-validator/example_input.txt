@@ -1,0 +1,18 @@
+User asked: "Break down our Q1 cloud spend by service."
+
+Here is the breakdown of Q1 cloud spend by service:
+
+- Compute: 45%
+- Storage: 22%
+- Networking: 18%
+- Databases: 12%
+- Other: 5%
+
+Regional split (single line): Americas: 50%, EMEA: 35%, APAC: 20%
+
+| Service | Share |
+| ------- | ----- |
+| Web     | 40%   |
+| Worker  | 30%   |
+| Batch   | 20%   |
+| Misc    | 5%    |
