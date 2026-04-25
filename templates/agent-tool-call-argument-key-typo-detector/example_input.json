@@ -1,0 +1,23 @@
+{
+  "tools": {
+    "read_file": {
+      "expected": ["path", "offset", "limit"],
+      "required": ["path"]
+    },
+    "search": {
+      "expected": ["query", "max_results", "include"],
+      "required": ["query"]
+    },
+    "edit": {
+      "expected": ["path", "old_string", "new_string"],
+      "required": ["path", "old_string", "new_string"]
+    }
+  },
+  "calls": [
+    {"tool": "read_file", "args": {"file_path": "/tmp/x", "limit": 50}},
+    {"tool": "search", "args": {"queryString": "needle", "max_result": 10}},
+    {"tool": "edit", "args": {"path": "/a", "old_string": "x", "new_string": "y"}},
+    {"tool": "read_file", "args": {"pat": "/tmp/y"}},
+    {"tool": "unknown_tool", "args": {"foo": 1}}
+  ]
+}
