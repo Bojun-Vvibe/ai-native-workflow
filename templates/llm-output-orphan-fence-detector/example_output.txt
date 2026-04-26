@@ -1,0 +1,14 @@
+{
+  "count": 1,
+  "findings": [
+    {
+      "fence_char": "`",
+      "fence_len": 3,
+      "kind": "unclosed_fence",
+      "line_number": 10,
+      "raw_line": "```python"
+    }
+  ],
+  "ok": false
+}
+exit 1

@@ -1,0 +1,15 @@
+Here is some prose before any code.
+
+```python
+def hello():
+    print("hi")
+```
+
+Below: an unclosed fence — the model ran out of tokens mid-block.
+
+```python
+def never_closes():
+    return 42
+
+More prose intended to be outside the block, but a renderer will eat
+all of it as code because the opener at line 10 was never closed.
