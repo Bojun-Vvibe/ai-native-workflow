@@ -1,0 +1,5 @@
+Install the package with pip install foo-bar.
+The latency was 12 ms across 5 trials.
+Use the flag --max-tokens 1024 when calling the API.
+A regular line with only ASCII spaces here.
+Mixed　ideographic space at end.
