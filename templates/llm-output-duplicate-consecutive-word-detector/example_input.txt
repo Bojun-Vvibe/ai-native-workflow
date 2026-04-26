@@ -1,0 +1,19 @@
+When the the model emits a sampling glitch, you often see it at a
+token boundary. For example: the system is is unstable under load,
+and a retry loop will will compound the issue.
+
+The fix is is simple: dedupe at the post-processor layer. But this
+detector merely flags; it does not repair, because repair belongs in
+a separate concern.
+
+Inside a fenced block, repeated words like `the the` should NOT be
+flagged because code is code:
+
+```python
+the = the  # variable shadowing demo, intentional
+```
+
+But here in prose, "the the" should be caught. Same for and and
+again. A trailing duplicate at end of line should also fire fire.
+
+Allowed: "what it is is unclear" — that one is grammatical.
