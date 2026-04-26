@@ -1,0 +1,22 @@
+Summary: this paragraph mixes colon styles on purpose.
+Name: Alice (one-space — fine).
+Role:engineer (zero-space — leak from JSON).
+Status:  active (two-space — leak from aligned table).
+Notes:	indented with a tab (also two-or-more bucket).
+
+URL example: see https://example.com/path — colon in scheme is ignored.
+Time example: meeting at 12:30 today — digit-flanked colon ignored.
+Trailing colon at end of line:
+- bullet item one
+- bullet item two
+
+Inline `key:value` inside a code span is ignored, even though the
+surrounding prose has a colon: like this one (one-space).
+
+```yaml
+key:value
+key:    value
+key: value
+```
+
+After the fence: the doc continues; this colon is one-space.
