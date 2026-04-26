@@ -1,0 +1,56 @@
+{
+  "count": 7,
+  "findings": [
+    {
+      "heading_text": "Why this matters.",
+      "kind": "trailing_period",
+      "level": 2,
+      "line_number": 3,
+      "terminator": "."
+    },
+    {
+      "heading_text": "Conclusion!",
+      "kind": "trailing_exclamation",
+      "level": 3,
+      "line_number": 7,
+      "terminator": "!"
+    },
+    {
+      "heading_text": "Open questions?",
+      "kind": "trailing_question_mark",
+      "level": 4,
+      "line_number": 11,
+      "terminator": "?"
+    },
+    {
+      "heading_text": "Closing hashes too.",
+      "kind": "trailing_period",
+      "level": 5,
+      "line_number": 15,
+      "terminator": "."
+    },
+    {
+      "heading_text": "v1.0.",
+      "kind": "trailing_period",
+      "level": 6,
+      "line_number": 19,
+      "terminator": "."
+    },
+    {
+      "heading_text": "Trailing period after fence.",
+      "kind": "trailing_period",
+      "level": 2,
+      "line_number": 46,
+      "terminator": "."
+    },
+    {
+      "heading_text": "Heading with trailing spaces.",
+      "kind": "trailing_period",
+      "level": 2,
+      "line_number": 54,
+      "terminator": "."
+    }
+  ],
+  "ok": false
+}
+EXIT=1
