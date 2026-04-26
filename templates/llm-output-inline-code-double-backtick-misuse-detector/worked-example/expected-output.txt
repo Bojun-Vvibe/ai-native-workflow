@@ -1,0 +1,63 @@
+{
+  "count": 7,
+  "findings": [
+    {
+      "column": 9,
+      "content": "foo",
+      "content_length": 3,
+      "kind": "unnecessary_double_backtick",
+      "line_number": 3,
+      "suggested_fix": "`foo`"
+    },
+    {
+      "column": 5,
+      "content": "--verbose",
+      "content_length": 9,
+      "kind": "unnecessary_double_backtick",
+      "line_number": 5,
+      "suggested_fix": "`--verbose`"
+    },
+    {
+      "column": 10,
+      "content": "has multiple words",
+      "content_length": 18,
+      "kind": "unnecessary_double_backtick",
+      "line_number": 9,
+      "suggested_fix": "`has multiple words`"
+    },
+    {
+      "column": 16,
+      "content": "alpha",
+      "content_length": 5,
+      "kind": "unnecessary_double_backtick",
+      "line_number": 17,
+      "suggested_fix": "`alpha`"
+    },
+    {
+      "column": 43,
+      "content": "gamma",
+      "content_length": 5,
+      "kind": "unnecessary_double_backtick",
+      "line_number": 17,
+      "suggested_fix": "`gamma`"
+    },
+    {
+      "column": 50,
+      "content": "  spaced  ",
+      "content_length": 10,
+      "kind": "unnecessary_double_backtick",
+      "line_number": 19,
+      "suggested_fix": "`spaced`"
+    },
+    {
+      "column": 14,
+      "content": "after-fence-flagged",
+      "content_length": 19,
+      "kind": "unnecessary_double_backtick",
+      "line_number": 26,
+      "suggested_fix": "`after-fence-flagged`"
+    }
+  ],
+  "ok": false
+}
+EXIT=1
