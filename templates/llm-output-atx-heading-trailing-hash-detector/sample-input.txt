@@ -1,0 +1,21 @@
+# Intro
+
+This document explains the feature.
+
+## Overview ##
+
+Some text.
+
+### Details
+
+More text.
+
+## Conclusion ###
+
+Wrap up.
+
+```markdown
+## Not a real heading ##
+```
+
+#### Appendix ####
