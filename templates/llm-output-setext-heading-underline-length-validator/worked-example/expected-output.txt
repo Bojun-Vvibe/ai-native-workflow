@@ -1,0 +1,67 @@
+{
+  "count": 6,
+  "findings": [
+    {
+      "heading_line_number": 1,
+      "heading_text": "My Heading",
+      "heading_text_length": 10,
+      "kind": "setext_underline_too_short_h1",
+      "line_number": 2,
+      "shortfall": 7,
+      "underline_char": "=",
+      "underline_length": 3
+    },
+    {
+      "heading_line_number": 4,
+      "heading_text": "Subheading",
+      "heading_text_length": 10,
+      "kind": "setext_underline_too_short_h2",
+      "line_number": 5,
+      "shortfall": 8,
+      "underline_char": "-",
+      "underline_length": 2
+    },
+    {
+      "heading_line_number": 19,
+      "heading_text": "Tight short H1",
+      "heading_text_length": 14,
+      "kind": "setext_underline_too_short_h1",
+      "line_number": 20,
+      "shortfall": 13,
+      "underline_char": "=",
+      "underline_length": 1
+    },
+    {
+      "heading_line_number": 22,
+      "heading_text": "A H2 with one dash",
+      "heading_text_length": 18,
+      "kind": "setext_underline_too_short_h2",
+      "line_number": 23,
+      "shortfall": 17,
+      "underline_char": "-",
+      "underline_length": 1
+    },
+    {
+      "heading_line_number": 46,
+      "heading_text": "Short After Fence Heading",
+      "heading_text_length": 25,
+      "kind": "setext_underline_too_short_h1",
+      "line_number": 47,
+      "shortfall": 16,
+      "underline_char": "=",
+      "underline_length": 9
+    },
+    {
+      "heading_line_number": 49,
+      "heading_text": "Final short one",
+      "heading_text_length": 15,
+      "kind": "setext_underline_too_short_h2",
+      "line_number": 50,
+      "shortfall": 12,
+      "underline_char": "-",
+      "underline_length": 3
+    }
+  ],
+  "ok": false
+}
+EXIT=1
