@@ -1,0 +1,38 @@
+# Pre-flight checklist
+
+A real list:
+
+- first item is fine
+- 
+- third item also fine
+-  
+* 
+* a starred bullet that has content
+
+Ordered list with a gap:
+
+1. step one
+2.
+3. step three
+4. 
+
+Inside a fenced block, empty bullets are OK:
+
+```
+- 
+- foo
+```
+
+Nested empty bullet:
+
+- parent
+  - 
+  - real child
+
+Not a bullet (emphasis):
+
+*emphasised text*
+
+Numeric not a bullet:
+
+1.5x speed
