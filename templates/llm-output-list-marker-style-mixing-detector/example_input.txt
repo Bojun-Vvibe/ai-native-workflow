@@ -1,0 +1,60 @@
+A clean list, all dashes — should NOT be flagged:
+
+- alpha
+- beta
+- gamma
+
+A drifted list — starts with `-`, then drifts to `*`. Should be flagged
+as a single mixed run spanning all four items.
+
+- one
+- two
+* three
+* four
+
+Some prose to break up the runs.
+
+A fully clean star list — should NOT be flagged:
+
+* red
+* green
+* blue
+
+A nested case: top-level uses `-`, nested sublist uses `*`. The
+sublists are at a different indent level, so the top-level run is
+still pure-dash and the nested run is still pure-star — neither
+should be flagged.
+
+- outer-a
+  * inner-a1
+  * inner-a2
+- outer-b
+  * inner-b1
+
+Now a *nested* drifted list — the inner list switches markers:
+
+- outer-x
+  - inner-x1
+  + inner-x2
+
+Some prose to ensure the runs are properly closed.
+
+A `*emphasis*` line and a decimal `1.5` should not be confused for
+bullets:
+
+*emphasis* is just italic prose.
+1.5x speed is a decimal number, not an ordered-list item.
+
+Inside a fenced block, marker mixing must NOT be flagged:
+
+```
+- foo
+* bar
++ baz
+```
+
+Final block: a triple-marker drift `+ -> - -> *`.
+
++ first
+- second
+* third

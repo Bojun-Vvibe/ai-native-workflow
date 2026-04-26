@@ -1,0 +1,48 @@
+{
+  "count": 3,
+  "findings": [
+    {
+      "end_line": 13,
+      "indent": 0,
+      "kind": "mixed_unordered_list_markers",
+      "marker_tally": {
+        "*": 2,
+        "-": 2
+      },
+      "start_line": 10,
+      "switch_lines": [
+        12
+      ]
+    },
+    {
+      "end_line": 38,
+      "indent": 2,
+      "kind": "mixed_unordered_list_markers",
+      "marker_tally": {
+        "+": 1,
+        "-": 1
+      },
+      "start_line": 37,
+      "switch_lines": [
+        38
+      ]
+    },
+    {
+      "end_line": 60,
+      "indent": 0,
+      "kind": "mixed_unordered_list_markers",
+      "marker_tally": {
+        "*": 1,
+        "+": 1,
+        "-": 1
+      },
+      "start_line": 58,
+      "switch_lines": [
+        59,
+        60
+      ]
+    }
+  ],
+  "ok": false
+}
+exit 1
