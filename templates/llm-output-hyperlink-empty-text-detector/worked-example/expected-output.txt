@@ -1,0 +1,49 @@
+{
+  "count": 6,
+  "findings": [
+    {
+      "column": 18,
+      "kind": "empty_text",
+      "line_number": 5,
+      "raw_text": "",
+      "url": "https://example.com/paper-1"
+    },
+    {
+      "column": 10,
+      "kind": "whitespace_only_text",
+      "line_number": 7,
+      "raw_text": "   ",
+      "url": "https://example.com/whitespace"
+    },
+    {
+      "column": 20,
+      "kind": "invisible_only_text",
+      "line_number": 9,
+      "raw_text": " ",
+      "url": "https://example.com/nbsp"
+    },
+    {
+      "column": 5,
+      "kind": "empty_text",
+      "line_number": 32,
+      "raw_text": "",
+      "url": "https://example.com/after-fence"
+    },
+    {
+      "column": 18,
+      "kind": "empty_text",
+      "line_number": 34,
+      "raw_text": "",
+      "url": "https://a.example"
+    },
+    {
+      "column": 44,
+      "kind": "whitespace_only_text",
+      "line_number": 34,
+      "raw_text": " ",
+      "url": "https://b.example"
+    }
+  ],
+  "ok": false
+}
+EXIT=1
