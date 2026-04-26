@@ -1,0 +1,10 @@
+## Type union examples
+
+| Name  | Type      | Notes                       |
+|-------|-----------|-----------------------------|
+| id    | int       | primary key                 |
+| value | int | str | union of int and string     |
+| query | str       | grep -E 'foo|bar' style     |
+| good  | str       | escaped pipe \| works fine  |
+
+End of table.
