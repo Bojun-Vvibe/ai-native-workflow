@@ -1,0 +1,12 @@
+Line A: balanced `code` here — fine.
+Line B: this line opens `foo and never closes the inline span.
+Line C: ``literal `tick` inside`` is balanced (runs 2,1,1,2).
+Line D: stray triple-tick mid-line ``` is odd-count.
+
+```python
+# inside a fenced block — backticks here are CONTENT, not markup.
+x = "`unmatched on purpose"
+```
+
+Line E: after the fence closes, this `inline` is balanced again.
+Line F: but here we have ``unclosed double-tick run.
