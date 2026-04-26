@@ -1,0 +1,11 @@
+# Deployment notes
+
+Run setTimеout before retry.
+Visit https://exaнple.com for docs.
+The function fпп (oops) needs review.
+Use the variable cпunter in the loop.
+Plain ASCII line, nothing weird here.
+Greek leak: clαss = MyClαss()
+Fullwidth: ｆoo = bar
+Pure Russian word привет should be ignored.
+Mixed url path /usеrs/profile
