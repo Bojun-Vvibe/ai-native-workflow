@@ -1,0 +1,32 @@
+Here is some Python:
+
+```python
+def hello():
+    return "hi"
+```
+
+And here is a snippet without a tag:
+
+```
+echo "no tag here"
+```
+
+A tilde fence with a tag:
+
+~~~yaml
+key: value
+~~~
+
+A tilde fence without a tag:
+
+~~~
+plain text
+~~~
+
+Inline `code` should be ignored.
+
+Final tagged block:
+
+```json
+{"ok": true}
+```
