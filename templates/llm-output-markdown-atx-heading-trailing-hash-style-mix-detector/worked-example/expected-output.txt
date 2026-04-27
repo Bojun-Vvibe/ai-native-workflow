@@ -1,0 +1,4 @@
+dominant ATX heading style: open (set by line 1)
+line 7: closed style heading breaks consistency: '## Background ##'
+line 15: closed style heading breaks consistency: '#### Sub-details ####'
+line 23: closed style heading breaks consistency: '##### Wrap-up #####'
