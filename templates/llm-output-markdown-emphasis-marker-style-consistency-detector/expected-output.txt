@@ -1,0 +1,10 @@
+FAIL: bad.md mixes emphasis styles: {'star': 4, 'under': 2}
+  majority: star (4); minority: under (2)
+  line 3 [star]: *strongly*
+  line 5 [under]: _another section_
+  line 7 [star]: *fine again*
+  line 7 [star]: *fine*
+  line 7 [under]: _also fine_
+  line 17 [star]: *italic*
+findings: 6
+exit=1
