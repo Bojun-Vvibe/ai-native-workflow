@@ -1,0 +1,7 @@
+example/bad.md:5:9: strikethrough tilde count mismatch (open=1, close=1); expected (2, 2)
+example/bad.md:7:9: strikethrough tilde count mismatch (open=3, close=3); expected (2, 2)
+example/bad.md:9:13: strikethrough tilde count mismatch (open=2, close=1); expected (2, 2)
+example/bad.md:11:23: strikethrough tilde count mismatch (open=1, close=2); expected (2, 2)
+example/bad.md:13:33: strikethrough tilde count mismatch (open=1, close=1); expected (2, 2)
+
+5 finding(s)
