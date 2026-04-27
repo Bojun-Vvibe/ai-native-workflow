@@ -1,0 +1,5 @@
+line 4: col 30: inline link text has edge whitespace (leading=1, trailing=1): ' click here '
+line 5: col 43: inline link text has edge whitespace (trailing=1): 'docs '
+line 6: col 34: inline link text has edge whitespace (leading=1): ' home'
+line 8: col 33: reference link text has edge whitespace (leading=1): ' ref text'
+line 9: col 32: inline image link text has edge whitespace (leading=1, trailing=1): ' logo '
