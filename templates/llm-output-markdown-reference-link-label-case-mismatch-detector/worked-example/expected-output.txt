@@ -1,0 +1,2 @@
+5:10 reference_case_mismatch_with_definition label=foo forms=Foo,foo
+15:1 multiple_definitions_different_case label=bar forms=Bar,bar
