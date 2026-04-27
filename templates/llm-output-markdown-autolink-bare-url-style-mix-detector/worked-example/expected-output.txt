@@ -1,0 +1,8 @@
+worked-example/bad.md: mixed URL styles — 3 autolink(s) and 3 bare URL(s)
+  worked-example/bad.md:4: autolink <https://example.org/tracker>
+  worked-example/bad.md:8: autolink <https://example.org/specs/retry>
+  worked-example/bad.md:19: autolink <https://example.org/issues>
+  worked-example/bad.md:9: bare https://example.org/docs/budget
+  worked-example/bad.md:10: bare https://example.org/docs/stream
+  worked-example/bad.md:20: bare https://example.org/mirror
+total findings: 6
