@@ -1,0 +1,6 @@
+bad.md:14: adjacent '>>' markers without separating space: '>>no space between markers'
+bad.md:16: missing space between final '>' and content: '> >no space before content'
+bad.md:18: non-single-space (2 chars) between blockquote markers: '>  > extra space between markers'
+bad.md:20: non-single-space (3 chars) between blockquote markers: '>   >  multiple issues here'
+
+4 finding(s)
