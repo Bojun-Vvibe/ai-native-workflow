@@ -1,0 +1,2 @@
+lines 1-9: list group has mixed item separation (2 loose pair(s), 4 tight pair(s)) at indent 0
+lines 13-17: list group has mixed item separation (1 loose pair(s), 2 tight pair(s)) at indent 0
