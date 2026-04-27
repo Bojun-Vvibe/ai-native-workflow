@@ -1,0 +1,8 @@
+worked-example/bad.md: table #2 has inconsistent leading-pipe style
+  worked-example/bad.md:13: leading-pipe row
+  worked-example/bad.md:14: leading-pipe row
+  worked-example/bad.md:15: leading-pipe row
+  worked-example/bad.md:17: leading-pipe row
+  worked-example/bad.md:16: no-leading-pipe row
+  worked-example/bad.md:18: no-leading-pipe row
+total findings: 6
