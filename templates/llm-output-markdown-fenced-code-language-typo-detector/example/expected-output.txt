@@ -1,0 +1,5 @@
+example/bad.md:5:1: probable language-tag typo 'pyhton' — did you mean 'python'?
+example/bad.md:9:1: probable language-tag typo 'javscript' — did you mean 'javascript'?
+example/bad.md:13:1: probable language-tag typo 'tyepscript' — did you mean 'typescript'?
+
+3 finding(s)
