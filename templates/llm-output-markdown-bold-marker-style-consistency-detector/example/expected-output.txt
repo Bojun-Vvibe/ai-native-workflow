@@ -1,0 +1,4 @@
+example/bad.md:8:28: bold-marker style mismatch — found __bold__ '__underscore bold__', document style is **bold**
+example/bad.md:10:17: bold-marker style mismatch — found __bold__ '__another underscore bold__', document style is **bold**
+
+2 finding(s)
