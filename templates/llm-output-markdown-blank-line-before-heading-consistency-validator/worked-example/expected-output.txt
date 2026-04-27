@@ -1,0 +1,3 @@
+line 4: heading not preceded by blank line: '## Background'
+line 7: heading not preceded by blank line: '### Details'
+line 14: heading not preceded by blank line: '#### Wrap-up'
