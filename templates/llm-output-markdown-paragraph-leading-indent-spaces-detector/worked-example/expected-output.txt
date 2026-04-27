@@ -1,0 +1,6 @@
+line 3: paragraph starts with 1 leading space(s): 'This paragraph has one accidental leadin'
+line 5: paragraph starts with 2 leading space(s): 'Another paragraph with two leading space'
+line 6: paragraph starts with 2 leading space(s): 'but the source is misleading.'
+line 8: paragraph starts with 3 leading space(s): 'Three leading spaces here — still a para'
+line 9: paragraph starts with 3 leading space(s): 'not a code block.'
+line 30: paragraph starts with 1 leading space(s): 'Final flagged line with one space.'
