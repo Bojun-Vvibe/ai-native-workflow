@@ -1,0 +1,3 @@
+lines 2-4: 3 consecutive blank lines (collapse to 1)
+lines 10-11: 2 consecutive blank lines (collapse to 1)
+lines 23-26: 4 consecutive blank lines (collapse to 1)
