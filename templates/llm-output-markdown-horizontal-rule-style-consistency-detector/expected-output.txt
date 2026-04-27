@@ -1,0 +1,6 @@
+FAIL: bad.md mixes 3 horizontal-rule styles: dash, star, under
+  line 5 [dash]: ---
+  line 11 [star]: ***
+  line 17 [under]: ___
+findings: 3
+exit=1
