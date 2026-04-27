@@ -1,0 +1,4 @@
+{"kind": "mixed_heading_style", "line": 9, "note": "document mixes ATX and Setext H2 headings; majority style is 'atx'", "rank": 2, "style": "setext", "text": "Setext H2 Sneaks In"}
+{"kind": "setext_h2_below_atx_h2", "line": 9, "note": "Setext H2 appears after an earlier ATX H2 on line 5", "rank": 2, "style": "setext", "text": "Setext H2 Sneaks In"}
+{"kind": "mixed_heading_style", "line": 18, "note": "document mixes ATX and Setext H1 headings; majority style is 'atx'", "rank": 1, "style": "setext", "text": "Trailing Setext H1"}
+{"kind": "setext_h1_below_atx_h1", "line": 18, "note": "Setext H1 appears after an earlier ATX H1 on line 1", "rank": 1, "style": "setext", "text": "Trailing Setext H1"}
