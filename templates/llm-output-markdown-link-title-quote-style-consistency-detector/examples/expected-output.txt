@@ -1,0 +1,3 @@
+{"col": 50, "kind": "mixed_link_title_quote_style", "line": 6, "note": "document mixes link-title quote styles (['double', 'paren', 'single']); majority style is 'double'", "offset": 195, "quote_style": "single", "title": "Reference index"}
+{"col": 40, "kind": "mixed_link_title_quote_style", "line": 7, "note": "document mixes link-title quote styles (['double', 'paren', 'single']); majority style is 'double'", "offset": 253, "quote_style": "paren", "title": "Frequently asked questions"}
+{"col": 61, "kind": "empty_link_title", "line": 11, "note": "link title delimiters are present but empty; drop the title or fill it in", "offset": 407, "quote_style": "double", "title": ""}
