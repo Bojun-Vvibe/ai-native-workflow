@@ -1,0 +1,5 @@
+example/bad.md:3: hard-line-break trailing spaces (2) after: 'This line ends with two trailing spaces.'
+example/bad.md:6: hard-line-break trailing spaces (3) after: 'e is another offender with three spaces.'
+example/bad.md:18: hard-line-break trailing spaces (2) after: 'Final hard-break line.'
+
+3 finding(s)
