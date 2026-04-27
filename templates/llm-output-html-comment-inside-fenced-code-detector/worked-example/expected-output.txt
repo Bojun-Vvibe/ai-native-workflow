@@ -1,0 +1,3 @@
+7:5 html_comment_in_code lang=python <!-- TODO: handle empty -->
+24:3 html_comment_in_code lang=json <!-- not allowed in JSON -->
+32:1 unterminated_comment_in_code lang=sql <!--
