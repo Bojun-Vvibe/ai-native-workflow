@@ -1,0 +1,5 @@
+example/bad.md:9:1: duplicate heading id '{#overview}' — first defined at line 1
+example/bad.md:17:1: duplicate heading id '{#api}' — first defined at line 13
+example/bad.md:31:1: duplicate heading id '{#api}' — first defined at line 13
+
+3 finding(s)
