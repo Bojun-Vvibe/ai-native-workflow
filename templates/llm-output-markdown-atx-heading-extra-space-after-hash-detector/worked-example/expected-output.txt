@@ -1,0 +1,7 @@
+line 1: ATX heading (h1) has 2 spaces after opening hashes (expected 1): 'Overview'
+line 5: ATX heading (h2) has 3 spaces after opening hashes (expected 1): 'Why this matters'
+line 9: ATX heading (h3) has 4 spaces after opening hashes (expected 1): 'Background'
+line 13: closed ATX heading (h2) has 2 spaces before closing '##' (expected 1): 'Closed heading with extra opening space'
+line 17: closed ATX heading (h1) has 3 spaces before closing '#' (expected 1): 'Heading text'
+line 21: closed ATX heading (h2) has 2 spaces after opening hashes (expected 1): 'Both sides bad'
+line 21: closed ATX heading (h2) has 2 spaces before closing '##' (expected 1): 'Both sides bad'
