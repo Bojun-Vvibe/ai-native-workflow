@@ -1,0 +1,4 @@
+bad.md:9: tab-indented list item mixed with space-indented list items
+bad.md:7: list indent 3 spaces inconsistent with base unit 2 spaces
+
+2 finding(s)
