@@ -1,0 +1,7 @@
+line 1: ATX heading (h1) ends with '.': 'Overview.'
+line 6: ATX heading (h2) ends with '!': 'Why this matters!'
+line 10: ATX heading (h3) ends with ':': 'Background:'
+line 18: ATX heading (h5) ends with '?': 'Are we done?'
+line 22: ATX heading (h6) ends with ',': 'Final note,'
+line 26: setext heading (h1) ends with '.': 'Setext heading with period.'
+line 31: setext heading (h2) ends with ';': 'Another setext heading;'
