@@ -1,0 +1,7 @@
+example/bad.md:5:1: non-canonical fence language tag 'py' — use 'python'
+example/bad.md:11:1: non-canonical fence language tag 'sh' — use 'bash'
+example/bad.md:17:1: non-canonical fence language tag 'python3' — use 'python'
+example/bad.md:23:1: non-canonical fence language tag 'yml' — use 'yaml'
+example/bad.md:29:1: non-canonical fence language tag 'js' — use 'javascript'
+
+5 finding(s)
