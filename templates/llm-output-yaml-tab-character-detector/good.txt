@@ -1,0 +1,9 @@
+name: example
+items:
+  - a
+  - b
+nested:
+  ok: yes
+  bad: no-inline-tab
+deep:
+    double-space-indent: 1
