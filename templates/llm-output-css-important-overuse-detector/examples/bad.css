@@ -1,0 +1,17 @@
+/* Demo of overuse: 4 declarations, 3 of them !important. */
+.button {
+  background: #1a73e8 !important;
+  color: white !important;
+  padding: 8px 16px;
+  border-radius: 4px !important;
+}
+
+.alert {
+  border: 1px solid red !important;
+  font-weight: bold !IMPORTANT;
+}
+
+.modal-overlay {
+  position: fixed !important;
+  inset: 0 ! important; /* spaced variant still flagged */
+}

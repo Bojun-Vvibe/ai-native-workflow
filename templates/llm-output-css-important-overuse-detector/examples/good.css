@@ -1,0 +1,17 @@
+/* Same selectors, no !important — relies on specificity and source order. */
+.button {
+  background: #1a73e8;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.alert {
+  border: 1px solid red;
+  font-weight: bold;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+}
