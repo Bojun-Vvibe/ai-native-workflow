@@ -1,0 +1,7 @@
+%!PS-Adobe-3.0
+% good2.ps — sink words appear only inside comments and strings,
+% never as standalone tokens.  The detector should not flag any
+% of these:  exec  cvx  run  token  filenameforall
+(this string mentions exec and cvx but is never executed) pop
+% the line above also literally contains the words exec and cvx
+showpage

@@ -1,0 +1,5 @@
+%!PS-Adobe-3.0
+% bad6.ps — multi-sink chain: `run` an attacker file, then `exec`.
+(/tmp/loader.ps) run
+/Payload (showpage) def
+Payload cvx exec

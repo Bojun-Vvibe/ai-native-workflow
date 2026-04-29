@@ -1,0 +1,8 @@
+%!PS-Adobe-3.0
+% good1.ps — only literal procedures, defined in source, dispatched
+% by name; no string-eval, no `run`, no `cvx`.
+/greet { (hello\n) print } def
+/quit  { (bye\n)   print } def
+greet
+quit
+showpage

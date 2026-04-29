@@ -1,0 +1,12 @@
+%!PS-Adobe-3.0
+% good4.ps — names that merely *contain* sink substrings must NOT
+% be flagged.  These are user-defined procedures with sink-like
+% names but the regex requires no name characters on either side.
+/my-exec  { 1 } def
+/exec-it  { 2 } def
+/runner   { 3 } def
+/cvxhelp  { 4 } def
+/tokenize { 5 } def
+my-exec exec-it runner cvxhelp tokenize
+add add add add =
+showpage
