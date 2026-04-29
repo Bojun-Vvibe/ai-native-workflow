@@ -1,0 +1,5 @@
+/* Static batch / batchload / load with literal arguments are NOT flagged. */
+batch("plot.mac");
+batchload("init.mac");
+load("draw");
+load(diff);

@@ -1,0 +1,3 @@
+/* batch() runs an entire .mac file - dynamic path is RCE. */
+script_path : sconcat("scripts/", run_id, ".mac");
+batch(script_path);

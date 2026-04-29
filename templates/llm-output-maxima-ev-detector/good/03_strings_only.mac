@@ -1,0 +1,3 @@
+/* String bodies that mention sinks - body is masked, no firing. */
+note : "see ev() and eval_string() for dynamic eval";
+print(note);

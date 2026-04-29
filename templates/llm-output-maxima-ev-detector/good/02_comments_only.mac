@@ -1,0 +1,6 @@
+/* Comments mention sinks but are masked.
+   We do NOT use ev() / eval_string() / parse_string() here.
+   Also avoiding batch() / batchload() / load() with dynamic paths.
+*/
+g(y) := y + 1;
+print(g(2));

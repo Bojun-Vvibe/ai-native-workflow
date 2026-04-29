@@ -1,0 +1,4 @@
+/* User-supplied formula evaluated via ev() - classic dynamic-eval. */
+formula : "x^2 + 3*x - 5";
+parsed : parse_string(formula);
+result : ev(parsed, x = 4);

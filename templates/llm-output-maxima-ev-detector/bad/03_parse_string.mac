@@ -1,0 +1,3 @@
+/* parse_string is the parser half of the eval-string pair. */
+src : concat("integrate(", user_expr, ", x);");
+form : parse_string(src);

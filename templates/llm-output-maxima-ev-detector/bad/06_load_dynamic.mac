@@ -1,0 +1,2 @@
+/* load() with a runtime-built path - flagged. */
+load(sconcat("addons/", plugin, ".lisp"));

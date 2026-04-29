@@ -1,0 +1,3 @@
+/* batchload(<expr>) is the quieter sibling of batch(); same RCE shape. */
+init_file : sconcat(home, "/maxinit.mac");
+batchload(init_file);

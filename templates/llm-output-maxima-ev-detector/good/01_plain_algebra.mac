@@ -1,0 +1,4 @@
+/* Plain symbolic algebra - no eval-of-string. */
+f(x) := x^2 + 3*x - 5;
+df : diff(f(x), x);
+print(df);

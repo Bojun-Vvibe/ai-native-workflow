@@ -1,0 +1,3 @@
+/* eval_string evaluates a runtime-built command - RCE if `expr` is dirty. */
+expr : "kill(all)$ system(\"rm -rf /tmp/x\")";
+eval_string(expr);
