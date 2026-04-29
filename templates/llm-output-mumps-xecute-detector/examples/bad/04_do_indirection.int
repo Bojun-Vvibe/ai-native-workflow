@@ -1,0 +1,4 @@
+DOIND ; DO @ROUT calls the routine named by the value of ROUT.
+ S ROUT="HANDLER"
+ D @ROUT
+ Q

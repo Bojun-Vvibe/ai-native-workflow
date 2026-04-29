@@ -1,0 +1,5 @@
+GOIND ; GOTO @LBL jumps to the label named by the value of LBL.
+ S LBL="STEP2"
+ G @LBL
+STEP1 W "one",! Q
+STEP2 W "two",! Q

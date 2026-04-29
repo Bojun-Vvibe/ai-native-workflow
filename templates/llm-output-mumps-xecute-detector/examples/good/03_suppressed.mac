@@ -1,0 +1,5 @@
+SUPP ; Demonstrates the suppression marker for a vetted hard-coded
+ ; trampoline. Reviewer must verify the source is not user-tainted.
+ S TRAMP="W ""ok"",!"
+ X TRAMP ;xecute-ok
+ Q

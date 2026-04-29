@@ -1,0 +1,4 @@
+XECCAT ; XECUTE on a concatenated string is the same hazard with extra steps.
+ R "value: ",VAL
+ XECUTE "S X="_VAL
+ Q
