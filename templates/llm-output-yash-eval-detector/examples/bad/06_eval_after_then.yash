@@ -1,0 +1,5 @@
+#!/usr/bin/env yash
+# bad/06_eval_after_then.yash — eval inside an `if ... then` branch.
+if [ "$#" -gt 0 ]; then
+    eval "$1"
+fi

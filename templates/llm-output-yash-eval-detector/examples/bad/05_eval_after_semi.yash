@@ -1,0 +1,3 @@
+#!/usr/bin/env yash
+# bad/05_eval_after_semi.yash — eval at command position after `;`.
+echo start ; eval $payload

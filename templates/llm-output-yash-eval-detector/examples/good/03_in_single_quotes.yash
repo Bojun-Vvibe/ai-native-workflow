@@ -1,0 +1,5 @@
+#!/usr/bin/env yash
+# good/03_in_single_quotes.yash — single quotes are inert in POSIX.
+# `$x` and backticks here are literal characters, not expansions,
+# so the eval invocation has no dynamic interpolation surface.
+eval 'echo $x and `cmd` and $(other)'

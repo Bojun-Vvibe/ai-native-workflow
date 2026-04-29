@@ -1,0 +1,4 @@
+#!/usr/bin/env yash
+# bad/02_eval_dq.yash — double-quoted string with $var interpolation.
+name="world"
+eval "echo hello $name"

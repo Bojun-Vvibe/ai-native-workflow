@@ -1,0 +1,3 @@
+#!/usr/bin/env yash
+# bad/04_eval_backtick.yash — legacy backtick command substitution.
+eval `cat /tmp/cmds.txt`

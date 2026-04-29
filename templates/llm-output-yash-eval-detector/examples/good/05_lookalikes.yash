@@ -1,0 +1,6 @@
+#!/usr/bin/env yash
+# good/05_lookalikes.yash — words that contain "eval" but are not
+# the eval builtin at command position. Detector must not flag.
+evaluation=$1     # variable name happens to start with eval
+echo "evaluator: $evaluation"
+myeval() { echo "not the builtin"; }

@@ -1,0 +1,3 @@
+#!/usr/bin/env yash
+# bad/03_eval_cmdsub.yash — POSIX $(...) command substitution feeds eval.
+eval "$(cat /tmp/cmds.txt)"

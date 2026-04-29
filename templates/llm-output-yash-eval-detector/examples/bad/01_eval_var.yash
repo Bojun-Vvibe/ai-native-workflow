@@ -1,0 +1,4 @@
+#!/usr/bin/env yash
+# bad/01_eval_var.yash — bare `eval $cmd`. $cmd is attacker data.
+cmd="echo hi"
+eval $cmd

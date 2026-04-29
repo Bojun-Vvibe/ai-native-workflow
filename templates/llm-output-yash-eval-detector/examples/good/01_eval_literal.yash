@@ -1,0 +1,5 @@
+#!/usr/bin/env yash
+# good/01_eval_literal.yash — fully literal: no $, no $(, no backtick.
+# POSIX single quotes are inert; constant string = no surface.
+eval 'echo hello world'
+eval echo static
