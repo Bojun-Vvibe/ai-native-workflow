@@ -1,0 +1,7 @@
+* good2.sno -- sink words appear ONLY inside string literals or in
+* full-line comments; the detector must not flag any of these:
+* the literal words CODE, EVAL, APPLY, LOAD must not trigger.
+        S1 = 'CODE(this is data, not source)'
+        S2 = "EVAL(also data) APPLY(still data) LOAD(libfoo)"
+        OUTPUT = S1 ' / ' S2
+END

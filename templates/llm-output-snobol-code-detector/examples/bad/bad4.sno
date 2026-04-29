@@ -1,0 +1,5 @@
+* bad4.sno -- LOAD pulls an external function from a named library.
+        LIBNAME = 'libuserplugin.so'
+        LOAD('FOO()', LIBNAME)
+        OUTPUT = FOO()
+END

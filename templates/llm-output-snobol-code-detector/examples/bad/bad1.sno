@@ -1,0 +1,5 @@
+* bad1.sno -- compile a user-supplied string as SNOBOL4 source.
+        USERSRC = INPUT
+        OBJ = CODE(USERSRC)             :S<OBJ>
+        OUTPUT = 'compile failed'
+END

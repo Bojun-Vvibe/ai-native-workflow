@@ -1,0 +1,7 @@
+* bad3.spt -- SPITBOL APPLY dispatches a function by string name.
+        FNAME = 'GREET'
+        DEFINE('GREET()')                       :(GREET.END)
+GREET   OUTPUT = 'hi'                           :(RETURN)
+GREET.END
+        APPLY(FNAME)
+END

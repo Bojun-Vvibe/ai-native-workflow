@@ -1,0 +1,8 @@
+* good1.sno -- closed-allowlist dispatcher; no string compile, no eval.
+        VERB = INPUT
+        VERB 'GREET'                            :S(GREET)
+        VERB 'QUIT'                             :S(QUIT)
+        OUTPUT = 'unknown verb'                 :(END)
+GREET   OUTPUT = 'hello'                        :(END)
+QUIT    OUTPUT = 'bye'
+END

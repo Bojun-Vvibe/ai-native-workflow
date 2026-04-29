@@ -1,0 +1,5 @@
+* bad2.sno -- EVAL of an expression string built at run time.
+        EXPR = 'N + 1'
+        N = 41
+        OUTPUT = EVAL(EXPR)
+END

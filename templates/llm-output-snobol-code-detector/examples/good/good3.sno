@@ -1,0 +1,4 @@
+* good3.sno -- audited use suppressed inline.
+        SAFE.SRC = '        OUTPUT = "ok"' CHAR(10) 'END'
+        OBJ = CODE(SAFE.SRC)            * CODE-OK literal source, not user input
+END

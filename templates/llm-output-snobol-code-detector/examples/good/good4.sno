@@ -1,0 +1,18 @@
+* good4.sno -- user-defined names that merely *contain* a sink token
+* must not be flagged.  CODES, EVALUATE, APPLYALL, LOADER are all
+* normal identifiers and the regex requires no name char on either
+* side.
+        DEFINE('CODES(N)')                      :(CODES.END)
+CODES   CODES = N + 1                           :(RETURN)
+CODES.END
+        DEFINE('EVALUATE(X)')                   :(EVALUATE.END)
+EVALUATE EVALUATE = X * 2                       :(RETURN)
+EVALUATE.END
+        DEFINE('APPLYALL(L)')                   :(APPLYALL.END)
+APPLYALL APPLYALL = L                           :(RETURN)
+APPLYALL.END
+        DEFINE('LOADER(P)')                     :(LOADER.END)
+LOADER  LOADER = P                              :(RETURN)
+LOADER.END
+        OUTPUT = CODES(1) ' ' EVALUATE(2) ' ' APPLYALL('a') ' ' LOADER('p')
+END

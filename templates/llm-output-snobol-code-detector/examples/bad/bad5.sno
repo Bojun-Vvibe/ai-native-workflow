@@ -1,0 +1,4 @@
+* bad5.sno -- mixed-case `code(...)` from a CSNOBOL4-style program.
+        SRC = '        OUTPUT = "pwned"' CHAR(10) 'END'
+        OBJ = code(SRC)                 :S<OBJ>
+END

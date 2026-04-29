@@ -1,0 +1,5 @@
+* bad6.sno -- two sinks on consecutive lines: build then branch.
+        OBJ = CODE(USERSRC)
+        EXTRA = EVAL(USEREXPR)
+        :S(OBJ)F(END)
+END
