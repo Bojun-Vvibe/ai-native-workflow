@@ -1,0 +1,3 @@
+#!/usr/bin/dash
+# legacy backtick command substitution — same exec hazard.
+eval `cat /tmp/payload`

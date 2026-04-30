@@ -1,0 +1,4 @@
+#!/usr/bin/dash
+# command substitution feeds eval — classic remote-config footgun.
+url="https://example.invalid/cfg"
+eval "$(curl -s "$url")"

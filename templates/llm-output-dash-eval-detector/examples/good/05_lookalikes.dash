@@ -1,0 +1,6 @@
+#!/usr/bin/dash
+# Identifiers that contain "eval" as a substring must NOT match.
+my_eval_helper() { echo "$1"; }
+my_eval_helper "$cmd"
+evaluation_count=3
+echo "$evaluation_count"

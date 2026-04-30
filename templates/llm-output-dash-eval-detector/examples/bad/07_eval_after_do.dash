@@ -1,0 +1,3 @@
+#!/usr/bin/dash
+# eval after `do` inside a loop body — command position.
+for x in a b c; do eval "handle_$x \"$EXTRA\""; done

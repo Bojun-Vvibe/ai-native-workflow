@@ -1,0 +1,3 @@
+#!/usr/bin/dash
+# brace-expansion parameter form ${var:-default} — still dynamic.
+eval "${USER_CMD:-echo nothing}"

@@ -1,0 +1,4 @@
+#!/usr/bin/dash
+# eval after `;` is still command position; $payload is dynamic.
+payload="touch /tmp/owned"
+true; eval $payload

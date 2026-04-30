@@ -1,0 +1,4 @@
+#!/usr/bin/dash
+# eval after `then` keyword is command position.
+flag="$1"
+if [ -n "$flag" ]; then eval "$flag"; fi

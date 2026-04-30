@@ -1,0 +1,4 @@
+#!/usr/bin/dash
+# String literal that mentions `eval $x` — single-quoted, inert.
+msg='do not run: eval $cmd or eval `cat foo`'
+echo "$msg"

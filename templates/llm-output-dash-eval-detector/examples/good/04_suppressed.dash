@@ -1,0 +1,4 @@
+#!/usr/bin/dash
+# Audited and explicitly suppressed — operator vouched for $cmd.
+cmd='echo audited'
+eval $cmd  # eval-ok: literal cmd, reviewed 2026-04-30
