@@ -1,0 +1,4 @@
+#!/usr/bin/env mksh
+# command substitution feeds eval — classic remote-config footgun.
+url="https://example.invalid/cfg"
+eval "$(fetch -q -o- "$url")"

@@ -1,0 +1,4 @@
+#!/usr/bin/env mksh
+# A `#` comment that talks about eval "$var" should not fire.
+# Note: eval "$bad" would be unsafe — but this is just a comment.
+echo ok

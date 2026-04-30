@@ -1,0 +1,4 @@
+#!/usr/bin/env mksh
+# bare $var argument to eval — attacker-controlled $cmd is executed.
+cmd="rm -rf /"
+eval $cmd

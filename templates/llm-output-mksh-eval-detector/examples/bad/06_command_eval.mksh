@@ -1,0 +1,5 @@
+#!/usr/bin/env mksh
+# `command eval` prefix bypasses any user-defined `eval` function;
+# still exec's the dynamic payload.
+payload='id; uname -a'
+command eval "$payload"

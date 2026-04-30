@@ -1,0 +1,3 @@
+#!/usr/bin/env mksh
+# Pure literal eval — single-quoted POSIX string is inert. SAFE.
+eval 'echo hello'

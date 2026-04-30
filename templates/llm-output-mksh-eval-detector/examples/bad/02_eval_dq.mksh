@@ -1,0 +1,4 @@
+#!/usr/bin/env mksh
+# double quotes interpolate $name; eval re-parses the result.
+name="world"
+eval "echo hello $name"
