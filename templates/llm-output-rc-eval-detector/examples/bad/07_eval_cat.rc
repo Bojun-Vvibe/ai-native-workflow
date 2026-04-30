@@ -1,0 +1,3 @@
+#!/usr/bin/rc
+# 07_eval_cat.rc — classic config-as-code anti-pattern.
+eval `{cat $rcfile}

@@ -1,0 +1,3 @@
+#!/usr/bin/rc
+# 08_dot_argv.rc — sourcing a file by argv name.
+. $home/lib/$1.rc

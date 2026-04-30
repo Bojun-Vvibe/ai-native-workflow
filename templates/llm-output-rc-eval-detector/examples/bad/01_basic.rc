@@ -1,0 +1,4 @@
+#!/usr/bin/rc
+# 01_basic.rc — bare eval on a variable.
+cmd = $1
+eval $cmd

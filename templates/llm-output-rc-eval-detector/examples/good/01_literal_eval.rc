@@ -1,0 +1,5 @@
+#!/usr/bin/rc
+# 01_literal_eval.rc — purely literal eval, no $ or backtick.
+# This is the canonical safe use: define a function or set a flag.
+eval 'fn helper { echo hi }'
+eval 'pipefail = yes'

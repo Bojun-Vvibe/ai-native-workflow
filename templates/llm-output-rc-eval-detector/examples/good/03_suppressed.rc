@@ -1,0 +1,4 @@
+#!/usr/bin/rc
+# 03_suppressed.rc — audited eval; suppression marker honored.
+trusted_init = `{cat /etc/trusted-bootstrap.rc}
+eval $trusted_init  # eval-ok: file is root-owned and chmod 600, audited 2026-04

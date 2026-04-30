@@ -1,0 +1,7 @@
+#!/usr/bin/rc
+# 04_quoted_dollar.rc — single-quoted '$cmd' is a literal string in
+# rc; the $ does not expand. The detector blanks single-quoted
+# bodies and so does NOT flag this.
+echo 'eval $cmd is not what we are doing here'
+greeting = 'hello $world'
+echo $greeting

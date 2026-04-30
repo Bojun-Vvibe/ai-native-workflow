@@ -1,0 +1,3 @@
+#!/usr/bin/rc
+# 02_cmdsubst.rc — eval over command substitution.
+eval `{git config --get alias.$alias}

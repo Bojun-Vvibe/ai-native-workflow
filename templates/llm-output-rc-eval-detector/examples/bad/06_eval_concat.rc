@@ -1,0 +1,3 @@
+#!/usr/bin/rc
+# 06_eval_concat.rc — eval over a string built from a variable.
+eval 'cd' $target '&&' 'mk' $goal

@@ -1,0 +1,4 @@
+#!/usr/bin/rc
+# 02_static_dot.rc — sourcing a fixed library path.
+. /usr/local/plan9/lib/profile.rc
+. ./lib/helpers.rc

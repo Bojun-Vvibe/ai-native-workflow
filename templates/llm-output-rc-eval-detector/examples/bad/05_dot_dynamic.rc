@@ -1,0 +1,4 @@
+#!/usr/bin/rc
+# 05_dot_dynamic.rc — sourcing a path the caller controls.
+cfg = $1
+. $cfg

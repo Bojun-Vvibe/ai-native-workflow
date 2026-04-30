@@ -1,0 +1,3 @@
+#!/bin/rc
+# 04_pipeline.rc — eval after a pipe is still command position.
+echo hello | eval $handler
