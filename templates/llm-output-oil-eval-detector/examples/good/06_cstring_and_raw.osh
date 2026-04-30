@@ -1,0 +1,5 @@
+#!/usr/bin/env osh
+# Oil/POSIX C-string literal: backslash escapes only, no $expansion.
+eval $'echo \"hello\\nworld\"'
+# Oil raw-string literal: nothing is expanded.
+eval r'echo $not_expanded'

@@ -1,0 +1,4 @@
+#!/usr/bin/env osh
+# Audited dynamic eval — silenced explicitly.
+arg="$1"
+eval "$arg"  # eval-ok: input is whitelisted in caller

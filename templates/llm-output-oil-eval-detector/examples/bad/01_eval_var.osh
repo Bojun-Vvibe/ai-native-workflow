@@ -1,0 +1,3 @@
+#!/usr/bin/env osh
+user="$1"
+eval $user

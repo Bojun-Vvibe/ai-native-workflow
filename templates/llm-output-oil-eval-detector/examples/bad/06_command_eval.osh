@@ -1,0 +1,4 @@
+#!/usr/bin/env osh
+# Using `command eval` to bypass any user-defined eval function.
+arg="$1"
+command eval $arg

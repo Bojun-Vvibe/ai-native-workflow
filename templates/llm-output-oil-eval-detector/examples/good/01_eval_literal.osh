@@ -1,0 +1,3 @@
+#!/usr/bin/env osh
+# Pure literal — no expansion of any kind.
+eval 'echo hello world'

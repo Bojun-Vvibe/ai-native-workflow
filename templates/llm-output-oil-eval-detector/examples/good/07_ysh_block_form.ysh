@@ -1,0 +1,6 @@
+#!/usr/bin/env ysh
+# YSH block-literal eval form: argument is a block, not a string,
+# so it does not carry the eval-string hazard.
+proc run-block {
+  eval (myblock)
+}

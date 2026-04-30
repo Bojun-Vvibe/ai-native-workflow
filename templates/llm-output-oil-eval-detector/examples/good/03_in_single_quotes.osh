@@ -1,0 +1,4 @@
+#!/usr/bin/env osh
+# Inside a single-quoted POSIX string the `$x` is literal.
+greet='eval "$x"'
+echo "$greet"

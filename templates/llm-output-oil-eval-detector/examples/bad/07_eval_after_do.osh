@@ -1,0 +1,4 @@
+#!/usr/bin/env osh
+for f in *.txt; do
+  eval "process $f"
+done

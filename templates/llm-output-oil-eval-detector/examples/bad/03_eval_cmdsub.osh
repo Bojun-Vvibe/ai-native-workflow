@@ -1,0 +1,2 @@
+#!/usr/bin/env osh
+eval "$(cat /tmp/payload.osh)"

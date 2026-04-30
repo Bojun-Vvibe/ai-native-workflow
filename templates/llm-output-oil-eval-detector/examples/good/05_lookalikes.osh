@@ -1,0 +1,5 @@
+#!/usr/bin/env osh
+# Identifiers that *contain* "eval" are not the eval builtin.
+my_eval="$1"
+evaluator="$2"
+echo "$my_eval $evaluator"
