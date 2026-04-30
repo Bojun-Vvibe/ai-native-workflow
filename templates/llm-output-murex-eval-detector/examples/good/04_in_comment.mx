@@ -1,0 +1,3 @@
+#!/usr/bin/env murex
+# This file only mentions `eval $foo` in a comment — no real call.
+echo done

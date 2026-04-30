@@ -1,0 +1,4 @@
+#!/usr/bin/env murex
+ls *.txt -> foreach f {
+    eval "process $f"
+}

@@ -1,0 +1,4 @@
+#!/usr/bin/env murex
+# Inside a single-quoted murex string the `$x` is literal.
+greet = 'eval "$x"'
+echo $greet

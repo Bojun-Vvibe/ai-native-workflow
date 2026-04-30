@@ -1,0 +1,2 @@
+#!/usr/bin/env murex
+x = $1; eval $x

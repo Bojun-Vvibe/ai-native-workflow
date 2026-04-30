@@ -1,0 +1,5 @@
+#!/usr/bin/env murex
+# `builtin eval` is the same idea as `command eval` — bypass user
+# overrides and call the built-in `eval` directly.
+arg = $1
+builtin eval $arg

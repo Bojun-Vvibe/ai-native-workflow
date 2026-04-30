@@ -1,0 +1,3 @@
+#!/usr/bin/env murex
+# Pure literal — single-quoted, no expansion.
+eval 'echo hello world'

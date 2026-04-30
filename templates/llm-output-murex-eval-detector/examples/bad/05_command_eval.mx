@@ -1,0 +1,4 @@
+#!/usr/bin/env murex
+# `command eval` bypasses any user-defined function named `eval`.
+arg = $1
+command eval $arg

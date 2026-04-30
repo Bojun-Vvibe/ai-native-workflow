@@ -1,0 +1,3 @@
+#!/usr/bin/env murex
+# Murex parens-quoted string literal — also inert.
+eval (echo hello world)

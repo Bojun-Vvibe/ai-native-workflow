@@ -1,0 +1,2 @@
+#!/usr/bin/env murex
+eval "${cat /tmp/payload.mx}"

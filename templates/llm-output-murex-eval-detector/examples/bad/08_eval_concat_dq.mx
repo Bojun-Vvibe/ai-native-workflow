@@ -1,0 +1,5 @@
+#!/usr/bin/env murex
+# Building a snippet from two interpolating string fragments.
+prefix = "echo"
+target = $1
+eval "$prefix $target"
