@@ -1,0 +1,12 @@
+{
+  "Version": "2012-10-17",
+  "_iam_wildcard_allowed": true,
+  "Statement": [
+    {
+      "Sid": "BreakGlassAdmin-AdminAllowed",
+      "Effect": "Allow",
+      "Action": "*",
+      "Resource": "*"
+    }
+  ]
+}
