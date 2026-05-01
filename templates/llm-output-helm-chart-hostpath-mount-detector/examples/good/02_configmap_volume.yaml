@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: good-configmap-volume
+spec:
+  containers:
+    - name: app
+      image: alpine:3.20
+      volumeMounts:
+        - name: cfg
+          mountPath: /etc/app
+          readOnly: true
+  volumes:
+    - name: cfg
+      configMap:
+        name: app-config

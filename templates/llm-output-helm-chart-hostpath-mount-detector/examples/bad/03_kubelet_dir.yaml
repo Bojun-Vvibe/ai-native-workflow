@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: bad-kubelet-tap
+spec:
+  selector:
+    matchLabels:
+      app: kubelet-tap
+  template:
+    metadata:
+      labels:
+        app: kubelet-tap
+    spec:
+      containers:
+        - name: tap
+          image: alpine:3.20
+          volumeMounts:
+            - name: kubelet
+              mountPath: /kubelet
+      volumes:
+        - name: kubelet
+          hostPath:
+            path: /var/lib/kubelet
+            type: Directory
