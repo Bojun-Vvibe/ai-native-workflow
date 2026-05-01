@@ -1,0 +1,9 @@
+[Unit]
+Description=Vault dev server
+
+[Service]
+ExecStart=/usr/local/bin/vault server --dev --dev-root-token-id=root
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
