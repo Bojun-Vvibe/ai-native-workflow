@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: github-token
+type: Opaque
+stringData:
+  GITHUB_TOKEN: ghp_FAKE-FAKE-FAKE-FAKE-FAKE-FAKE-AB12
+  webhook_password: H4rd2gu3ss-Mix3d#Cl@sses-Long

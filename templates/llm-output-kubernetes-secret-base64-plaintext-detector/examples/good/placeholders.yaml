@@ -1,0 +1,21 @@
+# Placeholders only — values either decode to obvious sentinel
+# strings or are routed through external secret stores.
+apiVersion: v1
+kind: Secret
+metadata:
+  name: aws-creds
+type: Opaque
+data:
+  # base64("changeme")
+  AWS_ACCESS_KEY_ID: Y2hhbmdlbWU=
+  # base64("<replace-before-apply>")
+  AWS_SECRET_ACCESS_KEY: PHJlcGxhY2UtYmVmb3JlLWFwcGx5Pg==
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: dev-only
+type: Opaque
+stringData:
+  # explicit suppression for a known-fake test fixture
+  DEV_TOKEN: ghp_FAKE-FAKE-FAKE-FAKE-FAKE-FAKE-AB99 # k8s-secret-ok
