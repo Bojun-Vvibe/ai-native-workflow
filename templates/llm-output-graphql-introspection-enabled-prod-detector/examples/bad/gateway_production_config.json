@@ -1,0 +1,9 @@
+{
+  "name": "graphql-gateway",
+  "env": "production",
+  "FLASK_ENV": "production",
+  "graphql": {
+    "introspection": true,
+    "playground": false
+  }
+}
