@@ -1,0 +1,5 @@
+admin:
+  access_log_path: /tmp/admin_access.log
+  address:
+    pipe:
+      path: /var/run/envoy-admin.sock

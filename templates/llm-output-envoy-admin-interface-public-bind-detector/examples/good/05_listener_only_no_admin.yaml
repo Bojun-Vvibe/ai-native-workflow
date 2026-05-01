@@ -1,0 +1,12 @@
+# Envoy listener with a publicly bound public listener -- but no admin block.
+# Detector must stay silent: only the `admin:` block is in scope.
+static_resources:
+  listeners:
+    - name: public_https
+      address:
+        socket_address:
+          address: 0.0.0.0
+          port_value: 443
+      filter_chains:
+        - filters:
+            - name: envoy.filters.network.http_connection_manager
