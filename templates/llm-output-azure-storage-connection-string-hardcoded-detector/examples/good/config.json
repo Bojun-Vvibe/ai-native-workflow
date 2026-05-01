@@ -1,0 +1,7 @@
+{
+  "_comment": "values injected at deploy time by Key Vault reference",
+  "storage": {
+    "accountName": "tenantblob01",
+    "keyVaultUri": "https://tenant-vault.vault.azure.net/secrets/storage-key"
+  }
+}

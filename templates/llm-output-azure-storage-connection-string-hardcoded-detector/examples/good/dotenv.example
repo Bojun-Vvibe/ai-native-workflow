@@ -1,0 +1,5 @@
+# Read storage credentials from env at runtime; placeholder values
+# in this committed dotenv are obvious to humans and to the scanner.
+AZURE_STORAGE_ACCOUNT=tenantblob01
+AZURE_STORAGE_KEY=<your-account-key-here-replace-before-running>
+AZURE_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;AccountName=tenantblob01;AccountKey=${AZURE_STORAGE_KEY};EndpointSuffix=core.windows.net

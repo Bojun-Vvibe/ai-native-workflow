@@ -1,0 +1,3 @@
+# dotenv shipped with a real-looking key
+AZURE_STORAGE_KEY=Zm9vYmFyZmFrZWZha2VmYWtlZmFrZWZha2VmYWtlZmFrZWZha2VmYWtlZmFrZWZha2VmYWtlZmFrZWZha2U=
+AZURE_STORAGE_ACCOUNT=tenantblob01
