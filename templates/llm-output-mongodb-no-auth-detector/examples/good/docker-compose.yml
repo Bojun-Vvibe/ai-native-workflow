@@ -1,0 +1,16 @@
+# Good: docker-compose mongo with root creds set.
+version: "3.8"
+services:
+  db:
+    image: mongo:7
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD_FILE: /run/secrets/mongo_root_pw
+      MONGO_INITDB_ROOT_PASSWORD: changeme-from-secret
+    ports:
+      - "127.0.0.1:27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

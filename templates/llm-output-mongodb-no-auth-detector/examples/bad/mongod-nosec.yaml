@@ -1,0 +1,9 @@
+# Bad: no security: block at all in a config that has net:.
+storage:
+  dbPath: /data/db
+net:
+  bindIp: 0.0.0.0
+  port: 27017
+systemLog:
+  destination: file
+  path: /var/log/mongodb/mongod.log
