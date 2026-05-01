@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: log-shipper
+spec:
+  selector:
+    matchLabels:
+      app: log-shipper
+  template:
+    metadata:
+      labels:
+        app: log-shipper
+    spec:
+      hostNetwork: false
+      hostPID: false
+      containers:
+      - name: shipper
+        image: example/log-shipper:2.0

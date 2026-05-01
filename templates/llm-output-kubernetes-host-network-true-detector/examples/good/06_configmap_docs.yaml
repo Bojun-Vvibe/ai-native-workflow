@@ -1,0 +1,11 @@
+# This file looks YAML-ish and uses the field name in a string but
+# is not a Kubernetes workload. The detector must not flag it because
+# no workload `kind:` is declared.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: docs
+data:
+  notes: |
+    Avoid setting hostNetwork: true on workload pods.
+    The platform team rejects PRs that add it without review.

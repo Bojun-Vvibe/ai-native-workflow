@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: report
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: report
+        image: example/report:1.0
+        env:
+        # Note: hostNetwork: true would be wrong here, do not enable.
+        - name: MODE
+          value: "batch"

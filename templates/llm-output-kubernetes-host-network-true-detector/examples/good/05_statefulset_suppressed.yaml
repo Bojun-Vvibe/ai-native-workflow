@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: db
+spec:
+  serviceName: db
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      hostNetwork: true  # llm-allow:host-network
+      # Reviewed: required by node-local DB peering, see infra ticket.
+      containers:
+      - name: db
+        image: example/db:1.0
