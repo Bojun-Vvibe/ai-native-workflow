@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: log-tailer
+spec:
+  selector:
+    matchLabels: {app: log-tailer}
+  template:
+    metadata:
+      labels: {app: log-tailer}
+    spec:
+      containers:
+        - name: tailer
+          image: example/tailer:0.3
+          securityContext:
+            runAsUser: 1000
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+              add: ["DAC_READ_SEARCH"]

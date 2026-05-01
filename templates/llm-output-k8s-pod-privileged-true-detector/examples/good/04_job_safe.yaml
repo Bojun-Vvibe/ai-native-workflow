@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-migrate
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: migrate
+          image: example/db-migrate:2.4
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1500
+            allowPrivilegeEscalation: false
