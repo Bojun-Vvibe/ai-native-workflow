@@ -1,0 +1,8 @@
+# Bad: no USER directive at all in a single-stage build.
+FROM node:20-alpine
+
+WORKDIR /srv
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev
+COPY . .
+CMD ["node", "server.js"]

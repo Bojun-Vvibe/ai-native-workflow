@@ -1,0 +1,12 @@
+# Good: multi-stage where intermediate stage uses root for apt but
+# the final stage drops to nonroot:nonroot via uid:gid.
+FROM debian:bookworm-slim AS build
+USER root
+RUN apt-get update && apt-get install -y build-essential
+COPY . /src
+RUN cd /src && make
+
+FROM gcr.io/distroless/cc
+COPY --from=build /src/out/app /app
+USER 65532:65532
+CMD ["/app"]

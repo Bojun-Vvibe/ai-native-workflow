@@ -1,0 +1,13 @@
+# Bad: drops to nonroot then re-elevates to root for the final stage and
+# never drops again.
+FROM golang:1.22 AS build
+WORKDIR /src
+COPY . .
+RUN go build -o /out/app ./...
+
+FROM debian:bookworm-slim
+COPY --from=build /out/app /usr/local/bin/app
+USER nonroot
+RUN chmod +x /usr/local/bin/app
+USER root
+CMD ["/usr/local/bin/app"]
