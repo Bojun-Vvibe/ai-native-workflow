@@ -1,0 +1,5 @@
+- name: Quoted Jinja value
+  hosts: all
+  tasks:
+    - name: Wipe temp safely
+      shell: rm -rf {{ tmp_dir | quote }}

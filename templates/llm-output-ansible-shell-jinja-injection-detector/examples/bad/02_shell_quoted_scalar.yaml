@@ -1,0 +1,5 @@
+- name: Run report
+  hosts: all
+  tasks:
+    - name: Generate
+      ansible.builtin.shell: "report-gen --user {{ requested_user }} --out /tmp/r.txt"

@@ -1,0 +1,5 @@
+- name: Filter chain ending in quote
+  hosts: all
+  tasks:
+    - name: Echo with default
+      shell: echo {{ msg | default('') | quote }} >> /tmp/log

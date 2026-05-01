@@ -1,0 +1,11 @@
+- name: Use the proper module
+  hosts: all
+  tasks:
+    - name: Copy file with template
+      ansible.builtin.copy:
+        src: "{{ src_path }}"
+        dest: /etc/app.conf
+    - name: Make a directory
+      ansible.builtin.file:
+        path: "{{ tmp_dir }}"
+        state: directory

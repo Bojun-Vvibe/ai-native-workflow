@@ -1,0 +1,5 @@
+- name: Use legacy fqcn
+  hosts: all
+  tasks:
+    - name: Curl
+      ansible.legacy.command: curl -fsSL {{ download_url }}

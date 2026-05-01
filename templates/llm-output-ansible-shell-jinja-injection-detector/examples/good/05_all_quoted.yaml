@@ -1,0 +1,5 @@
+- name: Both expansions quoted
+  hosts: all
+  tasks:
+    - name: Move
+      shell: mv {{ src | quote }} {{ dst | quote }}

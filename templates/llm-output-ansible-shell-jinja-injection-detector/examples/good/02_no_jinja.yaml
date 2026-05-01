@@ -1,0 +1,7 @@
+- name: No template at all
+  hosts: all
+  tasks:
+    - name: Static command
+      command: /usr/bin/uptime
+    - name: Static shell
+      shell: ls -la /etc

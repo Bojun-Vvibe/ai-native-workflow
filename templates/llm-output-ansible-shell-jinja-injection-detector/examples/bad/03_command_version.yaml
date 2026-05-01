@@ -1,0 +1,5 @@
+- name: Provision tool
+  hosts: all
+  tasks:
+    - name: Install via wrapper
+      command: install-tool --version {{ tool_version }}

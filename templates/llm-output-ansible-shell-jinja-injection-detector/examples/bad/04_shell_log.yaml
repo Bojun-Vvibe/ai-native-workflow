@@ -1,0 +1,5 @@
+- name: Append to log
+  hosts: all
+  tasks:
+    - name: Log message
+      ansible.builtin.shell: 'echo {{ msg }} >> /var/log/app.log'

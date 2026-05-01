@@ -1,0 +1,5 @@
+- name: Two unsafe expansions on one line
+  hosts: all
+  tasks:
+    - name: Move
+      shell: mv {{ src }} {{ dst | quote }}

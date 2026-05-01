@@ -1,0 +1,5 @@
+- name: Reviewed override
+  hosts: all
+  tasks:
+    - name: Tightly controlled internal value
+      shell: tool --arg {{ internal_constant }}  # llm-allow:ansible-shell-jinja

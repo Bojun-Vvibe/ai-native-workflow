@@ -1,0 +1,5 @@
+- name: Remove user temp dir
+  hosts: all
+  tasks:
+    - name: Wipe temp
+      shell: rm -rf {{ tmp_dir }}
