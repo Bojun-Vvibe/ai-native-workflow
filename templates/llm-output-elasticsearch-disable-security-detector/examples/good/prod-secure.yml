@@ -1,0 +1,9 @@
+# Production node, all the security knobs in their safe positions.
+cluster.name: prod-cluster
+node.name: prod-1
+network.host: _site_
+xpack.security.enabled: true
+xpack.security.transport.ssl.enabled: true
+xpack.security.http.ssl.enabled: true
+xpack.security.authc.anonymous.roles: read_only_no_secrets
+plugins.security.ssl.http.enabled: true

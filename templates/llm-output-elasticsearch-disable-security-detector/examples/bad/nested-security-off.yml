@@ -1,0 +1,8 @@
+cluster.name: nested-demo
+network.host: _site_
+xpack:
+  security:
+    enabled: false
+    transport:
+      ssl:
+        enabled: false

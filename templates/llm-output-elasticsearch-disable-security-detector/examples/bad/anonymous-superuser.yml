@@ -1,0 +1,7 @@
+# Anonymous user mapped to superuser role -- effectively no auth.
+cluster.name: anon-demo
+network.host: 10.0.5.7
+xpack.security.enabled: true
+xpack.security.authc.anonymous.username: anonymous
+xpack.security.authc.anonymous.roles: superuser
+xpack.security.authc.anonymous.authz_exception: false

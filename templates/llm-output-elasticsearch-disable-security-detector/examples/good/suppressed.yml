@@ -1,0 +1,6 @@
+# Sandbox: explicitly suppressed via the documented marker.
+# es-no-security-allowed: this is a throwaway integration test fixture
+# that boots on an isolated docker network and is destroyed after CI.
+cluster.name: ci-sandbox
+network.host: 0.0.0.0
+xpack.security.enabled: false
