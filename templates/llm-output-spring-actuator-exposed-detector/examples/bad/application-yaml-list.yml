@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: payments
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, env, heapdump, jolokia
