@@ -1,0 +1,5 @@
+# Indented in a Match block. Still a finding: limiting it to a Match
+# block does not make it safe, just narrower.
+Match Address 10.0.0.0/8
+    PermitRootLogin yes
+    PasswordAuthentication yes

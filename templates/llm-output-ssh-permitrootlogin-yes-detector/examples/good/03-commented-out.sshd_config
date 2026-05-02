@@ -1,0 +1,6 @@
+# The default upstream value as of OpenSSH 7.0 is documented here
+# but commented out, so the active configuration falls back to the
+# compiled-in default of prohibit-password. Must not flag.
+#PermitRootLogin yes
+PermitRootLogin no
+PasswordAuthentication no

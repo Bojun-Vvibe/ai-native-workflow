@@ -1,0 +1,5 @@
+# Reviewed exception: this is a single-tenant bastion in an offline
+# lab segment with no public IP, audited 2026-04-30, ticket SEC-9912.
+PermitRootLogin yes  # llm-allow:sshd-permitrootlogin
+PasswordAuthentication no
+PubkeyAuthentication yes
