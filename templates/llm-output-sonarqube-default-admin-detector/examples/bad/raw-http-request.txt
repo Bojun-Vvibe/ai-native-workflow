@@ -1,0 +1,4 @@
+GET /api/system/health HTTP/1.1
+Host: sonar.example.com
+Authorization: Basic YWRtaW46YWRtaW4=
+Accept: application/json
