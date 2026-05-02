@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  rundeck:
+    image: rundeck/rundeck:5.4.0
+    environment:
+      RUNDECK_GRAILS_URL: https://rundeck.internal
+      RUNDECK_ADMIN_PASSWORD: admin
+    ports:
+      - "4440:4440"

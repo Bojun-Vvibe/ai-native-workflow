@@ -1,0 +1,6 @@
+FROM rundeck/rundeck:5.4.0
+
+ENV RUNDECK_GRAILS_URL=https://rundeck.internal
+ENV RUNDECK_ADMIN_PASSWORD=admin
+
+EXPOSE 4440

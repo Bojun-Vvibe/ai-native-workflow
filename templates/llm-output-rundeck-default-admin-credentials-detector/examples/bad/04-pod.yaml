@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: rundeck
+spec:
+  containers:
+    - name: rundeck
+      image: rundeck/rundeck:5.4.0
+      env:
+        - name: RUNDECK_ADMIN_PASSWORD
+          value: admin
+        - name: RUNDECK_GRAILS_URL
+          value: https://rundeck.internal
