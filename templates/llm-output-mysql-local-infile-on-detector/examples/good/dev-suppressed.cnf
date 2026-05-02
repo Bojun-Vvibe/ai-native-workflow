@@ -1,0 +1,4 @@
+[mysqld]
+# Suppressed: bulk-load host that legitimately needs LOAD DATA LOCAL.
+# mysql-local-infile-allowed
+local_infile = 1

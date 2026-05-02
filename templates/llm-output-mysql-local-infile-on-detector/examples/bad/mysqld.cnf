@@ -1,0 +1,3 @@
+[mysqld]
+# Bad: ON form.
+local_infile = ON
