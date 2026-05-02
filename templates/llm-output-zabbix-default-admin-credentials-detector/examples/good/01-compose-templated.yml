@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  zabbix-server:
+    image: zabbix/zabbix-server-mysql:6.4-alpine-latest
+    environment:
+      ZBX_SERVER_USER: ${ZBX_ADMIN_USER}
+      ZBX_SERVER_PASSWORD: ${ZBX_ADMIN_PASSWORD}
+      DB_SERVER_HOST: db

@@ -1,0 +1,7 @@
+FROM zabbix/zabbix-web-nginx-mysql:6.4-alpine-latest
+
+# Web frontend bootstrap user — these are the documented defaults.
+ENV PHP_ZBX_USER=Admin
+ENV PHP_ZBX_PASSWORD=zabbix
+
+EXPOSE 8080
