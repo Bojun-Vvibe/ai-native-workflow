@@ -1,0 +1,9 @@
+# pgadmin-default-allowed
+# Local dev compose — operator opted in to default creds.
+version: "3.8"
+services:
+  pgadmin:
+    image: dpage/pgadmin4:8
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin

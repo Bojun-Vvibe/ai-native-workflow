@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pgadmin
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: pgadmin}}
+  template:
+    metadata: {labels: {app: pgadmin}}
+    spec:
+      containers:
+        - name: pgadmin
+          image: dpage/pgadmin4:8
+          env:
+            - name: PGADMIN_DEFAULT_EMAIL
+              value: pgadmin@pgadmin.org
+            - name: PGADMIN_DEFAULT_PASSWORD
+              value: changeme
