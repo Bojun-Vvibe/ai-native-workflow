@@ -1,0 +1,6 @@
+[server]
+DOMAIN = git.example.com
+
+[security]
+install_lock = TRUE
+SECRET_KEY = real_value

@@ -1,0 +1,11 @@
+APP_NAME = Gitea
+RUN_MODE = prod
+
+[server]
+DOMAIN = git.example.com
+HTTP_PORT = 3000
+
+[security]
+INSTALL_LOCK = true
+SECRET_KEY = use_a_real_random_value_here
+INTERNAL_TOKEN = a_real_internal_token

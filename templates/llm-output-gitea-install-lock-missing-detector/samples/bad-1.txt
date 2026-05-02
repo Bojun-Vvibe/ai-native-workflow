@@ -1,0 +1,10 @@
+APP_NAME = Gitea
+RUN_MODE = prod
+
+[server]
+DOMAIN = git.example.com
+HTTP_PORT = 3000
+
+[security]
+SECRET_KEY = changeme_in_production
+INTERNAL_TOKEN = abc

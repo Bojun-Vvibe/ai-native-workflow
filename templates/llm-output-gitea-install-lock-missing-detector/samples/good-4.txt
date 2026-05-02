@@ -1,0 +1,7 @@
+[server]
+DOMAIN = git.example.com
+
+[security]
+INSTALL_LOCK = yes
+SECRET_KEY = real_value_here
+PASSWORD_HASH_ALGO = pbkdf2

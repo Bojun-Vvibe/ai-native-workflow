@@ -1,0 +1,6 @@
+[server]
+DOMAIN = git.example.com
+
+[security]
+INSTALL_LOCK = false
+SECRET_KEY = changeme

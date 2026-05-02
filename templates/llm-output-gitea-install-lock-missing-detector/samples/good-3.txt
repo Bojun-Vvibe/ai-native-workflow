@@ -1,0 +1,8 @@
+# This is not a Gitea config — it's an unrelated app.ini-shaped file with
+# no [security] section, so the detector should not flag it.
+[server]
+DOMAIN = example.com
+
+[database]
+TYPE = postgres
+HOST = db:5432
