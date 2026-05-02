@@ -1,0 +1,5 @@
+[Service]
+Type=notify
+User=mysql
+ExecStart=/usr/sbin/mariadbd --skip_grant_tables --user=mysql
+Restart=on-failure

@@ -1,0 +1,6 @@
+[mysqld]
+datadir=/var/lib/mysql
+socket=/var/lib/mysql/mysql.sock
+# quick fix to recover root password — leaving it on for now
+skip-grant-tables
+bind-address=0.0.0.0
