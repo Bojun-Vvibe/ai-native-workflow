@@ -1,0 +1,5 @@
+# ~/.vnc/config — TigerVNC with VncAuth.
+session=gnome
+geometry=1280x800
+localhost=no
+SecurityTypes=VncAuth,TLSVnc
