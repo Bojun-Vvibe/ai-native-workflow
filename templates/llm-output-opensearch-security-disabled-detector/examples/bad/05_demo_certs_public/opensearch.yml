@@ -1,0 +1,8 @@
+cluster.name: prod-search
+network.host: 0.0.0.0
+plugins.security.ssl.transport.enabled: true
+plugins.security.ssl.http.enabled: true
+plugins.security.allow_unsafe_democertificates: true
+plugins.security.allow_default_init_securityindex: true
+plugins.security.authcz.admin_dn:
+  - "CN=kirk,OU=client,O=client,L=test,C=de"

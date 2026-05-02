@@ -1,0 +1,11 @@
+cluster.name: prod-search
+network.host: 0.0.0.0
+plugins.security.disabled: false
+plugins.security.ssl.transport.enabled: true
+plugins.security.ssl.http.enabled: true
+plugins.security.ssl.http.pemcert_filepath: certs/node.pem
+plugins.security.ssl.http.pemkey_filepath: certs/node.key
+plugins.security.ssl.http.pemtrustedcas_filepath: certs/root-ca.pem
+plugins.security.allow_unsafe_democertificates: false
+plugins.security.authcz.admin_dn:
+  - "CN=admin,O=example"

@@ -1,0 +1,5 @@
+cluster.name: dev-local
+network.host: 127.0.0.1
+discovery.type: single-node
+# Loopback-only dev box; security plugin off here is acceptable. # os-sec-ok
+plugins.security.disabled: true  # os-sec-ok

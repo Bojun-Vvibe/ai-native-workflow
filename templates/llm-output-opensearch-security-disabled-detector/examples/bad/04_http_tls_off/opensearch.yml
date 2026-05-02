@@ -1,0 +1,6 @@
+cluster.name: prod-search
+network.host: 0.0.0.0
+plugins.security.ssl.transport.enabled: true
+plugins.security.ssl.http.enabled: false
+plugins.security.authcz.admin_dn:
+  - "CN=admin,OU=ops,O=example,L=city,C=us"
