@@ -1,0 +1,22 @@
+Port 22
+ListenAddress 0.0.0.0
+HostKey /etc/ssh/ssh_host_ed25519_key
+HostKey /etc/ssh/ssh_host_rsa_key
+AuthorizedKeysFile .ssh/authorized_keys
+Subsystem sftp /usr/lib/openssh/sftp-server
+
+PermitRootLogin no
+PasswordAuthentication no
+KbdInteractiveAuthentication no
+ChallengeResponseAuthentication no
+PermitEmptyPasswords no
+UsePAM yes
+MaxAuthTries 3
+LoginGraceTime 30s
+ClientAliveInterval 300
+ClientAliveCountMax 0
+
+Match User ci-bot
+    AuthenticationMethods publickey
+    PasswordAuthentication no
+    ForceCommand /usr/local/bin/ci-runner

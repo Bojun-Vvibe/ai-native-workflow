@@ -1,0 +1,12 @@
+Port 22
+ListenAddress 0.0.0.0
+HostKey /etc/ssh/ssh_host_ed25519_key
+AuthorizedKeysFile .ssh/authorized_keys
+
+# Author "disabled" passwords but left the PAM keyboard-interactive
+# path wide open, which on a stock PAM stack still prompts for a
+# password.
+PasswordAuthentication no
+KbdInteractiveAuthentication yes
+ChallengeResponseAuthentication yes
+UsePAM yes
