@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- tomcat-shutdown-port-reviewed: ops sign-off ticket OPS-4471 -->
+<Server port="8005" shutdown="SHUTDOWN">
+  <Service name="Catalina">
+    <Connector port="8080" protocol="HTTP/1.1" />
+  </Service>
+</Server>
