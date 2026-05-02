@@ -1,0 +1,9 @@
+FROM python:3.11-slim
+RUN pip install --no-cache-dir mlflow==2.10.0
+WORKDIR /app
+ENV BACKEND_URI=sqlite:////app/mlflow.db
+ENV ARTIFACT_ROOT=/app/mlruns
+EXPOSE 5000
+# Default mlflow server bind is 127.0.0.1 historically, but in container
+# contexts users universally publish the port and assume external bind.
+CMD ["mlflow", "server", "--backend-store-uri", "sqlite:////app/mlflow.db", "--default-artifact-root", "/app/mlruns", "--port", "5000"]

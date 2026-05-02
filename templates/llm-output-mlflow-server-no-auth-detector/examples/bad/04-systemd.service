@@ -1,0 +1,13 @@
+[Unit]
+Description=MLflow tracking server
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/mlflow
+ExecStart=/usr/local/bin/mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri sqlite:///mlflow.db --default-artifact-root /var/lib/mlflow/artifacts
+Restart=on-failure
+User=mlflow
+
+[Install]
+WantedBy=multi-user.target
