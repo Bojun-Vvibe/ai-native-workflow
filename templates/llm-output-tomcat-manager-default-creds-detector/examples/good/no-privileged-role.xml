@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomcat-users>
+  <role rolename="reporting"/>
+  <!-- Weak password is fine here because the role is not privileged. -->
+  <user username="metrics" password="metrics" roles="reporting"/>
+</tomcat-users>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Stock-style file: the example users are commented out. The detector
+  must NOT flag commented examples.
+-->
+<tomcat-users>
+  <role rolename="manager-gui"/>
+  <!--
+  <user username="tomcat" password="tomcat" roles="manager-gui"/>
+  -->
+</tomcat-users>
