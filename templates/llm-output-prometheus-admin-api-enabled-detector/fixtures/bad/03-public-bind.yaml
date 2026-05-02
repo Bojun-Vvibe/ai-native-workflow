@@ -1,0 +1,15 @@
+# bad: signal S3 — admin API + bound on 0.0.0.0 (no auth proxy)
+apiVersion: v1
+kind: Pod
+metadata:
+  name: prometheus
+spec:
+  containers:
+    - name: prometheus
+      image: prom/prometheus
+      args:
+        - --config.file=/etc/prometheus/prometheus.yml
+        - --storage.tsdb.path=/prometheus
+        - --web.listen-address=0.0.0.0:9090
+        - --web.enable-admin-api
+        - --web.enable-lifecycle

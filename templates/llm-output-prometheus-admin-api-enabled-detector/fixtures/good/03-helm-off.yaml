@@ -1,0 +1,7 @@
+# good: Helm values with the dangerous toggles explicitly off
+server:
+  retention: 30d
+  enableAdminAPI: false
+  enableLifecycle: false
+  extraArgs:
+    web.listen-address: 127.0.0.1:9090

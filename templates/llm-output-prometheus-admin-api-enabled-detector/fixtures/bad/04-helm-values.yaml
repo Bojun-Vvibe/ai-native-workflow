@@ -1,0 +1,8 @@
+# bad: signal S4 — Helm-style values turning the dangerous flags on
+server:
+  retention: 15d
+  persistentVolume:
+    enabled: true
+    size: 50Gi
+  enableAdminAPI: true
+  enableLifecycle: true
