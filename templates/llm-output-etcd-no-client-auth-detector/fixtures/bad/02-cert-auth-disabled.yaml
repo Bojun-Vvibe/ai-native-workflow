@@ -1,0 +1,8 @@
+# bad: signal S2 — TLS listener but client-cert-auth explicitly false
+name: etcd-cluster
+listen-client-urls: https://10.20.30.40:2379
+advertise-client-urls: https://10.20.30.40:2379
+cert-file: /etc/etcd/pki/server.crt
+key-file: /etc/etcd/pki/server.key
+trusted-ca-file: /etc/etcd/pki/ca.crt
+client-cert-auth: false

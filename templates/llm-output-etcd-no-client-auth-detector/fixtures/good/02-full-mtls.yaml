@@ -1,0 +1,12 @@
+# good: full mTLS with client cert auth enforced
+name: etcd-prod
+listen-client-urls: https://10.0.0.5:2379
+advertise-client-urls: https://10.0.0.5:2379
+cert-file: /etc/etcd/pki/server.crt
+key-file: /etc/etcd/pki/server.key
+trusted-ca-file: /etc/etcd/pki/ca.crt
+client-cert-auth: true
+peer-cert-file: /etc/etcd/pki/peer.crt
+peer-key-file: /etc/etcd/pki/peer.key
+peer-client-cert-auth: true
+peer-trusted-ca-file: /etc/etcd/pki/ca.crt

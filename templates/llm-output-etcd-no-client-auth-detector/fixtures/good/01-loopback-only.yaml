@@ -1,0 +1,5 @@
+# good: loopback-only bind, fine for sidecar/single-node embedded use
+name: etcd-local
+listen-client-urls: http://127.0.0.1:2379
+advertise-client-urls: http://127.0.0.1:2379
+data-dir: /var/lib/etcd

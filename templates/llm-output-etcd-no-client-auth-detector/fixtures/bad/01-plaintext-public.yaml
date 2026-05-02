@@ -1,0 +1,9 @@
+# bad: signal S1 — plaintext http on 0.0.0.0
+name: etcd
+command:
+  - /usr/local/bin/etcd
+  - --name=node-1
+  - --data-dir=/var/lib/etcd
+  - --listen-client-urls=http://0.0.0.0:2379
+  - --advertise-client-urls=http://10.0.0.5:2379
+  - --client-cert-auth=false
