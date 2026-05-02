@@ -1,0 +1,7 @@
+replicas: 4
+mode: distributed
+rootUser: minioadmin
+rootPassword: minioadmin
+persistence:
+  enabled: true
+  size: 100Gi

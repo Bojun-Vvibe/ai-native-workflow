@@ -1,0 +1,7 @@
+replicas: 4
+mode: distributed
+rootUser: opsteam-minio-prod
+rootPassword: 7g!Q2vKp9R-aXm4LzNw0hT6YbE3sUCdF
+persistence:
+  enabled: true
+  size: 100Gi
