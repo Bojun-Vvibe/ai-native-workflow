@@ -1,0 +1,14 @@
+# traefik.toml -- API enabled, but ONLY through a router with auth.
+# `insecure` is not set (defaults to false).
+
+[entryPoints]
+  [entryPoints.web]
+    address = ":80"
+  [entryPoints.websecure]
+    address = ":443"
+
+[api]
+  dashboard = true
+
+[providers.file]
+  filename = "/etc/traefik/dyn.toml"

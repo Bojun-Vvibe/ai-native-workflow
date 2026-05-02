@@ -1,0 +1,13 @@
+# Production YAML: API on, dashboard fronted by router + basic auth
+# in the dynamic config. `insecure` explicitly false.
+api:
+  dashboard: true
+  insecure: false
+
+entryPoints:
+  websecure:
+    address: ":443"
+
+providers:
+  file:
+    filename: /etc/traefik/dynamic.yaml

@@ -1,0 +1,12 @@
+# traefik.toml -- the dashboard exposed on :8080 with no auth.
+
+[entryPoints]
+  [entryPoints.web]
+    address = ":80"
+
+[api]
+  insecure = true
+  dashboard = true
+
+[providers.docker]
+  exposedByDefault = false

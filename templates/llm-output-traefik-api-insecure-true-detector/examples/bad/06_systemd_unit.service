@@ -1,0 +1,10 @@
+[Unit]
+Description=Traefik with insecure API (BAD)
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/traefik --providers.file.filename=/etc/traefik/dyn.yaml --api.insecure=true --entrypoints.web.address=:80
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

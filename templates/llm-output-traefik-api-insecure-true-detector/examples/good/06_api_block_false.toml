@@ -1,0 +1,11 @@
+# Different tool's config that happens to have an [api] table with
+# `insecure = true` -- but it's a separate section that the traefik
+# detector should NOT inspect when the file is clearly not a traefik
+# config. We test the case where [api] exists but `insecure` is false.
+
+[api]
+  dashboard = true
+  insecure = false
+
+[providers.file]
+  filename = "/etc/traefik/dyn.toml"

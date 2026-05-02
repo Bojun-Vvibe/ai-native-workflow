@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  traefik:
+    image: traefik:v3.0
+    command:
+      - "--api=true"
+      - "--api.dashboard=true"
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.le.acme.tlschallenge=true"
+    ports:
+      - "80:80"
+      - "443:443"
+    labels:
+      - "traefik.http.routers.dash.rule=Host(`traefik.example.com`)"
+      - "traefik.http.routers.dash.service=api@internal"
+      - "traefik.http.routers.dash.middlewares=auth"
+      - "traefik.http.middlewares.auth.basicauth.users=admin:$$apr1$$REDACTED"

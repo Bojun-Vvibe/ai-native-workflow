@@ -1,0 +1,12 @@
+# Documentation file -- mentions the bad pattern only as a warning.
+#
+# DO NOT use:
+#   command:
+#     - "--api.insecure=true"
+#
+# Always front the dashboard with a router + auth middleware. See:
+#   api:
+#     dashboard: true
+#     insecure: false
+#
+# end-of-doc
