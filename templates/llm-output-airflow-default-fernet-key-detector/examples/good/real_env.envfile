@@ -1,0 +1,4 @@
+# .env for docker-compose, fed by CI from a vault read at deploy time
+AIRFLOW__CORE__EXECUTOR=LocalExecutor
+AIRFLOW__CORE__FERNET_KEY=LjPT5IMGDNtVR7hpjaJY9z6QnZKsSwBaUmCyta5CpHc=
+POSTGRES_USER=airflow

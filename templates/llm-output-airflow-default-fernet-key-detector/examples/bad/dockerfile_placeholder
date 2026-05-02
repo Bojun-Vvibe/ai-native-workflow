@@ -1,0 +1,5 @@
+# Dockerfile fragment for an Airflow image
+FROM apache/airflow:2.9.0
+ENV AIRFLOW__CORE__EXECUTOR=LocalExecutor
+ENV AIRFLOW__CORE__FERNET_KEY=YOUR_FERNET_KEY
+ENV AIRFLOW__CORE__LOAD_EXAMPLES=False
