@@ -1,0 +1,5 @@
+# kibana-no-auth-allowed
+# This file is an intentional offline lab fixture; the suppression marker
+# above tells the detector to skip it.
+server.host: "127.0.0.1"
+xpack.security.enabled: false
