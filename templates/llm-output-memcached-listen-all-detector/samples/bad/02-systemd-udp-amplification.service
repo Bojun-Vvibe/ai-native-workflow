@@ -1,0 +1,3 @@
+# systemd unit fragment — exposes memcached UDP on every interface.
+[Service]
+ExecStart=/usr/bin/memcached -l 0.0.0.0 -p 11211 -U 11211 -m 256 -u memcache

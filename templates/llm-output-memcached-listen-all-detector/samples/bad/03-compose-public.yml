@@ -1,0 +1,7 @@
+# docker-compose.yml — memcached published on every host interface, no SASL.
+services:
+  cache:
+    image: memcached:1.6
+    command: ["memcached", "--listen=0.0.0.0", "-p", "11211", "-m", "128"]
+    ports:
+      - "11211:11211"

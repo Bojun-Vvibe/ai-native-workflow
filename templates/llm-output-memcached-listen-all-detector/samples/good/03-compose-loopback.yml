@@ -1,0 +1,9 @@
+# docker-compose.yml — memcached behind an internal-only network, loopback bind.
+services:
+  cache:
+    image: memcached:1.6-alpine
+    command: ["memcached", "-l", "127.0.0.1", "-p", "11211", "-U", "0", "-m", "128"]
+    networks: [internal]
+networks:
+  internal:
+    internal: true
