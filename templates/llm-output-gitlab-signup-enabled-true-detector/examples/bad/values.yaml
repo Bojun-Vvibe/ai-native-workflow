@@ -1,0 +1,7 @@
+global:
+  hosts:
+    domain: example.test
+gitlab:
+  webservice:
+    appConfig:
+      signup_enabled: true
