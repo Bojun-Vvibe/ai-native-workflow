@@ -1,0 +1,17 @@
+# README: do NOT do this.
+#
+#   [auth.anonymous]
+#   enabled = true
+#   org_role = Admin
+#
+# Anyone who can reach :3000 becomes org Admin.
+#
+# Use:
+#   GF_AUTH_ANONYMOUS_ENABLED=true
+#   GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer
+# only for genuinely public, read-only dashboards.
+
+grafana:
+  grafana.ini:
+    auth.anonymous:
+      enabled: false

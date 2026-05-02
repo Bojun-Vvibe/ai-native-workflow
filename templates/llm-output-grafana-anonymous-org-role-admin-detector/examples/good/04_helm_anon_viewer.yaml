@@ -1,0 +1,11 @@
+# Helm values fragment: anonymous read-only for a public status page.
+grafana:
+  replicas: 2
+  grafana.ini:
+    server:
+      http_port: 3000
+    auth.anonymous:
+      enabled: true
+      org_role: Viewer
+    security:
+      admin_user: admin

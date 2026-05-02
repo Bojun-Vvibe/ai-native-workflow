@@ -1,0 +1,12 @@
+[Unit]
+Description=Grafana with anonymous admin (BAD)
+After=network.target
+
+[Service]
+Environment=GF_AUTH_ANONYMOUS_ENABLED=true
+Environment=GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+ExecStart=/usr/sbin/grafana-server --config /etc/grafana/grafana.ini
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

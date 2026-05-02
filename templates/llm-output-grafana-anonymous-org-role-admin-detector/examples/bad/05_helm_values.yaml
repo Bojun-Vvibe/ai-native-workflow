@@ -1,0 +1,12 @@
+# Helm values.yaml fragment for the kube-prometheus-stack chart.
+grafana:
+  replicas: 1
+  service:
+    type: ClusterIP
+  grafana.ini:
+    server:
+      http_port: 3000
+    auth.anonymous:
+      enabled: true
+      org_name: Main Org.
+      org_role: Admin
