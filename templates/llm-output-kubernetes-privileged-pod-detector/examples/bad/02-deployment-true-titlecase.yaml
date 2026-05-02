@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: legacy-agent
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: legacy-agent}
+  template:
+    metadata:
+      labels: {app: legacy-agent}
+    spec:
+      containers:
+        - name: agent
+          image: example.local/legacy-agent:1.4
+          securityContext:
+            privileged: True

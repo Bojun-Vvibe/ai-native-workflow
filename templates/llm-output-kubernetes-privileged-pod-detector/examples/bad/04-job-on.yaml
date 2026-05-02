@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: disk-format
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: mkfs
+          image: example.local/diskutil:1.0
+          command: ["mkfs.ext4", "/dev/sdb1"]
+          securityContext:
+            privileged: on

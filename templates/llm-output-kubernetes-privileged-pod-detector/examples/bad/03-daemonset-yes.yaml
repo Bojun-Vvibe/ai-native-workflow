@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: node-tuner
+spec:
+  selector:
+    matchLabels: {app: node-tuner}
+  template:
+    metadata:
+      labels: {app: node-tuner}
+    spec:
+      containers:
+        - name: tuner
+          image: example.local/tuner:0.2
+          securityContext:
+            privileged: yes

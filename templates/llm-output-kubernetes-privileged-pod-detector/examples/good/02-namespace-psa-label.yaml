@@ -1,0 +1,10 @@
+# A namespace labelled with the Pod Security Admission "privileged"
+# profile. The word "privileged" appears as a string value, not as
+# the boolean container field. Must not flag.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kube-system
+  labels:
+    pod-security.kubernetes.io/enforce: privileged
+    pod-security.kubernetes.io/warn: privileged
