@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<clickhouse>
+  <users>
+    <default>
+      <password_double_sha1_hex>e395a64c84f7e89cf76b4af3e8e30b6f2cf8f7d0</password_double_sha1_hex>
+      <networks>
+        <ip>127.0.0.1</ip>
+      </networks>
+      <profile>readonly</profile>
+      <quota>default</quota>
+    </default>
+  </users>
+</clickhouse>
