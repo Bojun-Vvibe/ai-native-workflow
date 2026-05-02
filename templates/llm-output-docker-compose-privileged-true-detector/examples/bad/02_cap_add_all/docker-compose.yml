@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  builder:
+    image: ghcr.io/example/builder:edge
+    cap_add:
+      - SYS_ADMIN
+      - NET_ADMIN
+    command: ["build.sh"]

@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  worker:
+    image: ghcr.io/example/worker:1.2.3
+    privileged: false
+    pid: container:other
+    ipc: shareable
+    network_mode: bridge
+    userns_mode: ""

@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  worker:
+    image: ghcr.io/example/worker:1.2.3
+    restart: unless-stopped
+    privileged: true
+    volumes:
+      - ./data:/data

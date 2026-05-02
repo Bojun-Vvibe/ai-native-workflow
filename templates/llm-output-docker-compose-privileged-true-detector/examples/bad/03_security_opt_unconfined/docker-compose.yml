@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  api:
+    image: ghcr.io/example/api:1.0.0
+    security_opt:
+      - "seccomp:unconfined"
+      - "no-new-privileges:false"
+    ports:
+      - "8080:8080"
