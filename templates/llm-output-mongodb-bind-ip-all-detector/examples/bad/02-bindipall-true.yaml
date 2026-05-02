@@ -1,0 +1,4 @@
+# BAD: bindIpAll: true
+net:
+  port: 27017
+  bindIpAll: true

@@ -1,0 +1,4 @@
+# BAD: IPv6 unspecified address.
+net:
+  port: 27017
+  bindIp: "::"

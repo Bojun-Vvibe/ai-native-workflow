@@ -1,0 +1,4 @@
+# BAD: YAML mongod.conf with bindIp 0.0.0.0
+net:
+  port: 27017
+  bindIp: 0.0.0.0

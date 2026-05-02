@@ -1,0 +1,5 @@
+# GOOD: explicit opt-out for an internal cluster behind a NetworkPolicy.
+# mongodb-bind-all-allowed -- private VPC, NetworkPolicy enforced upstream
+net:
+  port: 27017
+  bindIp: 0.0.0.0

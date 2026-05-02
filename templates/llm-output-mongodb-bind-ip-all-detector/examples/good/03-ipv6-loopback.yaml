@@ -1,0 +1,4 @@
+# GOOD: IPv6 loopback only.
+net:
+  port: 27017
+  bindIp: "::1"

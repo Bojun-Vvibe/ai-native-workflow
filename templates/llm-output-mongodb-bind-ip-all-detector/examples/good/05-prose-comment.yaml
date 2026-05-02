@@ -1,0 +1,6 @@
+# GOOD: prose / README mentioning bindIp inside a comment, no actual directive.
+# When configuring `bindIp`, prefer the loopback or a private interface.
+# Do not use 0.0.0.0 unless you have a NetworkPolicy in place.
+net:
+  port: 27017
+  bindIp: 192.168.10.5

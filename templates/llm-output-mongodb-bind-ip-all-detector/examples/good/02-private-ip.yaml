@@ -1,0 +1,4 @@
+# GOOD: private subnet IP only.
+net:
+  port: 27017
+  bindIp: 10.42.7.13,127.0.0.1
