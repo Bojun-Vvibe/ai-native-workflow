@@ -1,0 +1,5 @@
+# commented-out reference to the insecure default — should NOT trip the detector
+# authenticator: AllowAllAuthenticator   # <-- DO NOT use in production
+authenticator: PasswordAuthenticator
+authorizer: CassandraAuthorizer
+role_manager: CassandraRoleManager

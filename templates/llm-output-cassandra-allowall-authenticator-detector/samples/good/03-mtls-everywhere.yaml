@@ -1,0 +1,8 @@
+# mTLS-only cluster, no AllowAll* anywhere
+authenticator: org.apache.cassandra.auth.PasswordAuthenticator
+authorizer: org.apache.cassandra.auth.CassandraAuthorizer
+role_manager: org.apache.cassandra.auth.CassandraRoleManager
+internode_encryption: all
+client_encryption_options:
+  enabled: true
+  require_client_auth: true

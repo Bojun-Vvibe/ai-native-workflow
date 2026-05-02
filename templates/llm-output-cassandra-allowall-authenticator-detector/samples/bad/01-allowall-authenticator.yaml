@@ -1,0 +1,5 @@
+authenticator: AllowAllAuthenticator
+authorizer: CassandraAuthorizer
+role_manager: CassandraRoleManager
+listen_address: 10.0.0.5
+rpc_address: 0.0.0.0

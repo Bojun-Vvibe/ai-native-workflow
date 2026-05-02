@@ -1,0 +1,5 @@
+# exposed cluster with neither auth nor encryption
+authenticator: AllowAllAuthenticator
+authorizer: AllowAllAuthorizer
+internode_encryption: none
+listen_address: 0.0.0.0

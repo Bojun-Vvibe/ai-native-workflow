@@ -1,0 +1,4 @@
+# quickstart cassandra.yaml — "just get it running"
+authenticator: PasswordAuthenticator
+authorizer: AllowAllAuthorizer
+role_manager: CassandraRoleManager
