@@ -1,0 +1,5 @@
+services:
+  core:
+    environment:
+      HARBOR_ADMIN_PASSWORD: "Harbor12345"
+      LOG_LEVEL: info

@@ -1,0 +1,4 @@
+# Pull the secret from a vault before bootstrapping.
+HARBOR_ADMIN_PASSWORD="$(vault kv get -field=password secret/registry/admin)"
+export HARBOR_ADMIN_PASSWORD
+./install.sh --with-trivy

@@ -1,0 +1,4 @@
+harbor_admin_password: A_Strong_Random_Pass_e1f29c
+data_volume: /data
+log:
+  level: info

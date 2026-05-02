@@ -1,0 +1,3 @@
+# Quick start steps:
+export HARBOR_ADMIN_PASSWORD="Harbor12345"
+./install.sh --with-trivy

@@ -1,0 +1,4 @@
+# Documentation note (must NOT be flagged — discusses the value but does
+# not actually configure it).
+The upstream sample uses Harbor12345 as a placeholder; rotate it before
+exposing the registry. See the hardening checklist for rotation steps.

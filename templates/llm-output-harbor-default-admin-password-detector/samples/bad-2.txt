@@ -1,0 +1,7 @@
+version: "3"
+services:
+  core:
+    image: goharbor/harbor-core:v2.10.0
+    environment:
+      - HARBOR_ADMIN_PASSWORD=Harbor12345
+      - CORE_SECRET=somesecret
