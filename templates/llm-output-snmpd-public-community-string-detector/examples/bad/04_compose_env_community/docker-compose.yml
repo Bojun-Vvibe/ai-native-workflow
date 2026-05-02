@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  snmp-exporter:
+    image: prom/snmp-exporter:v0.25.0
+    environment:
+      - SNMP_COMMUNITY=public
+      - SNMP_RW_COMMUNITY=private
+    ports:
+      - "9116:9116"
+  snmpd:
+    image: polinux/snmpd:latest
+    environment:
+      - SNMPD_COMMUNITY=public
+    ports:
+      - "161:161/udp"
