@@ -1,0 +1,2 @@
+# Mixed line: tight client safe, wide client unsafe.
+/srv/share   trusted-host.example.invalid(rw,no_root_squash) *(rw,no_root_squash,no_subtree_check)

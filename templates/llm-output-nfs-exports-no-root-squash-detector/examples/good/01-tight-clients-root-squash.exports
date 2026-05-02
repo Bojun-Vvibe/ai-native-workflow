@@ -1,0 +1,3 @@
+# Hardened exports: tight clients, default root_squash, ro where possible.
+/srv/nfs       10.20.30.40(ro,sync,root_squash,no_subtree_check)
+/srv/backup    10.20.30.41(rw,sync,root_squash,no_subtree_check)

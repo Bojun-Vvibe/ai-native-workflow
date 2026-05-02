@@ -1,0 +1,2 @@
+# no_all_squash + insecure + wildcard host pattern.
+/var/nfs/public  *.lab.invalid(rw,insecure,no_all_squash,async,no_subtree_check)

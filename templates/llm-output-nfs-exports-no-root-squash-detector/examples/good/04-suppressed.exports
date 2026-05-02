@@ -1,0 +1,3 @@
+# Suppressed lab fixture — single-tenant air-gapped CI runner.
+# nfs-no-root-squash-allowed
+/srv/lab   *(rw,no_root_squash,sync,no_subtree_check)

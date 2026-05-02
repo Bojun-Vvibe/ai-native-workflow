@@ -1,0 +1,3 @@
+# Loopback-only export with no_root_squash for a single-user workstation.
+/srv/local     127.0.0.1(rw,no_root_squash,sync,no_subtree_check)
+/srv/local     ::1(rw,no_root_squash,sync,no_subtree_check)

@@ -1,0 +1,2 @@
+# /etc/exports — exporting /srv/nfs to the world without root squash.
+/srv/nfs        *(rw,sync,no_root_squash,no_subtree_check)

@@ -1,0 +1,3 @@
+# Wide client but root_squash retained — not the failure mode this
+# detector is responsible for.
+/srv/public    *(ro,sync,root_squash,all_squash,anonuid=65534,anongid=65534,no_subtree_check)
