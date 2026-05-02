@@ -1,0 +1,3 @@
+FROM sonatype/nexus3:3.70.0
+COPY admin.password /nexus-data/admin.password
+EXPOSE 8081
