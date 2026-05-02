@@ -1,0 +1,3 @@
+# Per-directory PHP overrides
+php_flag allow_url_include on
+php_value allow_url_fopen 1
