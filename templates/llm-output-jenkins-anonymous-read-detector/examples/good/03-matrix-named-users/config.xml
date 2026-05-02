@@ -1,0 +1,14 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<hudson>
+  <version>2.426.3</version>
+  <useSecurity>true</useSecurity>
+  <authorizationStrategy class="hudson.security.ProjectMatrixAuthorizationStrategy">
+    <permission>hudson.model.Hudson.Administer:alice</permission>
+    <permission>hudson.model.Hudson.Read:bob</permission>
+    <permission>hudson.model.Item.Build:carol</permission>
+    <!-- Anonymous gets nothing. -->
+  </authorizationStrategy>
+  <securityRealm class="hudson.security.HudsonPrivateSecurityRealm">
+    <disableSignup>true</disableSignup>
+  </securityRealm>
+</hudson>

@@ -1,0 +1,11 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<hudson>
+  <version>2.426.3</version>
+  <useSecurity>true</useSecurity>
+  <authorizationStrategy class="hudson.security.FullControlOnceLoggedInAuthorizationStrategy">
+    <denyAnonymousReadAccess>true</denyAnonymousReadAccess>
+  </authorizationStrategy>
+  <securityRealm class="hudson.security.HudsonPrivateSecurityRealm">
+    <disableSignup>true</disableSignup>
+  </securityRealm>
+</hudson>

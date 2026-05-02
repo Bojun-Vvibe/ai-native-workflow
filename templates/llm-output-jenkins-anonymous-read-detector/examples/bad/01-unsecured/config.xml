@@ -1,0 +1,12 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<hudson>
+  <version>2.426.3</version>
+  <numExecutors>2</numExecutors>
+  <mode>NORMAL</mode>
+  <useSecurity>true</useSecurity>
+  <authorizationStrategy class="hudson.security.AuthorizationStrategy$Unsecured"/>
+  <securityRealm class="hudson.security.HudsonPrivateSecurityRealm">
+    <disableSignup>false</disableSignup>
+    <enableCaptcha>false</enableCaptcha>
+  </securityRealm>
+</hudson>
