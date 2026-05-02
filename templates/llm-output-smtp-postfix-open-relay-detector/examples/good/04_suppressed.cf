@@ -1,0 +1,5 @@
+# Operator-acknowledged closed VPN relay; suppression marker present.
+# smtp-open-relay-allowed
+myhostname = vpn-relay.internal
+mynetworks = 0.0.0.0/0
+smtpd_relay_restrictions = permit

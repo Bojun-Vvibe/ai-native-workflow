@@ -1,0 +1,10 @@
+# Submission-only host with SASL.
+myhostname = submit.example.org
+mynetworks = 127.0.0.0/8
+smtpd_relay_restrictions =
+    reject_non_fqdn_recipient,
+    permit_sasl_authenticated,
+    reject_unauth_destination
+smtpd_recipient_restrictions =
+    permit_sasl_authenticated,
+    reject_unauth_destination

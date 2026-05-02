@@ -1,0 +1,5 @@
+# Wildcard relay_domains.
+myhostname = relay.example.net
+mynetworks = 192.168.1.0/24
+relay_domains = *
+smtpd_recipient_restrictions = permit_mynetworks, reject_unauth_destination

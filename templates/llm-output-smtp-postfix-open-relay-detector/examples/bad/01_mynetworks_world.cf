@@ -1,0 +1,5 @@
+# mynetworks trusts the entire internet.
+myhostname = mail.example.com
+mydomain = example.com
+mynetworks = 0.0.0.0/0
+inet_interfaces = all

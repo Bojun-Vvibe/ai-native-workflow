@@ -1,0 +1,6 @@
+# Wide mynetworks combined with $mydomain in relay_domains.
+myhostname = relay.example.com
+mydomain = example.com
+mynetworks = 0.0.0.0/4
+relay_domains = $mydomain
+smtpd_recipient_restrictions = permit_mynetworks, reject_unauth_destination

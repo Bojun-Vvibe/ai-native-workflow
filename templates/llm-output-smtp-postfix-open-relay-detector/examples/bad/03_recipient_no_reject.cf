@@ -1,0 +1,6 @@
+# Recipient restrictions allow permit with no reject_unauth_destination.
+myhostname = mta.example.org
+mynetworks = 10.0.0.0/8
+smtpd_recipient_restrictions =
+    permit_mynetworks,
+    permit

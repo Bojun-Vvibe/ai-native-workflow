@@ -1,0 +1,4 @@
+# IPv6 ::/0 in mynetworks.
+myhostname = mail.example.org
+mynetworks = 127.0.0.0/8 ::/0
+smtpd_recipient_restrictions = permit_mynetworks, reject_unauth_destination

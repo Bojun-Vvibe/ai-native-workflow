@@ -1,0 +1,13 @@
+# Tight mynetworks, sane recipient restrictions.
+myhostname = mail.example.com
+mydomain = example.com
+mynetworks = 127.0.0.0/8 [::1]/128 10.0.0.0/24
+smtpd_relay_restrictions =
+    permit_mynetworks,
+    permit_sasl_authenticated,
+    reject_unauth_destination
+smtpd_recipient_restrictions =
+    permit_mynetworks,
+    permit_sasl_authenticated,
+    reject_unauth_destination,
+    permit

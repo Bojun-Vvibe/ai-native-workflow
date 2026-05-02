@@ -1,0 +1,5 @@
+# Relay restrictions resolve to bare permit.
+myhostname = mail.example.com
+mynetworks = 127.0.0.0/8
+smtpd_relay_restrictions = permit
+smtpd_recipient_restrictions = permit_mynetworks, reject_unauth_destination
