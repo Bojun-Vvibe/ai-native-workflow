@@ -1,0 +1,8 @@
+# Helm-style values for hashicorp/consul chart, hardened.
+server:
+  replicas: 3
+
+acl:
+  enabled: true
+  default_policy: deny
+  manageSystemACLs: true

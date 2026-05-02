@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  consul:
+    image: hashicorp/consul:1.18
+    container_name: consul
+    # Production-style: explicit server mode, ACLs configured via
+    # mounted /consul/config/acl.hcl with default_policy=deny.
+    command: consul agent -server -bootstrap-expect=3 -config-dir=/consul/config
+    ports:
+      - "8500:8500"
