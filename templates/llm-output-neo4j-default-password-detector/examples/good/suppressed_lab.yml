@@ -1,0 +1,8 @@
+# neo4j-default-password-allowed
+# Offline lab fixture; suppression marker above tells the detector to skip it.
+version: "3"
+services:
+  neo4j:
+    image: neo4j:5.15
+    environment:
+      - NEO4J_AUTH=neo4j/neo4j
