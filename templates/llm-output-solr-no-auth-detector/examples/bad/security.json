@@ -1,0 +1,6 @@
+{
+  "authorization": {
+    "class": "solr.RuleBasedAuthorizationPlugin",
+    "permissions": [{"name": "all", "role": "admin"}]
+  }
+}
