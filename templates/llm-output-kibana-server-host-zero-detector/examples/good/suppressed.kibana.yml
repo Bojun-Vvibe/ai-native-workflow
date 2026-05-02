@@ -1,0 +1,6 @@
+# kibana-bind-all-allowed: this Kibana lives behind an authenticating
+# reverse proxy on a private VPC; bind-all is intentional for k8s pods.
+server.port: 5601
+server.host: "0.0.0.0"
+elasticsearch.hosts: ["http://es:9200"]
+xpack.security.enabled: true

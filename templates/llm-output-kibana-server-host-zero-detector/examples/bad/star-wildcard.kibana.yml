@@ -1,0 +1,4 @@
+server.port: 5601
+server.host: "*"
+elasticsearch.hosts: ["http://es:9200"]
+xpack.security.enabled: false
