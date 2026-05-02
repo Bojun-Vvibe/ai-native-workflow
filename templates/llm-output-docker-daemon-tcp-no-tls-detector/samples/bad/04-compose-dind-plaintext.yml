@@ -1,0 +1,8 @@
+# compose snippet that runs a privileged dockerd with plaintext TCP API.
+services:
+  dockerd:
+    image: docker:24-dind
+    privileged: true
+    command: ["dockerd", "-H", "tcp://0.0.0.0:2375", "-H", "unix:///var/run/docker.sock"]
+    ports:
+      - "2375:2375"
