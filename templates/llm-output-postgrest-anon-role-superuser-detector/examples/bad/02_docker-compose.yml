@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  postgrest:
+    image: postgrest/postgrest:v12.0.2
+    ports:
+      - "3000:3000"
+    environment:
+      PGRST_DB_URI: postgres://authenticator:authpw@db:5432/app
+      PGRST_DB_SCHEMAS: api
+      PGRST_DB_ANON_ROLE: admin
+  db:
+    image: postgres:15
