@@ -1,0 +1,11 @@
+[Unit]
+Description=Gerrit Code Review server
+After=network-online.target
+
+[Service]
+User=gerrit
+ExecStart=/usr/bin/java -jar /opt/gerrit/bin/gerrit.war daemon -d /opt/gerrit --config auth.type=DEVELOPMENT_BECOME_ANY_ACCOUNT
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
