@@ -1,0 +1,10 @@
+# tikv.toml — bad: ca-path set but cert-path/key-path missing
+[server]
+addr = "0.0.0.0:20160"
+
+[security]
+ca-path = "/etc/tikv/tls/ca.pem"
+# operator forgot cert-path and key-path
+
+[storage]
+data-dir = "/var/lib/tikv"

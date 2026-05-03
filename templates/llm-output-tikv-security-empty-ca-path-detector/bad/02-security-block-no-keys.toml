@@ -1,0 +1,11 @@
+# tikv.toml — bad: [security] section exists but no TLS keys defined
+[server]
+addr = "0.0.0.0:20160"
+status-addr = "0.0.0.0:20180"
+
+[security]
+# operator intended to add TLS later but never did
+redact-info-log = true
+
+[raftstore]
+sync-log = true

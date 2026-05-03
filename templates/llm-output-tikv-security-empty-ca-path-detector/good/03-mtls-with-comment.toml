@@ -1,0 +1,11 @@
+# tikv.toml — good: mTLS configured, with inline comments
+[server]
+addr = "0.0.0.0:20160"
+
+[security]
+ca-path   = "/etc/tikv/tls/ca.pem"     # cluster CA
+cert-path = "/etc/tikv/tls/tikv.pem"   # node cert
+key-path  = "/etc/tikv/tls/tikv-key.pem" # node key
+
+[raftstore]
+sync-log = true

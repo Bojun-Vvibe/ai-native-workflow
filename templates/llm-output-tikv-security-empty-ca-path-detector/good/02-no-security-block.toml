@@ -1,0 +1,7 @@
+# tikv.toml — good: no [security] block at all (dev/test, not flagged
+# by this detector — out of scope; a different detector covers plaintext-by-default)
+[server]
+addr = "127.0.0.1:20160"
+
+[storage]
+data-dir = "/tmp/tikv-dev"

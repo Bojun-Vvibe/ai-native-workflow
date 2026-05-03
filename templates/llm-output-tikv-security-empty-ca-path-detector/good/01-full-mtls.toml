@@ -1,0 +1,11 @@
+# tikv.toml — good: full mTLS configured
+[server]
+addr = "0.0.0.0:20160"
+
+[security]
+ca-path = "/etc/tikv/tls/ca.pem"
+cert-path = "/etc/tikv/tls/tikv.pem"
+key-path = "/etc/tikv/tls/tikv-key.pem"
+
+[storage]
+data-dir = "/var/lib/tikv"
