@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  kafka:
+    image: confluentinc/cp-kafka:7.6.0
+    environment:
+      KAFKA_BROKER_ID: "1"
+      KAFKA_LISTENERS: "SASL_SSL://0.0.0.0:9093"
+      KAFKA_AUTHORIZER_CLASS_NAME: "kafka.security.authorizer.AclAuthorizer"
+      KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "false"
+      # Note: configs that omit the key entirely also default to false
+      # and are correctly NOT flagged by the detector.

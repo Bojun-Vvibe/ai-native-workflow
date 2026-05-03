@@ -1,0 +1,8 @@
+# Strimzi / Helm values — safe
+kafka:
+  config:
+    "allow.everyone.if.no.acl.found": "false"
+    "auto.create.topics.enable": "false"
+    "default.replication.factor": 3
+  authorization:
+    type: simple

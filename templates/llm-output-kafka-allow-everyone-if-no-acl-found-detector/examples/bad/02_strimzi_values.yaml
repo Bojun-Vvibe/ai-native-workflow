@@ -1,0 +1,6 @@
+# Strimzi / Helm values — vulnerable (dotted yaml key)
+kafka:
+  config:
+    "allow.everyone.if.no.acl.found": "true"
+    "auto.create.topics.enable": "true"
+    "default.replication.factor": 3
