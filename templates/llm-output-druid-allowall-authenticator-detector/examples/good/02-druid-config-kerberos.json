@@ -1,0 +1,10 @@
+{
+  "druid.service": "druid/router",
+  "druid.host": "druid-router",
+  "druid.zk.service.host": "zk-0:2181",
+  "druid.metadata.storage.type": "postgresql",
+  "druid.extensions.loadList": ["druid-kerberos","postgresql-metadata-storage"],
+  "druid.auth.authenticatorChain": ["MyKerberosAuthenticator"],
+  "druid.auth.authenticator.MyKerberosAuthenticator.type": "kerberos",
+  "druid.auth.authorizers": ["MyAuthorizer"]
+}

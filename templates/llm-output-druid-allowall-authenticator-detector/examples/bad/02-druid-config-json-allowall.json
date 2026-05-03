@@ -1,0 +1,9 @@
+{
+  "druid.service": "druid/broker",
+  "druid.host": "druid-broker",
+  "druid.zk.service.host": "zk-0:2181",
+  "druid.metadata.storage.type": "derby",
+  "druid.extensions.loadList": ["druid-basic-security"],
+  "druid.auth.authenticatorChain": ["allowAll"],
+  "druid.auth.authorizers": ["allowAll"]
+}
