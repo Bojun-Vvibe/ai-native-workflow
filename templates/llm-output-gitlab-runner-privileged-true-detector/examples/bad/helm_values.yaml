@@ -1,0 +1,9 @@
+image: gitlab/gitlab-runner:v16.0
+gitlabUrl: https://gitlab.example.com/
+
+runners:
+  privileged: true
+  tags: "docker,build"
+  config: |
+    [[runners]]
+      executor = "docker"

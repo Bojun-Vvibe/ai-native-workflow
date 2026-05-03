@@ -1,0 +1,9 @@
+concurrent = 4
+
+[[runners]]
+  name = "shared-docker"
+  executor = "docker"
+  [runners.docker]
+    image = "alpine:3.19"
+    privileged = false
+    volumes = ["/cache"]

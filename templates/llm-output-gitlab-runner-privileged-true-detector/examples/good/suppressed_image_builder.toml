@@ -1,0 +1,9 @@
+# gitlab-runner-privileged-allowed
+# Documented single-tenant image-builder runner. Trust boundary:
+# only project group `releng/image-builders` can dispatch jobs here.
+[[runners]]
+  name = "image-builder"
+  executor = "docker"
+  [runners.docker]
+    image = "docker:24"
+    privileged = true

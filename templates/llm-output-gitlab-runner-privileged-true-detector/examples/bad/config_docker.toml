@@ -1,0 +1,13 @@
+concurrent = 4
+check_interval = 0
+
+[[runners]]
+  name = "shared-docker"
+  url = "https://gitlab.example.com/"
+  executor = "docker"
+  [runners.docker]
+    tls_verify = false
+    image = "alpine:3.19"
+    privileged = true
+    disable_cache = false
+    volumes = ["/cache"]

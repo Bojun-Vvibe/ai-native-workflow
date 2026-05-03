@@ -1,0 +1,9 @@
+[[runners]]
+  name = "k8s-runner"
+  executor = "kubernetes"
+  [runners.kubernetes]
+    namespace = "gitlab-runner"
+    image = "ubuntu:22.04"
+    privileged = true
+    cpu_limit = "1"
+    memory_limit = "2Gi"

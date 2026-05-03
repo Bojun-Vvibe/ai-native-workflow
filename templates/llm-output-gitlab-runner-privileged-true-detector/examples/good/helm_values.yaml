@@ -1,0 +1,4 @@
+image: gitlab/gitlab-runner:v16.0
+runners:
+  privileged: false
+  tags: "kaniko,build"
