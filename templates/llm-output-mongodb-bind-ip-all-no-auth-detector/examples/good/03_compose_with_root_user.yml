@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  db:
+    image: mongo:7.0
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: app_admin
+      MONGO_INITDB_ROOT_PASSWORD_FILE: /run/secrets/mongo_root_pw
+    secrets:
+      - mongo_root_pw
+    volumes:
+      - mongo_data:/data/db
+secrets:
+  mongo_root_pw:
+    file: ./secrets/mongo_root_pw.txt
+volumes:
+  mongo_data: {}

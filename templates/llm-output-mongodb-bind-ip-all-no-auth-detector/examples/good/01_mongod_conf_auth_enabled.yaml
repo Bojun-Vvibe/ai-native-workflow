@@ -1,0 +1,15 @@
+# /etc/mongod.conf — bind-all is OK because authorization is enforced.
+storage:
+  dbPath: /var/lib/mongo
+net:
+  port: 27017
+  bindIp: 0.0.0.0
+  tls:
+    mode: requireTLS
+    certificateKeyFile: /etc/mongo/tls/server.pem
+security:
+  authorization: enabled
+systemLog:
+  destination: file
+  path: /var/log/mongodb/mongod.log
+  logAppend: true

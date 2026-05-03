@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  db:
+    image: mongo:7.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    # No MONGO_INITDB_ROOT_USERNAME / _PASSWORD => entrypoint never enables auth.
+volumes:
+  mongo_data: {}
