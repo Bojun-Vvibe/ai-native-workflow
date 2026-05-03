@@ -1,0 +1,12 @@
+# Unrelated YAML: bind-mounts and a bind9 sidecar; nothing to do with
+# rethinkdb. Detector must not flag.
+services:
+  app:
+    image: example/app:1.0
+    volumes:
+      - type: bind
+        source: ./data
+        target: /data
+  dns:
+    image: example/bind9:9.18
+    command: ["named", "-g"]

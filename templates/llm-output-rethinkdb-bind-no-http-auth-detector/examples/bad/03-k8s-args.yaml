@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: rethinkdb
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: rethinkdb}
+  template:
+    metadata:
+      labels: {app: rethinkdb}
+    spec:
+      containers:
+        - name: rethinkdb
+          image: rethinkdb:2.4
+          args:
+            - rethinkdb
+            - --bind
+            - all
+          ports:
+            - containerPort: 8080
