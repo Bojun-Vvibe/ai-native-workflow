@@ -1,0 +1,13 @@
+# jenkins.yaml -- JCasC. GOOD: real crumb issuer with proxy-friendly
+# settings.
+jenkins:
+  systemMessage: "Internal CI controller"
+  numExecutors: 4
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: true
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: admin

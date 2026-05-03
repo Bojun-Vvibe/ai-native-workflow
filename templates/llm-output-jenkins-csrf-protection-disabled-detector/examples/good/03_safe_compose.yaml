@@ -1,0 +1,14 @@
+# GOOD: docker-compose with safe JAVA_OPTS. The dangerous flag is
+# called out only in comments, never set live.
+#
+# Anti-pattern (do NOT do this):
+#   -Dhudson.security.csrf.GlobalCrumbIssuerConfiguration.DISABLE_CSRF_PROTECTION=true
+#
+version: "3.8"
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    environment:
+      JAVA_OPTS: "-Djenkins.install.runSetupWizard=false -Xmx2g"
+    ports:
+      - "8080:8080"

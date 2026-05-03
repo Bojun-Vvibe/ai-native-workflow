@@ -1,0 +1,10 @@
+# jenkins.yaml -- JCasC. BAD: explicitly nulls out the crumb issuer.
+jenkins:
+  systemMessage: "Internal CI controller"
+  numExecutors: 4
+  crumbIssuer: null
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: admin

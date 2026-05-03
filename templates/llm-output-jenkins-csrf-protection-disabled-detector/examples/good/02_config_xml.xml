@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- GOOD: default DefaultCrumbIssuer with excludeClientIPFromCrumb
+     set false (proxy-aware). CSRF protection on. -->
+<hudson>
+  <useCrumbs>true</useCrumbs>
+  <crumbIssuer class="hudson.security.csrf.DefaultCrumbIssuer">
+    <excludeClientIPFromCrumb>false</excludeClientIPFromCrumb>
+  </crumbIssuer>
+  <numExecutors>2</numExecutors>
+</hudson>
