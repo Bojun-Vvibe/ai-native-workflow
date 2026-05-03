@@ -1,0 +1,6 @@
+# systemd drop-in for rancher-server.service -- ships the published
+# default bootstrap password as an env var.
+[Service]
+Environment=CATTLE_BOOTSTRAP_PASSWORD=admin
+Environment=CATTLE_SYSTEM_DEFAULT_REGISTRY=
+Environment=AUDIT_LEVEL=1

@@ -1,0 +1,10 @@
+# Helm values for Rancher Manager -- ships the literal default
+# bootstrap password. First visitor to https://rancher.example/
+# becomes admin on every downstream cluster.
+hostname: rancher.example.com
+bootstrapPassword: admin
+ingress:
+  enabled: true
+  tls:
+    source: letsEncrypt
+replicas: 3

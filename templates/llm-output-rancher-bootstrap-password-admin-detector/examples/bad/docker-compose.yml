@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  rancher:
+    image: rancher/rancher:v2.8.2
+    container_name: rancher-server
+    restart: unless-stopped
+    privileged: true
+    environment:
+      - CATTLE_BOOTSTRAP_PASSWORD=admin
+      - CATTLE_SYSTEM_DEFAULT_REGISTRY=
+      - AUDIT_LEVEL=1
+    ports:
+      - "80:80"
+      - "443:443"

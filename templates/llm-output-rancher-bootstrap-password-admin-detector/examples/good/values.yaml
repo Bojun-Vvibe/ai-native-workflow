@@ -1,0 +1,15 @@
+# Helm values for Rancher Manager -- bootstrap password injected
+# from a sealed secret, never committed.
+hostname: rancher.example.com
+bootstrapPassword: ""  # populated by external-secrets at install time
+extraEnv:
+  - name: CATTLE_BOOTSTRAP_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: rancher-bootstrap
+        key: password
+ingress:
+  enabled: true
+  tls:
+    source: letsEncrypt
+replicas: 3
