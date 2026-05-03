@@ -1,0 +1,12 @@
+# flink-conf.yaml -- safe: REST bound to loopback only.
+# Operators tunnel via SSH or run an in-cluster proxy.
+jobmanager.rpc.address: jobmanager.flink.svc.cluster.local
+jobmanager.rpc.port: 6123
+rest.address: 127.0.0.1
+rest.bind-address: 127.0.0.1
+rest.port: 8081
+
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 2
+state.backend: rocksdb
+high-availability: zookeeper

@@ -1,0 +1,25 @@
+# docker-compose.yml -- LLM "deploy Flink in 5 minutes" stack
+# Publishes the JobManager REST UI to the host with no auth.
+version: "3.8"
+services:
+  jobmanager:
+    image: flink:1.18-scala_2.12
+    command: jobmanager
+    ports:
+      - "8081:8081"
+      - "6123:6123"
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+        rest.bind-address: 0.0.0.0
+  taskmanager:
+    image: flink:1.18-scala_2.12
+    command: taskmanager
+    depends_on:
+      - jobmanager
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+        taskmanager.numberOfTaskSlots: 2

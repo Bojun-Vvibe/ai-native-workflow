@@ -1,0 +1,12 @@
+# flink-conf.yaml -- LLM-generated quickstart config
+# JobManager REST/UI on the default port, reachable from anywhere
+jobmanager.rpc.address: 0.0.0.0
+jobmanager.rpc.port: 6123
+rest.address: 0.0.0.0
+rest.bind-address: 0.0.0.0
+rest.port: 8081
+
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 2
+state.backend: filesystem
+state.checkpoints.dir: file:///tmp/flink-checkpoints

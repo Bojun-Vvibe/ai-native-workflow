@@ -1,0 +1,15 @@
+# Documentation: how NOT to deploy Flink.
+#
+# Bad pattern (do not copy):
+#   rest.bind-address: 0.0.0.0
+#
+# This is a markdown-style note, not a real config. The leading
+# `#` makes every line a comment so the detector should ignore it.
+#
+#   jobmanager.rpc.address: 0.0.0.0
+#   rest.address: 0.0.0.0
+#
+# Recommended:
+#   rest.bind-address: 127.0.0.1
+# and front the REST endpoint with oauth2-proxy or a SPIRE-issued
+# mTLS sidecar.
