@@ -1,0 +1,27 @@
+# Helm values for dexidp/dex - LDAP-only, no static passwords
+image:
+  repository: ghcr.io/dexidp/dex
+  tag: v2.39.1
+
+config:
+  issuer: https://login.corp.local
+  storage:
+    type: kubernetes
+    config:
+      inCluster: true
+  connectors:
+  - type: ldap
+    id: corp-ldap
+    name: Corp LDAP
+    config:
+      host: ldap.corp.local:636
+      bindDN: cn=dex,ou=svc,dc=corp,dc=local
+      bindPW: $LDAP_BIND_PW
+      userSearch:
+        baseDN: ou=people,dc=corp,dc=local
+        filter: "(objectClass=person)"
+        username: uid
+        idAttr: uid
+        emailAttr: mail
+        nameAttr: cn
+  enablePasswordDB: false

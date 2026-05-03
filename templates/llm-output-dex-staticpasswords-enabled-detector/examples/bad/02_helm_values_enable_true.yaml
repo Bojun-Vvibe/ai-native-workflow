@@ -1,0 +1,15 @@
+# helm values for dexidp/dex
+image:
+  repository: ghcr.io/dexidp/dex
+  tag: v2.39.1
+
+config:
+  issuer: https://login.example.org
+  storage:
+    type: memory
+  connectors: []
+  enablePasswordDB: true
+  staticPasswords:
+  - email: "ops@corp.local"
+    hash: "$2y$10$ABCdefGHIjklMNOpqrSTUvwx0123456789abcdefghijklmnopqrstu"
+    username: "ops"

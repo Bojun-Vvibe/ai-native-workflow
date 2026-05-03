@@ -1,0 +1,22 @@
+# dex.yaml -- demo-hash leak even though enablePasswordDB is gated
+issuer: https://dex.example.org
+storage:
+  type: sqlite3
+  config:
+    file: /var/dex/dex.db
+
+connectors:
+- type: github
+  id: github
+  name: GitHub
+  config:
+    clientID: foo
+    clientSecret: bar
+
+# Operator copy-pasted this from the Dex tutorial without realising
+# the hash is for the literal word "password".
+staticPasswords:
+- email: "ops@corp.local"
+  hash: "$2a$10$33EMT0cVYVlPy6WAMCLsceLYjWhuHpbz5yuZxu/GAFj03J9Lytjuy"
+  username: "ops"
+  userID: "0001"
