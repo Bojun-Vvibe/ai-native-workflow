@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- GOOD: SingleUser provider but Username and Password come from env / property substitution -->
+<loginIdentityProviders>
+    <provider>
+        <identifier>single-user-provider</identifier>
+        <class>org.apache.nifi.authentication.single.user.SingleUserLoginIdentityProvider</class>
+        <property name="Username">${nifi.single.user.username}</property>
+        <property name="Password">${nifi.single.user.password}</property>
+    </provider>
+</loginIdentityProviders>

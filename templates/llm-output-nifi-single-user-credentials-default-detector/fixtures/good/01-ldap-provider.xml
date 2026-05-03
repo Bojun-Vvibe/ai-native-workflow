@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- GOOD: LDAP provider, no SingleUserLoginIdentityProvider in this file -->
+<loginIdentityProviders>
+    <provider>
+        <identifier>ldap-provider</identifier>
+        <class>org.apache.nifi.ldap.LdapProvider</class>
+        <property name="Authentication Strategy">SIMPLE</property>
+        <property name="Manager DN">cn=svc-nifi,ou=service,dc=example,dc=com</property>
+        <property name="Manager Password">${ldap.manager.password}</property>
+        <property name="Url">ldaps://ldap.example.com:636</property>
+        <property name="User Search Base">ou=people,dc=example,dc=com</property>
+        <property name="User Search Filter">uid={0}</property>
+    </provider>
+</loginIdentityProviders>
