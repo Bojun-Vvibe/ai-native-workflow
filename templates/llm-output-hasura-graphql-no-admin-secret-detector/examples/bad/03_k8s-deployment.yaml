@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hasura
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: hasura }
+  template:
+    metadata:
+      labels: { app: hasura }
+    spec:
+      containers:
+        - name: graphql-engine
+          image: hasura/graphql-engine:v2.36.0
+          ports:
+            - containerPort: 8080
+          env:
+            - name: HASURA_GRAPHQL_DATABASE_URL
+              value: postgres://app:app@db:5432/app
+            - name: HASURA_GRAPHQL_ENABLE_CONSOLE
+              value: "true"
