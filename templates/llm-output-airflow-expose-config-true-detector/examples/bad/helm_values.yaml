@@ -1,0 +1,11 @@
+images:
+  airflow:
+    repository: apache/airflow
+    tag: 2.9.0
+
+webserver:
+  replicas: 2
+  exposeConfig: true
+  defaultUser:
+    enabled: true
+    role: Admin
