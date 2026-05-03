@@ -1,0 +1,9 @@
+# Reference notes for our SRE runbook (no resources defined here).
+#
+# DO NOT publish jaeger ingest port like this in prod:
+#   -p 14250:14250
+#   -p 0.0.0.0:4317:4317
+# Use a private overlay or front it with an authenticating proxy.
+#
+# Approved bind for local dev only:
+#   docker run -p 127.0.0.1:14250:14250 jaegertracing/all-in-one

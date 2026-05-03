@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jaeger-collector
+spec:
+  replicas: 2
+  template:
+    spec:
+      containers:
+        - name: collector
+          image: jaegertracing/jaeger-collector:1.57
+          args:
+            - "--collector.grpc-server.host-port=0.0.0.0:14250"
+            - "--collector.otlp.grpc.host-port=0.0.0.0:4317"
+          ports:
+            - containerPort: 14250
+            - containerPort: 4317
