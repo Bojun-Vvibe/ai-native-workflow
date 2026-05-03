@@ -1,0 +1,17 @@
+# helm values for apache/pinot chart
+image:
+  repository: apachepinot/pinot
+  tag: "1.2.0"
+
+cluster:
+  name: PinotCluster
+
+controller:
+  replicaCount: 3
+  accessControl:
+    factory: ZkBasicAuthAccessControlFactory
+
+broker:
+  replicaCount: 2
+  accessControl:
+    factory: ZkBasicAuthAccessControlFactory
