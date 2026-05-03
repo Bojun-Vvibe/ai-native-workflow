@@ -1,0 +1,5 @@
+# Bad: production env, master_key commented out
+env = "production"
+http_addr = "0.0.0.0:7700"
+# master_key = "set-me-later"
+db_path = "./data.ms"

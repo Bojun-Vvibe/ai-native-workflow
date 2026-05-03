@@ -1,0 +1,5 @@
+# Good: master_key explicitly set in production config
+env = "production"
+http_addr = "0.0.0.0:7700"
+master_key = "ZmFrZS1tYXN0ZXIta2V5LWZvci1leGFtcGxlLW9ubHk"
+db_path = "./data.ms"
