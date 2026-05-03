@@ -1,0 +1,28 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+
+processors:
+  batch:
+
+exporters:
+  debug:
+    verbosity: detailed
+
+extensions:
+  zpages/primary:
+    endpoint: "[::]:55679"
+  health_check:
+    endpoint: 0.0.0.0:13133
+
+service:
+  extensions:
+    - zpages/primary
+    - health_check
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [debug]

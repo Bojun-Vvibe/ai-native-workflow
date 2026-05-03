@@ -1,0 +1,26 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+
+processors:
+  batch:
+
+exporters:
+  debug:
+    verbosity: basic
+
+extensions:
+  # Empty host before colon == bind to all interfaces.
+  zpages:
+    endpoint: ":55679"
+
+service:
+  extensions:
+    - zpages
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [debug]

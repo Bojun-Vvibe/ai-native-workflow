@@ -1,0 +1,26 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+
+processors:
+  batch:
+
+exporters:
+  otlphttp:
+    endpoint: https://collector.example.invalid
+
+extensions:
+  # Bound to loopback only -- safe; reach via SSH tunnel or
+  # kubectl port-forward.
+  zpages:
+    endpoint: 127.0.0.1:55679
+
+service:
+  extensions: [zpages]
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlphttp]

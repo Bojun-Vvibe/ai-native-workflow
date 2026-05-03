@@ -1,0 +1,13 @@
+# Documentation file. The "bad" snippet appears only inside `#`
+# comments. Detector should treat this as a comment-only file and
+# stay silent (no live receivers/exporters/extensions).
+#
+# Example INCORRECT zpages config (do NOT use):
+#   extensions:
+#     zpages:
+#       endpoint: 0.0.0.0:55679
+#
+# Example CORRECT zpages config:
+#   extensions:
+#     zpages:
+#       endpoint: 127.0.0.1:55679
