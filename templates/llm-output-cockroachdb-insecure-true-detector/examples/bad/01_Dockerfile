@@ -1,0 +1,5 @@
+FROM cockroachdb/cockroach:v23.2.4
+EXPOSE 26257 8080
+# LLM "fix" for `ERROR: problem using security settings, see --help`:
+# just turn off TLS and auth entirely.
+CMD ["cockroach", "start-single-node", "--insecure", "--listen-addr=0.0.0.0:26257", "--http-addr=0.0.0.0:8080"]

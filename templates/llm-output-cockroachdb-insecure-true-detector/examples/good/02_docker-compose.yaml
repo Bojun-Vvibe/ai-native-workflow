@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  crdb:
+    image: cockroachdb/cockroach:v23.2.4
+    ports:
+      - "26257:26257"
+      - "8080:8080"
+    volumes:
+      - ./certs:/cockroach/certs:ro
+    # Secure mode: TLS via mounted certs dir, no --insecure flag.
+    command: start-single-node --certs-dir=/cockroach/certs --listen-addr=0.0.0.0:26257
+    environment:
+      # Variable name shares the substring `insecure` but is unrelated.
+      INSECURE_MODE_AUDIT_LOG_PATH: /var/log/crdb/insecure_attempts.log

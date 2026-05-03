@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  crdb:
+    image: cockroachdb/cockroach:v23.2.4
+    ports:
+      - "26257:26257"
+      - "8080:8080"
+    # Copy-paste from the official quickstart blog post. Inter-node and
+    # SQL connections are now plaintext, root requires no password.
+    command: start-single-node --insecure --listen-addr=0.0.0.0:26257 --http-addr=0.0.0.0:8080

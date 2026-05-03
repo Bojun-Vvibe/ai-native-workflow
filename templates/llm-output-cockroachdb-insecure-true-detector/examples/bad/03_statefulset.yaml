@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: cockroachdb
+spec:
+  serviceName: cockroachdb
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cockroachdb
+  template:
+    metadata:
+      labels:
+        app: cockroachdb
+    spec:
+      containers:
+        - name: cockroachdb
+          image: cockroachdb/cockroach:v23.2.4
+          ports:
+            - containerPort: 26257
+            - containerPort: 8080
+          # Exec-array form. Same outcome: no TLS, no auth.
+          command: ["cockroach", "start", "--insecure", "--join=cockroachdb-0,cockroachdb-1,cockroachdb-2"]
