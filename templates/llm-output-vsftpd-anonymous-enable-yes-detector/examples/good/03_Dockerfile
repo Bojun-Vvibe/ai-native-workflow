@@ -1,0 +1,13 @@
+FROM debian:stable-slim
+RUN apt-get update && apt-get install -y vsftpd && rm -rf /var/lib/apt/lists/*
+# explicit hardening — anonymous off, local users + chroot
+RUN printf '%s\n' \
+      'listen=YES' \
+      'anonymous_enable=NO' \
+      'local_enable=YES' \
+      'write_enable=YES' \
+      'chroot_local_user=YES' \
+      'allow_writeable_chroot=NO' \
+      > /etc/vsftpd.conf
+EXPOSE 21
+CMD ["/usr/sbin/vsftpd", "/etc/vsftpd.conf"]
