@@ -1,0 +1,11 @@
+# Bad: helm values.yaml — anonymous_access.enabled: true with no
+# apikey or oidc enabled.
+authentication:
+  anonymous_access:
+    enabled: true
+  apikey:
+    enabled: false
+  oidc:
+    enabled: false
+service:
+  type: LoadBalancer

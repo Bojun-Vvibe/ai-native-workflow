@@ -1,0 +1,10 @@
+# Good: helm values — anonymous off, apikey on.
+authentication:
+  anonymous_access:
+    enabled: false
+  apikey:
+    enabled: true
+    allowed_keys:
+      - EXAMPLE_PASSWORD_DO_NOT_USE_rotate_me
+    users:
+      - reader@example.com
