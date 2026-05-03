@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  pulsar:
+    image: apachepulsar/pulsar:3.2.0
+    command: ["bin/pulsar", "standalone"]
+    ports:
+      - "6650:6650"
+      - "8080:8080"
+    environment:
+      PULSAR_PREFIX_authenticationEnabled: "false"
+      PULSAR_PREFIX_clusterName: "standalone"

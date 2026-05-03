@@ -1,0 +1,8 @@
+# Pulsar Helm chart values.yaml - broker extraArgs
+broker:
+  replicaCount: 3
+  configData:
+    PULSAR_MEM: "-Xms2g -Xmx2g"
+  extraArgs:
+    - "--authenticationEnabled=false"
+    - "--authorizationEnabled=false"

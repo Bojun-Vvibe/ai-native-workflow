@@ -1,0 +1,12 @@
+# Pulsar Helm values - JWT enabled
+auth:
+  authentication:
+    enabled: true
+    provider: "jwt"
+  authorization:
+    enabled: true
+broker:
+  configData:
+    # NOTE: never use authenticationEnabled=false in production.
+    authenticationEnabled: "true"
+    authorizationEnabled: "true"

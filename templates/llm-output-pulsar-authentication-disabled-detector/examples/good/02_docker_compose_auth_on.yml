@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  pulsar:
+    image: apachepulsar/pulsar:3.2.0
+    command: ["bin/pulsar", "standalone"]
+    environment:
+      PULSAR_PREFIX_authenticationEnabled: "true"
+      PULSAR_PREFIX_authenticationProviders: "org.apache.pulsar.broker.authentication.AuthenticationProviderToken"
+      # Reminder: do NOT set authenticationEnabled=false in prod.
