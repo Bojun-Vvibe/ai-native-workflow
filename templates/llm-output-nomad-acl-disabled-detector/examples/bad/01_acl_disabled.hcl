@@ -1,0 +1,6 @@
+datacenter = "dc1"
+data_dir   = "/opt/nomad/data"
+
+acl {
+  enabled = false
+}

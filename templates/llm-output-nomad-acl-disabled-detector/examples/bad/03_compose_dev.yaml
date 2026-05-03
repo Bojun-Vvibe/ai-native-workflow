@@ -1,0 +1,6 @@
+version: "3.8"
+services:
+  nomad:
+    image: hashicorp/nomad:1.7
+    network_mode: host
+    command: nomad agent -dev -bind 0.0.0.0

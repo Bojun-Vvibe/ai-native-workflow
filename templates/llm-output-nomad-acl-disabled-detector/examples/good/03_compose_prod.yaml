@@ -1,0 +1,7 @@
+version: "3.8"
+services:
+  nomad:
+    image: hashicorp/nomad:1.7
+    command: nomad agent -config /etc/nomad.d/server.hcl
+    volumes:
+      - ./server.hcl:/etc/nomad.d/server.hcl:ro

@@ -1,0 +1,8 @@
+{
+  "datacenter": "dc1",
+  "data_dir": "/opt/nomad/data",
+  "acl": {
+    "enabled": true,
+    "token_ttl": "30s"
+  }
+}

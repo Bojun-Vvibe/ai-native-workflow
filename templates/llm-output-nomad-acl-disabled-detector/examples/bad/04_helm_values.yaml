@@ -1,0 +1,10 @@
+# Helm values for hashicorp/nomad chart (vulnerable: ACLs off)
+server:
+  enabled: true
+  replicas: 3
+
+acl:
+  enabled: false
+
+ui:
+  enabled: true
