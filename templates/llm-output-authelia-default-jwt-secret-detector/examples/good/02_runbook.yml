@@ -1,0 +1,11 @@
+# Operations runbook (not a real config). Talks about Authelia
+# secrets but does NOT define any.
+#
+# Reminder: never use the upstream tutorial values like
+#   jwt_secret: a_very_important_secret
+#   session.secret: unsecure_session_secret
+# Generate fresh material per environment with `openssl rand -hex 32`
+# and load it via the `_FILE` env-var pattern from the secrets store.
+notes:
+  rotation_window_days: 90
+  source_of_truth: vault://kv/authelia/prod

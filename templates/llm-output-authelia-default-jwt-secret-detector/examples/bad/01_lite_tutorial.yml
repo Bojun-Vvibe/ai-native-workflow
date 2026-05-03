@@ -1,0 +1,12 @@
+# Authelia configuration.yml -- copied verbatim from the "lite" tutorial.
+jwt_secret: a_very_important_secret
+
+session:
+  name: authelia_session
+  secret: unsecure_session_secret
+  expiration: 3600
+
+storage:
+  encryption_key: a_very_important_storage_encryption_key
+  local:
+    path: /config/db.sqlite3

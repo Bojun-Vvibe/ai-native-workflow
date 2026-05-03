@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  authelia:
+    image: authelia/authelia:4.38
+    environment:
+      AUTHELIA_JWT_SECRET: a_very_important_secret
+      AUTHELIA_SESSION_SECRET: unsecure_session_secret
+      AUTHELIA_STORAGE_ENCRYPTION_KEY: a_very_important_storage_encryption_key
