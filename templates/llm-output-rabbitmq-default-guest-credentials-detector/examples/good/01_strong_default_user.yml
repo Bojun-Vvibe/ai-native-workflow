@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  broker:
+    image: rabbitmq:3.13-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: app_publisher
+      RABBITMQ_DEFAULT_PASS_FILE: /run/secrets/rmq_pw
+    secrets:
+      - rmq_pw
+secrets:
+  rmq_pw:
+    file: ./secrets/rmq_pw.txt
