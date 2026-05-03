@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pushgateway
+spec:
+  template:
+    spec:
+      containers:
+        - name: pushgateway
+          image: prom/pushgateway:v1.9.0
+          args:
+            - "--web.listen-address=0.0.0.0:9091"
+            - "--web.config.file=/etc/pushgateway/web.yml"
+          volumeMounts:
+            - name: webcfg
+              mountPath: /etc/pushgateway
+      volumes:
+        - name: webcfg
+          configMap:
+            name: pushgateway-web
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pushgateway
+spec:
+  type: ClusterIP
+  ports:
+    - port: 9091
+      targetPort: 9091

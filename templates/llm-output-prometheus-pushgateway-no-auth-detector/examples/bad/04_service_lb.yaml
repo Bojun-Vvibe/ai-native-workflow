@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pushgateway
+spec:
+  type: LoadBalancer
+  selector:
+    app: pushgateway
+  ports:
+    - name: http
+      port: 9091
+      targetPort: 9091
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pushgateway
+spec:
+  template:
+    spec:
+      containers:
+        - name: pg
+          image: prom/pushgateway:v1.9.0

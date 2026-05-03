@@ -1,0 +1,8 @@
+# Documentation only: this file mentions pushgateway but has no
+# actual deployment. The example below is shown only as a warning
+# of what NOT to do.
+#
+# BAD example (do not copy):
+#   docker run -p 9091:9091 prom/pushgateway
+#
+# Always set --web.config.file with basic_auth or TLS client cert.
