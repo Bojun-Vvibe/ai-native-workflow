@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: arangodb
+spec:
+  serviceName: arangodb
+  replicas: 1
+  selector:
+    matchLabels: { app: arangodb }
+  template:
+    metadata:
+      labels: { app: arangodb }
+    spec:
+      containers:
+        - name: arangod
+          image: arangodb/arangodb:3.11
+          args:
+            - "--server.endpoint"
+            - "tcp://0.0.0.0:8529"
+            - "--server.authentication"
+            - "false"
+          ports:
+            - containerPort: 8529

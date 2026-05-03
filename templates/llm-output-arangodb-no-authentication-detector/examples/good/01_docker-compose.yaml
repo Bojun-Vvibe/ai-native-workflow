@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  arangodb:
+    image: arangodb/arangodb:3.11
+    environment:
+      - ARANGO_ROOT_PASSWORD_FILE=/run/secrets/arango_root_password
+    secrets:
+      - arango_root_password
+    ports:
+      - "8529:8529"
+    volumes:
+      - arangodb_data:/var/lib/arangodb3
+volumes:
+  arangodb_data:
+secrets:
+  arango_root_password:
+    file: ./secrets/arango_root_password
