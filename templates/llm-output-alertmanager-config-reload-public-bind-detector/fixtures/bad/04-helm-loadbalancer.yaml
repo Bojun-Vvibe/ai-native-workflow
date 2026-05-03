@@ -1,0 +1,9 @@
+# Helm values.yaml — BAD: Alertmanager service exposed via LoadBalancer
+prometheus:
+  enabled: true
+
+alertmanager:
+  enabled: true
+  service:
+    type: LoadBalancer
+    port: 9093

@@ -1,0 +1,6 @@
+# systemd unit — BAD: external-url is public and no route-prefix
+# (i.e. no reverse proxy mount path), so Alertmanager is directly exposed.
+[Service]
+ExecStart=/usr/local/bin/alertmanager \
+  --config.file=/etc/alertmanager/alertmanager.yml \
+  --web.external-url=https://alerts.example.com/

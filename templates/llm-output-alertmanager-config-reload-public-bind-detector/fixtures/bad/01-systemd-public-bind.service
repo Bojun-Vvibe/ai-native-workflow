@@ -1,0 +1,15 @@
+# systemd unit fragment — BAD: Alertmanager bound to all interfaces
+[Unit]
+Description=Alertmanager
+After=network-online.target
+
+[Service]
+User=alertmanager
+ExecStart=/usr/local/bin/alertmanager \
+  --config.file=/etc/alertmanager/alertmanager.yml \
+  --storage.path=/var/lib/alertmanager \
+  --web.listen-address=0.0.0.0:9093
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

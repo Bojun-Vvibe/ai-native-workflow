@@ -1,0 +1,8 @@
+# systemd unit — GOOD: external-url has route-prefix, indicating
+# Alertmanager sits behind a reverse proxy that handles auth.
+[Service]
+ExecStart=/usr/local/bin/alertmanager \
+  --config.file=/etc/alertmanager/alertmanager.yml \
+  --web.listen-address=127.0.0.1:9093 \
+  --web.external-url=https://alerts.example.com/alertmanager \
+  --web.route-prefix=/alertmanager

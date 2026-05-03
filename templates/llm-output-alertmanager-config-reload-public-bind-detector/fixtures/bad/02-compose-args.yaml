@@ -1,0 +1,10 @@
+# docker-compose.yaml — BAD: explicit 0.0.0.0 listen address in args
+version: "3.8"
+services:
+  alertmanager:
+    image: prom/alertmanager:v0.27.0
+    command:
+      - "--config.file=/etc/alertmanager/alertmanager.yml"
+      - "--web.listen-address=0.0.0.0:9093"
+    ports:
+      - "9093:9093"
