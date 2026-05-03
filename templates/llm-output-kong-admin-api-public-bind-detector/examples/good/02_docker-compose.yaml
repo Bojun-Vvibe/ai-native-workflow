@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  kong:
+    image: kong:3.6
+    environment:
+      # Admin API stays on loopback inside the container; reach it
+      # via `docker exec` or a bastion-tunneled port-forward.
+      - KONG_ADMIN_LISTEN=127.0.0.1:8001
+      - KONG_PROXY_LISTEN=0.0.0.0:8000, 0.0.0.0:8443 ssl
+      - KONG_DATABASE=off
+      - KONG_DECLARATIVE_CONFIG=/etc/kong/kong.yml
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./kong.yml:/etc/kong/kong.yml:ro
