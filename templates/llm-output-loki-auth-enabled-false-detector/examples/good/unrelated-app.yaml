@@ -1,0 +1,6 @@
+# Unrelated app yaml — file has no Loki tokens at all.
+auth_enabled: false  # this is a flag for our internal app, not Loki
+
+app:
+  name: hello
+  port: 8080

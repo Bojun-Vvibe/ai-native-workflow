@@ -1,0 +1,10 @@
+# Helm values.yaml for grafana/loki chart
+loki:
+  auth_enabled: false
+  commonConfig:
+    replication_factor: 1
+  storage:
+    type: filesystem
+
+ruler:
+  enabled: false

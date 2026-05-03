@@ -1,0 +1,10 @@
+# Loki Helm values with auth enabled. Comments below mention the bad
+# pattern but the actual setting is correct, so this must NOT match.
+#
+#   Do NOT do:   auth_enabled: false
+#   Do NOT pass: -auth.enabled=false
+#
+loki:
+  auth_enabled: true
+  commonConfig:
+    replication_factor: 3
