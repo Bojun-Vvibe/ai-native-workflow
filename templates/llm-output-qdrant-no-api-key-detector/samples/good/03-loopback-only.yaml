@@ -1,0 +1,6 @@
+service:
+  host: 127.0.0.1
+  http_port: 6333
+  enable_cors: false
+storage:
+  storage_path: ./storage
