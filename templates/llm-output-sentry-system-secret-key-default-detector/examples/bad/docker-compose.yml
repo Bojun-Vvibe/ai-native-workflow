@@ -1,0 +1,11 @@
+# docker-compose for self-hosted sentry
+version: "3.8"
+services:
+  web:
+    image: sentry:24.1.0
+    environment:
+      SENTRY_SECRET_KEY: '!!changeme!!'
+      SENTRY_POSTGRES_HOST: postgres
+      SENTRY_REDIS_HOST: redis
+    ports:
+      - "9000:9000"

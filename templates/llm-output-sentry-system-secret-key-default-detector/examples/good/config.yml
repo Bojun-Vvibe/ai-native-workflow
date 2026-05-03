@@ -1,0 +1,9 @@
+# Sentry self-hosted config.yml -- production
+# upstream: getsentry/self-hosted
+
+system.admin-email: 'admin@example.com'
+system.url-prefix: 'https://sentry.example.com'
+system.secret-key: 'a3f1c8e9b2d740569f8e1c0b7a4d6e2f9c1b8a5d3e7f042169c8b4a7d1e3f502'
+
+mail.backend: 'smtp'
+mail.host: 'smtp.example.com'
