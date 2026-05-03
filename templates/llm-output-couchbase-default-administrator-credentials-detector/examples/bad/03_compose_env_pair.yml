@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  db:
+    image: couchbase/server:7.6.0
+    ports:
+      - "8091:8091"
+      - "11210:11210"
+    environment:
+      COUCHBASE_ADMINISTRATOR_USERNAME: Administrator
+      COUCHBASE_ADMINISTRATOR_PASSWORD: changeme
+      COUCHBASE_BUCKET: app

@@ -1,0 +1,8 @@
+cluster:
+  name: prod-east
+  username: Administrator
+  password: Password1
+  services:
+    - data
+    - query
+    - index
