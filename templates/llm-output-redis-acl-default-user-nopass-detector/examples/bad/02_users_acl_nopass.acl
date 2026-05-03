@@ -1,0 +1,4 @@
+# /etc/redis/users.acl — loaded via "aclfile /etc/redis/users.acl"
+# default has nopass + full access; equivalent to no auth at all.
+user default on nopass ~* +@all
+user readonly on >hunter2hash ~cache:* +@read
