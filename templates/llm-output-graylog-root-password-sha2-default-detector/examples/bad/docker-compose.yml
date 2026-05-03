@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  graylog:
+    image: graylog/graylog:5.2
+    environment:
+      GRAYLOG_PASSWORD_SECRET: somesupersecretpasswordpepperthatislongenough
+      GRAYLOG_ROOT_PASSWORD_SHA2: 8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+      GRAYLOG_HTTP_EXTERNAL_URI: http://127.0.0.1:9000/
+    ports:
+      - "9000:9000"
+      - "12201:12201/udp"
