@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  cache:
+    image: redis:7.2
+    # protected-mode left at its safe default (yes); auth via env file.
+    env_file: ./secrets/redis.env
+    command: ["redis-server", "--bind", "10.0.1.42", "--requirepass", "${REDIS_PASSWORD}"]

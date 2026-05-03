@@ -1,0 +1,6 @@
+FROM redis:7.2-alpine
+COPY redis.conf /etc/redis/redis.conf
+EXPOSE 6379
+# LLM "helpfully" disabled protected mode so the container would accept
+# connections from the docker host network.
+CMD ["redis-server", "/etc/redis/redis.conf", "--protected-mode", "no"]

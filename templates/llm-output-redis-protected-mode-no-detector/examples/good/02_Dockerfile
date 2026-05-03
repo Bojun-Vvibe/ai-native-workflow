@@ -1,0 +1,6 @@
+FROM redis:7.2-alpine
+COPY redis.conf /etc/redis/redis.conf
+# Documentation in a comment must NOT trigger the detector:
+# Note: do not pass --protected-mode no here. We rely on the
+# safety net plus requirepass in redis.conf.
+CMD ["redis-server", "/etc/redis/redis.conf"]
