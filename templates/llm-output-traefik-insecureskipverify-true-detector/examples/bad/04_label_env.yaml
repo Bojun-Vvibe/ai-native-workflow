@@ -1,0 +1,13 @@
+# docker-compose: BAD -- env var + per-router docker label both disable
+# upstream TLS verification.
+version: "3.8"
+services:
+  traefik:
+    image: traefik:v3.1
+    environment:
+      - TRAEFIK_SERVERSTRANSPORT_INSECURESKIPVERIFY=true
+  api:
+    image: example/api:latest
+    labels:
+      - "traefik.http.serversTransports.apibackend.insecureSkipVerify=true"
+      - "traefik.http.routers.api.tls=true"

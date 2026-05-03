@@ -1,0 +1,10 @@
+# traefik.yml -- static config, BAD: disables TLS verification
+# to upstream services globally.
+serversTransport:
+  rootCAs:
+    - /etc/ssl/certs/ca-bundle.crt
+  insecureSkipVerify: true
+
+entryPoints:
+  websecure:
+    address: ":443"

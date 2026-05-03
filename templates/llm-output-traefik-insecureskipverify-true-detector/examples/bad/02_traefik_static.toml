@@ -1,0 +1,7 @@
+# traefik.toml -- static config (TOML form). BAD.
+[entryPoints.websecure]
+  address = ":443"
+
+[serversTransport]
+  insecureSkipVerify = true
+  maxIdleConnsPerHost = 100

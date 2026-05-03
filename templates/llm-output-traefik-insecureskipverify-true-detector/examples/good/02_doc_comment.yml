@@ -1,0 +1,10 @@
+# Documentation example -- the BAD form is described only in comments,
+# never set live. Detector must NOT flag.
+#
+# Anti-pattern (do NOT do this):
+#   serversTransport:
+#     insecureSkipVerify: true
+#
+serversTransport:
+  rootCAs:
+    - /etc/ssl/certs/upstream-ca.pem

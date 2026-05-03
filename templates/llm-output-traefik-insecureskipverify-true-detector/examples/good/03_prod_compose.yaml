@@ -1,0 +1,14 @@
+# docker-compose: GOOD -- explicit CA mounted, no insecure flags, no
+# stripped env. Comments mention the anti-pattern but never set it.
+version: "3.8"
+services:
+  traefik:
+    image: traefik:v3.1
+    command:
+      - "--providers.docker=true"
+      - "--entrypoints.websecure.address=:443"
+      # Explicitly NOT setting --serversTransport.insecureSkipVerify=true
+    volumes:
+      - ./certs/upstream-ca.pem:/etc/ssl/certs/upstream-ca.pem:ro
+    environment:
+      - TRAEFIK_LOG_LEVEL=INFO

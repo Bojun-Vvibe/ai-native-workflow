@@ -1,0 +1,9 @@
+# traefik.yml -- static config, GOOD: explicit CA bundle, verification on.
+serversTransport:
+  rootCAs:
+    - /etc/ssl/certs/ca-bundle.crt
+  insecureSkipVerify: false
+
+entryPoints:
+  websecure:
+    address: ":443"
