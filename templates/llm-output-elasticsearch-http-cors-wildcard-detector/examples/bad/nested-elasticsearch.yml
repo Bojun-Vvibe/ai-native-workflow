@@ -1,0 +1,6 @@
+cluster.name: nested-style
+http:
+  cors:
+    enabled: true
+    allow-origin: "*"
+    allow-credentials: true

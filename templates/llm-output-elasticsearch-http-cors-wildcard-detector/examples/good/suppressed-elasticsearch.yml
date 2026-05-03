@@ -1,0 +1,5 @@
+# es-cors-wildcard-allowed
+# Intentional public read-only demo cluster.
+cluster.name: public-demo
+http.cors.enabled: true
+http.cors.allow-origin: "*"

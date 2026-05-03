@@ -1,0 +1,3 @@
+cluster.name: dev
+http.cors.enabled: true
+http.cors.allow-origin: /.*/

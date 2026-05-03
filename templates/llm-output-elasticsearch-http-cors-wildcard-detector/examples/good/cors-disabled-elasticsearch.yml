@@ -1,0 +1,4 @@
+cluster.name: prod
+# CORS layer is dormant; allow-origin value is irrelevant.
+http.cors.enabled: false
+http.cors.allow-origin: "*"
