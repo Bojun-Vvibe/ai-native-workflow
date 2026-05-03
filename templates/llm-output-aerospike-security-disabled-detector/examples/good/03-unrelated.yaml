@@ -1,0 +1,9 @@
+# Unrelated config: a TLS-only frontend with a `security` label.
+# No aerospike here. Detector must not flag.
+labels:
+  app.kubernetes.io/component: security
+  app.kubernetes.io/name: tls-frontend
+config:
+  tls:
+    enable: true
+    min-version: TLSv1.2

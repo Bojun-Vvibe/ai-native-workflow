@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  aerospike:
+    image: aerospike/aerospike-server-enterprise:6.4
+    environment:
+      - SECURITY_ENABLED=false
+      - NAMESPACE=test
+    ports:
+      - "3000:3000"
