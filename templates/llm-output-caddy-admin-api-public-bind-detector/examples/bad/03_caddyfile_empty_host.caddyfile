@@ -1,0 +1,7 @@
+{
+	admin :2019
+}
+
+example.com {
+	respond "hi"
+}

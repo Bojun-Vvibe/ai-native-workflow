@@ -1,0 +1,5 @@
+# Example only -- do not enable.
+# admin 0.0.0.0:2019
+{
+	admin localhost:2019
+}
