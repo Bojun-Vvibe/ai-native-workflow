@@ -1,0 +1,8 @@
+# Good: helm values with auth enabled.
+extraConfigFiles:
+  user.yaml: |-
+    common:
+      security:
+        authorizationEnabled: true
+service:
+  type: ClusterIP

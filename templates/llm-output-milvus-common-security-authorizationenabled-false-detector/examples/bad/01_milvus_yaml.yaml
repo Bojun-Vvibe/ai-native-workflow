@@ -1,0 +1,8 @@
+# Bad: upstream milvus.yaml block, copied verbatim. authorizationEnabled
+# left at the upstream default of false.
+common:
+  security:
+    authorizationEnabled: false
+    tlsMode: 0
+  defaultPartitionName: _default
+  defaultIndexName: _default_idx

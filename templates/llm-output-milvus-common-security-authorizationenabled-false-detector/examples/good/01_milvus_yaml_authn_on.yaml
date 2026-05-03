@@ -1,0 +1,6 @@
+# Good: authorization explicitly enabled in milvus.yaml.
+common:
+  security:
+    authorizationEnabled: true
+    tlsMode: 1
+  defaultPartitionName: _default

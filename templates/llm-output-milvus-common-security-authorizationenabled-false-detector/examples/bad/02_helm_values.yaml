@@ -1,0 +1,10 @@
+# Bad: helm values.yaml — flattened nesting, authorization off.
+cluster:
+  enabled: true
+extraConfigFiles:
+  user.yaml: |-
+    common:
+      security:
+        authorizationEnabled: false
+service:
+  type: LoadBalancer
