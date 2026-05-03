@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  pgbouncer:
+    image: edoburu/pgbouncer:1.21
+    ports:
+      - "6432:6432"
+    environment:
+      DB_HOST: postgres
+      DB_USER: app
+      DB_PASSWORD: hunter2
+      # LLM-suggested env override that templates pgbouncer.ini with
+      # auth_type = trust. Anyone on the host network can now connect.
+      PGBOUNCER_AUTH_TYPE: trust
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: hunter2

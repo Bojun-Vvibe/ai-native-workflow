@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  pgbouncer:
+    image: edoburu/pgbouncer:1.21
+    ports:
+      - "127.0.0.1:6432:6432"
+    environment:
+      DB_HOST: postgres
+      DB_USER: app
+      DB_PASSWORD_FILE: /run/secrets/db_password
+      PGBOUNCER_AUTH_TYPE: scram-sha-256
+      # Variable name shares a prefix but is unrelated to auth.
+      AUTH_TYPE_LEGACY_NOTE: "kept for backwards compat with v0 chart"
+    secrets:
+      - db_password
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD_FILE: /run/secrets/db_password
+    secrets:
+      - db_password
+secrets:
+  db_password:
+    external: true

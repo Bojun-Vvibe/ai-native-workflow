@@ -1,0 +1,7 @@
+FROM debian:bookworm-slim
+RUN apt-get update && apt-get install -y pgbouncer && rm -rf /var/lib/apt/lists/*
+COPY userlist.txt /etc/pgbouncer/userlist.txt
+COPY pgbouncer.ini /etc/pgbouncer/pgbouncer.ini
+# auth_type is set to scram-sha-256 inside pgbouncer.ini, never on
+# the command line.
+CMD ["pgbouncer", "/etc/pgbouncer/pgbouncer.ini"]
