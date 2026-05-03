@@ -1,0 +1,4 @@
+# minio-default-creds-allowed
+# Intentional fully-isolated unit-test fixture; nothing routable hits it.
+MINIO_ROOT_USER=minioadmin
+MINIO_ROOT_PASSWORD=minioadmin

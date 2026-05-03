@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  minio:
+    image: minio/minio:latest
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?set me}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?set me}
+    command: server /data
