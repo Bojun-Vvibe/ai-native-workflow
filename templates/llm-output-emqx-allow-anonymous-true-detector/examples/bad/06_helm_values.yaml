@@ -1,0 +1,5 @@
+replicaCount: 1
+emqxConfig:
+  EMQX_NAME: "emqx"
+  EMQX_ALLOW_ANONYMOUS: "true"
+  EMQX_DASHBOARD__DEFAULT_USERNAME: "ops"

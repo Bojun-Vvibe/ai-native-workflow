@@ -1,0 +1,6 @@
+# EMQX 5.x: empty authenticator chain == accept everyone
+listeners.tcp.default {
+  bind = "0.0.0.0:1883"
+}
+
+authentication = []
