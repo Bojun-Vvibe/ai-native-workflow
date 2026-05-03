@@ -1,0 +1,14 @@
+# systemd unit that boots Jenkins with default script-security on.
+# Note in comment: do NOT pass -Dpermissive-script-security.enabled=true here.
+[Unit]
+Description=Jenkins Controller
+After=network.target
+
+[Service]
+User=jenkins
+ExecStart=/usr/bin/java -Djava.awt.headless=true \
+    -jar /usr/share/jenkins/jenkins.war --httpPort=8080
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

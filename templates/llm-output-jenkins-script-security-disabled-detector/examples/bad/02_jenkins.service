@@ -1,0 +1,16 @@
+# systemd unit that boots Jenkins with the permissive script-security
+# JVM flag. Every Pipeline / Job DSL job on this controller now runs
+# un-sandboxed Groovy.
+[Unit]
+Description=Jenkins Controller
+After=network.target
+
+[Service]
+User=jenkins
+ExecStart=/usr/bin/java -Djava.awt.headless=true \
+    -Dpermissive-script-security.enabled=true \
+    -jar /usr/share/jenkins/jenkins.war --httpPort=8080
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

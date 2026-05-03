@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow-definition plugin="workflow-job">
+  <description>Build pipeline (sandboxed; relies on Jenkins defaults).</description>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps">
+    <script>node { sh 'make build' }</script>
+    <sandbox>true</sandbox>
+  </definition>
+</flow-definition>

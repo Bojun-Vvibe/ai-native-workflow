@@ -1,0 +1,21 @@
+// Declarative Jenkinsfile that disables the Groovy sandbox so the
+// pipeline can call arbitrary controller-side classes. This is exactly
+// the pattern the detector exists to catch.
+pipeline {
+    agent any
+    options {
+        // LLM "fix" for repeated script-approval prompts:
+        sandbox false
+    }
+    stages {
+        stage('build') {
+            steps {
+                script {
+                    // Now able to call un-sandboxed Groovy / Java APIs.
+                    def proc = "id".execute()
+                    echo proc.text
+                }
+            }
+        }
+    }
+}

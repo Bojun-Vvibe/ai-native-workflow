@@ -1,0 +1,6 @@
+# JCasC YAML that wildcard-approves every Groovy signature. Equivalent
+# to disabling script approval; flagged for that reason.
+security:
+  scriptApproval:
+    approvedSignatures:
+      - "*"

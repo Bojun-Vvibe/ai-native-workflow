@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow-definition plugin="workflow-job">
+  <description>Build pipeline (script security explicitly disabled).</description>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps">
+    <script>node { sh 'make build' }</script>
+    <sandbox>false</sandbox>
+    <useScriptSecurity>false</useScriptSecurity>
+  </definition>
+</flow-definition>

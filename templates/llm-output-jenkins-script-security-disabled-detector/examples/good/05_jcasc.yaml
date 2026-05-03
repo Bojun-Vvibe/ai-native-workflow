@@ -1,0 +1,7 @@
+# JCasC YAML that approves only specific, narrow signatures (no
+# wildcard). This is the safe pattern.
+security:
+  scriptApproval:
+    approvedSignatures:
+      - "method java.lang.String length"
+      - "staticMethod java.lang.Math max int int"

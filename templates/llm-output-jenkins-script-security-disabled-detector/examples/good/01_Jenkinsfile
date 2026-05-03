@@ -1,0 +1,17 @@
+// Declarative Jenkinsfile that uses the default sandbox. No
+// `sandbox: false` anywhere; pipeline calls only sandbox-approved APIs.
+pipeline {
+    agent any
+    stages {
+        stage('build') {
+            steps {
+                sh 'make build'
+            }
+        }
+        stage('test') {
+            steps {
+                sh 'make test'
+            }
+        }
+    }
+}
