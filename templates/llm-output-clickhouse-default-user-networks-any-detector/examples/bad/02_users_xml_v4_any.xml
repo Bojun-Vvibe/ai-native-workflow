@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!-- A non-default user with the IPv4 catch-all is just as bad. -->
+<clickhouse>
+    <users>
+        <analyst>
+            <password_sha256_hex>2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae</password_sha256_hex>
+            <networks>
+                <ip>0.0.0.0/0</ip>
+            </networks>
+            <profile>readonly</profile>
+        </analyst>
+    </users>
+</clickhouse>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!-- Regex-as-allowlist: ".*" matches every hostname, equivalent to no ACL. -->
+<clickhouse>
+    <users>
+        <etl>
+            <password_sha256_hex>5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5</password_sha256_hex>
+            <networks>
+                <host_regex>.*</host_regex>
+            </networks>
+            <profile>default</profile>
+        </etl>
+    </users>
+</clickhouse>

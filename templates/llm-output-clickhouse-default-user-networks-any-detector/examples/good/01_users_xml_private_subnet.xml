@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- Tight private-subnet ACL — only the operator VPC can reach this user. -->
+<clickhouse>
+    <users>
+        <default>
+            <password_sha256_hex>e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</password_sha256_hex>
+            <networks>
+                <ip>10.42.0.0/16</ip>
+                <ip>::1</ip>
+            </networks>
+            <profile>default</profile>
+            <quota>default</quota>
+        </default>
+    </users>
+</clickhouse>

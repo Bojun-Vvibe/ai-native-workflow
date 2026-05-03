@@ -1,0 +1,12 @@
+# /etc/clickhouse-server/users.yaml — loopback only, default disabled.
+users:
+  default:
+    password: ''
+    networks:
+      ip: '::1'
+    profile: default
+  app:
+    password_sha256_hex: 5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5
+    networks:
+      ip: '127.0.0.1'
+    profile: default

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- Named-host allowlist with anchored regex — both legitimate ACL forms. -->
+<clickhouse>
+    <users>
+        <reporting>
+            <password_sha256_hex>2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824</password_sha256_hex>
+            <networks>
+                <host>analytics-01.internal</host>
+                <host_regex>^app-[0-9]+\.svc\.local$</host_regex>
+            </networks>
+            <profile>readonly</profile>
+        </reporting>
+    </users>
+</clickhouse>
