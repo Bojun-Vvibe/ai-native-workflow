@@ -1,0 +1,15 @@
+# Spring Cloud Alibaba Nacos config -- DEFAULT credentials, ships in
+# countless tutorials. Anyone who reads the Nacos quickstart can log
+# in to /nacos/ and read every dynamic config / DB password.
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos-server:8848
+        username: nacos
+        password: nacos
+      config:
+        server-addr: nacos-server:8848
+        username: nacos
+        password: nacos
+        file-extension: yaml

@@ -1,0 +1,13 @@
+# Comment-only mention of nacos default password should NOT trip.
+# The Nacos quickstart historically uses nacos / nacos out of the box;
+# rotate before exposing the console.
+#
+# Example (DO NOT USE): username=nacos password=nacos
+#
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos-server:8848
+        username: ops-svc-account
+        password: ${OPS_SVC_PASSWORD}
