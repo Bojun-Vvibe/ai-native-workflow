@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<configuration>
+  <!--
+    Reminder for new operators: do NOT set
+    dfs.permissions.enabled=false to silence "Permission denied".
+    Fix the file owner/mode with `hdfs dfs -chown` instead.
+  -->
+  <property>
+    <name>dfs.namenode.name.dir</name>
+    <value>/var/hadoop/dfs/name</value>
+  </property>
+</configuration>
