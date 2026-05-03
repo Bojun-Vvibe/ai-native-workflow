@@ -1,0 +1,13 @@
+[Unit]
+Description=HashiCorp Vault
+After=network-online.target
+
+[Service]
+User=vault
+Group=vault
+Environment="VAULT_DISABLE_MLOCK=true"
+ExecStart=/usr/bin/vault server -config=/etc/vault.d/vault.hcl
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

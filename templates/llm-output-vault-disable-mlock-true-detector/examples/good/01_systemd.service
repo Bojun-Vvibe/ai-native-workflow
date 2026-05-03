@@ -1,0 +1,13 @@
+[Unit]
+Description=HashiCorp Vault
+After=network-online.target
+
+[Service]
+User=vault
+Group=vault
+AmbientCapabilities=CAP_IPC_LOCK
+ExecStart=/usr/bin/vault server -config=/etc/vault.d/vault.hcl
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  vault:
+    image: hashicorp/vault:1.15
+    cap_add:
+      - IPC_LOCK
+    environment:
+      VAULT_ADDR: "http://0.0.0.0:8200"
+      VAULT_DISABLE_MLOCK: "1"
+    ports:
+      - "8200:8200"
+    command: vault server -config=/vault/config/vault.hcl

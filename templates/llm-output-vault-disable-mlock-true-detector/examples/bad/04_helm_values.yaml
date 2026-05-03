@@ -1,0 +1,17 @@
+global:
+  enabled: true
+server:
+  ha:
+    enabled: true
+    replicas: 3
+  config: |
+    ui = true
+    disable_mlock = true
+    listener "tcp" {
+      address = "0.0.0.0:8200"
+      tls_cert_file = "/vault/tls/tls.crt"
+      tls_key_file  = "/vault/tls/tls.key"
+    }
+    storage "raft" {
+      path = "/vault/data"
+    }
