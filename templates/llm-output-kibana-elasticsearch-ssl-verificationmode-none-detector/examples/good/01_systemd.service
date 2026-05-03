@@ -1,0 +1,15 @@
+[Unit]
+Description=Kibana
+After=network-online.target
+
+[Service]
+User=kibana
+Group=kibana
+Environment="ELASTICSEARCH_HOSTS=https://es.internal:9200"
+Environment="ELASTICSEARCH_SSL_VERIFICATIONMODE=full"
+Environment="ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES=/etc/kibana/ca.crt"
+ExecStart=/usr/share/kibana/bin/kibana
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,7 @@
+server.host: "0.0.0.0"
+server.port: 5601
+elasticsearch.hosts: ["https://elasticsearch:9200"]
+elasticsearch.username: "kibana_system"
+elasticsearch.ssl.verificationMode: full
+elasticsearch.ssl.certificateAuthorities: ["/etc/kibana/ca.crt"]
+xpack.security.enabled: true

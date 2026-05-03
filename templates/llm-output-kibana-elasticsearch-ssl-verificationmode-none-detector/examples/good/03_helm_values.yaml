@@ -1,0 +1,14 @@
+replicas: 2
+image: docker.elastic.co/kibana/kibana
+imageTag: 8.11.0
+
+elasticsearchHosts: "https://elasticsearch-master:9200"
+
+kibanaConfig:
+  kibana.yml: |
+    server.host: "0.0.0.0"
+    elasticsearch:
+      hosts: ["https://elasticsearch-master:9200"]
+      ssl:
+        verificationMode: certificate
+        certificateAuthorities: ["/usr/share/kibana/config/certs/ca.crt"]
