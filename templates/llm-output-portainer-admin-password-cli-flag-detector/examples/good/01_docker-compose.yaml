@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  portainer:
+    image: portainer/portainer-ce:2.19.4
+    command: --admin-password-file /run/secrets/portainer_admin
+    secrets:
+      - portainer_admin
+    ports:
+      - "9443:9443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+volumes:
+  portainer_data:
+secrets:
+  portainer_admin:
+    file: ./secrets/portainer_admin.bcrypt
