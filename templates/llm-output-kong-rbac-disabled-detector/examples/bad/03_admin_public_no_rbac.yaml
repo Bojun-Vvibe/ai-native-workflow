@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kong
+spec:
+  template:
+    spec:
+      containers:
+        - name: kong
+          image: kong/kong-gateway:3.7
+          env:
+            - name: KONG_ADMIN_LISTEN
+              value: "0.0.0.0:8001, 0.0.0.0:8444 ssl"
+            - name: KONG_DATABASE
+              value: "postgres"
