@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  trino:
+    image: trinodb/trino:438
+    ports:
+      - "8080:8080"
+    environment:
+      TRINO_HTTP_SERVER_AUTHENTICATION_TYPE: "NONE"
+      TRINO_NODE_ENVIRONMENT: "production"
