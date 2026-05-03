@@ -2,6 +2,13 @@
 
 All notable changes to this repository are documented here. Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
+## Unreleased — Two new llm-output detectors: Nacos default credentials and Rancher bootstrap-password=admin.
+
+### Added — new templates
+
+- `templates/llm-output-nacos-default-credentials-detector/` — pure stdlib detector that flags Nacos (Alibaba service-discovery + dynamic-config server) configurations shipping the published default console credentials `nacos / nacos`. Covers four concrete forms: YAML / `bootstrap.properties` style with `username: nacos` paired with `password: nacos` within a 6-line window; `NACOS_AUTH_USERNAME` / `NACOS_AUTH_PASSWORD` env vars in `docker-compose` (handles list-style `- KEY=VAL`); Spring Cloud `spring.cloud.nacos.config.username/password=nacos`; and bare `-u nacos:nacos` / `://nacos:nacos@host` basic-auth literals in shell / `curl` / Dockerfile commands. Gated by an in-file Nacos context token (`nacos`, `NACOS_`, `spring.cloud.nacos`, `nacos-server`, `com.alibaba.nacos`) so unrelated configs whose username happens to be `nacos` don't trip. Worked example: 4 bad files (Spring Cloud `application.yml`, `docker-compose.yml`, `bootstrap.properties`, provisioning shell) all trip; 3 good files (env-templated values, env-templated properties, an `application.yml` that only mentions the defaults inside a comment block) all stay clean.
+- `templates/llm-output-rancher-bootstrap-password-admin-detector/` — pure stdlib detector that flags Rancher Manager / Rancher Server deployment manifests setting the bootstrap password to the documented placeholder `admin`. This is the worst-case "default credentials" finding because Rancher fans out to every downstream Kubernetes cluster — one default password = cluster-admin everywhere. Covers four forms: Helm values `bootstrapPassword: admin`, env / docker-compose `CATTLE_BOOTSTRAP_PASSWORD=admin`, Helm CLI `--set bootstrapPassword=admin`, and systemd `Environment=CATTLE_BOOTSTRAP_PASSWORD=admin`. Gated by an in-file Rancher context token (`rancher`, `CATTLE_`, `cattle-system`, `rancher/rancher`). Worked example: 4 bad files (Helm `values.yaml`, `docker-compose.yml`, `install.sh` with `--set`, systemd `rancher.service`) all trip; 3 good files (env-templated values referencing a sealed secret, env-templated compose, install script reading from `kubectl get secret`) all stay clean.
+
 ## 0.4.13 — 2026-04-26 — Two new templates: trace-structure detector and streaming-chunk boundary validator.
 
 ### Added — new templates
