@@ -1,0 +1,25 @@
+# k8s Deployment running vmselect on :8481 with no auth flags.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vmselect
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: vmselect
+  template:
+    metadata:
+      labels:
+        app: vmselect
+    spec:
+      containers:
+        - name: vmselect
+          image: victoriametrics/vmselect:v1.96.0-cluster
+          args:
+            - -httpListenAddr=:8481
+            - -storageNode=vmstorage-0.vmstorage:8401
+            - -storageNode=vmstorage-1.vmstorage:8401
+            - -cacheDataPath=/cache
+          ports:
+            - containerPort: 8481

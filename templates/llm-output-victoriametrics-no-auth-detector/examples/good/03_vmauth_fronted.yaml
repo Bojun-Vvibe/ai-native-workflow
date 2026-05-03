@@ -1,0 +1,22 @@
+# Cluster fronted by vmauth -- vmselect / vminsert are upstreams.
+version: "3.8"
+services:
+  vmauth:
+    image: victoriametrics/vmauth:v1.96.0
+    command:
+      - -auth.config=/etc/vmauth/auth.yml
+      - -httpListenAddr=:8427
+    ports:
+      - "8427:8427"
+  vmselect:
+    image: victoriametrics/vmselect:v1.96.0-cluster
+    command:
+      - vmselect
+      - -httpListenAddr=:8481
+      - -storageNode=vmstorage:8401
+  vminsert:
+    image: victoriametrics/vminsert:v1.96.0-cluster
+    command:
+      - vminsert
+      - -httpListenAddr=:8480
+      - -storageNode=vmstorage:8400

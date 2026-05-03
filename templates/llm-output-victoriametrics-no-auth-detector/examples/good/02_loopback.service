@@ -1,0 +1,7 @@
+# Loopback-only vmagent: only the local node can reach it.
+[Unit]
+Description=vmagent
+
+[Service]
+ExecStart=/usr/local/bin/vmagent -httpListenAddr=127.0.0.1:8429 -remoteWrite.url=https://vm.internal/api/v1/write -promscrape.config=/etc/vmagent/scrape.yml
+Restart=on-failure

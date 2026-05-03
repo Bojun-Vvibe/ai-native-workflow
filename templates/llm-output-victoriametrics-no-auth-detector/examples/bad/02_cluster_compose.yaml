@@ -1,0 +1,19 @@
+# Cluster vmselect / vminsert with public listen, no auth proxy.
+version: "3.8"
+services:
+  vmselect:
+    image: victoriametrics/vmselect:v1.96.0-cluster
+    command:
+      - vmselect
+      - -httpListenAddr=:8481
+      - -storageNode=vmstorage:8401
+    ports:
+      - "8481:8481"
+  vminsert:
+    image: victoriametrics/vminsert:v1.96.0-cluster
+    command:
+      - vminsert
+      - -httpListenAddr=:8480
+      - -storageNode=vmstorage:8400
+    ports:
+      - "8480:8480"

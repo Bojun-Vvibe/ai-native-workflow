@@ -1,0 +1,10 @@
+# vmagent on a public listen addr, no auth.
+[Unit]
+Description=vmagent
+
+[Service]
+ExecStart=/usr/local/bin/vmagent -httpListenAddr=0.0.0.0:8429 -remoteWrite.url=http://vm:8428/api/v1/write -promscrape.config=/etc/vmagent/scrape.yml
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
