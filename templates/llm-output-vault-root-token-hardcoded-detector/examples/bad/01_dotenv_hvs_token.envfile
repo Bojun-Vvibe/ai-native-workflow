@@ -1,0 +1,6 @@
+# Production-ish .env shipped to a teammate over chat. The root token
+# was generated from `vault operator init` and never revoked.
+VAULT_ADDR=https://vault.internal.example.com:8200
+VAULT_TOKEN=hvs.CAESIJ8m9vvK2pQwK3Yz4o2bN7r8q1aXn3sLp9sQwErtYuiOPlk
+VAULT_NAMESPACE=admin
+LOG_LEVEL=info
