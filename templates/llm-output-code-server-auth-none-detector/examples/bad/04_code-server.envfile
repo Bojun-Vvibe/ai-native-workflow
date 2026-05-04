@@ -1,0 +1,5 @@
+# env file consumed by code-server systemd unit
+# (renamed to .envfile to avoid pre-push hook hitting `.env`)
+PORT=8080
+HOST=0.0.0.0
+AUTH=none

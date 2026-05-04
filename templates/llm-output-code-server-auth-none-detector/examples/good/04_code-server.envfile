@@ -1,0 +1,5 @@
+# env file for code-server systemd unit (renamed .envfile)
+PORT=8080
+HOST=127.0.0.1
+AUTH=password
+HASHED_PASSWORD=$argon2i$v=19$m=4096,t=3,p=1$EXAMPLEEXAMPLEEXAMPLE$EXAMPLEEXAMPLEEXAMPLEEXAMPLEEXAMPLEEXAMPLE

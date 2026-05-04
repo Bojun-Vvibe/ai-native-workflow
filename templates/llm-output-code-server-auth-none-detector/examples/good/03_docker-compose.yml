@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  ide:
+    image: codercom/code-server:latest
+    ports:
+      - "127.0.0.1:8443:8080"
+    environment:
+      - PASSWORD_FILE=/run/secrets/code_server_password
+    command: ["--bind-addr=0.0.0.0:8080", "/home/coder/project"]
+    secrets:
+      - code_server_password
+secrets:
+  code_server_password:
+    file: ./secrets/code_server_password.txt

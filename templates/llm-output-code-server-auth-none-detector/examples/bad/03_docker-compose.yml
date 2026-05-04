@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  ide:
+    image: codercom/code-server:latest
+    ports:
+      - "8443:8080"
+    command: ["--auth=none", "--bind-addr=0.0.0.0:8080", "/home/coder/project"]
+    volumes:
+      - ./project:/home/coder/project
