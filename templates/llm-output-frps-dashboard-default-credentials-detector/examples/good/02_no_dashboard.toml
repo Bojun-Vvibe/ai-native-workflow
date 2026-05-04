@@ -1,0 +1,6 @@
+# frps.toml -- no dashboard exposed at all
+[common]
+bind_port = 7000
+vhost_http_port = 8080
+subdomain_host = "frp.example.com"
+# Dashboard intentionally disabled in this deployment.

@@ -1,0 +1,9 @@
+# frps.toml -- frp >= 0.52 [webServer] with random password
+bindPort = 7000
+vhostHTTPPort = 8080
+
+[webServer]
+addr = "127.0.0.1"
+port = 7500
+user = "ops"
+password = "Q9w2-Ke3Xp7BvNc1Hf8ZsLm0Dg4Tu6Yr"

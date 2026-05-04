@@ -1,0 +1,9 @@
+# frps.toml -- frp >= 0.52 [webServer] form
+bindPort = 7000
+vhostHTTPPort = 8080
+
+[webServer]
+addr = "0.0.0.0"
+port = 7500
+user = "admin"
+password = "admin"

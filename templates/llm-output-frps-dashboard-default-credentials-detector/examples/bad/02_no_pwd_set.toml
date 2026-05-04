@@ -1,0 +1,8 @@
+# frps.toml -- legacy flat form, dashboard enabled but no password
+[common]
+bind_port = 7000
+vhost_http_port = 8080
+dashboard_addr = "0.0.0.0"
+dashboard_port = 7500
+# (intentionally) no dashboard_pwd / dashboard_user lines below.
+subdomain_host = "frp.example.com"

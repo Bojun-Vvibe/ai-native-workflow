@@ -1,0 +1,9 @@
+# helm values for frps chart -- random dashboard password
+bindPort: 7000
+vhostHTTPPort: 8080
+
+webServer:
+  addr: "127.0.0.1"
+  port: 7500
+  user: "ops"
+  password: "Wm4-zQ8tLpR2xK7HfBn0JsVdGyCe5Ub3"
