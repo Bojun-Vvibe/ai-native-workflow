@@ -1,0 +1,8 @@
+# helm values for thanos receive
+receive:
+  service:
+    type: LoadBalancer
+    port: 10901
+  tls:
+    enabled: false
+  replicaCount: 3

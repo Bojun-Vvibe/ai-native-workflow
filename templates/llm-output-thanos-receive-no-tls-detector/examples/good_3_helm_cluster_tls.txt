@@ -1,0 +1,8 @@
+receive:
+  service:
+    type: ClusterIP
+    port: 10901
+  tls:
+    enabled: true
+    certSecret: thanos-receive-tls
+  replicaCount: 3

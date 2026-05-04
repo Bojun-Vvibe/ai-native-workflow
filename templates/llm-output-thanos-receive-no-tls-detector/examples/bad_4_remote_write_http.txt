@@ -1,0 +1,5 @@
+# prometheus shipping to a public thanos receive over plain http
+remote_write:
+  - url: http://thanos-receive.example.net:19291/api/v1/receive
+    queue_config:
+      max_shards: 30

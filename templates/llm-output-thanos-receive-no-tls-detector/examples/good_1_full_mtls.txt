@@ -1,0 +1,6 @@
+thanos receive \
+  --tsdb.path=/var/thanos/receive \
+  --grpc-address=0.0.0.0:10901 \
+  --grpc-server-tls-cert=/etc/thanos/tls/tls.crt \
+  --grpc-server-tls-key=/etc/thanos/tls/tls.key \
+  --grpc-server-tls-client-ca=/etc/thanos/tls/ca.crt

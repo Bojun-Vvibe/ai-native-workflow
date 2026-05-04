@@ -1,0 +1,4 @@
+thanos receive \
+  --tsdb.path=/var/thanos/receive \
+  --grpc-address=127.0.0.1:10901 \
+  --remote-write.address=127.0.0.1:19291
