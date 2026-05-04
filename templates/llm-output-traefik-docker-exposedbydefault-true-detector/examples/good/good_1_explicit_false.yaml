@@ -1,0 +1,10 @@
+# Opt-in: only containers with traefik.enable=true label are routed.
+entryPoints:
+  web:
+    address: ":80"
+
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false
+    network: traefik

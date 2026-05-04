@@ -1,0 +1,12 @@
+# docker-compose.yml fragment
+services:
+  traefik:
+    image: traefik:v3.0
+    environment:
+      TRAEFIK_API_DASHBOARD: "true"
+      TRAEFIK_PROVIDERS_DOCKER: "true"
+      TRAEFIK_PROVIDERS_DOCKER_EXPOSEDBYDEFAULT: "true"
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro

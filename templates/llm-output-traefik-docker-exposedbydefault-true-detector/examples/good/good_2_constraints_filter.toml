@@ -1,0 +1,6 @@
+# Even though exposedByDefault is omitted, a constraints filter is set
+# so only containers with the `routable=true` label are exposed.
+[providers]
+  [providers.docker]
+    endpoint = "unix:///var/run/docker.sock"
+    constraints = "Label(`routable`,`true`)"

@@ -1,0 +1,13 @@
+# /etc/traefik/traefik.yml - "just expose everything" config
+entryPoints:
+  web:
+    address: ":80"
+
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: true
+    network: traefik
+
+api:
+  dashboard: true
