@@ -1,0 +1,10 @@
+# A general application config that has nothing to do with the
+# Docker distribution registry. Should NOT be flagged just because
+# it contains an auth: block (or no auth: block).
+version: "1"
+service:
+  name: api-gateway
+  port: 8080
+features:
+  metrics: true
+  tracing: true
