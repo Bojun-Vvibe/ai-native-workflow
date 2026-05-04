@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server xmlns="urn:jboss:domain:18.0">
+  <interfaces>
+    <interface name="management">
+      <inet-address value="${jboss.bind.address.management:0.0.0.0}"/>
+    </interface>
+  </interfaces>
+  <management>
+    <management-interfaces>
+      <http-interface security-realm="">
+        <socket-binding http="management-http"/>
+      </http-interface>
+    </management-interfaces>
+  </management>
+</server>

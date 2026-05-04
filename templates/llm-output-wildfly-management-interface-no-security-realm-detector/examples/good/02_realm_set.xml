@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server xmlns="urn:jboss:domain:18.0">
+  <interfaces>
+    <interface name="management">
+      <inet-address value="0.0.0.0"/>
+    </interface>
+  </interfaces>
+  <management>
+    <management-interfaces>
+      <http-interface security-realm="ManagementRealm" http-authentication-factory="management-http-authentication">
+        <socket-binding http="management-http"/>
+      </http-interface>
+    </management-interfaces>
+  </management>
+</server>

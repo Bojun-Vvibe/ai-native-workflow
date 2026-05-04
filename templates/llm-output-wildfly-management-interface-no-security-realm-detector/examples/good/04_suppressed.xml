@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- wildfly-mgmt-no-realm-ok: pre-prod sandbox, network ACL enforced upstream -->
+<server xmlns="urn:jboss:domain:18.0">
+  <interfaces>
+    <interface name="management">
+      <inet-address value="0.0.0.0"/>
+    </interface>
+  </interfaces>
+  <management>
+    <management-interfaces>
+      <http-interface>
+        <socket-binding http="management-http"/>
+      </http-interface>
+    </management-interfaces>
+  </management>
+</server>

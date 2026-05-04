@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<host xmlns="urn:jboss:domain:18.0" name="primary-controller">
+  <interfaces>
+    <interface name="management">
+      <inet-address value="mgmt.example.internal"/>
+    </interface>
+  </interfaces>
+  <management>
+    <management-interfaces>
+      <native-interface>
+        <socket interface="management" port="9999"/>
+      </native-interface>
+    </management-interfaces>
+  </management>
+</host>

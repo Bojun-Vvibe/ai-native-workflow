@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server xmlns="urn:jboss:domain:18.0">
+  <interfaces>
+    <interface name="management">
+      <inet-address value="10.42.7.19"/>
+    </interface>
+  </interfaces>
+  <management>
+    <management-interfaces>
+      <http-interface>
+        <socket-binding http="management-http" https="management-https"/>
+      </http-interface>
+      <native-interface>
+        <socket-binding native="management-native"/>
+      </native-interface>
+    </management-interfaces>
+  </management>
+</server>
