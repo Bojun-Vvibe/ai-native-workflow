@@ -1,0 +1,14 @@
+global:
+  tls:
+    frontend:
+      server:
+        certFile: /etc/temporal/certs/frontend.pem
+        keyFile: /etc/temporal/certs/frontend.key
+        requireClientAuth: false
+      client:
+        serverName: frontend.local
+services:
+  frontend:
+    rpc:
+      grpcPort: 7233
+      bindOnIP: 0.0.0.0

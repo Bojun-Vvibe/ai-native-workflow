@@ -1,0 +1,22 @@
+global:
+  tls:
+    internode:
+      server:
+        certFile: /etc/temporal/certs/cluster.pem
+        keyFile: /etc/temporal/certs/cluster.key
+      client:
+        serverName: cluster.local
+        disableHostVerification: false
+    frontend:
+      server:
+        certFile: /etc/temporal/certs/frontend.pem
+        keyFile: /etc/temporal/certs/frontend.key
+        requireClientAuth: true
+      client:
+        serverName: frontend.local
+        disableHostVerification: false
+services:
+  frontend:
+    rpc:
+      grpcPort: 7233
+      bindOnIP: 0.0.0.0

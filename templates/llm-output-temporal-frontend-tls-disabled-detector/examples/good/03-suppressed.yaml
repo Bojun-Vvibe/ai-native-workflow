@@ -1,0 +1,10 @@
+# temporal-tls-disabled-allowed
+# This is a unit-test fixture; suppression is acknowledged.
+global:
+  tls:
+    frontend: null
+services:
+  frontend:
+    rpc:
+      grpcPort: 7233
+      bindOnIP: 0.0.0.0

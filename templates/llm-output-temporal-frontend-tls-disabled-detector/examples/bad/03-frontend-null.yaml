@@ -1,0 +1,11 @@
+global:
+  tls:
+    frontend: null
+services:
+  frontend:
+    rpc:
+      grpcPort: 7233
+      bindOnIP: 10.0.0.5
+  matching:
+    rpc:
+      grpcPort: 7235
