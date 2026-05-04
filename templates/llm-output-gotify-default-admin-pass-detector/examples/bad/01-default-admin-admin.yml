@@ -1,0 +1,9 @@
+server:
+  listenaddr: ""
+  port: 80
+  ssl:
+    enabled: false
+defaultuser:
+  name: admin
+  pass: admin
+passstrength: 10

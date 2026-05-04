@@ -1,0 +1,6 @@
+server:
+  port: 80
+  keepaliveperiodseconds: 0
+database:
+  dialect: sqlite3
+passstrength: 10

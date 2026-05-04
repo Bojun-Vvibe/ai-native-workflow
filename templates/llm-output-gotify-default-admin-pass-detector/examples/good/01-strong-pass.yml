@@ -1,0 +1,6 @@
+server:
+  port: 80
+defaultuser:
+  name: ops-bootstrap
+  pass: "qZ8!fK3#mN9$pV2&"
+passstrength: 12

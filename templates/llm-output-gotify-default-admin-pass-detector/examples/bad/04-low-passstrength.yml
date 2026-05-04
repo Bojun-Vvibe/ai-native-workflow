@@ -1,0 +1,6 @@
+server:
+  port: 80
+defaultuser:
+  name: admin
+  pass: "Tr0ub4dor"
+passstrength: 4
