@@ -1,0 +1,5 @@
+# kibana-elastic-superuser-allowed
+# Single-node lab fixture; document explicitly allows the superuser binding.
+elasticsearch.hosts: ["http://es:9200"]
+elasticsearch.username: "elastic"
+elasticsearch.password: "changeme"

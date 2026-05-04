@@ -1,0 +1,5 @@
+# Note: 'elasticadmin' is a dedicated low-privilege Kibana account,
+# not the bootstrap superuser. Same for 'elastic-prod' or 'elastic_app'.
+elasticsearch.hosts: ["https://es:9200"]
+elasticsearch.username: "elasticadmin"
+elasticsearch.password: "${PASS}"
