@@ -1,0 +1,8 @@
+datacenter = "dc1"
+data_dir = "/opt/consul"
+
+acl {
+  enabled        = true
+  default_policy = "allow"
+  enable_token_persistence = true
+}

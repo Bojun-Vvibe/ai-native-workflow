@@ -1,0 +1,9 @@
+[Unit]
+Description=Consul Agent
+
+[Service]
+ExecStart=/usr/local/bin/consul agent -server -bootstrap-expect=3 -default-policy=allow -data-dir=/opt/consul
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
