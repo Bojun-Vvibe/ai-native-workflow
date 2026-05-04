@@ -1,0 +1,15 @@
+# Custom index.php that wires up AdminerRestrictAccess.
+services:
+  adminer:
+    image: adminer:4
+    volumes:
+      - ./adminer-index.php:/var/www/html/index.php:ro
+    ports:
+      - "8080:8080"
+# adminer-index.php (inlined here for the scanner):
+# <?php
+# function adminer_object() {
+#     class AdminerSoftwareRestrict extends AdminerRestrictAccess { }
+#     return new AdminerSoftwareRestrict;
+# }
+# include "./adminer.php";

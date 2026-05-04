@@ -1,0 +1,16 @@
+# LLM mounts a "custom" index.php that just sets a theme — it
+# never instantiates any access-restriction class. The container
+# is published on 8080.
+services:
+  adminer:
+    image: adminer:4
+    volumes:
+      - ./adminer-index.php:/var/www/html/index.php:ro
+    ports:
+      - "8080:8080"
+# adminer-index.php contents (inlined for the test):
+# <?php
+# function adminer_object() {
+#     return new MyTheme;
+# }
+# include "./adminer.php";

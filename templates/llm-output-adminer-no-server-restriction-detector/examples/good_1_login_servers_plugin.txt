@@ -1,0 +1,10 @@
+# Properly restricted: login-servers plugin pinned to a single
+# upstream DB.
+services:
+  adminer:
+    image: adminer:4.8.1
+    environment:
+      ADMINER_PLUGINS: "login-servers"
+      ADMINER_DEFAULT_SERVER: "db"
+    ports:
+      - "8080:8080"

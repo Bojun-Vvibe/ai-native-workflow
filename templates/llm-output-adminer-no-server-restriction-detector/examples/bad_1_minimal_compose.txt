@@ -1,0 +1,10 @@
+# Verbatim "minimal Adminer" compose: image published on the
+# default 8080 to all interfaces, no plugins, no custom index.php.
+# Anyone who can reach the host can type any DB hostname into the
+# login form.
+services:
+  adminer:
+    image: adminer:4.8.1
+    restart: always
+    ports:
+      - "8080:8080"

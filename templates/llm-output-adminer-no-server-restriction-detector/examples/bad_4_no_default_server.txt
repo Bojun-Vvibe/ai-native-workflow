@@ -1,0 +1,9 @@
+# Adminer published on 8090, no ADMINER_DEFAULT_SERVER, no plugin
+# restriction. Default free-form login form.
+services:
+  adminer:
+    image: adminer:4.8.1
+    environment:
+      ADMINER_DESIGN: "pepa-linha"
+    ports:
+      - "8090:8080"
