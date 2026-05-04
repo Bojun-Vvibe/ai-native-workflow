@@ -1,0 +1,27 @@
+# bad_3: overrides block present but no multitenancy enable anywhere
+server:
+  http_listen_port: 3200
+  grpc_listen_port: 9095
+
+distributor:
+  receivers:
+    otlp:
+      protocols:
+        grpc:
+          endpoint: 0.0.0.0:4317
+
+overrides:
+  defaults:
+    ingestion:
+      max_traces_per_user: 100000
+      rate_limit_bytes: 20000000
+
+compactor:
+  compaction:
+    block_retention: 720h
+
+storage:
+  trace:
+    backend: gcs
+    gcs:
+      bucket_name: traces-shared

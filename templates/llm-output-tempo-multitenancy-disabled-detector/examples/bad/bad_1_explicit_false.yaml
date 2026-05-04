@@ -1,0 +1,21 @@
+# bad_1: explicit multitenancy_enabled: false on a shared deployment
+target: all
+multitenancy_enabled: false
+
+server:
+  http_listen_port: 3200
+  grpc_listen_port: 9095
+
+distributor:
+  receivers:
+    otlp:
+      protocols:
+        grpc:
+          endpoint: 0.0.0.0:4317
+
+storage:
+  trace:
+    backend: s3
+    s3:
+      bucket: traces-prod
+      endpoint: s3.us-east-1.amazonaws.com

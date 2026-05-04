@@ -1,0 +1,27 @@
+# good_1: explicit multitenancy_enabled: true
+multitenancy_enabled: true
+
+server:
+  http_listen_port: 3200
+  grpc_listen_port: 9095
+
+distributor:
+  receivers:
+    otlp:
+      protocols:
+        grpc:
+          endpoint: 0.0.0.0:4317
+    jaeger:
+      protocols:
+        grpc:
+          endpoint: 0.0.0.0:14250
+
+overrides:
+  per_tenant_override_config: /etc/tempo/overrides.yaml
+
+storage:
+  trace:
+    backend: s3
+    s3:
+      bucket: traces-prod
+      endpoint: s3.us-east-1.amazonaws.com

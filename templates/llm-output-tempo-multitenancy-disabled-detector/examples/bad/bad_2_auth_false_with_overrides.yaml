@@ -1,0 +1,25 @@
+# bad_2: legacy auth_enabled: false (single-tenant alias) with overrides block
+auth_enabled: false
+
+server:
+  http_listen_port: 3200
+
+distributor:
+  receivers:
+    jaeger:
+      protocols:
+        thrift_http:
+          endpoint: 0.0.0.0:14268
+
+overrides:
+  per_tenant_override_config: /etc/tempo/overrides.yaml
+  defaults:
+    ingestion:
+      rate_limit_bytes: 15000000
+      burst_size_bytes: 20000000
+
+storage:
+  trace:
+    backend: local
+    local:
+      path: /var/tempo/traces

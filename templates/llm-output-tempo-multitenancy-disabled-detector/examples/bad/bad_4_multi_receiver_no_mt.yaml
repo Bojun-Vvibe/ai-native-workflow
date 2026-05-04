@@ -1,0 +1,30 @@
+# bad_4: multi-receiver fan-in distributor with no multi-tenancy
+server:
+  http_listen_port: 3200
+
+distributor:
+  receivers:
+    otlp:
+      protocols:
+        grpc:
+          endpoint: 0.0.0.0:4317
+        http:
+          endpoint: 0.0.0.0:4318
+    jaeger:
+      protocols:
+        grpc:
+          endpoint: 0.0.0.0:14250
+        thrift_http:
+          endpoint: 0.0.0.0:14268
+    zipkin:
+      endpoint: 0.0.0.0:9411
+
+ingester:
+  max_block_duration: 5m
+
+storage:
+  trace:
+    backend: s3
+    s3:
+      bucket: traces-mixed
+      endpoint: s3.amazonaws.com
