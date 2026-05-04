@@ -1,0 +1,6 @@
+mimir \
+  -target=all \
+  -auth.multitenancy-enabled=true \
+  -server.http-listen-address=0.0.0.0 \
+  -server.http-listen-port=9009 \
+  -blocks-storage.backend=s3

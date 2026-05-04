@@ -1,0 +1,9 @@
+# helm values for grafana/mimir-distributed
+mimir:
+  structuredConfig:
+    auth_enabled: false
+    blocks_storage:
+      backend: filesystem
+gateway:
+  service:
+    type: LoadBalancer

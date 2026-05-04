@@ -1,0 +1,13 @@
+# multitenancy-disabled-allowed
+# Local dev only — single-tenant Loki on loopback for unit tests.
+auth_enabled: false
+
+server:
+  http_listen_address: 127.0.0.1
+  http_listen_port: 3100
+
+ingester:
+  lifecycler:
+    ring:
+      kvstore:
+        store: inmemory

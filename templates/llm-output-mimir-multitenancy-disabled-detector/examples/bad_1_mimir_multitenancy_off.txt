@@ -1,0 +1,10 @@
+# mimir.yaml — getting-started shape, deployed behind LoadBalancer
+multitenancy_enabled: false
+
+server:
+  http_listen_port: 9009
+
+blocks_storage:
+  backend: s3
+  s3:
+    bucket_name: mimir-blocks

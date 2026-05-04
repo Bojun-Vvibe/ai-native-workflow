@@ -1,0 +1,11 @@
+# loki config.yaml emitted by an LLM
+auth_enabled: false
+
+server:
+  http_listen_port: 3100
+
+ingester:
+  lifecycler:
+    ring:
+      kvstore:
+        store: inmemory

@@ -1,0 +1,10 @@
+# mimir.yaml — multitenancy enabled with downstream gateway enforcing X-Scope-OrgID
+multitenancy_enabled: true
+
+server:
+  http_listen_port: 9009
+
+blocks_storage:
+  backend: s3
+  s3:
+    bucket_name: mimir-blocks
