@@ -1,0 +1,4 @@
+# compose env file for the search service
+MEILI_HTTP_ADDR=0.0.0.0:7700
+MEILI_MASTER_KEY=""
+MEILI_ENV=production

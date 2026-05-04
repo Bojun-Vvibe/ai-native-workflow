@@ -1,0 +1,4 @@
+# systemd EnvironmentFile snippet
+MEILI_HTTP_ADDR=0.0.0.0:7700
+MEILI_ENV=development
+MEILI_MASTER_KEY=aVeryLongSecretMasterKeyValue1234

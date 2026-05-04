@@ -1,0 +1,3 @@
+# local dev fixture, loopback bind
+MEILI_HTTP_ADDR=127.0.0.1:7700
+MEILI_ENV=development

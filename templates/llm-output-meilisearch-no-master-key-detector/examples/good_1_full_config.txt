@@ -1,0 +1,9 @@
+services:
+  search:
+    image: getmeili/meilisearch:v1.6
+    ports:
+      - "7700:7700"
+    environment:
+      MEILI_HTTP_ADDR: "0.0.0.0:7700"
+      MEILI_MASTER_KEY: "aVeryLongSecretMasterKeyValue1234"
+      MEILI_ENV: "production"

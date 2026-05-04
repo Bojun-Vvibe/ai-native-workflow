@@ -1,0 +1,6 @@
+docker run -d \
+  --name meilisearch \
+  -p 7700:7700 \
+  -e MEILI_HTTP_ADDR=0.0.0.0:7700 \
+  -v $(pwd)/data.ms:/meili_data \
+  getmeili/meilisearch:v1.6

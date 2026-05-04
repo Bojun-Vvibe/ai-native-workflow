@@ -1,0 +1,4 @@
+meilisearch \
+  --http-addr 0.0.0.0:7700 \
+  --master-key "RotatedSecretFromVaultV2_abcDEF" \
+  --env production
