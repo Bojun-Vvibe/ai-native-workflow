@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns="urn:activemq" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <core xmlns="urn:activemq:core">
+    <name>broker-public-core</name>
+    <persistence-enabled>true</persistence-enabled>
+    <security-enabled>false</security-enabled>
+    <acceptors>
+      <acceptor name="artemis">tcp://0.0.0.0:61616?protocols=CORE,AMQP,STOMP,MQTT;tcpSendBufferSize=1048576</acceptor>
+    </acceptors>
+    <addresses>
+      <address name="DLQ"><anycast><queue name="DLQ"/></anycast></address>
+    </addresses>
+  </core>
+</configuration>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns="urn:activemq" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <core xmlns="urn:activemq:core">
+    <name>broker-loopback-only</name>
+    <security-enabled>false</security-enabled>
+    <acceptors>
+      <acceptor name="loopback">tcp://127.0.0.1:61616?protocols=CORE</acceptor>
+      <acceptor name="loopback6">tcp://[::1]:5672?protocols=AMQP</acceptor>
+    </acceptors>
+  </core>
+</configuration>

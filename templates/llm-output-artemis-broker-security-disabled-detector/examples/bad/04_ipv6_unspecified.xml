@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns="urn:activemq" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <core xmlns="urn:activemq:core">
+    <name>broker-ipv6-unspecified</name>
+    <security-enabled>FALSE</security-enabled>
+    <acceptors>
+      <acceptor name="ipv6">tcp://[::]:61616?protocols=CORE,AMQP</acceptor>
+      <acceptor name="stomp">tcp://0.0.0.0:61613?protocols=STOMP</acceptor>
+    </acceptors>
+  </core>
+</configuration>

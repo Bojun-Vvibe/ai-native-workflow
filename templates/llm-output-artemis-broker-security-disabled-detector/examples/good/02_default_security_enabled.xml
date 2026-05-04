@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns="urn:activemq" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <core xmlns="urn:activemq:core">
+    <name>broker-default-security-on</name>
+    <!-- security-enabled omitted; Artemis defaults to ON. -->
+    <acceptors>
+      <acceptor name="artemis">tcp://0.0.0.0:61616?protocols=CORE,AMQP,STOMP,MQTT</acceptor>
+    </acceptors>
+  </core>
+</configuration>

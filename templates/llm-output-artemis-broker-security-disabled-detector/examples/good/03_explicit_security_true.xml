@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns="urn:activemq" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <core xmlns="urn:activemq:core">
+    <name>broker-explicit-security-on</name>
+    <security-enabled>true</security-enabled>
+    <acceptors>
+      <acceptor name="artemis">tcp://0.0.0.0:61616?protocols=CORE,AMQP</acceptor>
+    </acceptors>
+    <security-settings>
+      <security-setting match="#">
+        <permission type="send" roles="producers"/>
+        <permission type="consume" roles="consumers"/>
+      </security-setting>
+    </security-settings>
+  </core>
+</configuration>

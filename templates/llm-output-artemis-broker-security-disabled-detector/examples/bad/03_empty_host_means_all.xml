@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns="urn:activemq" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <core xmlns="urn:activemq:core">
+    <name>broker-empty-host</name>
+    <security-enabled>false</security-enabled>
+    <acceptors>
+      <!-- Empty host == "all interfaces" in Artemis URI parsing. -->
+      <acceptor name="netty">tcp://:61616?protocols=CORE</acceptor>
+    </acceptors>
+  </core>
+</configuration>
