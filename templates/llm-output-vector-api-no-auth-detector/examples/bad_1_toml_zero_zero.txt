@@ -1,0 +1,14 @@
+# Vector TOML config emitted by an LLM. The [api] block is enabled
+# and bound to 0.0.0.0 — that's the unauthenticated GraphQL/HTTP
+# management plane.
+[api]
+enabled = true
+address = "0.0.0.0:8686"
+
+[sources.in]
+type = "stdin"
+
+[sinks.out]
+type = "console"
+inputs = ["in"]
+encoding.codec = "json"

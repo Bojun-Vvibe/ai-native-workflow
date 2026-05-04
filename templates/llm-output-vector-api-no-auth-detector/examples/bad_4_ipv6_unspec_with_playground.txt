@@ -1,0 +1,16 @@
+# Helm-rendered TOML that an LLM produced. Bound to '::' (the IPv6
+# unspecified address) which is also non-loopback. Playground on.
+[api]
+enabled = true
+address = "[::]:8686"
+playground = true
+
+[sources.k8s_logs]
+type = "kubernetes_logs"
+
+[sinks.s3]
+type = "aws_s3"
+inputs = ["k8s_logs"]
+bucket = "logs-bucket"
+region = "us-east-1"
+encoding.codec = "json"

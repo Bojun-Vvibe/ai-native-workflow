@@ -1,0 +1,14 @@
+# Vector TOML with the API enabled but bound to loopback only — the
+# documented "let me check it from the same host" shape. Safe.
+[api]
+enabled = true
+address = "127.0.0.1:8686"
+playground = false
+
+[sources.in]
+type = "stdin"
+
+[sinks.out]
+type = "console"
+inputs = ["in"]
+encoding.codec = "json"

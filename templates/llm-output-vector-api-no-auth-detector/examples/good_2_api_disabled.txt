@@ -1,0 +1,15 @@
+# API explicitly disabled. Vector default for [api] is enabled=false
+# anyway, but being explicit is fine.
+[api]
+enabled = false
+
+[sources.journald]
+type = "journald"
+
+[sinks.elasticsearch]
+type = "elasticsearch"
+inputs = ["journald"]
+endpoints = ["https://es.example.com:9200"]
+auth.strategy = "basic"
+auth.user = "vector"
+auth.password = "${ES_PASSWORD}"

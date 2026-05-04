@@ -1,0 +1,18 @@
+# YAML form of the same regression. The 'api' block is enabled,
+# address bound to a public LAN IP, AND the playground UI is on.
+api:
+  enabled: true
+  address: "10.0.5.7:8686"
+  playground: true
+
+sources:
+  syslog:
+    type: syslog
+    address: "0.0.0.0:514"
+    mode: udp
+
+sinks:
+  loki:
+    type: loki
+    inputs: ["syslog"]
+    endpoint: "https://loki.example.com"

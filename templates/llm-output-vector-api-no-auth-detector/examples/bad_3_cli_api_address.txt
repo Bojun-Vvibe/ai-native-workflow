@@ -1,0 +1,9 @@
+# LLM-emitted docker run line; --api-address is bound to all
+# interfaces with no upstream auth proxy in the same blob.
+docker run -d \
+  --name vector \
+  -p 8686:8686 \
+  -v $(pwd)/vector.toml:/etc/vector/vector.toml \
+  timberio/vector:0.36.0-debian \
+  --config /etc/vector/vector.toml \
+  --api-address 0.0.0.0:8686

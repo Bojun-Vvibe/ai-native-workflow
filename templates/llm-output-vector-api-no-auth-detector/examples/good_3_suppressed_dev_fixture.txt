@@ -1,0 +1,10 @@
+# vector-api-public-allowed
+# Local dev fixture, suppression on. Even with a public bind we
+# accept it because the developer marked the file.
+[api]
+enabled = true
+address = "0.0.0.0:8686"
+playground = true
+
+[sources.in]
+type = "stdin"
