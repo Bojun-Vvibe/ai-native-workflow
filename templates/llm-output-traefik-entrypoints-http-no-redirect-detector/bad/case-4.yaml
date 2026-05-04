@@ -1,0 +1,20 @@
+# Helm values for traefik chart -- excerpted.
+ports:
+  web:
+    port: 8080
+    expose: true
+    exposedPort: 80
+    protocol: TCP
+  websecure:
+    port: 8443
+    expose: true
+    exposedPort: 443
+    protocol: TCP
+    tls:
+      enabled: true
+
+additionalArguments:
+  - "--entrypoints.web.address=:80"
+  - "--entrypoints.websecure.address=:443"
+  - "--api.dashboard=true"
+  - "--log.level=INFO"

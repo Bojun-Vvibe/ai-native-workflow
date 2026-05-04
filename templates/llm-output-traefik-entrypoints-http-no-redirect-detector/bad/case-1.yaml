@@ -1,0 +1,23 @@
+# traefik.yml -- static configuration
+# Generated for the edge proxy in front of the api cluster.
+
+entryPoints:
+  web:
+    address: ":80"
+  websecure:
+    address: ":443"
+
+providers:
+  docker:
+    exposedByDefault: false
+
+api:
+  dashboard: true
+
+certificatesResolvers:
+  le:
+    acme:
+      email: ops@example.com
+      storage: /etc/traefik/acme.json
+      httpChallenge:
+        entryPoint: web

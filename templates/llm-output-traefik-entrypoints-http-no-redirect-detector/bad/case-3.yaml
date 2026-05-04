@@ -1,0 +1,13 @@
+# docker-compose service args extracted from a generated stack.
+# Traefik v2 entrypoints set via CLI flags only.
+
+command:
+  - "--providers.docker=true"
+  - "--providers.docker.exposedbydefault=false"
+  - "--entrypoints.web.address=:80"
+  - "--entrypoints.websecure.address=:443"
+  - "--certificatesresolvers.le.acme.email=ops@example.com"
+  - "--certificatesresolvers.le.acme.storage=/letsencrypt/acme.json"
+  - "--certificatesresolvers.le.acme.httpchallenge=true"
+  - "--certificatesresolvers.le.acme.httpchallenge.entrypoint=web"
+  - "--api.dashboard=true"
