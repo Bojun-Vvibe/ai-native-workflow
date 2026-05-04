@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vaultwarden-env
+data:
+  DOMAIN: "https://vault.example.org"
+  SIGNUPS_ALLOWED: "yes"
+  SIGNUPS_DOMAINS_WHITELIST: "example.org"
+  ADMIN_TOKEN: ""

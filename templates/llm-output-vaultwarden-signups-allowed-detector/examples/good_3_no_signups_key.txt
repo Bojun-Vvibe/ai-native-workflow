@@ -1,0 +1,5 @@
+# unrelated env file — does not configure SIGNUPS_ALLOWED at all
+DOMAIN=https://vault.example.org
+DATABASE_URL=postgres://user:pass@db/vault
+WEBSOCKET_ENABLED=true
+ROCKET_PORT=8080

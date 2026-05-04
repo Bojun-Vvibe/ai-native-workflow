@@ -1,0 +1,9 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:1.30.5
+    environment:
+      DOMAIN: "https://vault.example.org"
+      SIGNUPS_ALLOWED: "true"
+      SIGNUPS_DOMAINS_WHITELIST: "example.org,example.net"
+      SIGNUPS_VERIFY: "true"
+      ADMIN_TOKEN: "Q2hhbmdlTWVOb3dQbGVhc2UxMjM0NTY3ODkw"

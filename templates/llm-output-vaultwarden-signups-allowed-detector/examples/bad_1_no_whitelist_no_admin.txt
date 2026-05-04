@@ -1,0 +1,8 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:1.30.5
+    ports:
+      - "80:80"
+    environment:
+      DOMAIN: "https://vault.example.org"
+      SIGNUPS_ALLOWED: "true"
