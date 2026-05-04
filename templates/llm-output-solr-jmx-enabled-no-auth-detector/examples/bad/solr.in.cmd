@@ -1,0 +1,5 @@
+@echo off
+set SOLR_HEAP=2g
+set ENABLE_REMOTE_JMX_OPTS=true
+set RMI_PORT=18983
+set SOLR_HOST=solr01
