@@ -1,0 +1,17 @@
+# bad_1: docker-compose with public listen + no --web.config.file
+version: "3.8"
+services:
+  prometheus:
+    image: prom/prometheus:v2.54.1
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+      - --web.listen-address=0.0.0.0:9090
+      - --web.external-url=https://prom.example.com/
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prom-data:/prometheus
+volumes:
+  prom-data:

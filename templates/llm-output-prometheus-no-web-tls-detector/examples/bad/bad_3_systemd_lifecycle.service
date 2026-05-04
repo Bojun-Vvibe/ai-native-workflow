@@ -1,0 +1,19 @@
+# bad_3: systemd unit ExecStart with lifecycle API + public bind, no web.config.file
+[Unit]
+Description=Prometheus
+After=network-online.target
+
+[Service]
+User=prometheus
+Group=prometheus
+Type=simple
+ExecStart=/usr/local/bin/prometheus \
+  --config.file=/etc/prometheus/prometheus.yml \
+  --storage.tsdb.path=/var/lib/prometheus \
+  --web.listen-address=:9090 \
+  --web.enable-lifecycle \
+  --web.external-url=https://prom.internal.example.com/
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

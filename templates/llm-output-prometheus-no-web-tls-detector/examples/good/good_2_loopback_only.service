@@ -1,0 +1,15 @@
+# good_2: loopback-only listen (no public exposure, no gate required)
+[Unit]
+Description=Prometheus (local only)
+After=network-online.target
+
+[Service]
+User=prometheus
+Type=simple
+ExecStart=/usr/local/bin/prometheus \
+  --config.file=/etc/prometheus/prometheus.yml \
+  --storage.tsdb.path=/var/lib/prometheus \
+  --web.listen-address=127.0.0.1:9090
+
+[Install]
+WantedBy=multi-user.target

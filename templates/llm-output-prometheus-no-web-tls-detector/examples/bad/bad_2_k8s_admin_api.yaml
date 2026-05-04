@@ -1,0 +1,25 @@
+# bad_2: kubernetes Deployment manifest with admin API enabled and no web.config.file
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus
+  template:
+    metadata:
+      labels:
+        app: prometheus
+    spec:
+      containers:
+        - name: prometheus
+          image: prom/prometheus:v2.54.1
+          args:
+            - --config.file=/etc/prometheus/prometheus.yml
+            - --storage.tsdb.path=/prometheus
+            - --web.listen-address=0.0.0.0:9090
+            - --web.enable-admin-api
+          ports:
+            - containerPort: 9090
