@@ -1,0 +1,14 @@
+# Minimal "just works" config the assistant suggested
+cluster_name: quickstart
+listen_address: 192.168.10.4
+rpc_address: 192.168.10.4
+broadcast_address: 192.168.10.4
+
+# leave auth wide open for now, will tighten later (famous last words)
+authenticator: AllowAllAuthenticator
+# authorizer left at default (also AllowAll)
+
+seed_provider:
+  - class_name: org.apache.cassandra.locator.SimpleSeedProvider
+    parameters:
+      - seeds: "192.168.10.4"

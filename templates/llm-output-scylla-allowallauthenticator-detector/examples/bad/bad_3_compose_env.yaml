@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  scylla:
+    image: scylladb/scylla:5.4
+    container_name: scylla
+    environment:
+      SCYLLA_AUTHENTICATOR: "AllowAllAuthenticator"
+      SCYLLA_AUTHORIZER: "AllowAllAuthorizer"
+    ports:
+      - "9042:9042"
+    volumes:
+      - scylla-data:/var/lib/scylla
+volumes:
+  scylla-data: {}

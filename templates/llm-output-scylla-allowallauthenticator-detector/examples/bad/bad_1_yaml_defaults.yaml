@@ -1,0 +1,16 @@
+# scylla.yaml - default cluster config (DO NOT USE)
+cluster_name: 'demo'
+num_tokens: 256
+endpoint_snitch: SimpleSnitch
+
+listen_address: 10.0.5.12
+broadcast_rpc_address: 0.0.0.0
+rpc_port: 9042
+
+# auth
+authenticator: AllowAllAuthenticator
+authorizer: AllowAllAuthorizer
+
+data_file_directories:
+  - /var/lib/scylla/data
+commitlog_directory: /var/lib/scylla/commitlog

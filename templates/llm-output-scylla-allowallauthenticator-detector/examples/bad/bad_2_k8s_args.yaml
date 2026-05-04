@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: scylla
+spec:
+  serviceName: scylla
+  replicas: 3
+  selector:
+    matchLabels:
+      app: scylla
+  template:
+    metadata:
+      labels:
+        app: scylla
+    spec:
+      containers:
+        - name: scylla
+          image: scylladb/scylla:5.4
+          args:
+            - "--smp=2"
+            - "--memory=4G"
+            - "--authenticator=AllowAllAuthenticator"
+            - "--authorizer=AllowAllAuthorizer"
+            - "--broadcast-rpc-address=0.0.0.0"
+          ports:
+            - containerPort: 9042
+              name: cql

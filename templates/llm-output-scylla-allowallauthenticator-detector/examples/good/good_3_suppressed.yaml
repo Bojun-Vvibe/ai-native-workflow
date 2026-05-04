@@ -1,0 +1,8 @@
+# scylla-public-readonly-ok
+# Intentional public lab cluster - all data is synthetic / public
+# benchmark data. Suppressed by the marker above.
+cluster_name: 'public-lab'
+listen_address: 0.0.0.0
+broadcast_rpc_address: 0.0.0.0
+authenticator: AllowAllAuthenticator
+authorizer: AllowAllAuthorizer

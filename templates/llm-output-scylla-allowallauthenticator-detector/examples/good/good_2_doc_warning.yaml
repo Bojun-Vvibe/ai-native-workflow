@@ -1,0 +1,12 @@
+# Documentation file: warns AGAINST the insecure default.
+#
+# Scylla's default authenticator: AllowAllAuthenticator means
+# every client that can reach port 9042 is implicitly logged in.
+# Never set authenticator: AllowAllAuthenticator in production.
+# Never set authorizer:    AllowAllAuthorizer in production.
+#
+# The recommended values are:
+#   authenticator: PasswordAuthenticator
+#   authorizer:    CassandraAuthorizer
+#
+# See SECURITY.md for the full hardening checklist.
