@@ -1,0 +1,6 @@
+name: etcd-prod
+data-dir: /var/lib/etcd
+listen-client-urls: http://0.0.0.0:2379
+advertise-client-urls: http://10.0.0.5:2379
+listen-peer-urls: http://0.0.0.0:2380
+initial-cluster: etcd-prod=http://10.0.0.5:2380

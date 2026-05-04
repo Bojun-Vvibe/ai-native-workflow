@@ -1,0 +1,8 @@
+name: etcd-2
+data-dir: /var/lib/etcd
+listen-client-urls: https://10.0.0.7:2379
+advertise-client-urls: https://10.0.0.7:2379
+client-transport-security:
+  cert-file: ""
+  key-file: ""
+  client-cert-auth: true

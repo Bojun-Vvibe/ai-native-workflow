@@ -1,0 +1,6 @@
+# etcd-no-client-cert-auth-allowed
+# Documented sandbox cluster, network-isolated.
+name: etcd-lab
+data-dir: /var/lib/etcd
+listen-client-urls: http://0.0.0.0:2379
+advertise-client-urls: http://lab-node.internal:2379

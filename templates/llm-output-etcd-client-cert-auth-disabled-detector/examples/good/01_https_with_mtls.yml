@@ -1,0 +1,9 @@
+name: etcd-prod
+data-dir: /var/lib/etcd
+listen-client-urls: https://10.0.0.5:2379
+advertise-client-urls: https://node1.example.com:2379
+client-transport-security:
+  cert-file: /etc/etcd/server.crt
+  key-file: /etc/etcd/server.key
+  client-cert-auth: true
+  trusted-ca-file: /etc/etcd/ca.crt

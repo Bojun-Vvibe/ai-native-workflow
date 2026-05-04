@@ -1,0 +1,11 @@
+name: etcd-loopback-list
+data-dir: /var/lib/etcd
+listen-client-urls:
+  - https://127.0.0.1:2379
+  - https://localhost:2379
+advertise-client-urls:
+  - https://127.0.0.1:2379
+client-transport-security:
+  cert-file: /etc/etcd/server.crt
+  key-file: /etc/etcd/server.key
+  client-cert-auth: false
