@@ -1,0 +1,2 @@
+# .htaccess style: comma-separated list with Indexes enabled.
+Options FollowSymLinks,Indexes,MultiViews
