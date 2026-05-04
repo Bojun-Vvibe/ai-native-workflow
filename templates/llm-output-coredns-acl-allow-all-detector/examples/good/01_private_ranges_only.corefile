@@ -1,0 +1,9 @@
+.:53 {
+    acl {
+        allow net 10.0.0.0/8
+        allow net 192.168.0.0/16
+        allow net 172.16.0.0/12
+    }
+    forward . 1.1.1.1
+    cache 30
+}

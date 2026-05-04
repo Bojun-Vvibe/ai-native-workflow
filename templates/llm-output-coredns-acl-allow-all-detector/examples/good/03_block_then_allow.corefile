@@ -1,0 +1,7 @@
+.:53 {
+    acl {
+        block net 0.0.0.0/0
+        allow net 10.0.0.0/8
+    }
+    forward . 1.1.1.1
+}

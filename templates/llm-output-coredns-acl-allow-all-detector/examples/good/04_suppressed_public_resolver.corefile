@@ -1,0 +1,10 @@
+# coredns-public-resolver-allowed
+# This is an intentional public resolver (mirrors Quad9 / Cloudflare).
+.:53 {
+    acl {
+        allow net 0.0.0.0/0
+    }
+    forward . 9.9.9.9
+    ratelimit 100
+    cache
+}

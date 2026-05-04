@@ -1,0 +1,7 @@
+dns://.:53 {
+    acl {
+        allow net 0.0.0.0/0 ::/0
+    }
+    forward . 9.9.9.9
+    cache
+}
