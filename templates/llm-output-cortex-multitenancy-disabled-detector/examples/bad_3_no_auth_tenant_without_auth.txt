@@ -1,0 +1,13 @@
+# Cortex / Mimir-compatible config: no_auth_tenant set without
+# auth_enabled: true — every unauthenticated caller is silently
+# bucketed into the named tenant.
+target: all
+
+multitenancy_enabled: true
+no_auth_tenant: anonymous
+
+server:
+  http_listen_port: 9009
+
+limits:
+  ingestion_rate: 50000

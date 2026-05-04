@@ -1,0 +1,18 @@
+# Prometheus scrape config emitted by an LLM that "ships metrics to
+# our cortex". The remote_write block has no X-Scope-OrgID header, so
+# every sample lands in the default 'fake' tenant.
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: node
+    static_configs:
+      - targets: ["node-exporter:9100"]
+
+remote_write:
+  - url: https://cortex.example.com/api/v1/push
+    queue_config:
+      capacity: 10000
+      max_samples_per_send: 2000
+    tls_config:
+      insecure_skip_verify: false

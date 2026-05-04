@@ -1,0 +1,13 @@
+# Docker compose snippet that an LLM emitted for a small cortex
+# deployment. Note the -auth.enabled=false on the cortex command.
+services:
+  cortex:
+    image: cortexproject/cortex:v1.16.0
+    command:
+      - "-config.file=/etc/cortex/cortex.yaml"
+      - "-auth.enabled=false"
+      - "-server.http-listen-port=9009"
+    ports:
+      - "9009:9009"
+    volumes:
+      - ./cortex.yaml:/etc/cortex/cortex.yaml

@@ -1,0 +1,22 @@
+# Cortex config with auth_enabled: true and a sane multitenancy
+# stack. This is the shape we WANT the LLM to emit.
+target: all
+auth_enabled: true
+
+server:
+  http_listen_port: 9009
+  grpc_listen_port: 9095
+
+ingester:
+  lifecycler:
+    ring:
+      kvstore:
+        store: consul
+        consul:
+          host: consul:8500
+      replication_factor: 3
+
+limits:
+  ingestion_rate: 25000
+  ingestion_burst_size: 50000
+  max_global_series_per_user: 1500000

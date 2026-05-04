@@ -1,0 +1,12 @@
+# Local dev fixture; suppression comment present, plus the
+# remote_write target is loopback (auth doesn't matter for a
+# host-local push).
+# cortex-single-tenant-allowed
+target: all
+auth_enabled: false
+
+server:
+  http_listen_port: 9009
+
+remote_write:
+  - url: http://127.0.0.1:9009/api/v1/push

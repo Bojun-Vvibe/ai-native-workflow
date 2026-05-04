@@ -1,0 +1,13 @@
+# Prometheus remote_write block that DOES include X-Scope-OrgID
+# headers per producer — this is the multi-tenant push shape.
+global:
+  scrape_interval: 30s
+
+remote_write:
+  - url: https://cortex.example.com/api/v1/push
+    headers:
+      X-Scope-OrgID: team-platform
+    queue_config:
+      capacity: 20000
+    tls_config:
+      insecure_skip_verify: false
