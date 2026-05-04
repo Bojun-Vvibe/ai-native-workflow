@@ -1,0 +1,8 @@
+hostname: registry.example.com
+http:
+  port: 80
+harbor_admin_password: Harbor12345
+csrf_key: "Z9k4Lp2QmW8rTxV6sN3jY7hB1cD5eF0gA4iU2oP9wRzX5tQv"
+database:
+  password: root123
+external_url: https://registry.example.com

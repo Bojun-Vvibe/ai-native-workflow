@@ -1,0 +1,6 @@
+# harbor-csrf-key-allowed: dev-only fixture
+hostname: registry.local
+http:
+  port: 80
+harbor_admin_password: Harbor12345
+csrf_key:
