@@ -1,0 +1,10 @@
+realm: prod
+enabled: true
+sslRequired: all
+accessTokenLifespan: 300
+clients:
+  - clientId: web-portal
+    publicClient: false
+    redirectUris:
+      - "https://portal.example.com/*"
+# Older drafts had `sslRequired: none` but that was rejected in review.

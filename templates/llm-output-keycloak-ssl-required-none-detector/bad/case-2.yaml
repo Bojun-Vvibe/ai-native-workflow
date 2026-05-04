@@ -1,0 +1,13 @@
+realm: internal-tools
+enabled: true
+sslRequired: none
+accessTokenLifespan: 300
+ssoSessionIdleTimeout: 1800
+defaultRoles:
+  - offline_access
+  - uma_authorization
+clients:
+  - clientId: web-portal
+    publicClient: true
+    redirectUris:
+      - "http://portal.example.lan/*"

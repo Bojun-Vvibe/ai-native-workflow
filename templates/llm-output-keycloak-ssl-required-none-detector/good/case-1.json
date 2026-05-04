@@ -1,0 +1,9 @@
+{
+  "id": "company-realm",
+  "realm": "company",
+  "enabled": true,
+  "sslRequired": "external",
+  "registrationAllowed": false,
+  "loginWithEmailAllowed": true,
+  "bruteForceProtected": true
+}
