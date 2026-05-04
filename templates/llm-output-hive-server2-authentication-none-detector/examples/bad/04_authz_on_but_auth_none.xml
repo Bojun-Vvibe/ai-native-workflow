@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<configuration>
+  <property>
+    <name>hive.server2.authentication</name>
+    <value>NONE</value>
+  </property>
+  <property>
+    <name>hive.server2.thrift.bind.host</name>
+    <value>hs2-prod.internal</value>
+  </property>
+  <property>
+    <name>hive.server2.enable.doAs</name>
+    <value>false</value>
+  </property>
+  <property>
+    <name>hive.security.authorization.enabled</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>hive.security.authorization.manager</name>
+    <value>org.apache.hadoop.hive.ql.security.authorization.plugin.sqlstd.SQLStdHiveAuthorizerFactory</value>
+  </property>
+</configuration>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<configuration>
+  <property>
+    <name>hive.server2.authentication</name>
+    <value>LDAP</value>
+  </property>
+  <property>
+    <name>hive.server2.authentication.ldap.url</name>
+    <value>ldaps://ldap.internal:636</value>
+  </property>
+  <property>
+    <name>hive.server2.thrift.bind.host</name>
+    <value>hs2.prod</value>
+  </property>
+</configuration>

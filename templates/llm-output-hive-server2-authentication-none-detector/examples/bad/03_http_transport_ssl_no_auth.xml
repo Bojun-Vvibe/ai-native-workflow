@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<configuration>
+  <property>
+    <name>hive.server2.authentication</name>
+    <value>none</value>
+  </property>
+  <property>
+    <name>hive.server2.thrift.bind.host</name>
+    <value>10.0.5.11</value>
+  </property>
+  <property>
+    <name>hive.server2.transport.mode</name>
+    <value>http</value>
+  </property>
+  <property>
+    <name>hive.server2.thrift.http.path</name>
+    <value>cliservice</value>
+  </property>
+  <property>
+    <name>hive.server2.use.SSL</name>
+    <value>true</value>
+  </property>
+</configuration>

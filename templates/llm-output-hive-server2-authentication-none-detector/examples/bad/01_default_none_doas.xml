@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<configuration>
+  <property>
+    <name>hive.metastore.uris</name>
+    <value>thrift://metastore.internal:9083</value>
+  </property>
+  <property>
+    <name>hive.server2.authentication</name>
+    <value>NONE</value>
+  </property>
+  <property>
+    <name>hive.server2.enable.doAs</name>
+    <value>true</value>
+  </property>
+</configuration>

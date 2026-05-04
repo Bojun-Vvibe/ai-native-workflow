@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<configuration>
+  <property>
+    <name>hive.server2.authentication</name>
+    <value>KERBEROS</value>
+  </property>
+  <property>
+    <name>hive.server2.authentication.kerberos.principal</name>
+    <value>hive/_HOST@EXAMPLE.COM</value>
+  </property>
+  <property>
+    <name>hive.server2.authentication.kerberos.keytab</name>
+    <value>/etc/security/keytabs/hive.service.keytab</value>
+  </property>
+  <property>
+    <name>hive.server2.thrift.bind.host</name>
+    <value>hs2.prod</value>
+  </property>
+  <property>
+    <name>hive.server2.use.SSL</name>
+    <value>true</value>
+  </property>
+</configuration>

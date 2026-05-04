@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<configuration>
+  <property>
+    <name>hive.server2.authentication</name>
+    <value>NONE</value>
+  </property>
+  <property>
+    <name>hive.server2.thrift.bind.host</name>
+    <value>127.0.0.1</value>
+  </property>
+</configuration>
