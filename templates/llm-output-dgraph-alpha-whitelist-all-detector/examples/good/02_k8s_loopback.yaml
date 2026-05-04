@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: dgraph-alpha
+spec:
+  serviceName: alpha
+  replicas: 1
+  selector:
+    matchLabels: { app: alpha }
+  template:
+    metadata:
+      labels: { app: alpha }
+    spec:
+      containers:
+        - name: alpha
+          image: dgraph/dgraph:v23.1.0
+          args:
+            - dgraph
+            - alpha
+            - --zero=dgraph-zero-0.zero:5080
+            - --security=whitelist=127.0.0.1/32
+          ports:
+            - { containerPort: 8080 }

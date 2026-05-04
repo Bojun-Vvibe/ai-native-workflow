@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  alpha:
+    image: dgraph/dgraph:v23.1.0
+    command:
+      - dgraph
+      - alpha
+      - --zero=zero:5080
+      - --security
+      - "whitelist=10.0.0.0/8,192.168.0.0/16,172.16.0.0/12;token=${DGRAPH_ADMIN_TOKEN}"
+    ports:
+      - "127.0.0.1:8080:8080"

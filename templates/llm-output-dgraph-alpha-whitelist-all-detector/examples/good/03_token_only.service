@@ -1,0 +1,14 @@
+[Unit]
+Description=Dgraph Alpha (token-gated, no public whitelist)
+After=network.target
+
+[Service]
+Type=simple
+User=dgraph
+WorkingDirectory=/var/lib/dgraph
+EnvironmentFile=/etc/dgraph/admin.envfile
+ExecStart=/usr/local/bin/dgraph alpha --my=alpha:7080 --zero=zero:5080 --security "token=${DGRAPH_ADMIN_TOKEN}"
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

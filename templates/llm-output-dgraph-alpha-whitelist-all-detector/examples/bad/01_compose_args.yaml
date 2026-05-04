@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  alpha:
+    image: dgraph/dgraph:latest
+    command:
+      - dgraph
+      - alpha
+      - --my=alpha:7080
+      - --zero=zero:5080
+      - --security
+      - "whitelist=0.0.0.0/0"
+    ports:
+      - "8080:8080"
+      - "9080:9080"

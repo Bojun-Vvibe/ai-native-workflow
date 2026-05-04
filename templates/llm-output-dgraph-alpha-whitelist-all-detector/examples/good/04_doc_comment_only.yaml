@@ -1,0 +1,15 @@
+version: "3.9"
+# DO NOT use --security "whitelist=0.0.0.0/0" in production.
+# That value is shown in the upstream tutorial only as a dev shortcut.
+services:
+  alpha:
+    image: dgraph/dgraph:v23.1.0
+    command:
+      - dgraph
+      - alpha
+      - --zero=zero:5080
+      # historical bad value: --security whitelist=0.0.0.0/0
+      - --security
+      - "whitelist=10.0.0.0/8"
+    ports:
+      - "127.0.0.1:8080:8080"

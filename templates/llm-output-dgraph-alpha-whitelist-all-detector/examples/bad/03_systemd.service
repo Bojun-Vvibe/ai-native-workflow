@@ -1,0 +1,13 @@
+[Unit]
+Description=Dgraph Alpha
+After=network.target
+
+[Service]
+Type=simple
+User=dgraph
+WorkingDirectory=/var/lib/dgraph
+ExecStart=/usr/local/bin/dgraph alpha --my=alpha:7080 --zero=zero:5080 -security whitelist=0.0.0.0/0
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
