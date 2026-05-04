@@ -1,0 +1,10 @@
+# env file copied from the upstream n8n quickstart. The operator
+# set N8N_HOST to a public DNS name and turned on the built-in
+# tunnel for external webhooks, but never declared
+# N8N_BASIC_AUTH_ACTIVE at all (default is false).
+N8N_HOST=automation.example.org
+N8N_PROTOCOL=https
+N8N_PORT=5678
+N8N_TUNNEL=true
+WEBHOOK_URL=https://automation.example.org/
+GENERIC_TIMEZONE=UTC

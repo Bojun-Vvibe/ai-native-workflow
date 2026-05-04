@@ -1,0 +1,15 @@
+# docker-compose snippet emitted by an LLM "minimal n8n" example.
+# The container is published on 0.0.0.0:5678 and N8N_HOST is set to
+# the public hostname, but N8N_BASIC_AUTH_ACTIVE has been left at
+# the upstream default (false). Anyone who can reach the host port
+# gets a fully-authenticated editor session.
+services:
+  n8n:
+    image: n8nio/n8n:latest
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_HOST=workflows.example.com
+      - N8N_PORT=5678
+      - N8N_BASIC_AUTH_ACTIVE=false
+      - WEBHOOK_URL=https://workflows.example.com/

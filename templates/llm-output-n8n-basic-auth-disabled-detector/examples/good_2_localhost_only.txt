@@ -1,0 +1,8 @@
+# Local development sandbox bound to loopback only. Auth is off
+# but the service is unreachable from anywhere outside the host,
+# so the rule that requires an explicit BASIC_AUTH_ACTIVE only
+# fires when the deployment is publicly exposed.
+N8N_HOST=localhost
+N8N_PORT=5678
+N8N_PROTOCOL=http
+N8N_TUNNEL=false

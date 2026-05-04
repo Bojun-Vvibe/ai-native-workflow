@@ -1,0 +1,5 @@
+# Unrelated env file (a Postgres connection string) that does not
+# mention any N8N_* keys. The detector must not flag this.
+DATABASE_URL=postgres://app:app@db:5432/app
+LOG_LEVEL=info
+APP_PORT=8080
