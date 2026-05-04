@@ -1,0 +1,18 @@
+# Looks locked-down: superusers list + admin-only API.
+# Reality: enable_sasl is missing, so the superusers entry is a no-op
+# and the kafka_api is wide open.
+redpanda:
+  data_directory: /var/lib/redpanda/data
+  node_id: 2
+
+  superusers:
+    - admin
+    - ops
+
+  kafka_api:
+    - address: 10.20.30.40
+      port: 9092
+
+  admin:
+    - address: 127.0.0.1
+      port: 9644

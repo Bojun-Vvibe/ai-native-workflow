@@ -1,0 +1,16 @@
+# TLS turned on, but client auth not required and SASL absent
+redpanda:
+  data_directory: /var/lib/redpanda/data
+  node_id: 1
+
+  kafka_api:
+    - address: 0.0.0.0
+      port: 9092
+      name: external
+
+  kafka_api_tls:
+    - name: external
+      enabled: true
+      cert_file: /etc/redpanda/certs/server.crt
+      key_file: /etc/redpanda/certs/server.key
+      require_client_auth: false

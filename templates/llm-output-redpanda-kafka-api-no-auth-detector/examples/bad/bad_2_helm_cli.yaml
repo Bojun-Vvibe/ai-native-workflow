@@ -1,0 +1,14 @@
+# Helm values - kafka_api on public bind, no SASL
+nodeSelector: {}
+
+config:
+  cluster:
+    auto_create_topics_enabled: true
+  node:
+    developer_mode: true
+
+# rpk-style overrides applied via --set
+extraArgs:
+  - "--set redpanda.kafka_api[0].address=0.0.0.0"
+  - "--set redpanda.kafka_api[0].port=9092"
+  - "--set redpanda.admin[0].address=127.0.0.1"

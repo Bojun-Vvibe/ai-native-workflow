@@ -1,0 +1,14 @@
+# Loopback-only single-node dev cluster - no external exposure.
+redpanda:
+  data_directory: /var/lib/redpanda/data
+  node_id: 0
+
+  kafka_api:
+    - address: 127.0.0.1
+      port: 9092
+
+  admin:
+    - address: 127.0.0.1
+      port: 9644
+
+  developer_mode: true

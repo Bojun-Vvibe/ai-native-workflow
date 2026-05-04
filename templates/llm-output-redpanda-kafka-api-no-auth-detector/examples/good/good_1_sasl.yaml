@@ -1,0 +1,18 @@
+# SASL/SCRAM enabled, listener-level authentication_method=sasl
+redpanda:
+  data_directory: /var/lib/redpanda/data
+  node_id: 0
+
+  enable_sasl: true
+  superusers:
+    - admin
+
+  kafka_api:
+    - address: 0.0.0.0
+      port: 9092
+      name: external
+      authentication_method: sasl
+
+  admin:
+    - address: 127.0.0.1
+      port: 9644
