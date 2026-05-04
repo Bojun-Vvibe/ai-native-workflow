@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- hbase-auth-allowed -->
+<configuration>
+  <property>
+    <name>hbase.cluster.distributed</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>hbase.zookeeper.quorum</name>
+    <value>zk1.lab,zk2.lab,zk3.lab</value>
+  </property>
+  <property>
+    <name>hbase.security.authentication</name>
+    <value>simple</value>
+  </property>
+</configuration>

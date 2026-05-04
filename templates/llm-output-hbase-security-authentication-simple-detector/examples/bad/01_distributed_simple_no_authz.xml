@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<configuration>
+  <property>
+    <name>hbase.rootdir</name>
+    <value>hdfs://nn1.example.com:9000/hbase</value>
+  </property>
+  <property>
+    <name>hbase.zookeeper.quorum</name>
+    <value>zk1.example.com,zk2.example.com,zk3.example.com</value>
+  </property>
+  <property>
+    <name>hbase.cluster.distributed</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>hbase.security.authentication</name>
+    <value>simple</value>
+  </property>
+  <property>
+    <name>hbase.security.authorization</name>
+    <value>false</value>
+  </property>
+</configuration>

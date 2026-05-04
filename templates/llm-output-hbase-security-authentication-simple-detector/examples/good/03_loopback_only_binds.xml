@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<configuration>
+  <property>
+    <name>hbase.cluster.distributed</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>hbase.zookeeper.quorum</name>
+    <value>zk1.example,zk2.example</value>
+  </property>
+  <property>
+    <name>hbase.master.ipc.address</name>
+    <value>127.0.0.1</value>
+  </property>
+  <property>
+    <name>hbase.regionserver.ipc.address</name>
+    <value>127.0.0.1</value>
+  </property>
+  <property>
+    <name>hbase.security.authentication</name>
+    <value>simple</value>
+  </property>
+</configuration>
