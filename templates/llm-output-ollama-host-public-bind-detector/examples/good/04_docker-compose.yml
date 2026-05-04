@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  ollama:
+    image: ollama/ollama:latest
+    # Bind only to the host loopback; another service in the
+    # compose network can still talk to it via the container DNS.
+    ports:
+      - "127.0.0.1:11434:11434"
+    environment:
+      OLLAMA_HOST: "127.0.0.1:11434"
+      OLLAMA_KEEP_ALIVE: "5m"
+    volumes:
+      - ollama_data:/root/.ollama
+volumes:
+  ollama_data: {}

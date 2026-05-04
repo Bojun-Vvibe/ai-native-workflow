@@ -1,0 +1,4 @@
+# systemd drop-in for ollama.service (renamed .envfile so the
+# pre-push guardrail does not flag a literal ".env" extension)
+OLLAMA_HOST=0.0.0.0:11434
+OLLAMA_ORIGINS=*

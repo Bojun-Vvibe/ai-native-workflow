@@ -1,0 +1,6 @@
+FROM ollama/ollama:latest
+# Loopback bind inside the container; an authenticating reverse
+# proxy (e.g. oauth2-proxy) terminates external traffic.
+ENV OLLAMA_HOST=127.0.0.1:11434
+EXPOSE 11434
+CMD ["serve"]

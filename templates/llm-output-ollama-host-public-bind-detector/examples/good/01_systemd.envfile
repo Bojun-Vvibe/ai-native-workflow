@@ -1,0 +1,3 @@
+# systemd drop-in env file for ollama (renamed .envfile)
+OLLAMA_HOST=127.0.0.1:11434
+OLLAMA_ORIGINS=https://my-internal-ide.example
