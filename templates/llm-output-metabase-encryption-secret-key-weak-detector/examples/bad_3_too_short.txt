@@ -1,0 +1,6 @@
+# Some LLMs emit a "looks random but actually 8-char" string —
+# below the 16-byte upstream minimum.
+export MB_DB_TYPE=h2
+export MB_DB_FILE=/data/metabase.db
+export MB_ENCRYPTION_SECRET_KEY=abc12345
+export MB_SITE_NAME=Analytics

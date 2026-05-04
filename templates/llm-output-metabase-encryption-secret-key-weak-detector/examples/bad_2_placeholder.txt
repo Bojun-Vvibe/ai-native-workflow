@@ -1,0 +1,9 @@
+# Common LLM regression: it copies the docs verbatim with the
+# placeholder string still in place.
+MB_DB_TYPE=postgres
+MB_DB_HOST=db.internal
+MB_DB_USER=metabase
+MB_DB_DBNAME=metabase
+MB_ENCRYPTION_SECRET_KEY=replace-me-with-a-strong-key
+MB_JETTY_HOST=0.0.0.0
+MB_JETTY_PORT=3000

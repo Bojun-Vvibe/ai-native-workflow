@@ -1,0 +1,7 @@
+# 32-char hex key (16 bytes of entropy), at the minimum threshold.
+MB_DB_TYPE=postgres
+MB_DB_HOST=db.internal
+MB_DB_USER=metabase
+MB_DB_DBNAME=metabase
+MB_ENCRYPTION_SECRET_KEY=9f3c1d4e7a82b06f51d4ab9c2ef07b18
+MB_JETTY_HOST=0.0.0.0

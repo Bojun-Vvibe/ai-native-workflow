@@ -1,0 +1,10 @@
+# Unrelated config — no Metabase markers at all. Out of scope.
+services:
+  redis:
+    image: redis:7
+    command: ["redis-server", "--requirepass", "supersecret"]
+  app:
+    image: my-org/app:1.2.3
+    environment:
+      DATABASE_URL: postgres://app:hunter2@pg/app
+      ENCRYPTION_KEY: ""
