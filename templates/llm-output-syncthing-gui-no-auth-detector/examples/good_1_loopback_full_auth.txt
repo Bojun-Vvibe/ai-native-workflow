@@ -1,0 +1,11 @@
+<!-- Properly locked-down: bound to loopback, with user, password,
+     and API key all set. The GUI is reachable only from the host
+     itself or via an SSH tunnel. -->
+<configuration version="37">
+  <gui enabled="true" tls="true">
+    <address>127.0.0.1:8384</address>
+    <user>operator</user>
+    <password>$2a$10$AnotherStrongHashedSecret</password>
+    <apikey>generated-rotated-key</apikey>
+  </gui>
+</configuration>

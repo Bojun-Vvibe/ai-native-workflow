@@ -1,0 +1,13 @@
+<!-- LLM-emitted "container-friendly" config.xml. The GUI bind was
+     flipped to 0.0.0.0 so the host's port mapping reaches the
+     container, but no <user> / <password> were ever added. The
+     REST API can add devices and read every shared folder. -->
+<configuration version="37">
+  <gui enabled="true" tls="false">
+    <address>0.0.0.0:8384</address>
+    <apikey>secret-rotated-key</apikey>
+  </gui>
+  <options>
+    <listenAddress>default</listenAddress>
+  </options>
+</configuration>

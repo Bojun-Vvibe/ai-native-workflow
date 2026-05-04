@@ -1,0 +1,11 @@
+<!-- Public bind, but with full credential set: user, password, and
+     a rotated API key. This is the supported way to expose the
+     GUI on a host network; the detector should not flag it. -->
+<configuration version="37">
+  <gui enabled="true" tls="true">
+    <address>0.0.0.0:8384</address>
+    <user>operator</user>
+    <password>$2a$10$LongBcryptHashHere</password>
+    <apikey>HXgPB8x-rotated-key</apikey>
+  </gui>
+</configuration>

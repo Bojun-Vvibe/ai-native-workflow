@@ -1,0 +1,7 @@
+# env-file used to seed a containerised Syncthing instance.
+# STGUIADDRESS overrides the default bind to expose the GUI on the
+# pod IP, but STGUIAPIKEY is left empty so any reachable client can
+# drive the REST API.
+STGUIADDRESS=0.0.0.0:8384
+STGUIAPIKEY=
+HOSTNAME=sync-pod-1

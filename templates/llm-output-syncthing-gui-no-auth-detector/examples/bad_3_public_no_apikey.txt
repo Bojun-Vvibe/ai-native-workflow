@@ -1,0 +1,12 @@
+<!-- Auth element exists, password is non-empty, but the API key
+     element was dropped. Mutating REST calls (add device, share
+     folder) require either the apikey OR a logged-in browser
+     session; with no apikey, automation tooling using the REST
+     API authenticates as nobody. -->
+<configuration version="37">
+  <gui enabled="true" tls="false">
+    <address>0.0.0.0:8384</address>
+    <user>admin</user>
+    <password>$2a$10$Hashed.bcrypt.value.here</password>
+  </gui>
+</configuration>

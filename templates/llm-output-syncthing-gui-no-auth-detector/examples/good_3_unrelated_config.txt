@@ -1,0 +1,9 @@
+# Unrelated configuration (a Caddy site block) with no Syncthing
+# elements at all. The detector must not fire.
+:8080 {
+  root * /var/www/html
+  file_server browse
+  log {
+    output stdout
+  }
+}
