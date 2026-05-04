@@ -1,0 +1,7 @@
+# Standard safe shape: restrictive predicates then reject_unauth_destination.
+myhostname = mail.example.org
+
+smtpd_relay_restrictions =
+    permit_mynetworks
+    permit_sasl_authenticated
+    reject_unauth_destination

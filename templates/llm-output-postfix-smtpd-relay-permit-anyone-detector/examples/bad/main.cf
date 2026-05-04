@@ -1,0 +1,6 @@
+# Postfix open-relay regression: bare `permit` as the entire value.
+myhostname = mail.example.org
+mydomain   = example.org
+inet_interfaces = all
+
+smtpd_relay_restrictions = permit

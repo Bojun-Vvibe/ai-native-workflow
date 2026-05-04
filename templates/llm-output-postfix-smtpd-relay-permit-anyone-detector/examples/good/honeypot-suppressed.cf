@@ -1,0 +1,3 @@
+# Intentional lab open-relay honeypot — explicitly suppressed.
+# postfix-open-relay-allowed
+smtpd_relay_restrictions = permit

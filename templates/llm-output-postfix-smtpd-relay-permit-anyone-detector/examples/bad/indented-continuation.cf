@@ -1,0 +1,8 @@
+# Bare `permit` slipped between safe rules and reject_unauth_destination.
+myhostname = mta01.example.org
+
+smtpd_relay_restrictions =
+    permit_mynetworks
+    permit_sasl_authenticated
+    permit
+    reject_unauth_destination

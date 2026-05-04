@@ -1,0 +1,9 @@
+# Other parameters with `permit` tokens (helo restrictions) — not the
+# relay-control parameters we audit.
+smtpd_helo_restrictions = permit_mynetworks, reject_invalid_helo_hostname
+smtpd_client_restrictions = permit_sasl_authenticated, reject_unknown_client_hostname
+
+# Relay restrictions are safely shaped.
+smtpd_relay_restrictions =
+    permit_mynetworks
+    reject_unauth_destination

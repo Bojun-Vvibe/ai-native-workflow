@@ -1,0 +1,3 @@
+# Comma-separated form on legacy smtpd_recipient_restrictions, with
+# bare permit before the reject.
+smtpd_recipient_restrictions = permit_mynetworks, permit, reject_unauth_destination

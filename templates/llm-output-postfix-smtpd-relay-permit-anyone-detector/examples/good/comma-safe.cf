@@ -1,0 +1,2 @@
+# Comma form with no bare `permit` token at all.
+smtpd_recipient_restrictions = permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination

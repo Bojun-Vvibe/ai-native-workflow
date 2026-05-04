@@ -1,0 +1,5 @@
+# Backslash-newline continuation with bare permit and NO
+# reject_unauth_destination at all.
+smtpd_relay_restrictions = permit_mynetworks \
+    permit_sasl_authenticated \
+    permit
