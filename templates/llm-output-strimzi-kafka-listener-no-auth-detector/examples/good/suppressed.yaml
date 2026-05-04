@@ -1,0 +1,15 @@
+# strimzi-listener-noauth-allowed: dev sandbox
+apiVersion: kafka.strimzi.io/v1beta2
+kind: Kafka
+metadata:
+  name: dev-cluster
+spec:
+  kafka:
+    replicas: 1
+    listeners:
+      - name: external
+        port: 9094
+        type: nodeport
+        tls: false
+  zookeeper:
+    replicas: 1

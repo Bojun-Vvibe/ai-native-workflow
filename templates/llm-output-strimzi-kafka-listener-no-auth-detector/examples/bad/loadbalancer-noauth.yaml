@@ -1,0 +1,15 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: Kafka
+metadata:
+  name: my-cluster
+spec:
+  kafka:
+    replicas: 3
+    listeners:
+      - name: lb
+        port: 9094
+        type: loadbalancer
+        tls: false
+    config: {}
+  zookeeper:
+    replicas: 3
