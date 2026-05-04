@@ -1,0 +1,9 @@
+# Operator turned the entire Security plugin off "to debug a login
+# issue" and never re-enabled it. Dashboards are bound on every
+# interface so the broken UI is reachable from any client.
+server.host: "0.0.0.0"
+server.port: 5601
+opensearch.hosts: ["https://opensearch.internal:9200"]
+opensearch.username: "kibanaserver"
+opensearch.password: "supersecret-rotated-monthly"
+opensearch_security.disabled: true

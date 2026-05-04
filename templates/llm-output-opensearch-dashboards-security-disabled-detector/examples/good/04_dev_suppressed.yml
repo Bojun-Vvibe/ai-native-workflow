@@ -1,0 +1,8 @@
+# Documented dev fixture: every line that would otherwise be flagged
+# carries an explicit allow marker, and the host binding is loopback.
+server.host: "127.0.0.1" # osd-security-disabled-allowed
+server.port: 5601
+opensearch.hosts: ["https://localhost:9200"]
+opensearch.username: "kibanaserver" # osd-security-disabled-allowed
+opensearch.password: "kibanaserver" # osd-security-disabled-allowed
+opensearch_security.disabled: true # osd-security-disabled-allowed

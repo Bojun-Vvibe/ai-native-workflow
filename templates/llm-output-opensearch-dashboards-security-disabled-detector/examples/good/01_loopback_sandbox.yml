@@ -1,0 +1,8 @@
+# Loopback-only sandbox: even though Security is off, the UI is only
+# reachable from the same host. Detector intentionally tolerates this.
+server.host: "127.0.0.1"
+server.port: 5601
+opensearch.hosts: ["https://localhost:9200"]
+opensearch.username: "kibanaserver"
+opensearch.password: "kibanaserver"
+opensearch_security.disabled: true

@@ -1,0 +1,8 @@
+# Default service account + default password reused — a tutorial-grade
+# config exposed on the LAN.
+server.host: "0.0.0.0"
+server.port: 5601
+opensearch.hosts: ["https://opensearch:9200"]
+opensearch.username: "kibanaserver"
+opensearch.password: "kibanaserver"
+opensearch.ssl.verificationMode: "certificate"

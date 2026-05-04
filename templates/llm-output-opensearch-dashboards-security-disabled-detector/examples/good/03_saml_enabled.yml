@@ -1,0 +1,14 @@
+# SAML federation, public bind, TLS on, no default credentials.
+server.host: "0.0.0.0"
+server.port: 5601
+server.ssl.enabled: true
+server.ssl.certificate: "/etc/osd/tls.crt"
+server.ssl.key: "/etc/osd/tls.key"
+opensearch.hosts: ["https://opensearch.svc.cluster.local:9200"]
+opensearch.username: "osd_service_acct_8421"
+opensearch.password: "rotated-via-vault-agent-template"
+opensearch_security.auth.type: "saml"
+opensearch_security.saml.idp.metadata_url: "https://idp.example.com/metadata"
+opensearch_security.saml.idp.entity_id: "https://idp.example.com/"
+opensearch_security.saml.sp.entity_id: "opensearch-dashboards"
+opensearch_security.cookie.secure: true

@@ -1,0 +1,14 @@
+# Production: OIDC backend wired up, Security plugin enabled, TLS on.
+server.host: "0.0.0.0"
+server.port: 5601
+server.ssl.enabled: true
+server.ssl.certificate: "/etc/opensearch-dashboards/cert.pem"
+server.ssl.key: "/etc/opensearch-dashboards/key.pem"
+opensearch.hosts: ["https://opensearch.internal:9200"]
+opensearch.username: "kibanaserver"
+opensearch.password: "rotated-via-vault-agent-template"
+opensearch_security.auth.type: "openid"
+opensearch_security.openid.connect_url: "https://idp.example.com/.well-known/openid-configuration"
+opensearch_security.openid.client_id: "opensearch-dashboards"
+opensearch_security.openid.client_secret: "rotated-via-vault-agent-template"
+opensearch_security.cookie.secure: true

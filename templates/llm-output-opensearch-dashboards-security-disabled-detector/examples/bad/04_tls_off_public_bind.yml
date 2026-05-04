@@ -1,0 +1,10 @@
+# server.ssl.enabled false on a public bind — Dashboards session cookie
+# travels in cleartext over the wider network.
+server.host: "10.50.12.4"
+server.port: 5601
+server.ssl.enabled: false
+opensearch.hosts: ["https://opensearch.internal:9200"]
+opensearch.username: "kibanaserver"
+opensearch.password: "rotated-via-vault-agent-template"
+opensearch_security.auth.type: "basicauth"
+opensearch_security.basicauth.login.title: "Internal Logs"

@@ -1,0 +1,9 @@
+# auth.type emptied with no SAML/OIDC/JWT/basicauth backend behind it —
+# the UI accepts any browser session as the configured service account.
+server.host: "10.42.0.7"
+server.port: 5601
+opensearch.hosts: ["https://opensearch.internal:9200"]
+opensearch.username: "kibanaserver"
+opensearch.password: "supersecret-rotated-monthly"
+opensearch_security.auth.type: ""
+opensearch_security.cookie.secure: true
