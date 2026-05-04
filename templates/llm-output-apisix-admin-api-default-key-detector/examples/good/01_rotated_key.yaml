@@ -1,0 +1,9 @@
+deployment:
+  admin:
+    admin_key:
+      - name: admin
+        key: 8a1b9f5c7e2d4a3f6b8c9d0e1f2a3b4c
+        role: admin
+    admin_listen:
+      ip: 0.0.0.0
+      port: 9180

@@ -1,0 +1,12 @@
+# apisix-default-key-allowed
+# Hardening tutorial — intentionally shows the upstream default key as
+# the BAD example readers must rotate before going live.
+deployment:
+  admin:
+    admin_key:
+      - name: admin
+        key: edd1c9f034335f136f87ad84b625c8f1
+        role: admin
+    admin_listen:
+      ip: 0.0.0.0
+      port: 9180

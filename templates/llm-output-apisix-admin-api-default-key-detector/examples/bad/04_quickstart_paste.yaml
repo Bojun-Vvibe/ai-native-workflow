@@ -1,0 +1,13 @@
+# LLM-emitted snippet straight from a quickstart blog
+deployment:
+  role: traditional
+  role_traditional:
+    config_provider: etcd
+  admin:
+    admin_key:
+      - name: admin
+        key: 'edd1c9f034335f136f87ad84b625c8f1'
+        role: admin
+    admin_listen:
+      ip: 192.0.2.10
+      port: 9180
