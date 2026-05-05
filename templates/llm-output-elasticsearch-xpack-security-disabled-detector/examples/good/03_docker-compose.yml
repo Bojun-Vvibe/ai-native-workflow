@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  es:
+    image: elasticsearch:8.13.0
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=true
+      - xpack.security.http.ssl.enabled=true
+      - xpack.security.http.ssl.keystore.path=certs/http.p12
+      - ELASTIC_PASSWORD=Z9!kpQ72-rt_aw84LmVx
+    ports:
+      - "9200:9200"
+    volumes:
+      - ./certs:/usr/share/elasticsearch/config/certs:ro

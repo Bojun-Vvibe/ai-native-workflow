@@ -1,0 +1,6 @@
+# Default ES 8.x config — security defaults on, no override needed.
+# This file documents the cluster, doesn't disable anything.
+cluster.name: research-cluster
+node.name: es-research-1
+network.host: _site_
+discovery.seed_hosts: ["es-research-1"]

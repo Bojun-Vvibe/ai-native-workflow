@@ -1,0 +1,7 @@
+FROM elasticsearch:8.13.0
+ENV discovery.type=single-node
+ENV xpack.security.enabled=true
+ENV xpack.security.http.ssl.enabled=true
+ENV xpack.security.transport.ssl.enabled=true
+ENV ES_JAVA_OPTS="-Xms1g -Xmx1g"
+EXPOSE 9200 9300

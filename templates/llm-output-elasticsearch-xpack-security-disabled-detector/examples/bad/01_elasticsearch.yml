@@ -1,0 +1,6 @@
+# /etc/elasticsearch/elasticsearch.yml
+cluster.name: prod-search
+node.name: es-node-1
+network.host: 0.0.0.0
+discovery.seed_hosts: ["es-node-1", "es-node-2"]
+xpack.security.enabled: false
