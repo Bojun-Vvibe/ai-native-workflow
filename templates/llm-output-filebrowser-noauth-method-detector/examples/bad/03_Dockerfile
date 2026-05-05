@@ -1,0 +1,4 @@
+FROM filebrowser/filebrowser:latest
+COPY . /srv
+EXPOSE 80
+CMD ["filebrowser", "--root", "/srv", "--address", "0.0.0.0", "--port", "80", "--noauth"]

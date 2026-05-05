@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  files:
+    image: filebrowser/filebrowser:latest
+    ports:
+      - "127.0.0.1:8080:80"
+    environment:
+      FB_AUTH_METHOD: json
+      # FB_AUTH_METHOD=noauth  # disabled — never use in production
+    volumes:
+      - ./data:/srv

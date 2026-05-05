@@ -1,0 +1,8 @@
+{
+  "port": 8080,
+  "baseURL": "/files",
+  "auth": {
+    "method": "proxy",
+    "header": "X-Forwarded-User"
+  }
+}

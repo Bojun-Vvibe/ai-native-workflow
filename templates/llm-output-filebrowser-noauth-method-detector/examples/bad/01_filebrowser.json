@@ -1,0 +1,7 @@
+{
+  "port": 80,
+  "address": "0.0.0.0",
+  "root": "/srv",
+  "database": "/database/filebrowser.db",
+  "auth.method": "noauth"
+}

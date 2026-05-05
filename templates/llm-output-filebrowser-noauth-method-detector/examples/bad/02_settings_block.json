@@ -1,0 +1,9 @@
+{
+  "port": 8080,
+  "baseURL": "/files",
+  "auth": {
+    "method": "noauth",
+    "header": ""
+  },
+  "commands": ["git", "sh"]
+}

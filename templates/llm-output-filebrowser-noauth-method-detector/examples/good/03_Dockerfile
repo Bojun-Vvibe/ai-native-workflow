@@ -1,0 +1,5 @@
+FROM filebrowser/filebrowser:latest
+COPY . /srv
+EXPOSE 80
+# Note: do NOT pass --noauth; the JSON auth method is the safe default.
+CMD ["filebrowser", "--root", "/srv", "--address", "127.0.0.1", "--port", "80"]
