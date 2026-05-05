@@ -1,0 +1,4 @@
+FROM redis:7-alpine
+EXPOSE 6379
+# launches the server with no auth password and no config file override
+CMD ["redis-server", "--bind", "0.0.0.0", "--protected-mode", "no"]

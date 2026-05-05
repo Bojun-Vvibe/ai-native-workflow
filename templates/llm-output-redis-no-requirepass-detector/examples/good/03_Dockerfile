@@ -1,0 +1,4 @@
+FROM redis:7-alpine
+EXPOSE 6379
+# requirepass passed at launch; bind kept to localhost
+CMD ["redis-server", "--bind", "127.0.0.1", "--requirepass", "v7P-LQ91kRmZxBN3uWyA"]
