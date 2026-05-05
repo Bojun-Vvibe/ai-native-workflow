@@ -1,0 +1,10 @@
+apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata:
+  name: kubeflow-gateway-allow
+  namespace: kubeflow
+spec:
+  action: ALLOW
+  rules:
+
+

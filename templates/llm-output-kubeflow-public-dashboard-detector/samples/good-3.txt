@@ -1,0 +1,9 @@
+# Not a manifest for the ML platform under test — should be ignored entirely.
+apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata:
+  name: marketing-site-allow
+  namespace: marketing
+spec:
+  action: ALLOW
+  rules: []
