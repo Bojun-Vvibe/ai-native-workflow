@@ -1,0 +1,7 @@
+name: etcd-loopback-list
+data-dir: /var/lib/etcd
+listen-peer-urls:
+  - https://localhost:2380
+  - https://127.0.0.1:12380
+initial-advertise-peer-urls:
+  - https://127.0.0.1:2380

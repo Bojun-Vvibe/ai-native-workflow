@@ -1,0 +1,4 @@
+name: etcd-single-node
+data-dir: /var/lib/etcd
+listen-peer-urls: http://127.0.0.1:2380
+initial-advertise-peer-urls: http://127.0.0.1:2380

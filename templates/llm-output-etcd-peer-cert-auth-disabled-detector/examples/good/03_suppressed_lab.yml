@@ -1,0 +1,6 @@
+# etcd-no-peer-cert-auth-allowed
+# Documented sandbox cluster, network-isolated single-tenant lab.
+name: etcd-lab
+data-dir: /var/lib/etcd
+listen-peer-urls: http://0.0.0.0:2380
+initial-advertise-peer-urls: http://lab-node.internal:2380

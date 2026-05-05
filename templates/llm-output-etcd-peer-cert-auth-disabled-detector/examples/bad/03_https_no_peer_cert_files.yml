@@ -1,0 +1,11 @@
+# https on peer URLs but no peer-transport-security block at all
+name: etcd-prod-c
+data-dir: /var/lib/etcd
+listen-peer-urls:
+  - https://10.0.0.7:2380
+initial-advertise-peer-urls:
+  - https://10.0.0.7:2380
+client-transport-security:
+  cert-file: /etc/etcd/client.crt
+  key-file: /etc/etcd/client.key
+  client-cert-auth: true

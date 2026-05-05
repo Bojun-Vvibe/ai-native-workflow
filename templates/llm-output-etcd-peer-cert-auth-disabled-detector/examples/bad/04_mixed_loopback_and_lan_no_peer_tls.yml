@@ -1,0 +1,8 @@
+name: etcd-mixed
+data-dir: /var/lib/etcd
+listen-peer-urls: [http://127.0.0.1:2380, http://10.0.0.8:2380]
+initial-advertise-peer-urls: http://10.0.0.8:2380
+peer-transport-security:
+  cert-file: ""
+  key-file: ""
+  peer-client-cert-auth: false

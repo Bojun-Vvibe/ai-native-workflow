@@ -1,0 +1,11 @@
+name: etcd-prod-a
+data-dir: /var/lib/etcd
+listen-client-urls: https://10.0.0.5:2379
+advertise-client-urls: https://10.0.0.5:2379
+listen-peer-urls: http://0.0.0.0:2380
+initial-advertise-peer-urls: http://10.0.0.5:2380
+initial-cluster: a=http://10.0.0.5:2380,b=http://10.0.0.6:2380
+client-transport-security:
+  cert-file: /etc/etcd/client.crt
+  key-file: /etc/etcd/client.key
+  client-cert-auth: true

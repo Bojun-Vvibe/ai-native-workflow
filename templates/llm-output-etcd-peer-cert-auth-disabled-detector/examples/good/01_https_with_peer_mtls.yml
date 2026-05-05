@@ -1,0 +1,9 @@
+name: etcd-prod-secure
+data-dir: /var/lib/etcd
+listen-peer-urls: https://10.0.0.5:2380
+initial-advertise-peer-urls: https://10.0.0.5:2380
+peer-transport-security:
+  cert-file: /etc/etcd/peer.crt
+  key-file: /etc/etcd/peer.key
+  peer-client-cert-auth: true
+  trusted-ca-file: /etc/etcd/peer-ca.crt
