@@ -1,0 +1,8 @@
+# /etc/salt/master
+interface: 0.0.0.0
+publish_port: 4505
+ret_port: 4506
+open_mode: True
+file_roots:
+  base:
+    - /srv/salt

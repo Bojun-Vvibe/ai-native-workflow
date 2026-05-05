@@ -1,0 +1,9 @@
+# /etc/salt/master — production posture
+interface: 127.0.0.1
+publish_port: 4505
+ret_port: 4506
+open_mode: False
+auto_accept: False
+file_roots:
+  base:
+    - /srv/salt

@@ -1,0 +1,7 @@
+# /etc/salt/master — fields omitted entirely; defaults are False.
+interface: 127.0.0.1
+publish_port: 4505
+ret_port: 4506
+file_roots:
+  base:
+    - /srv/salt
