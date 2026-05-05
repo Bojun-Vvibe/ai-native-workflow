@@ -1,0 +1,6 @@
+<?php
+// Not a nextcloud config at all — no trusted_domains key.
+return [
+    'app_name' => 'unrelated',
+    'allowed_hosts' => ['*'],
+];

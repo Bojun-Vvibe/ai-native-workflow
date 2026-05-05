@@ -1,0 +1,7 @@
+<?php
+return [
+    'trusted_domains' => [
+        'nc.example.org',
+    ],
+    'overwriteprotocol' => 'https',
+];

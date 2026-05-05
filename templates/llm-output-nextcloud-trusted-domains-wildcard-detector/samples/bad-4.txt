@@ -1,0 +1,8 @@
+<?php
+$CONFIG = array(
+  'trusted_domains' => array(
+    0 => 'cloud.example.com',
+    1 => 'backup.*',
+  ),
+  'overwrite.cli.url' => 'https://cloud.example.com',
+);

@@ -1,0 +1,9 @@
+<?php
+$CONFIG = array (
+  'instanceid' => 'oc123',
+  'trusted_domains' =>
+  array (
+    0 => '*',
+  ),
+  'datadirectory' => '/var/www/nextcloud/data',
+);

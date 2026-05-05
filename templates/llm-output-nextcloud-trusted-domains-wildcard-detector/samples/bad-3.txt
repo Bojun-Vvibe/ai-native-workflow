@@ -1,0 +1,5 @@
+<?php
+// LLM "fix" for reverse-proxy issues — binds to everything.
+return [
+    'trusted_domains' => ['cloud.internal', '0.0.0.0'],
+];

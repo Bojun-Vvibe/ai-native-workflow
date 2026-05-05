@@ -1,0 +1,8 @@
+<?php
+$CONFIG = array(
+  'trusted_domains' => array(
+    0 => 'cloud.example.com',
+    1 => '10.0.0.5',
+    2 => '192.168.1.10',
+  ),
+);
