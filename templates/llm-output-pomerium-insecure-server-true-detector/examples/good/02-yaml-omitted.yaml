@@ -1,0 +1,9 @@
+# Default behaviour: insecure_server omitted -> defaults to false.
+address: ":443"
+authenticate_service_url: https://auth.example.test
+shared_secret: "REPLACE_ME_BASE64_32B"
+cookie_secret: "REPLACE_ME_BASE64_32B"
+certificate_file: /etc/pomerium/tls/fullchain.pem
+certificate_key_file: /etc/pomerium/tls/privkey.pem
+
+routes: []

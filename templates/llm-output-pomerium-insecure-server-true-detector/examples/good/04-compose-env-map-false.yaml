@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  pomerium:
+    image: pomerium/pomerium:v0.27.0
+    ports:
+      - "443:443"
+    environment:
+      POMERIUM_ADDRESS: ":443"
+      POMERIUM_AUTHENTICATE_SERVICE_URL: "https://auth.example.test"
+      POMERIUM_SHARED_SECRET: "REPLACE_ME"
+      POMERIUM_COOKIE_SECRET: "REPLACE_ME"
+      POMERIUM_INSECURE_SERVER: "false"
+    volumes:
+      - ./tls:/etc/pomerium/tls:ro

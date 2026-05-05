@@ -1,0 +1,9 @@
+# pomerium.env
+POMERIUM_ADDRESS=:443
+POMERIUM_AUTHENTICATE_SERVICE_URL=https://auth.example.test
+POMERIUM_SHARED_SECRET=REPLACE_ME
+POMERIUM_COOKIE_SECRET=REPLACE_ME
+
+# Explicitly false; also a stale comment that should not trigger the detector.
+POMERIUM_INSECURE_SERVER=false
+# previous run used: POMERIUM_INSECURE_SERVER=true

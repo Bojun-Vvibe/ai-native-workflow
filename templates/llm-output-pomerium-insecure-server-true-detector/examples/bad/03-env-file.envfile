@@ -1,0 +1,9 @@
+# pomerium.env — sourced by the systemd unit
+POMERIUM_ADDRESS=:80
+POMERIUM_AUTHENTICATE_SERVICE_URL=https://auth.example.test
+POMERIUM_SHARED_SECRET=REPLACE_ME
+POMERIUM_COOKIE_SECRET=REPLACE_ME
+
+# Disabling TLS so the local HAProxy can hairpin requests on 127.0.0.1.
+# Left in place after the HAProxy was decommissioned.
+POMERIUM_INSECURE_SERVER=true

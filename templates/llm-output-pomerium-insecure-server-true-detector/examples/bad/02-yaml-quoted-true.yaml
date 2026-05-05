@@ -1,0 +1,7 @@
+address: ":80"
+authenticate_service_url: https://auth.example.test
+
+# Quoted string still parses as truthy in Pomerium's flag handler.
+insecure_server: "true"
+
+routes: []

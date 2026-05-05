@@ -1,0 +1,16 @@
+# Pomerium reverse-proxy config — exposing plain HTTP on the data plane.
+address: ":80"
+authenticate_service_url: https://auth.example.test
+shared_secret: "REPLACE_ME_BASE64_32B"
+cookie_secret: "REPLACE_ME_BASE64_32B"
+
+insecure_server: true
+
+routes:
+  - from: https://app.example.test
+    to: http://internal-app.svc.cluster.local:8080
+    policy:
+      - allow:
+          and:
+            - domain:
+                is: example.test

@@ -1,0 +1,18 @@
+address: ":443"
+authenticate_service_url: https://auth.example.test
+shared_secret: "REPLACE_ME_BASE64_32B"
+cookie_secret: "REPLACE_ME_BASE64_32B"
+
+# TLS terminated by Pomerium itself.
+insecure_server: false
+certificate_file: /etc/pomerium/tls/fullchain.pem
+certificate_key_file: /etc/pomerium/tls/privkey.pem
+
+routes:
+  - from: https://app.example.test
+    to: https://internal-app.svc.cluster.local:8443
+    policy:
+      - allow:
+          and:
+            - domain:
+                is: example.test
