@@ -1,0 +1,22 @@
+teleport:
+  nodename: auth-1
+  data_dir: /var/lib/teleport
+  log:
+    output: stderr
+    severity: INFO
+
+auth_service:
+  enabled: true
+  cluster_name: example.cluster
+  listen_addr: 0.0.0.0:3025
+  authentication:
+    type: local
+    second_factor: off
+
+ssh_service:
+  enabled: true
+
+proxy_service:
+  enabled: true
+  listen_addr: 0.0.0.0:3023
+  web_listen_addr: 0.0.0.0:3080

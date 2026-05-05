@@ -1,0 +1,13 @@
+# teleport-2fa-off-allowed
+# Air-gapped lab cluster reachable only from the bench network.
+teleport:
+  nodename: lab-auth
+
+auth_service:
+  enabled: true
+  authentication:
+    type: local
+    second_factor: off
+
+proxy_service:
+  enabled: true

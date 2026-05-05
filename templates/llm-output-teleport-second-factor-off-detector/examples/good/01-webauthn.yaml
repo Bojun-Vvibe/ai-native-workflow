@@ -1,0 +1,15 @@
+teleport:
+  nodename: auth-1
+  data_dir: /var/lib/teleport
+
+auth_service:
+  enabled: true
+  authentication:
+    type: local
+    second_factor: webauthn
+    webauthn:
+      rp_id: teleport.example.org
+
+proxy_service:
+  enabled: true
+  web_listen_addr: 0.0.0.0:3080

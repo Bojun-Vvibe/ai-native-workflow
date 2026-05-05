@@ -1,0 +1,15 @@
+teleport:
+  nodename: auth-3
+  data_dir: /var/lib/teleport
+
+auth_service:
+  enabled: true
+  authentication:
+    type: github
+    second_factor: false   # password only via GitHub session
+    github:
+      client_id: deadbeef
+      client_secret: /var/lib/teleport/gh-secret
+
+proxy_service:
+  enabled: true

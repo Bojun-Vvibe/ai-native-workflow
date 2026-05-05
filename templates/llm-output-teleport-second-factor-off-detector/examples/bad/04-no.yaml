@@ -1,0 +1,15 @@
+version: v3
+teleport:
+  nodename: auth-4
+
+auth_service:
+  enabled: true
+  authentication:
+    type: local
+    local_auth: true
+    second_factor: "no"   # operator misread docs
+    lock:
+      mode: best_effort
+
+ssh_service:
+  enabled: true

@@ -1,0 +1,15 @@
+teleport:
+  nodename: auth-2
+  data_dir: /var/lib/teleport
+
+auth_service:
+  enabled: true
+  authentication:
+    type: local
+    # quick fix while we onboard hardware keys
+    second_factor: "optional"
+    webauthn:
+      rp_id: teleport.example.org
+
+proxy_service:
+  enabled: true

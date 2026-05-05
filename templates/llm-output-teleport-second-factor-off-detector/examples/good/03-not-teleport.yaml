@@ -1,0 +1,13 @@
+# Not a Teleport config — should be ignored entirely.
+api:
+  dashboard: true
+  insecure: false
+
+entryPoints:
+  websecure:
+    address: ":443"
+
+# A second_factor: off line buried in a non-Teleport file
+# must not trigger.
+notes:
+  second_factor: off

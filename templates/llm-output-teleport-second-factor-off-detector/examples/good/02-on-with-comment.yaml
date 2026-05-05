@@ -1,0 +1,13 @@
+teleport:
+  nodename: auth-2
+  data_dir: /var/lib/teleport
+
+auth_service:
+  enabled: true
+  authentication:
+    type: local
+    second_factor: on
+    # second_factor: off   # never enable this in prod
+
+proxy_service:
+  enabled: true
