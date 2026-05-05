@@ -1,0 +1,15 @@
+<beans xmlns="http://www.springframework.org/schema/beans">
+  <broker xmlns="http://activemq.apache.org/schema/core" brokerName="localhost">
+    <plugins>
+      <simpleAuthenticationPlugin>
+        <users>
+          <authenticationUser username="admin" password="admin" groups="admins,users"/>
+          <authenticationUser username="guest" password="guest" groups="guests"/>
+        </users>
+      </simpleAuthenticationPlugin>
+    </plugins>
+    <transportConnectors>
+      <transportConnector name="openwire" uri="tcp://0.0.0.0:61616"/>
+    </transportConnectors>
+  </broker>
+</beans>

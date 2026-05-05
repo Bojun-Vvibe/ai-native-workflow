@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans">
+  <broker xmlns="http://activemq.apache.org/schema/core" brokerName="localhost">
+    <plugins>
+      <jaasAuthenticationPlugin configuration="activemq-domain"/>
+      <authorizationPlugin>
+        <map>
+          <authorizationMap>
+            <authorizationEntries>
+              <authorizationEntry queue=">" read="admins" write="admins" admin="admins"/>
+            </authorizationEntries>
+          </authorizationMap>
+        </map>
+      </authorizationPlugin>
+    </plugins>
+    <transportConnectors>
+      <transportConnector name="ssl" uri="ssl://0.0.0.0:61617?needClientAuth=true"/>
+    </transportConnectors>
+  </broker>
+</beans>

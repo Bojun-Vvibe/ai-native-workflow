@@ -1,0 +1,5 @@
+# docker-compose.yml fragment for an ActiveMQ broker.
+# Both the login and the password are left at the upstream image defaults.
+ACTIVEMQ_ADMIN_LOGIN=admin
+ACTIVEMQ_ADMIN_PASSWORD=admin
+ACTIVEMQ_OPTS_MEMORY=-Xms512m -Xmx1g
