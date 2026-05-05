@@ -1,0 +1,14 @@
+version: "3"
+services:
+  pma:
+    image: phpmyadmin:latest
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ALLOW_NO_PASSWORD: "true"
+    ports:
+      - "8080:80"
+  db:
+    image: mariadb:11
+    environment:
+      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: "yes"

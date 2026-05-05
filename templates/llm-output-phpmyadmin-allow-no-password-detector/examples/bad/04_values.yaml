@@ -1,0 +1,8 @@
+# Helm values for a phpmyadmin chart — operator wanted to "skip the
+# login screen" for a kiosk view and the model obliged.
+phpmyadmin:
+  service:
+    type: LoadBalancer
+  config:
+    AllowNoPassword: true
+    auth_type: cookie

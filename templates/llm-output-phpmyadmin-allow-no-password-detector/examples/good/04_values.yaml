@@ -1,0 +1,6 @@
+phpmyadmin:
+  service:
+    type: ClusterIP
+  config:
+    AllowNoPassword: false
+    auth_type: cookie

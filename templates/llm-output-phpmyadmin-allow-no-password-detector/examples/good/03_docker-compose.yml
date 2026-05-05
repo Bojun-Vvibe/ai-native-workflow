@@ -1,0 +1,19 @@
+version: "3"
+services:
+  pma:
+    image: phpmyadmin:latest
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ALLOW_NO_PASSWORD: "false"
+    ports:
+      - "127.0.0.1:8080:80"
+  db:
+    image: mariadb:11
+    environment:
+      MARIADB_ROOT_PASSWORD_FILE: /run/secrets/db_root
+    secrets:
+      - db_root
+secrets:
+  db_root:
+    file: ./secrets/db_root.txt
