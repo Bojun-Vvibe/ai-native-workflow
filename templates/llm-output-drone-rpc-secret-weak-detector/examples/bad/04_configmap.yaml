@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: drone-server
+data:
+  DRONE_SERVER_HOST: "drone.example.org"
+  DRONE_SERVER_PROTO: "https"
+  DRONE_RPC_SECRET: "abc123"
+  DRONE_LOGS_DEBUG: "true"

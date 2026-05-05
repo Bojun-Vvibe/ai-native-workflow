@@ -1,0 +1,11 @@
+version: "3"
+services:
+  drone-server:
+    image: drone/drone:2
+    environment:
+      - DRONE_GITEA_SERVER=https://git.example.org
+      - DRONE_RPC_SECRET=secret
+      - DRONE_SERVER_HOST=drone.example.org
+      - DRONE_SERVER_PROTO=https
+    ports:
+      - "80:80"

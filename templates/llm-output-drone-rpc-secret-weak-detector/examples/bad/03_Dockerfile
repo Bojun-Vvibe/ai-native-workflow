@@ -1,0 +1,6 @@
+FROM drone/drone-runner-docker:1
+ENV DRONE_RPC_SECRET=changeme
+ENV DRONE_RPC_HOST=drone.example.org
+ENV DRONE_RPC_PROTO=https
+ENV DRONE_RUNNER_CAPACITY=4
+EXPOSE 3000

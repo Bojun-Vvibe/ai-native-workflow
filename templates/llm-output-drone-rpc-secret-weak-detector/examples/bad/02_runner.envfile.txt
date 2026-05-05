@@ -1,0 +1,6 @@
+# Tutorial copy/paste straight from a blog post — both server and runner
+# pinned to the docs literal.
+DRONE_RPC_SECRET=superdupersecret
+DRONE_RUNNER_CAPACITY=2
+DRONE_RPC_HOST=drone.example.org
+DRONE_RPC_PROTO=https

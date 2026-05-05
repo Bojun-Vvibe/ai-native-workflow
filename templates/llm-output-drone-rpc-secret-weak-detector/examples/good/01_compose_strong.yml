@@ -1,0 +1,12 @@
+version: "3"
+services:
+  drone-server:
+    image: drone/drone:2
+    environment:
+      - DRONE_GITEA_SERVER=https://git.example.org
+      # 32-char hex from `openssl rand -hex 16`
+      - DRONE_RPC_SECRET=8f3a91b2c4d5e6f70819a2b3c4d5e6f7
+      - DRONE_SERVER_HOST=drone.example.org
+      - DRONE_SERVER_PROTO=https
+    ports:
+      - "80:80"

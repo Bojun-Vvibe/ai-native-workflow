@@ -1,0 +1,7 @@
+FROM drone/drone-runner-docker:1
+# 64-char value from a CSPRNG, high diversity.
+ENV DRONE_RPC_SECRET=Zr9TpQm2Lw4Vk7Hx1Bd6Nf8Cy3Js5Ge0Au
+ENV DRONE_RPC_HOST=drone.example.org
+ENV DRONE_RPC_PROTO=https
+ENV DRONE_RUNNER_CAPACITY=4
+EXPOSE 3000
