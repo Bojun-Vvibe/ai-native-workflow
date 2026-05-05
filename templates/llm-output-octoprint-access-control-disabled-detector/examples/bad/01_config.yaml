@@ -1,0 +1,12 @@
+server:
+  host: 0.0.0.0
+  port: 5000
+  firstRun: false
+accessControl:
+  enabled: false
+  autologinLocal: true
+  localNetworks:
+    - 127.0.0.0/8
+api:
+  enabled: true
+  key: changeme

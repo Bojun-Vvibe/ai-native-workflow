@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  octoprint:
+    image: octoprint/octoprint:latest
+    ports:
+      - "5000:5000"
+    environment:
+      - OCTOPRINT_ACCESS_CONTROL_ENABLED=false
+    volumes:
+      - ./octoprint:/octoprint
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0

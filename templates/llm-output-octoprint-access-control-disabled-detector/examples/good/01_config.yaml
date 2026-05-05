@@ -1,0 +1,12 @@
+server:
+  host: 127.0.0.1
+  port: 5000
+  firstRun: false
+accessControl:
+  enabled: true
+  autologinLocal: false
+  localNetworks:
+    - 127.0.0.0/8
+api:
+  enabled: true
+  key: rotated-via-env

@@ -1,0 +1,5 @@
+FROM python:3.11-slim
+RUN pip install --no-cache-dir OctoPrint
+EXPOSE 5000
+# Run headless without the first-run wizard; we'll add auth later
+CMD ["octoprint", "serve", "--host", "0.0.0.0", "--port", "5000", "--no-access-control"]
