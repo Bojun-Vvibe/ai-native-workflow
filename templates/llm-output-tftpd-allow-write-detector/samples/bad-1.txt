@@ -1,0 +1,7 @@
+# /etc/default/tftpd-hpa — Debian/Ubuntu default for the tftpd-hpa daemon.
+# This config enables write/create on a public TFTP root, which lets
+# anyone who can reach UDP/69 overwrite PXE/firmware files anonymously.
+TFTP_USERNAME="tftp"
+TFTP_DIRECTORY="/srv/tftp"
+TFTP_ADDRESS=":69"
+TFTP_OPTIONS="--secure --create"

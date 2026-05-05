@@ -1,0 +1,5 @@
+# /etc/default/tftpd-hpa — read-only PXE root, --secure but no --create / -c.
+TFTP_USERNAME="tftp"
+TFTP_DIRECTORY="/srv/tftp"
+TFTP_ADDRESS="127.0.0.1:69"
+TFTP_OPTIONS="--secure"

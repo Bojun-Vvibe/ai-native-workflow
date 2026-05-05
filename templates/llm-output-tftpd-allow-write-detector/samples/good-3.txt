@@ -1,0 +1,7 @@
+# Unrelated SSH config — uses -c for cipher selection, must NOT match
+# because nothing here looks like tftpd.
+Host pxe-host
+    HostName 10.0.0.5
+    User admin
+    Ciphers aes256-ctr
+# Note: ssh -c aes256-ctr admin@10.0.0.5

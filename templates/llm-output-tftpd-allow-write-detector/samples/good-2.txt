@@ -1,0 +1,6 @@
+# systemd unit for tftpd-hpa with read-only options and verbose logging.
+# Note: -v is fine, it does not enable writes.
+[Unit]
+Description=tftp-hpa server
+[Service]
+ExecStart=/usr/sbin/in.tftpd --listen --user tftp --address :69 --secure -v /srv/tftp

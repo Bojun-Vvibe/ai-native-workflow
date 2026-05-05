@@ -1,0 +1,4 @@
+#!/bin/sh
+# Bare invocation in a provisioning script — grouped short flags include c.
+# This is the in.tftpd binary launched by the operator's PXE bootstrap.
+exec /usr/sbin/in.tftpd -L --secure -cv --user tftp /srv/tftp

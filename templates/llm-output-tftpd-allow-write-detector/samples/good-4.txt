@@ -1,0 +1,10 @@
+# Documentation snippet for tftpd-hpa that *mentions* --create in a
+# comment to warn against it. Because the option appears only in a
+# comment line (and not inside an OPTIONS= assignment), it must NOT match.
+# /etc/default/tftpd-hpa
+# WARNING: do NOT pass --create or -c here, that allows anonymous file
+# uploads over UDP/69 which has no auth.
+TFTP_USERNAME="tftp"
+TFTP_DIRECTORY="/srv/tftp"
+TFTP_ADDRESS="127.0.0.1:69"
+TFTP_OPTIONS="--secure --permissive"

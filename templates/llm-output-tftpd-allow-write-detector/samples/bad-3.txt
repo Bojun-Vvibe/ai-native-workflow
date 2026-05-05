@@ -1,0 +1,5 @@
+# systemd unit override for tftpd-hpa.service that enables anonymous writes.
+# /etc/systemd/system/tftpd-hpa.service.d/override.conf
+[Service]
+ExecStart=
+ExecStart=/usr/sbin/in.tftpd --listen --user tftp --address :69 --secure --create /srv/tftp
