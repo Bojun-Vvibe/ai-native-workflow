@@ -1,0 +1,10 @@
+# compose with no OAuth env -- public 8888 is wide open.
+version: "3.8"
+services:
+  chronograf:
+    image: chronograf:1.10
+    ports:
+      - "8888:8888"
+    environment:
+      INFLUXDB_URL: http://influxdb:8086
+      KAPACITOR_URL: http://kapacitor:9092

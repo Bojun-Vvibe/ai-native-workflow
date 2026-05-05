@@ -1,0 +1,8 @@
+[Unit]
+Description=Chronograf (loopback only -- single-operator dev box)
+
+[Service]
+ExecStart=/usr/bin/chronograf --host 127.0.0.1 --port 8888
+
+[Install]
+WantedBy=multi-user.target
