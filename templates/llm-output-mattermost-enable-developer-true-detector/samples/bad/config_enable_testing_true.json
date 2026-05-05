@@ -1,0 +1,11 @@
+{
+  "ServiceSettings": {
+    "SiteURL": "https://chat.example.com",
+    "ListenAddress": ":8065",
+    "EnableDeveloper": false,
+    "EnableTesting": true
+  },
+  "LogSettings": {
+    "EnableConsole": true
+  }
+}

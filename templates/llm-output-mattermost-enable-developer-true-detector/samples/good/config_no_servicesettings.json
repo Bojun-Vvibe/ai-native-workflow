@@ -1,0 +1,10 @@
+{
+  "TeamSettings": {
+    "SiteName": "Example",
+    "MaxUsersPerTeam": 50
+  },
+  "LogSettings": {
+    "EnableConsole": true,
+    "ConsoleLevel": "INFO"
+  }
+}

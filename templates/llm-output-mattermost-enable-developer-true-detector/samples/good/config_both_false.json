@@ -1,0 +1,12 @@
+{
+  "ServiceSettings": {
+    "SiteURL": "https://chat.example.com",
+    "ListenAddress": ":8065",
+    "EnableDeveloper": false,
+    "EnableTesting": false,
+    "EnableLocalMode": false
+  },
+  "TeamSettings": {
+    "SiteName": "Example"
+  }
+}
