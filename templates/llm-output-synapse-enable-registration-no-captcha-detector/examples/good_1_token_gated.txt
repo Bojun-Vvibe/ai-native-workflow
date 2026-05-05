@@ -1,0 +1,8 @@
+# homeserver.yaml — token-gated registration
+server_name: "matrix.example.org"
+pid_file: /data/homeserver.pid
+
+enable_registration: true
+registration_requires_token: true
+
+registration_shared_secret: "8b1f4e9c3d6a7b2e5f9c1d4a8b7e6c2f3a9d1e8b4c7f6a2d3e5b9c1f4a8d7e6b"

@@ -1,0 +1,9 @@
+# homeserver.yaml — closed registration, 3pid required if ever opened
+server_name: "matrix.example.org"
+pid_file: /data/homeserver.pid
+
+enable_registration: false
+registrations_require_3pid:
+  - email
+
+registration_shared_secret: "a3f5d7e9c1b8a2f4d6e8c0b1a3f5d7e9c1b8a2f4"

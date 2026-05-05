@@ -1,0 +1,6 @@
+# homeserver.yaml
+server_name: "chat.example.org"
+pid_file: /data/homeserver.pid
+
+enable_registration: true
+enable_registration_without_verification: true

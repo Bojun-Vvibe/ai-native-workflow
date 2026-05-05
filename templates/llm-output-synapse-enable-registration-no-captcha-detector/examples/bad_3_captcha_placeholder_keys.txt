@@ -1,0 +1,8 @@
+# /data/homeserver.yaml
+server_name: "matrix.lan.example.org"
+pid_file: /data/homeserver.pid
+
+enable_registration: true
+enable_registration_captcha: true
+recaptcha_public_key: "CHANGEME"
+recaptcha_private_key: "CHANGEME"

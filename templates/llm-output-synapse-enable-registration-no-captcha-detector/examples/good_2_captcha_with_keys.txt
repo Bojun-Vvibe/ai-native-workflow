@@ -1,0 +1,10 @@
+# homeserver.yaml — captcha gated with real keys
+server_name: "matrix.example.org"
+pid_file: /data/homeserver.pid
+
+enable_registration: true
+enable_registration_captcha: true
+recaptcha_public_key: "6Lc_AAAAA1bC2dE3fG4hI5jK6lM7nO8pQ9rS0tU"
+recaptcha_private_key: "6Lc_BBBBB1bC2dE3fG4hI5jK6lM7nO8pQ9rS0tU"
+
+registration_shared_secret: "9f3a2b7c1d4e8f6a5b9c2d1e4f7a8b3c6d5e9f2a"

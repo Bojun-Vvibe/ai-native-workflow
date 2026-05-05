@@ -1,0 +1,11 @@
+## homeserver.yaml
+server_name: "matrix.example.org"
+pid_file: /data/homeserver.pid
+listeners:
+  - port: 8008
+    type: http
+    bind_addresses: ['0.0.0.0']
+    resources:
+      - names: [client, federation]
+
+enable_registration: true
