@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  rspamd:
+    image: rspamd/rspamd:latest
+    ports:
+      - "11334:11334"
+    environment:
+      - RSPAMD_PASSWORD=
+      - REDIS_HOST=redis

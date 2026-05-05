@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  rspamd:
+    image: rspamd/rspamd:latest
+    ports:
+      - "127.0.0.1:11334:11334"
+    environment:
+      - RSPAMD_PASSWORD=$2$d1f6b7e9a8c0d2b4e6f8a0c2d4b6e8f0$strongpasshash
