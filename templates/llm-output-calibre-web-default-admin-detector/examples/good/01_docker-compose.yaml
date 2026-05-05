@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  calibre-web:
+    image: linuxserver/calibre-web:latest
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+      - ADMIN_PASSWORD=${CALIBRE_WEB_ADMIN_PW:?must be set, never admin123}
+    volumes:
+      - ./config:/config
+      - ./books:/books
+    ports:
+      - "127.0.0.1:8083:8083"

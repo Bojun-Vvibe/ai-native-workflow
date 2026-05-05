@@ -1,0 +1,4 @@
+# Generic app config — no calibre-web context, default flagged elsewhere.
+admin_user: admin
+admin_password: admin123
+listen: 127.0.0.1:9000
