@@ -1,0 +1,15 @@
+# KubeletConfiguration that omits the anonymous block entirely but
+# explicitly sets readOnlyPort: 0. The block-omission path is covered by
+# the rule that requires either an explicit `enabled: false` or a
+# referenced --config — here the YAML *is* the config, anonymous defaults
+# to disabled in the typed KubeletConfiguration schema (the unsafe-by-
+# default path is the bare-binary invocation), so the detector treats a
+# YAML that simply lacks the block as safe.
+apiVersion: kubelet.config.k8s.io/v1beta1
+kind: KubeletConfiguration
+authorization:
+  mode: Webhook
+readOnlyPort: 0
+clusterDNS:
+  - 10.96.0.10
+clusterDomain: cluster.local

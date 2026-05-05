@@ -1,0 +1,15 @@
+# KubeletConfiguration that explicitly enables anonymous auth on the
+# kubelet's HTTPS API. Any unauthenticated client can hit
+# https://<node>:10250/pods and exec into containers.
+apiVersion: kubelet.config.k8s.io/v1beta1
+kind: KubeletConfiguration
+authentication:
+  anonymous:
+    enabled: true
+  webhook:
+    enabled: true
+authorization:
+  mode: AlwaysAllow
+clusterDNS:
+  - 10.96.0.10
+clusterDomain: cluster.local

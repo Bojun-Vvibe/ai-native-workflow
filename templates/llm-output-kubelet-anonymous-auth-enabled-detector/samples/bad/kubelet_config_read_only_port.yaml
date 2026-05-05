@@ -1,0 +1,17 @@
+# KubeletConfiguration that closes anonymous on 10250 but re-opens an
+# unauthenticated read-only API on 10255 — same exposure, different
+# port. LLMs frequently emit this when asked to "expose kubelet metrics
+# for Prometheus" without a separate metrics-server.
+apiVersion: kubelet.config.k8s.io/v1beta1
+kind: KubeletConfiguration
+authentication:
+  anonymous:
+    enabled: false
+  webhook:
+    enabled: true
+authorization:
+  mode: Webhook
+readOnlyPort: 10255
+clusterDNS:
+  - 10.96.0.10
+clusterDomain: cluster.local
