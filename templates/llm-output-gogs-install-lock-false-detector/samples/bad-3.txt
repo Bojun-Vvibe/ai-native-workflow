@@ -1,0 +1,5 @@
+APP_NAME = Gogs
+
+[security]
+; INSTALL_LOCK = true
+SECRET_KEY = abc

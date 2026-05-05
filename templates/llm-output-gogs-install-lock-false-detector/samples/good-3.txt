@@ -1,0 +1,3 @@
+# This file is not a Gogs app.ini at all — no [security] section.
+[server]
+LISTEN = 0.0.0.0:8080

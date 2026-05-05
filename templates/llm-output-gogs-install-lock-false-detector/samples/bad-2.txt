@@ -1,0 +1,6 @@
+APP_NAME = Gogs
+RUN_USER = git
+
+[security]
+INSTALL_LOCK = false
+SECRET_KEY = please_change_me

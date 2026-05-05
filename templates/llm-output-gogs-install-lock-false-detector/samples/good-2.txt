@@ -1,0 +1,3 @@
+[security]
+INSTALL_LOCK = TRUE
+SECRET_KEY = abc

@@ -1,0 +1,3 @@
+[security]
+install_lock = 1
+SECRET_KEY = abc
