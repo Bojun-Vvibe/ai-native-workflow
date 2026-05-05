@@ -1,0 +1,9 @@
+{
+	auto_https off
+}
+
+example.internal {
+	root * /srv/www
+	file_server
+	encode gzip
+}

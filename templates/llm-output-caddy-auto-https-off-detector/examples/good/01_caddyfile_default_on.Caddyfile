@@ -1,0 +1,9 @@
+{
+	email ops@example.internal
+}
+
+example.internal {
+	root * /srv/www
+	file_server
+	encode gzip
+}

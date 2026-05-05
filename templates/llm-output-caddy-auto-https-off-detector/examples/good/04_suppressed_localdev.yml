@@ -1,0 +1,14 @@
+# caddy-auto-https-off-allowed
+# Local-dev compose. Listener is bound to 127.0.0.1 only and the
+# stack is torn down at the end of each smoke-test run; documented
+# in the team's local-dev README.
+
+version: "3.8"
+services:
+  caddy:
+    image: caddy:2
+    ports:
+      - "127.0.0.1:8080:80"
+    environment:
+      - CADDY_AUTO_HTTPS=off
+    command: caddy run --config /etc/caddy/Caddyfile --auto-https off
