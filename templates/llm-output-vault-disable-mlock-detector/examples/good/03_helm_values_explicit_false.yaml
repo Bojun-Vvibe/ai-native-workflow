@@ -1,0 +1,13 @@
+# Helm values: disableMlock left at the chart default (false).
+global:
+  enabled: true
+  tlsDisable: false
+
+server:
+  disableMlock: false
+  ha:
+    enabled: true
+    replicas: 3
+  dataStorage:
+    enabled: true
+    size: 10Gi

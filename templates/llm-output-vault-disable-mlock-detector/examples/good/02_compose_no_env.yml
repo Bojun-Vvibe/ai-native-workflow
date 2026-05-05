@@ -1,0 +1,15 @@
+version: "3.8"
+
+# IPC_LOCK granted; mlock left enabled (no VAULT_DISABLE_MLOCK env).
+services:
+  vault:
+    image: hashicorp/vault:1.16
+    cap_add:
+      - IPC_LOCK
+    environment:
+      - VAULT_ADDR=https://0.0.0.0:8200
+    ports:
+      - "8200:8200"
+    volumes:
+      - ./vault.hcl:/vault/config/vault.hcl:ro
+    command: server -config=/vault/config/vault.hcl

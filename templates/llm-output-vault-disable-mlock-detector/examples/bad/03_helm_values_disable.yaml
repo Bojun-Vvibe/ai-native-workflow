@@ -1,0 +1,16 @@
+# Helm values for the official vault chart, generated from a quickstart
+# template. Operator did not realize disableMlock at the chart level
+# rewrites the rendered HCL.
+
+global:
+  enabled: true
+  tlsDisable: false
+
+server:
+  disableMlock: true
+  ha:
+    enabled: true
+    replicas: 3
+  dataStorage:
+    enabled: true
+    size: 10Gi
