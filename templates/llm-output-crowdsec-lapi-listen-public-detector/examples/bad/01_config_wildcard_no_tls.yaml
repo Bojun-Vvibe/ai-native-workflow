@@ -1,0 +1,10 @@
+common:
+  daemonize: true
+  log_media: file
+api:
+  server:
+    log_level: info
+    listen_uri: 0.0.0.0:8080
+    profiles_path: /etc/crowdsec/profiles.yaml
+    online_client:
+      credentials_path: /etc/crowdsec/online_api_credentials.yaml

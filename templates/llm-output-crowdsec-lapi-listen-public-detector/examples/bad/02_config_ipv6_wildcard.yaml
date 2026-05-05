@@ -1,0 +1,4 @@
+api:
+  server:
+    listen_uri: "[::]:8080"
+    profiles_path: /etc/crowdsec/profiles.yaml

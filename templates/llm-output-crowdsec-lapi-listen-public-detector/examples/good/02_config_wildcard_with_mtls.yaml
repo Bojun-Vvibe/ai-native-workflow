@@ -1,0 +1,11 @@
+api:
+  server:
+    listen_uri: 0.0.0.0:8080
+    tls:
+      cert_file: /etc/crowdsec/ssl/lapi.crt
+      key_file: /etc/crowdsec/ssl/lapi.key
+      ca_cert_path: /etc/crowdsec/ssl/ca.crt
+      bouncers_allowed_ou:
+        - bouncer-ou
+      agents_allowed_ou:
+        - agent-ou

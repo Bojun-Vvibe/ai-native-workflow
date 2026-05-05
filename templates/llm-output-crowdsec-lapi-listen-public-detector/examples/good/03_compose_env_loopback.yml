@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  crowdsec:
+    image: crowdsecurity/crowdsec:latest
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      - LAPI_LISTEN_URI=127.0.0.1:8080
+      - DISABLE_LOCAL_API=false
