@@ -1,0 +1,7 @@
+{
+  "authorization": {
+    "class": "solr.RuleBasedAuthorizationPlugin",
+    "permissions": [{"name": "read", "role": "reader"}],
+    "user-role": {"reader": "reader"}
+  }
+}

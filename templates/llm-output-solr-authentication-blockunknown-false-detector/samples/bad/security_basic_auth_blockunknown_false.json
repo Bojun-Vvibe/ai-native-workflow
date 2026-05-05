@@ -1,0 +1,9 @@
+{
+  "authentication" : {
+    "class"         : "solr.BasicAuthPlugin",
+    "blockUnknown"  : false,
+    "credentials"   : {
+      "admin": "hashed-password-goes-here salt-goes-here"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "authentication": {
+    "class": "solr.JWTAuthPlugin",
+    "blockUnknown": false,
+    "jwk": {
+      "keys": [{"kty": "RSA", "kid": "example", "use": "sig", "alg": "RS256", "n": "...", "e": "AQAB"}]
+    },
+    "iss": "https://issuer.example/"
+  }
+}

@@ -1,0 +1,1 @@
+{"authentication":{"class":"solr.BasicAuthPlugin","blockUnknown":true,"credentials":{"admin":"hash salt"}}}
