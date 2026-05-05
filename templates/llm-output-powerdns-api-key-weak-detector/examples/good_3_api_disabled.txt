@@ -1,0 +1,6 @@
+# pdns.conf — API and webserver disabled entirely.
+launch=bind
+bind-config=/etc/powerdns/named.conf
+
+api=no
+webserver=no

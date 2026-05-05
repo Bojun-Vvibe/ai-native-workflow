@@ -1,0 +1,9 @@
+# pdns.conf — public bind, permissive ACL, real-looking key
+launch=bind
+bind-config=/etc/powerdns/named.conf
+
+api=yes
+webserver=yes
+api-key=9f3a2b7c1d4e8f6a5b9c2d1e4f7a8b3c
+webserver-address=0.0.0.0
+webserver-allow-from=0.0.0.0/0,::/0

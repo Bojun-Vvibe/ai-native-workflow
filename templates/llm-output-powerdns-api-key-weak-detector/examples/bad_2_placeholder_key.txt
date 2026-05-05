@@ -1,0 +1,10 @@
+# /etc/powerdns/recursor.conf
+setuid=pdns
+setgid=pdns
+local-address=0.0.0.0
+
+webserver=yes
+api=yes
+api-key=changeme
+webserver-address=127.0.0.1
+webserver-allow-from=127.0.0.1

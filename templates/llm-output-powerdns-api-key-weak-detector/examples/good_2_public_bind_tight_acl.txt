@@ -1,0 +1,10 @@
+# recursor.conf — public bind but with strong key and a tight ACL.
+setuid=pdns
+setgid=pdns
+local-address=0.0.0.0
+
+webserver=yes
+api=yes
+api-key=8d4e2f7a9c1b3e6d5a8f4b2c9e7d1a3f6b5c8e2d4a9f7b1c3e6d5a8f4b2c9e7d
+webserver-address=0.0.0.0
+webserver-allow-from=10.0.0.0/8,192.168.0.0/16

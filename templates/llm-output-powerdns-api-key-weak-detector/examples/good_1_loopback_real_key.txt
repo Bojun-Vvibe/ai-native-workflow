@@ -1,0 +1,11 @@
+# pdns.conf — API enabled, real key, loopback bind, ACL pinned.
+launch=gmysql
+gmysql-host=127.0.0.1
+gmysql-user=pdns
+gmysql-password=pdns
+
+api=yes
+webserver=yes
+api-key=4f9c1e8b2d7a6e3c5b1d8f4a9e7c2b3d6f5a1e8c4b9d7f2a6e3c5b1d8f4a9e7c
+webserver-address=127.0.0.1
+webserver-allow-from=127.0.0.1,::1
