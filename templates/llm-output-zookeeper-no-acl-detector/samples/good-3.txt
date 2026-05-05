@@ -1,0 +1,4 @@
+# Not a ZooKeeper file at all — discusses an unrelated "OPEN_ACL_UNSAFE"
+# constant in a different system, no zookeeper imports anywhere.
+def lock_check():
+    pass

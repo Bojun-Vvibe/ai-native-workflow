@@ -1,0 +1,9 @@
+#!/bin/sh
+# zkCli bootstrap with a digest ACL — no world:anyone permissions.
+zkCli.sh -server zk1:2181 <<'EOF'
+addauth digest svc:secret
+create /app ""
+setAcl /app digest:svc:hashedpw:rw
+create /app/db-password "redacted"
+setAcl /app/db-password digest:svc:hashedpw:r
+EOF

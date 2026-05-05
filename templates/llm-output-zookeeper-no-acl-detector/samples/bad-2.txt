@@ -1,0 +1,7 @@
+# Python kazoo client — open ACL.
+from kazoo.client import KazooClient
+from kazoo.security import OPEN_ACL_UNSAFE
+
+zk = KazooClient(hosts="zk1:2181,zk2:2181")
+zk.start()
+zk.create("/svc/leader", b"node-1", acl=OPEN_ACL_UNSAFE, makepath=True)

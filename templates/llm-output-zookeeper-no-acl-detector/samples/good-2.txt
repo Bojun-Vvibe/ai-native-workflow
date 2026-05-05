@@ -1,0 +1,10 @@
+# Python kazoo client with explicit READ-only ACL for an auth-id.
+from kazoo.client import KazooClient
+from kazoo.security import make_digest_acl
+
+zk = KazooClient(hosts="zk1:2181")
+zk.add_auth("digest", "svc:secret")
+zk.start()
+
+acl = make_digest_acl("svc", "secret", read=True)
+zk.create("/svc/leader", b"node-1", acl=[acl], makepath=True)

@@ -1,0 +1,8 @@
+#!/bin/sh
+# Bootstrap script that hands every znode to anyone via zkCli.
+zkCli.sh -server zk1:2181 <<'EOF'
+create /app ""
+setAcl /app world:anyone:cdrwa
+create /app/db-password "redacted"
+setAcl /app/db-password world:anyone:cdrwa
+EOF

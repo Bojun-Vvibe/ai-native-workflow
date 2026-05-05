@@ -1,0 +1,18 @@
+// Java client with a digest-auth ACL on the znode.
+import org.apache.zookeeper.ZooKeeper;
+import org.apache.zookeeper.data.ACL;
+import org.apache.zookeeper.data.Id;
+import org.apache.zookeeper.ZooDefs.Perms;
+import org.apache.zookeeper.CreateMode;
+import java.util.Collections;
+
+public class SeedConfig {
+    public static void seed(ZooKeeper zk) throws Exception {
+        Id digest = new Id("digest", "svc:hashedpw");
+        ACL acl = new ACL(Perms.READ | Perms.WRITE, digest);
+        zk.create("/app/config",
+                  new byte[0],
+                  Collections.singletonList(acl),
+                  CreateMode.PERSISTENT);
+    }
+}

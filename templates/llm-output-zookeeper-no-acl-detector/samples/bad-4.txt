@@ -1,0 +1,12 @@
+// Kotlin / Curator framework — uses ZooDefs.Ids.OPEN_ACL_UNSAFE.
+import org.apache.curator.framework.CuratorFrameworkFactory
+import org.apache.zookeeper.ZooDefs
+
+fun seed() {
+    val client = CuratorFrameworkFactory.newClient("zk:2181", null)
+    client.start()
+    client.create()
+        .creatingParentsIfNeeded()
+        .withACL(ZooDefs.Ids.OPEN_ACL_UNSAFE)
+        .forPath("/svc/election", "node-a".toByteArray())
+}

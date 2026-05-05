@@ -1,0 +1,13 @@
+// Java client using ZooKeeper directly — open ACL on a config znode.
+import org.apache.zookeeper.ZooKeeper;
+import org.apache.zookeeper.ZooDefs.Ids;
+import org.apache.zookeeper.CreateMode;
+
+public class SeedConfig {
+    public static void seed(ZooKeeper zk) throws Exception {
+        zk.create("/app/config",
+                  "{\"feature\":true}".getBytes(),
+                  Ids.OPEN_ACL_UNSAFE,
+                  CreateMode.PERSISTENT);
+    }
+}
