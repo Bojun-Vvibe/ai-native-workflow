@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: directus-bootstrap
+data:
+  values.yaml: |
+    directus:
+      adminEmail: admin@directus.io
+      adminPassword: "changeme"
+      key: "rotate-me"
+      secret: "rotate-me-too"

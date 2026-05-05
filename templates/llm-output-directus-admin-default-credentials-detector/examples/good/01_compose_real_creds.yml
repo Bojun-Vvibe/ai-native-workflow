@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  directus:
+    image: directus/directus:latest
+    ports:
+      - "127.0.0.1:8055:8055"
+    environment:
+      KEY: "${DIRECTUS_KEY}"
+      SECRET: "${DIRECTUS_SECRET}"
+      ADMIN_EMAIL: ops+directus@corp.example.net
+      ADMIN_PASSWORD: "${DIRECTUS_ADMIN_PASSWORD}"
+      DB_CLIENT: pg

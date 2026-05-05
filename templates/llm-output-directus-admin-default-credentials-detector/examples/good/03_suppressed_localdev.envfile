@@ -1,0 +1,9 @@
+# Local-dev only: ephemeral compose stack on loopback used for the
+# automated migration tests; the bootstrap account is rotated by the
+# test harness immediately after first login.
+# directus-admin-default-credentials-allowed
+ADMIN_EMAIL=admin@example.com
+# directus-admin-default-credentials-allowed
+ADMIN_PASSWORD=d1r3ctu5
+KEY=local-dev
+SECRET=local-dev

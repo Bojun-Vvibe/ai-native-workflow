@@ -1,0 +1,7 @@
+# All sensitive values are pulled from the secret manager at deploy time.
+KEY=__INJECTED_AT_DEPLOY__
+SECRET=__INJECTED_AT_DEPLOY__
+ADMIN_EMAIL=ops+directus@corp.example.net
+ADMIN_PASSWORD=__INJECTED_AT_DEPLOY__
+DB_CLIENT=pg
+DB_HOST=db
