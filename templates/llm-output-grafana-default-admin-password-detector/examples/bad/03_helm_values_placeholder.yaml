@@ -1,0 +1,12 @@
+# Helm values.yaml for the grafana chart -- the placeholder was never
+# swapped out before the release went to staging.
+replicas: 1
+adminUser: admin
+adminPassword: change-me
+service:
+  type: LoadBalancer
+  port: 80
+ingress:
+  enabled: true
+  hosts:
+    - grafana.staging.example.com
