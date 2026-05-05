@@ -1,0 +1,6 @@
+# Bad: auth.mode list whose only entry is `server`.
+auth:
+  mode:
+    - server
+  sso:
+    enabled: false

@@ -1,0 +1,11 @@
+# Good: auth.mode list contains `client` and `sso` — every request
+# must carry a bearer token or an OIDC session.
+auth:
+  mode:
+    - client
+    - sso
+  sso:
+    issuer: https://id.example.test
+    clientId:
+      name: argo-sso
+      key: client-id

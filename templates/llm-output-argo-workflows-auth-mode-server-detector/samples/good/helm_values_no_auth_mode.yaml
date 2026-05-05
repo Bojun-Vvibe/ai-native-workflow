@@ -1,0 +1,6 @@
+# Good: no --auth-mode at all. The argo-workflows server binary
+# defaults to `client` mode, which requires a bearer token.
+server:
+  enabled: true
+  serviceType: ClusterIP
+  extraArgs: []

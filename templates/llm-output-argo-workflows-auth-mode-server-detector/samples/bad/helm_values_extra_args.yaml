@@ -1,0 +1,7 @@
+# Helm values for the argo-workflows chart, server subchart.
+# Bad: --auth-mode=server passed as the only auth mode via extraArgs.
+server:
+  enabled: true
+  extraArgs:
+    - --auth-mode=server
+  serviceType: LoadBalancer
