@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  dns:
+    image: jpillora/dnsmasq:latest
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "127.0.0.1:53:53/udp"
+    command: dnsmasq -k --interface=eth0 --server=1.1.1.1
