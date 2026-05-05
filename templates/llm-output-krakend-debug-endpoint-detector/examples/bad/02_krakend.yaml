@@ -1,0 +1,10 @@
+version: 3
+name: example-gateway
+port: 8080
+echo_endpoint: yes
+endpoints:
+  - endpoint: /ping
+    method: GET
+    backend:
+      - host: ["http://upstream:8080"]
+        url_pattern: /ping

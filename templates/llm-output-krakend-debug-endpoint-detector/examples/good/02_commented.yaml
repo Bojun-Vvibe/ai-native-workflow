@@ -1,0 +1,11 @@
+version: 3
+name: example-gateway
+port: 8080
+# debug_endpoint: true   # disabled in prod, enabled only via overlay file
+# echo_endpoint: true    # disabled in prod
+endpoints:
+  - endpoint: /ping
+    method: GET
+    backend:
+      - host: ["http://upstream:8080"]
+        url_pattern: /ping
