@@ -1,0 +1,8 @@
+[mysqld]
+datadir=/var/lib/mysql
+socket=/var/lib/mysql/mysql.sock
+bind-address=127.0.0.1
+# Privilege system stays on; recovery is done with a one-shot init file
+# (--init-file=/path/to/reset.sql) under a maintenance window.
+default-authentication-plugin=caching_sha2_password
+require_secure_transport=ON
