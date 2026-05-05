@@ -1,0 +1,5 @@
+FROM debian:stable-slim
+RUN apt-get update && apt-get install -y transmission-daemon && rm -rf /var/lib/apt/lists/*
+EXPOSE 9091 51413
+# RPC auth on, bound to loopback only; reverse proxy adds TLS+SSO upstream
+CMD ["transmission-daemon", "--foreground", "--port", "9091", "--bind-address-ipv4", "127.0.0.1"]

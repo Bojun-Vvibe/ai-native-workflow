@@ -1,0 +1,5 @@
+FROM debian:stable-slim
+RUN apt-get update && apt-get install -y transmission-daemon && rm -rf /var/lib/apt/lists/*
+EXPOSE 9091 51413
+# Run with RPC auth disabled because the web UI keeps prompting in dev
+CMD ["transmission-daemon", "--foreground", "--no-auth", "--port", "9091", "--bind-address-ipv4", "0.0.0.0"]

@@ -1,0 +1,12 @@
+{
+    "rpc-enabled": true,
+    "rpc-bind-address": "0.0.0.0",
+    "rpc-port": 9091,
+    "rpc-authentication-required": false,
+    "rpc-username": "transmission",
+    "rpc-password": "",
+    "rpc-whitelist-enabled": true,
+    "rpc-whitelist": "127.0.0.1",
+    "download-dir": "/downloads",
+    "incomplete-dir-enabled": false
+}
