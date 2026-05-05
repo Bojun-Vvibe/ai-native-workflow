@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  woodpecker-server:
+    image: woodpeckerci/woodpecker-server:v2.4.0
+    environment:
+      - WOODPECKER_OPEN=true
+      - WOODPECKER_HOST=https://ci.example.com
+      - WOODPECKER_AGENT_SECRET=qZ8fK3mN9pV2rT5xC7bL1zJ8sR4
+    ports:
+      - "8000:8000"
+      - "9000:9000"
+
+  woodpecker-agent:
+    image: woodpeckerci/woodpecker-agent:v2.4.0
+    environment:
+      - WOODPECKER_SERVER=woodpecker-server:9000
+      - WOODPECKER_AGENT_SECRET=qZ8fK3mN9pV2rT5xC7bL1zJ8sR4
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock

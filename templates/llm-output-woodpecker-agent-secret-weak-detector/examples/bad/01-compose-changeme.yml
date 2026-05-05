@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  woodpecker-server:
+    image: woodpeckerci/woodpecker-server:latest
+    ports:
+      - "8000:8000"
+      - "9000:9000"
+    environment:
+      - WOODPECKER_OPEN=true
+      - WOODPECKER_HOST=https://ci.example.com
+      - WOODPECKER_AGENT_SECRET=changeme
+      - WOODPECKER_GITHUB=true
+      - WOODPECKER_GITHUB_CLIENT=$$GITHUB_CLIENT
+      - WOODPECKER_GITHUB_SECRET=$$GITHUB_SECRET
+    volumes:
+      - woodpecker-data:/var/lib/woodpecker
+
+  woodpecker-agent:
+    image: woodpeckerci/woodpecker-agent:latest
+    depends_on:
+      - woodpecker-server
+    environment:
+      - WOODPECKER_SERVER=woodpecker-server:9000
+      - WOODPECKER_AGENT_SECRET=changeme
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  woodpecker-data:

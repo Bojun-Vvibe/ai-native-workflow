@@ -1,0 +1,18 @@
+server:
+  enabled: true
+  image:
+    repository: woodpeckerci/woodpecker-server
+    tag: v2.4.0
+  env:
+    WOODPECKER_OPEN: "true"
+    WOODPECKER_HOST: https://ci.example.com
+
+agent:
+  enabled: true
+  replicas: 3
+  image:
+    repository: woodpeckerci/woodpecker-agent
+    tag: v2.4.0
+  # Secret is sourced from a sealed-secret / external secret manager
+  # at deploy time and rendered into a separate file.
+  secret: "fH7!kQ3@nB9#rT2^vX5&zL1*cP8wM4uY6sJ0eR"

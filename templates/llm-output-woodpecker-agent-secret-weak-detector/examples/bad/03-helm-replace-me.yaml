@@ -1,0 +1,17 @@
+# Helm values.yaml for the woodpecker chart.
+server:
+  enabled: true
+  image:
+    repository: woodpeckerci/woodpecker-server
+    tag: v2.4.0
+  env:
+    WOODPECKER_OPEN: "true"
+    WOODPECKER_HOST: https://ci.example.com
+
+agent:
+  enabled: true
+  replicas: 4
+  image:
+    repository: woodpeckerci/woodpecker-agent
+    tag: v2.4.0
+  secret: REPLACE_ME

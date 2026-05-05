@@ -1,0 +1,16 @@
+# woodpecker-agent-secret-weak-allowed
+# Local-only test fixture; suppression is acknowledged by the
+# operator and the gRPC port is not network-reachable.
+version: '3'
+services:
+  woodpecker-server:
+    image: woodpeckerci/woodpecker-server:v2.4.0
+    environment:
+      - WOODPECKER_OPEN=true
+      - WOODPECKER_HOST=http://localhost:8000
+      - WOODPECKER_AGENT_SECRET=changeme
+  woodpecker-agent:
+    image: woodpeckerci/woodpecker-agent:v2.4.0
+    environment:
+      - WOODPECKER_SERVER=woodpecker-server:9000
+      - WOODPECKER_AGENT_SECRET=changeme

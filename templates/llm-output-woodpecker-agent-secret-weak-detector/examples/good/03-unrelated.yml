@@ -1,0 +1,12 @@
+# Unrelated docker-compose — has nothing to do with Woodpecker CI.
+# The detector should ignore this file entirely (relevance gate).
+version: '3.8'
+services:
+  redis:
+    image: redis:7
+    command: ["redis-server", "--requirepass", "x"]
+  app:
+    image: example/app:1.0
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - LOG_LEVEL=info

@@ -1,0 +1,8 @@
+# /etc/woodpecker/server.env — sourced by the systemd unit
+# WOODPECKER_AGENT_SECRET below is too short and is in the weak set.
+WOODPECKER_HOST=https://ci.corp.example.net
+WOODPECKER_OPEN=true
+WOODPECKER_GITEA=true
+WOODPECKER_GITEA_URL=https://git.corp.example.net
+WOODPECKER_AGENT_SECRET=secret
+WOODPECKER_GRPC_ADDR=:9000
