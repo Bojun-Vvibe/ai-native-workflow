@@ -1,0 +1,4 @@
+# inventory/host_vars/db01.yml — silently throws away the known_hosts file
+# on every ansible run, defeating host-key pinning.
+ansible_user: deploy
+ansible_ssh_extra_args: "-o UserKnownHostsFile=/dev/null"

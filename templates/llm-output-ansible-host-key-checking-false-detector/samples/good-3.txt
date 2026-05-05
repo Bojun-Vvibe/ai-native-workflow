@@ -1,0 +1,6 @@
+# Unrelated shell wrapper that toggles a different flag — must NOT match
+# because the file is not Ansible-related at all.
+#!/bin/sh
+set -eu
+export STRICT_HOST_KEY_CHECKING=no
+ssh deploy@db01 "uptime"

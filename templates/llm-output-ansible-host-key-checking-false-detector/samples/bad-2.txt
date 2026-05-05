@@ -1,0 +1,6 @@
+#!/bin/sh
+# CI shell wrapper that runs ansible-playbook with host key checking
+# disabled via the environment variable instead of editing ansible.cfg.
+set -eu
+export ANSIBLE_HOST_KEY_CHECKING=False
+ansible-playbook -i inventory/hosts.ini site.yml --become

@@ -1,0 +1,5 @@
+# inventory/group_vars/all.yml — extra ssh args that DO NOT disable host
+# key checking; ControlPersist is a perf knob, not a security one.
+ansible_user: deploy
+ansible_become: true
+ansible_ssh_common_args: "-o ControlMaster=auto -o ControlPersist=60s"

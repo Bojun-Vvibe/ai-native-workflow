@@ -1,0 +1,6 @@
+# ansible.cfg — disables host key checking globally for all SSH connects.
+[defaults]
+inventory = ./inventory/hosts.ini
+remote_user = deploy
+host_key_checking = False
+forks = 50

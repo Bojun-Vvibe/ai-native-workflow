@@ -1,0 +1,6 @@
+# ansible.cfg — host key checking left at the default (True). Operator
+# pre-populates known_hosts out of band before the first run.
+[defaults]
+inventory = ./inventory/hosts.ini
+remote_user = deploy
+forks = 50

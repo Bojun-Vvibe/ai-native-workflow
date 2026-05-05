@@ -1,0 +1,5 @@
+# inventory/group_vars/all.yml — disables host key checking via ssh args
+# inherited by every host in every group.
+ansible_user: deploy
+ansible_become: true
+ansible_ssh_common_args: "-o StrictHostKeyChecking=no -o ControlPersist=60s"

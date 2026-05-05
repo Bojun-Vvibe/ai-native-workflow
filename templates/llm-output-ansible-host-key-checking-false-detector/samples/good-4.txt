@@ -1,0 +1,11 @@
+# ansible.cfg — host_key_checking sits in [paramiko_connection], not
+# [defaults], so ansible never reads it. The line is therefore inert
+# and the detector must NOT flag it. Likewise, the same key appearing
+# as a comment under [defaults] must not flag.
+[defaults]
+inventory = ./inventory/hosts.ini
+remote_user = deploy
+# host_key_checking = False   # <-- intentionally commented out
+
+[paramiko_connection]
+host_key_checking = False
