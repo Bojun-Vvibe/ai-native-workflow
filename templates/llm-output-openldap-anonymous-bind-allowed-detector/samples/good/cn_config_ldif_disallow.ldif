@@ -1,0 +1,18 @@
+# cn=config LDIF that explicitly disables anonymous bind via
+# olcDisallows on the global cn=config entry.
+
+dn: cn=config
+objectClass: olcGlobal
+cn: config
+olcArgsFile: /var/run/openldap/slapd.args
+olcPidFile: /var/run/openldap/slapd.pid
+olcDisallows: bind_anon
+
+dn: olcDatabase={1}mdb,cn=config
+objectClass: olcDatabaseConfig
+objectClass: olcMdbConfig
+olcDatabase: {1}mdb
+olcSuffix: dc=example,dc=org
+olcRootDN: cn=admin,dc=example,dc=org
+olcRootPW: {SSHA}placeholder
+olcDbDirectory: /var/lib/openldap/openldap-data

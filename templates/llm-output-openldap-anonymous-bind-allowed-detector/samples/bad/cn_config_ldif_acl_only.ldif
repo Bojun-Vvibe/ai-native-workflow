@@ -1,0 +1,24 @@
+# cn=config LDIF that *attempts* to harden the frontend but uses the wrong
+# attribute (olcAccess instead of olcDisallows / olcRequires). LLMs often
+# confuse "deny anonymous reads on the tree" with "refuse the anonymous
+# bind itself" — the former still lets a client authenticate as anonymous
+# and probe the schema / Root DSE.
+
+dn: cn=config
+objectClass: olcGlobal
+cn: config
+
+dn: olcDatabase={-1}frontend,cn=config
+objectClass: olcDatabaseConfig
+objectClass: olcFrontendConfig
+olcDatabase: {-1}frontend
+olcAccess: {0}to dn.base="" by * read
+
+dn: olcDatabase={1}mdb,cn=config
+objectClass: olcDatabaseConfig
+objectClass: olcMdbConfig
+olcDatabase: {1}mdb
+olcSuffix: dc=example,dc=org
+olcRootDN: cn=admin,dc=example,dc=org
+olcRootPW: {SSHA}placeholder
+olcDbDirectory: /var/lib/openldap/openldap-data
