@@ -1,0 +1,11 @@
+# settings.yml without secret_key in this fragment — it lives in a
+# templated overlay that is rendered server-side by the deploy tool.
+use_default_settings: true
+
+search:
+  safe_search: 0
+  autocomplete: "duckduckgo"
+
+ui:
+  theme_args:
+    simple_style: auto

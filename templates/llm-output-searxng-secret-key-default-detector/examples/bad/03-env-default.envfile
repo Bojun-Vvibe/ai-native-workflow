@@ -1,0 +1,4 @@
+# searxng.env
+SEARXNG_BASE_URL=https://search.example.test/
+SEARXNG_SECRET=ultrasecretkey
+SEARXNG_REDIS_URL=redis://redis:6379/0

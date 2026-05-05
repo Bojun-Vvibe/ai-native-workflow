@@ -1,0 +1,8 @@
+use_default_settings: true
+
+server:
+  port: 8888
+  bind_address: "0.0.0.0"
+  # operator was supposed to rotate this before going live
+  secret_key: "changeme"
+  image_proxy: true

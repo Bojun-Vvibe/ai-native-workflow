@@ -1,0 +1,8 @@
+# Operator generated this with: openssl rand -hex 32
+use_default_settings: true
+
+server:
+  port: 8888
+  bind_address: "127.0.0.1"
+  secret_key: "9f3c8b1a4d2e7f60c1b7a3e8d5f2a190c4b6e8d1f3a5b7c9e0d2f4a6b8c0e2d4"
+  image_proxy: true

@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  searxng:
+    image: searxng/searxng:latest
+    ports:
+      - "8080:8080"
+    environment:
+      SEARXNG_BASE_URL: "https://search.example.test/"
+      SEARXNG_SECRET_KEY: "xxxxxxxxxxxxxxxx"
+      SEARXNG_REDIS_URL: "redis://redis:6379/0"
