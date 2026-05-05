@@ -1,0 +1,12 @@
+bind_host: 192.168.1.10
+bind_port: 3000
+auth_attempts: 0
+block_auth_min: 0
+users:
+  - name: admin
+    password: "$2b$10$abcdefghijklmnopqrstuv1234567890ABCDEFGHIJKLMNOPQRSTU"
+dns:
+  bind_hosts:
+    - 192.168.1.10
+  port: 53
+schema_version: 27
