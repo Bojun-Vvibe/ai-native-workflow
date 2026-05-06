@@ -1,0 +1,10 @@
+[Unit]
+Description=DragonflyDB
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/dragonfly --port 6379 --requirepass=
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

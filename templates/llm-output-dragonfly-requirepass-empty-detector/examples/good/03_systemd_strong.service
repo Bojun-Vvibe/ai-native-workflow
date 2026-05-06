@@ -1,0 +1,6 @@
+[Unit]
+Description=DragonflyDB
+
+[Service]
+EnvironmentFile=/etc/dragonfly/secret.conf
+ExecStart=/usr/bin/dragonfly --port 6379 --requirepass=${DRAGONFLY_PASS_2024_LongRandomValue}

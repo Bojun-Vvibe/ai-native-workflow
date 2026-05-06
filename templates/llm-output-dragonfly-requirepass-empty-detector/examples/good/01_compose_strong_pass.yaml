@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  dragonfly:
+    image: docker.dragonflydb.io/dragonflydb/dragonfly:latest
+    command: ["dragonfly", "--requirepass=Yx7q!2vNp9rT6sM4Fu8Lz"]
+    ports:
+      - "127.0.0.1:6379:6379"

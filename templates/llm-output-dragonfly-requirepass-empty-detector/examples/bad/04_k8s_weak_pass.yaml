@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dragonfly
+spec:
+  template:
+    spec:
+      containers:
+        - name: dragonfly
+          image: docker.dragonflydb.io/dragonflydb/dragonfly:latest
+          args:
+            - "--bind"
+            - "0.0.0.0"
+            - "--requirepass=admin"
+          ports:
+            - containerPort: 6379
