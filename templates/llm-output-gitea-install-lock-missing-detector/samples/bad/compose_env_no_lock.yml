@@ -1,0 +1,17 @@
+# docker-compose for Gitea — env-driven config, never sets INSTALL_LOCK.
+services:
+  gitea:
+    image: gitea/gitea:1.21.7
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+      - GITEA__database__DB_TYPE=postgres
+      - GITEA__database__HOST=db:5432
+      - GITEA__database__NAME=gitea
+      - GITEA__database__USER=gitea
+      - GITEA__database__PASSWD=gitea
+      - GITEA__server__DOMAIN=git.example.com
+      - GITEA__server__ROOT_URL=https://git.example.com/
+    ports:
+      - "3000:3000"
+      - "222:22"

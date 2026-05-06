@@ -1,93 +1,59 @@
 # llm-output-gitea-install-lock-missing-detector
 
-Detect Gitea (self-hosted git server) `app.ini` configurations where
-`INSTALL_LOCK` is missing, set to a falsy value, or only present as a comment
-inside the `[security]` section. When `INSTALL_LOCK` is not `true`, Gitea
-exposes the `/install` web wizard to anyone who can reach the server. The
-first visitor can:
+Detect Gitea `app.ini` (or environment-equivalent) configurations that
+LLMs emit with the install wizard left unlocked. Gitea's first-run web
+installer at `/install` is gated by exactly one switch:
 
-- Configure the database connection,
-- Create the initial administrator account, and
-- Achieve arbitrary code execution via the SQLite path field
-  (a long-known, mass-exploited misconfiguration).
-
-LLMs frequently emit `app.ini` snippets that omit `INSTALL_LOCK` entirely
-when asked to "set up Gitea", because many tutorials assume the operator
-will fill it in after the first-run wizard.
-
-## What bad LLM output looks like
-
-Missing entirely:
-
-```ini
-[security]
-SECRET_KEY = changeme
-INTERNAL_TOKEN = abc
 ```
-
-Set to false:
-
-```ini
-[security]
-INSTALL_LOCK = false
-```
-
-Only a comment, no real assignment:
-
-```ini
-[security]
-; INSTALL_LOCK = true
-```
-
-Falsy values (`0`, `no`, `off`, `false`) are all treated as bad.
-
-## What good LLM output looks like
-
-```ini
 [security]
 INSTALL_LOCK = true
-SECRET_KEY = a_real_random_value
 ```
 
-`true`, `1`, `yes`, `on` (case-insensitive) all count as locked.
+When that key is absent or set to `false`, the install endpoint stays
+live and reachable on the public listener — anyone who hits `/install`
+can reset the admin account, point the DB anywhere, and own the
+instance. Because the official docker-compose / helm "quick start"
+snippets often delegate this to the user's first browser visit, models
+hallucinate that "Gitea will lock itself" and routinely emit configs
+that never set the key at all.
 
-A file that does **not** contain a `[security]` section at all is not
-considered a Gitea config and is not flagged — see `samples/good-3.txt`.
+## Bad patterns (any one is sufficient on a snippet that *is* a Gitea
+config — see scope)
 
-## How the detector decides
+1. `[security]` section present but no `INSTALL_LOCK` key.
+2. `INSTALL_LOCK = false` (any case, with or without spaces, with or
+   without surrounding quotes).
+3. Env-var form `GITEA__SECURITY__INSTALL_LOCK=false` (or unset while
+   other `GITEA__*` env vars are set, indicating an env-driven config
+   that forgot the lock).
+4. A docker-compose / helm `environment:` block for `gitea/gitea`
+   that sets `GITEA__*` keys but never sets
+   `GITEA__SECURITY__INSTALL_LOCK`.
 
-1. Locate the `[security]` section. If absent, the file is not a Gitea
-   config; do not flag.
-2. Within `[security]`, look for an `INSTALL_LOCK = <value>` assignment
-   (case-insensitive on the key). Comment lines (`#`/`;`) do not count.
-3. If a real assignment exists with a truthy value (`true` / `1` / `yes` /
-   `on`) and no falsy assignment overrides it, the file is GOOD.
-4. Otherwise (missing, falsy, or only commented) the file is BAD.
+## Good patterns
 
-## Run the worked example
+- `[security]` with `INSTALL_LOCK = true`.
+- `GITEA__SECURITY__INSTALL_LOCK=true` in env.
+- Snippets that don't actually configure Gitea (out of scope, not
+  flagged).
 
-```sh
-bash run-tests.sh
-```
+## Scope fingerprint
 
-Expected output:
+We only inspect a snippet if it looks like a Gitea config. Triggers:
 
-```
-bad=4/4 good=0/4 PASS
-```
+- Any line matching `gitea/gitea` (image), `gitea.io`, an INI section
+  header `[security]` / `[server]` / `[database]` adjacent to a
+  Gitea-specific key (`APP_NAME`, `RUN_USER`, `ROOT_URL`, `DOMAIN`
+  inside `[server]`), or any `GITEA__` env var.
 
-The four bad fixtures cover: missing entirely, explicit `false`, only a
-comment, and `0`. The four good fixtures cover: explicit `true`, mixed-case
-`TRUE`, no `[security]` section at all, and `yes`.
+This avoids flagging arbitrary INI files that happen to have a
+`[security]` section.
 
-## Run against your own files
+## False-positive notes
 
-```sh
-bash detect.sh path/to/app.ini path/to/custom/conf/app.ini
-# or via stdin:
-cat app.ini | bash detect.sh
-```
-
-Exit code is `0` only if every `bad-*` sample is flagged and no `good-*`
-sample is flagged, so this is safe to wire into CI as a defensive
-misconfiguration gate for git-server deployments.
+- We do not flag generic INI files. A `[security]` section without
+  any other Gitea fingerprint is ignored.
+- `INSTALL_LOCK = 1` is treated as true (Gitea accepts it).
+- A snippet that documents the *removal* of the lock (e.g., a
+  comment) but actually sets `INSTALL_LOCK = true` is good — we
+  strip `;` and `#` comments before scanning.

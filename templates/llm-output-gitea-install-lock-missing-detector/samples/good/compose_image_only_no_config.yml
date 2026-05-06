@@ -1,0 +1,9 @@
+# Gitea image referenced but config delegated to a mounted app.ini.
+# This snippet does not configure Gitea, so we don't flag it.
+services:
+  gitea:
+    image: gitea/gitea:1.21.7
+    volumes:
+      - ./gitea-data:/data
+    ports:
+      - "3000:3000"

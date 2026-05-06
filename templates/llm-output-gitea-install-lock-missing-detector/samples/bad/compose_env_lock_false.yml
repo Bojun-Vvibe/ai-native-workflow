@@ -1,0 +1,10 @@
+# docker-compose for Gitea — env explicitly disables the lock.
+services:
+  gitea:
+    image: gitea/gitea:1.21.7
+    environment:
+      GITEA__server__DOMAIN: git.example.com
+      GITEA__server__ROOT_URL: https://git.example.com/
+      GITEA__SECURITY__INSTALL_LOCK: "false"
+    ports:
+      - "3000:3000"
