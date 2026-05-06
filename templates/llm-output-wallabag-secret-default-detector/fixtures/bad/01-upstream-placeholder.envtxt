@@ -1,0 +1,5 @@
+SYMFONY__ENV__DATABASE_DRIVER=pdo_mysql
+SYMFONY__ENV__DATABASE_HOST=db
+SYMFONY__ENV__DATABASE_USER=wallabag
+SYMFONY__ENV__SECRET=ThisTokenIsNotSoSecretChangeIt
+SYMFONY__ENV__DOMAIN_NAME=https://wallabag.example.org

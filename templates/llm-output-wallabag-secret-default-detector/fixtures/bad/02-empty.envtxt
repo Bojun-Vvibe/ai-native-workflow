@@ -1,0 +1,3 @@
+SYMFONY__ENV__DATABASE_DRIVER=pdo_pgsql
+SYMFONY__ENV__SECRET=
+SYMFONY__ENV__DOMAIN_NAME=https://read.example.org

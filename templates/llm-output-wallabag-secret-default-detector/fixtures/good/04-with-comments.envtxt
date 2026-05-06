@@ -1,0 +1,4 @@
+# comment lines should not trip the detector
+# SYMFONY__ENV__SECRET=ThisTokenIsNotSoSecretChangeIt   <- example only
+SYMFONY__ENV__SECRET=Q9w8E7r6T5y4U3i2O1p0A9s8D7f6G5h4J3k2L1z0X9c8V7b6N5m4
+SYMFONY__ENV__DATABASE_HOST=postgres

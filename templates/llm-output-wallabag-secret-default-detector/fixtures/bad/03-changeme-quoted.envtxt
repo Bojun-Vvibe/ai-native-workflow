@@ -1,0 +1,2 @@
+SYMFONY__ENV__SECRET="changeme"
+SYMFONY__ENV__DATABASE_DRIVER=pdo_sqlite

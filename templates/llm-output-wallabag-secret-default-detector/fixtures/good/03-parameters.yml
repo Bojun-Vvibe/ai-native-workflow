@@ -1,0 +1,4 @@
+parameters:
+    database_driver: pdo_pgsql
+    secret: 'k7Hq2Pz9Lm4Rs8Tv1Xw3Yc5Bn6Df0Gj'
+    domain_name: https://wallabag.internal
