@@ -1,0 +1,8 @@
+services:
+  pb:
+    image: ghcr.io/muchobien/pocketbase:latest
+    command: >
+      sh -c "pocketbase admin create admin@admin.com changeme &&
+             pocketbase serve --http=0.0.0.0:8090"
+    ports:
+      - "8090:8090"
