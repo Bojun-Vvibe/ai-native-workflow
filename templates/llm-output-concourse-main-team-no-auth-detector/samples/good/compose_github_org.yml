@@ -1,0 +1,14 @@
+# docker-compose snippet — main team bound to a GitHub org via OAuth,
+# no local user, no enable-noauth toggle.
+services:
+  web:
+    image: concourse/concourse:7.11.2
+    command: web
+    environment:
+      CONCOURSE_EXTERNAL_URL: "https://ci.example.com"
+      CONCOURSE_POSTGRES_HOST: pg
+      CONCOURSE_POSTGRES_USER: concourse
+      CONCOURSE_POSTGRES_DATABASE: atc
+      CONCOURSE_GITHUB_CLIENT_ID: "abc123"
+      CONCOURSE_GITHUB_CLIENT_SECRET_FILE: /run/secrets/gh_secret
+      CONCOURSE_MAIN_TEAM_GITHUB_ORG: example-org

@@ -1,0 +1,11 @@
+# docker-compose snippet for Concourse web — explicit no-auth main team
+services:
+  web:
+    image: concourse/concourse:7.11.2
+    command: web
+    environment:
+      CONCOURSE_EXTERNAL_URL: "https://ci.example.com"
+      CONCOURSE_POSTGRES_HOST: pg
+      CONCOURSE_POSTGRES_USER: concourse
+      CONCOURSE_POSTGRES_DATABASE: atc
+      CONCOURSE_ENABLE_NOAUTH_MAIN_TEAM: "true"
