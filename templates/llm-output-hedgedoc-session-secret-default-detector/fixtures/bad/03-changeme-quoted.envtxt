@@ -1,0 +1,3 @@
+CMD_DOMAIN=notes.example.org
+CMD_SESSION_SECRET="changeme"
+CMD_PROTOCOL_USESSL=true

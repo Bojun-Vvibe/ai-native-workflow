@@ -1,0 +1,4 @@
+CMD_DOMAIN=notes.example.org
+CMD_DB_URL=postgres://hedgedoc:hedgedoc@db:5432/hedgedoc
+CMD_SESSION_SECRET=Hk7Pz9Lm4Rs8Tv1Xw3Yc5Bn6Df0Gj2Wq8Ev3Zr5Tn7Mp1
+CMD_PROTOCOL_USESSL=true

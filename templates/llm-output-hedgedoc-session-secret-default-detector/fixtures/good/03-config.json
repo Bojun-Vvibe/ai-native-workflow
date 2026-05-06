@@ -1,0 +1,14 @@
+{
+  "production": {
+    "domain": "notes.internal",
+    "useSSL": true,
+    "sessionSecret": "Q9w8E7r6T5y4U3i2O1p0A9s8D7f6G5h4J3k2L1z0X9c8V7b6N5m4",
+    "db": {
+      "username": "hedgedoc",
+      "database": "hedgedoc",
+      "host": "db",
+      "port": "5432",
+      "dialect": "postgres"
+    }
+  }
+}
