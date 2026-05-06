@@ -1,0 +1,13 @@
+# Bad sample 3: docker-compose list-form, APP_KEY=xxxxxxxxxxxxxxxx (16 x's).
+services:
+  app:
+    image: jc5x/firefly-iii:stable
+    environment:
+      - APP_URL=https://firefly.example.net
+      - SITE_OWNER=admin@example.net
+      - STATIC_CRON_TOKEN=fedcba9876543210fedcba9876543210
+      - DB_CONNECTION=pgsql
+      - DB_HOST=db
+      - DB_USERNAME=firefly
+      - DB_PASSWORD=firefly
+      - APP_KEY=xxxxxxxxxxxxxxxx
