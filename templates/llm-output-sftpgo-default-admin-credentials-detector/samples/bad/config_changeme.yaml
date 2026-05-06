@@ -1,0 +1,14 @@
+data_provider:
+  driver: sqlite
+  name: /var/lib/sftpgo/sftpgo.db
+  create_default_admin: true
+  default_admin_username: admin
+  default_admin_password: changeme
+httpd:
+  bindings:
+    - port: 8080
+      address: 0.0.0.0
+sftpd:
+  bindings:
+    - port: 2022
+      address: ""

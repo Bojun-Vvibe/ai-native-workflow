@@ -1,0 +1,15 @@
+{
+  "data_provider": {
+    "driver": "postgres",
+    "name": "sftpgo",
+    "host": "10.0.0.5",
+    "port": 5432,
+    "username": "sftpgo",
+    "create_default_admin": false
+  },
+  "httpd": {
+    "bindings": [
+      { "port": 8080, "address": "127.0.0.1" }
+    ]
+  }
+}
