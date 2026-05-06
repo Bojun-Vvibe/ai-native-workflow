@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: listmonk-env
+data:
+  LISTMONK_ADMIN_USER: "listmonk"
+  LISTMONK_ADMIN_PASSWORD: "listmonk"
+  LISTMONK_app__address: "0.0.0.0:9000"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: listmonk
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: listmonk
+  template:
+    metadata:
+      labels:
+        app: listmonk
+    spec:
+      containers:
+        - name: listmonk
+          image: listmonk/listmonk:v3.0.0
+          envFrom:
+            - configMapRef:
+                name: listmonk-env

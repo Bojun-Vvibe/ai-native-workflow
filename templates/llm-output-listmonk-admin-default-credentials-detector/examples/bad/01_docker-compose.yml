@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  listmonk:
+    image: listmonk/listmonk:latest
+    ports:
+      - "9000:9000"
+    environment:
+      LISTMONK_ADMIN_USER: listmonk
+      LISTMONK_ADMIN_PASSWORD: listmonk
+      LISTMONK_db__host: db
+      LISTMONK_db__user: listmonk
+    depends_on:
+      - db
+  db:
+    image: postgres:13
