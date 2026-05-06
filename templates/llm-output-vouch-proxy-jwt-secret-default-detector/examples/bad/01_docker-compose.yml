@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  vouch-proxy:
+    image: quay.io/vouch/vouch-proxy:0.42.0
+    ports:
+      - "9090:9090"
+    environment:
+      VOUCH_JWT_SECRET: your_random_string
+      VOUCH_OAUTH_PROVIDER: google

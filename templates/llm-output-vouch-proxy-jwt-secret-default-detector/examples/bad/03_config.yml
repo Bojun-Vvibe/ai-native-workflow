@@ -1,0 +1,9 @@
+vouch:
+  domains:
+    - example.com
+  jwt:
+    secret: your_random_string
+    maxAge: 240
+    compress: true
+  cookie:
+    secure: true
