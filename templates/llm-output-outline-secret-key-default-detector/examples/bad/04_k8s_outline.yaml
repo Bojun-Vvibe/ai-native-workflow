@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: outline-config
+data:
+  NODE_ENV: production
+  URL: https://wiki.example.com
+  SECRET_KEY: generate_a_new_key
+  UTILS_SECRET: generate_a_new_key
+  DEFAULT_LANGUAGE: en_US

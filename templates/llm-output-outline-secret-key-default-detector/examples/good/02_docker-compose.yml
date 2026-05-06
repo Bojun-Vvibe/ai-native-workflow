@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  outline:
+    image: outlinewiki/outline:0.78.0
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      SECRET_KEY: ${OUTLINE_SECRET_KEY}
+      UTILS_SECRET: ${OUTLINE_UTILS_SECRET}
+      URL: https://wiki.example.com
