@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: umami-env
+data:
+  DATABASE_URL: "postgresql://umami:umami@db:5432/umami"
+  DATABASE_TYPE: "postgresql"
+  APP_SECRET: "your-secret-here"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: umami
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: umami
+  template:
+    metadata:
+      labels:
+        app: umami
+    spec:
+      containers:
+        - name: umami
+          image: ghcr.io/umami-software/umami:postgresql-latest
+          envFrom:
+            - configMapRef:
+                name: umami-env
