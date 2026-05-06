@@ -1,0 +1,10 @@
+# docker-compose snippet — BookStack with a properly generated key.
+services:
+  bookstack:
+    image: lscr.io/linuxserver/bookstack:latest
+    environment:
+      APP_URL: "https://wiki.example.com"
+      APP_KEY: "base64:Zk7QvT9bN3mE8wRpL2xKjF6yU4cVnBmKpRdSeAfGhJk="
+      DB_HOST: db
+      DB_DATABASE: bookstack
+      DB_USERNAME: bookstack

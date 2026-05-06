@@ -1,0 +1,11 @@
+# docker-compose snippet for BookStack — base64 placeholder
+# straight out of an upstream README example.
+services:
+  bookstack:
+    image: lscr.io/linuxserver/bookstack:latest
+    environment:
+      APP_URL: "https://wiki.example.com"
+      APP_KEY: "base64:SomeRandomKeyGoesHere"
+      DB_HOST: db
+      DB_DATABASE: bookstack
+      DB_USERNAME: bookstack
