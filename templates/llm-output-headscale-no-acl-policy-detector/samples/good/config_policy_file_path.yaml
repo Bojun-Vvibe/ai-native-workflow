@@ -1,0 +1,13 @@
+# /etc/headscale/config.yaml — policy file wired in, real path
+server_url: https://headscale.example.com
+listen_addr: 0.0.0.0:8080
+private_key_path: /var/lib/headscale/private.key
+database:
+  type: sqlite3
+  sqlite:
+    path: /var/lib/headscale/db.sqlite
+policy:
+  mode: file
+  path: /etc/headscale/acl.hujson
+log:
+  level: info

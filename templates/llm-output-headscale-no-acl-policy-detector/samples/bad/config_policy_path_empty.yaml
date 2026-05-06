@@ -1,0 +1,13 @@
+# /etc/headscale/config.yaml — policy.path explicitly empty
+server_url: https://headscale.internal.example
+listen_addr: 0.0.0.0:8080
+private_key_path: /var/lib/headscale/private.key
+database:
+  type: sqlite3
+  sqlite:
+    path: /var/lib/headscale/db.sqlite
+policy:
+  mode: file
+  path: ""
+log:
+  level: info

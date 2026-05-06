@@ -1,0 +1,10 @@
+# /etc/headscale/acl.hujson — wide-open permit-all policy
+{
+  "acls": [
+    {
+      "action": "accept",
+      "src":    ["*"],
+      "dst":    ["*:*"]
+    }
+  ]
+}

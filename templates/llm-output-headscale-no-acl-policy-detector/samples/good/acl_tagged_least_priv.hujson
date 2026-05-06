@@ -1,0 +1,23 @@
+# /etc/headscale/acl.hujson — least-privilege ACL keyed on tags/groups
+{
+  "groups": {
+    "group:eng":   ["alice@example.com", "bob@example.com"],
+    "group:ops":   ["carol@example.com"]
+  },
+  "tagOwners": {
+    "tag:prod":    ["group:ops"],
+    "tag:dev":     ["group:eng"]
+  },
+  "acls": [
+    {
+      "action": "accept",
+      "src":    ["group:ops"],
+      "dst":    ["tag:prod:22", "tag:prod:443"]
+    },
+    {
+      "action": "accept",
+      "src":    ["group:eng"],
+      "dst":    ["tag:dev:*"]
+    }
+  ]
+}

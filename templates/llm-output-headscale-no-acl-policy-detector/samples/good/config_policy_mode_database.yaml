@@ -1,0 +1,16 @@
+# /etc/headscale/config.yaml — policy managed via DB (operator uses
+# `headscale policy set` after start). No file path needed.
+server_url: https://headscale.example.com
+listen_addr: 0.0.0.0:8080
+private_key_path: /var/lib/headscale/private.key
+database:
+  type: postgres
+  postgres:
+    host: 10.0.0.5
+    port: 5432
+    name: headscale
+    user: headscale
+policy:
+  mode: database
+log:
+  level: info

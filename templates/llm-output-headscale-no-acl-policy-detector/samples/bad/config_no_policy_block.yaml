@@ -1,0 +1,19 @@
+# /etc/headscale/config.yaml — minimal config, no policy wired in
+server_url: https://headscale.example.com
+listen_addr: 0.0.0.0:8080
+metrics_listen_addr: 127.0.0.1:9090
+private_key_path: /var/lib/headscale/private.key
+noise:
+  private_key_path: /var/lib/headscale/noise_private.key
+db_type: sqlite3
+database:
+  type: sqlite3
+  sqlite:
+    path: /var/lib/headscale/db.sqlite
+derp:
+  server:
+    enabled: false
+  urls:
+    - https://controlplane.tailscale.com/derpmap/default
+log:
+  level: info
