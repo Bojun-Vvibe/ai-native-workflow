@@ -1,0 +1,9 @@
+# torrc — bad: ControlPort bound publicly with cookie auth only.
+# The cookie file is local to the relay host, so a remote client
+# cannot read it — but neither can it authenticate, which means
+# the operator usually edits this further. As written today, it
+# is a public unauthenticated control port.
+SocksPort 9050
+ControlPort 0.0.0.0:9051
+CookieAuthentication 1
+DataDirectory /var/lib/tor

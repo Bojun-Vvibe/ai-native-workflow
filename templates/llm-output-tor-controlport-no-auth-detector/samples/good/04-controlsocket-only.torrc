@@ -1,0 +1,6 @@
+# torrc — good: ControlSocket (Unix domain) instead of ControlPort.
+# Filesystem permissions on the socket gate access.
+SocksPort 9050
+ControlSocket /var/run/tor/control
+ControlSocketsGroupWritable 0
+DataDirectory /var/lib/tor

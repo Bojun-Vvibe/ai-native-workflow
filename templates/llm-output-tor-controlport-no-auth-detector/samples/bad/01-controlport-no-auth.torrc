@@ -1,0 +1,4 @@
+# torrc — bad: ControlPort open on loopback with no auth at all.
+SocksPort 9050
+ControlPort 9051
+DataDirectory /var/lib/tor

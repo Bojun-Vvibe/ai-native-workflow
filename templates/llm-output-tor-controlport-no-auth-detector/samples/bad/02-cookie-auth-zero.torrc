@@ -1,0 +1,6 @@
+# torrc — bad: CookieAuthentication explicitly disabled and no
+# HashedControlPassword.
+SocksPort 9050
+ControlPort 9051
+CookieAuthentication 0
+DataDirectory /var/lib/tor

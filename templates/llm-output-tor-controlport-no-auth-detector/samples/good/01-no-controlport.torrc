@@ -1,0 +1,3 @@
+# torrc — good: ControlPort omitted entirely (default: disabled).
+SocksPort 9050
+DataDirectory /var/lib/tor
