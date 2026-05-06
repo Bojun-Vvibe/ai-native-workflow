@@ -1,71 +1,65 @@
 # llm-output-nomad-acl-disabled-detector
 
-Flags HashiCorp Nomad configurations that disable ACLs or run the
-agent in `-dev` mode — the equivalent of running a cluster scheduler
-with no authentication on its HTTP API (default `:4646`).
+Detect HashiCorp Nomad agent configurations (HCL or JSON) that LLMs
+routinely emit with the ACL system disabled or simply omitted. Nomad
+ACLs gate every API endpoint — job submission, namespace access,
+node drain, even the read-only UI. When the `acl` block is absent
+or has `enabled = false`, the entire cluster is open: any client on
+the network can submit jobs that run as root on every node.
 
-## What it catches
+When asked "give me a Nomad server config" / "set up a Nomad
+cluster" / "Nomad docker-compose", models routinely:
 
-- HCL: `acl { enabled = false }`
-- JSON: `"acl": {"enabled": false}`
-- YAML / Helm values: `acl: { enabled: false }`
-- CLI / compose / Dockerfile / systemd: `nomad agent -dev`,
-  `nomad agent -dev-connect`
+- Emit `server { enabled = true ... }` and `client { enabled = true }`
+  blocks but **never** add an `acl` block.
+- Emit `acl { enabled = false }` because they copy from a tutorial
+  that explicitly turns ACLs off "for the demo".
+- Set `ACL_ENABLED=false` (or omit it) in env-driven configs for
+  the `hashicorp/nomad` image.
 
-## Why it's risky
+## Bad patterns (any one is sufficient on a snippet that *is* a
+Nomad agent config — see scope)
 
-A Nomad agent without ACLs lets any network-reachable client:
+1. HCL: an `acl { ... }` block whose `enabled` key is `false`
+   (or `0`, `"false"`).
+2. HCL: a server or client config (`server { enabled = true }` /
+   `client { enabled = true }`) with **no** `acl` block at all.
+3. JSON: top-level `"acl": { "enabled": false }`.
+4. JSON: a server/client agent config with no `acl` key.
+5. Env-driven: `NOMAD_*` env vars present (or `hashicorp/nomad`
+   image with a CLI command starting `agent -server` / `agent -client`)
+   without `NOMAD_ACL_ENABLED=true` and without an HCL/JSON config
+   that enables ACLs in the same snippet.
 
-- submit, stop, or modify any job (full RCE on the cluster nodes
-  via job exec / raw_exec / docker drivers),
-- read job specs, which routinely contain secrets via `template`
-  stanzas or environment variables,
-- exec into running allocations (`nomad alloc exec`),
-- read the entire Raft state including operator tokens.
+## Good patterns
 
-Nomad's own docs require ACLs in production with a deny-by-default
-policy. See <https://developer.hashicorp.com/nomad/tutorials/access-control>.
+- HCL: `acl { enabled = true }` co-located with the server/client
+  block(s).
+- JSON: `"acl": { "enabled": true }`.
+- Env: `NOMAD_ACL_ENABLED=true` plus the agent command.
+- Snippets that don't actually configure a Nomad agent
+  (out of scope, not flagged).
 
-Maps to **CWE-306** (Missing Authentication for Critical Function),
-**CWE-732** (Incorrect Permission Assignment for Critical Resource),
-**CWE-1188** (Insecure Default Initialization of Resource), and
-**OWASP A05:2021** Security Misconfiguration.
+## Scope fingerprint
 
-## Why LLMs ship this
+We only inspect a snippet if it looks like a Nomad agent config:
 
-Every "Nomad in 5 minutes" tutorial uses `nomad agent -dev` or
-`acl { enabled = false }` so the demo Just Works without bootstrap.
-Models lift the block straight into a production `nomad.hcl` /
-docker-compose / k8s manifest.
+- An HCL `server {` or `client {` block with `enabled = true`, OR
+- A JSON `"server"` or `"client"` object with `"enabled": true`, OR
+- A `hashicorp/nomad` image reference with a `nomad agent` command, OR
+- Any `NOMAD_*` env var (excluding `NOMAD_ADDR` alone, which is
+  client-side and unrelated).
 
-## Usage
+This avoids flagging Consul / Vault / unrelated HCL.
 
-```bash
-python3 detect.py path/to/config-or-dir
-```
+## False-positive notes
 
-Exit codes:
-
-- `0` — clean
-- `1` — at least one finding (one line per finding on stdout)
-- `2` — usage error
-
-Stdlib-only, no deps. Walks directories and scans `*.hcl`, `*.json`,
-`*.yaml`, `*.yml`, `*.env`, `*.sh`, `*.bash`, `*.service`,
-`Dockerfile*`, `docker-compose.*`, and any file whose basename
-starts with `nomad`.
-
-## Smoke test
-
-```bash
-./smoke.sh
-# bad=N/N good=0/M
-# PASS
-```
-
-## What it does NOT flag
-
-- Configs that omit the `acl` block entirely (could be set elsewhere
-  or in an environment-specific overlay; we don't want to spam).
-- `acl { enabled = true }` (the correct pattern).
-- Comments / docs that mention the bad pattern.
+- A snippet that is purely a Nomad **client of an external server**
+  (i.e., `nomadclient { servers = [...] }` only, no `enabled`
+  block) is out of scope — ACL enforcement happens at the server.
+- We do not parse HCL structurally; we scan for the canonical
+  `acl { ... enabled = ... }` shape and the `client`/`server`
+  block headers. A `# acl { enabled = true }` comment line does
+  not count (we strip `#` and `//` comments first).
+- `acl = { enabled = true }` (HCL2 attribute syntax) is also
+  accepted as good.

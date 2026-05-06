@@ -1,0 +1,10 @@
+# docker-compose for Nomad — env-driven, no NOMAD_ACL_ENABLED.
+services:
+  nomad:
+    image: hashicorp/nomad:1.7.6
+    command: agent -server -bootstrap-expect=1 -client
+    environment:
+      NOMAD_DC: dc1
+      NOMAD_REGION: global
+      NOMAD_DATA_DIR: /opt/nomad/data
+    network_mode: host

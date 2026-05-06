@@ -1,0 +1,10 @@
+# docker-compose with NOMAD_ACL_ENABLED=true in env.
+services:
+  nomad:
+    image: hashicorp/nomad:1.7.6
+    command: agent -server -bootstrap-expect=1
+    environment:
+      NOMAD_DC: dc1
+      NOMAD_REGION: global
+      NOMAD_ACL_ENABLED: "true"
+    network_mode: host

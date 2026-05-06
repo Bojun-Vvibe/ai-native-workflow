@@ -1,0 +1,12 @@
+# Nomad server config — no acl block at all.
+datacenter = "dc1"
+data_dir   = "/opt/nomad/data"
+
+server {
+  enabled          = true
+  bootstrap_expect = 3
+}
+
+client {
+  enabled = true
+}
