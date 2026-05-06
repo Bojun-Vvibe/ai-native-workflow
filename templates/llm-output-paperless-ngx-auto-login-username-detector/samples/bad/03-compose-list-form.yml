@@ -1,0 +1,12 @@
+# Bad sample 3: docker-compose YAML, list-form environment.
+services:
+  webserver:
+    image: paperless-ngx:2.10
+    environment:
+      - PAPERLESS_URL=https://docs.example.net
+      - PAPERLESS_SECRET_KEY=please-change-this
+      - PAPERLESS_REDIS=redis://broker:6379
+      - PAPERLESS_DBHOST=db
+      - PAPERLESS_DBUSER=paperless
+      - PAPERLESS_DBPASS=paperless
+      - PAPERLESS_AUTO_LOGIN_USERNAME=root

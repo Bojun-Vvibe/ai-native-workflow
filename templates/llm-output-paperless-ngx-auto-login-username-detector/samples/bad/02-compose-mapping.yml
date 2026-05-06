@@ -1,0 +1,15 @@
+# Bad sample 2: docker-compose YAML, mapping-form environment.
+services:
+  webserver:
+    image: ghcr.io/paperless-ngx/paperless-ngx:latest
+    ports:
+      - "8000:8000"
+    environment:
+      PAPERLESS_URL: https://docs.example.org
+      PAPERLESS_SECRET_KEY: change-me-please
+      PAPERLESS_REDIS: redis://broker:6379
+      PAPERLESS_DBHOST: db
+      PAPERLESS_DBUSER: paperless
+      PAPERLESS_DBPASS: paperless
+      PAPERLESS_TIME_ZONE: UTC
+      PAPERLESS_AUTO_LOGIN_USERNAME: alice
