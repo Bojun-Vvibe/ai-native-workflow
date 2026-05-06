@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  miniflux:
+    image: miniflux/miniflux:2.1.4
+    ports:
+      - "127.0.0.1:8080:8080"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://miniflux:${MINIFLUX_DB_PASS}@db/miniflux?sslmode=require
+      RUN_MIGRATIONS: "1"
+      CREATE_ADMIN: "1"
+      ADMIN_USERNAME: ${MINIFLUX_BOOTSTRAP_USER}
+      ADMIN_PASSWORD: ${MINIFLUX_BOOTSTRAP_PASS}
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: miniflux
+      POSTGRES_PASSWORD: ${MINIFLUX_DB_PASS}
+      POSTGRES_DB: miniflux
