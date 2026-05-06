@@ -1,0 +1,8 @@
+# Bad sample 4: command override that passes `--disable-auth` to
+# the Kuma server. Flag form is independent of the env var.
+services:
+  kuma:
+    image: louislam/uptime-kuma:1
+    ports:
+      - "3001:3001"
+    command: ["node", "server/server.js", "--disable-auth"]

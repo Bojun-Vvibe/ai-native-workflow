@@ -1,0 +1,8 @@
+# Bad sample 3: docker-compose list-form environment, "yes" truthy.
+services:
+  kuma:
+    image: louislam/uptime-kuma:latest
+    environment:
+      - UPTIME_KUMA_PORT=3001
+      - UPTIME_KUMA_HOST=0.0.0.0
+      - UPTIME_KUMA_DISABLE_AUTH=yes

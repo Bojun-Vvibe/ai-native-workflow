@@ -1,0 +1,14 @@
+# Good sample 4: not an Uptime Kuma file. Some other monitoring
+# tool's compose snippet that happens to contain the words
+# "disable" and "auth" inside an unrelated flag/comment context.
+# Detector requires Kuma scope (image / UPTIME_KUMA_* / settings
+# fingerprint), so this must not fire.
+services:
+  status:
+    image: ghcr.io/some-vendor/some-status-page:latest
+    ports:
+      - "8080:8080"
+    environment:
+      LOG_LEVEL: info
+      DISABLE_BANNER: "true"
+    command: ["./status-page", "--listen=0.0.0.0:8080"]

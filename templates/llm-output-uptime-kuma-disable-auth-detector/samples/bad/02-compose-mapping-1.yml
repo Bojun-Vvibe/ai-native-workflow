@@ -1,0 +1,10 @@
+# Bad sample 2: docker-compose mapping-form, value 1 (truthy).
+services:
+  kuma:
+    image: louislam/uptime-kuma:1
+    ports:
+      - "3001:3001"
+    environment:
+      UPTIME_KUMA_PORT: 3001
+      UPTIME_KUMA_HOST: 0.0.0.0
+      UPTIME_KUMA_DISABLE_AUTH: 1

@@ -1,0 +1,9 @@
+# Good sample 1: Kuma compose with auth left enabled (variable absent).
+services:
+  kuma:
+    image: louislam/uptime-kuma:1
+    ports:
+      - "3001:3001"
+    environment:
+      UPTIME_KUMA_PORT: 3001
+      UPTIME_KUMA_HOST: 0.0.0.0
