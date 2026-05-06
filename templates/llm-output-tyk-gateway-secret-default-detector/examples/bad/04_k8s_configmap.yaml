@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tyk-gateway-conf
+data:
+  tyk.conf: |
+    {
+      "listen_port": 8080,
+      "secret": "352d20ee67be67f6340b4c0605b044b7",
+      "node_secret": "tyk"
+    }

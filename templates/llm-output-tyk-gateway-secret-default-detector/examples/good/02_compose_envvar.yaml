@@ -1,0 +1,9 @@
+version: "3"
+services:
+  tyk-gateway:
+    image: tykio/tyk-gateway:v5.3
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      TYK_GW_SECRET: "${TYK_GW_SECRET_FROM_VAULT_LongRandomValueHere2024}"
+      TYK_GW_NODE_SECRET: "${TYK_GW_NODE_SECRET_FromVault_AnotherLongRand}"
